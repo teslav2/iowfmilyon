@@ -489,6 +489,9 @@ app.delete('/api/admin/scores/:username/:date', checkAdminAuth, async (req, res)
 
 // Get game settings
 app.get('/api/settings', (req, res) => {
+    res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+    res.setHeader('Pragma', 'no-cache');
+    res.setHeader('Expires', '0');
     res.json(gameSettings);
 });
 
