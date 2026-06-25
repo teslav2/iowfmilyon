@@ -856,9 +856,10 @@ body {
     box-shadow: var(--neon-green-glow);
 }
 .option-card.wrong-answer {
-    background: rgba(255, 0, 85, 0.02);
-    border-color: var(--neon-red);
-    opacity: 0.5;
+    background: rgba(255, 0, 85, 0.25) !important;
+    border-color: var(--neon-red) !important;
+    box-shadow: var(--neon-red-glow) !important;
+    opacity: 1 !important;
 }
 
 /* Duraklatma Butonu Stilleri */
@@ -2025,9 +2026,9 @@ body {
     }
     
     .header-right button {
-        padding: 2px 6px !important;
-        font-size: 0.62rem !important;
-        height: 26px !important;
+        padding: 1px 4px !important;
+        font-size: 0.55rem !important;
+        height: 22px !important;
         margin-right: 0 !important;
     }
 
@@ -2069,7 +2070,7 @@ body {
         border-radius: 10px !important;
         border: 1px solid var(--border-glass) !important;
         height: auto !important;
-        margin-top: 4px !important;
+        margin-top: -1px !important; /* Kasadaki para kutusu 5px yukarı kaydırıldı */
     }
     
     .host-avatar-container {
@@ -2151,8 +2152,8 @@ body {
         gap: 6px 12px !important;
         width: 100% !important;
         height: auto !important;
-        padding: 6px 0 !important;
-        margin-top: 8px !important;
+        padding: 4px 0 !important;
+        margin-top: -2px !important; /* Tüpler 10px yukarı kaydırıldı */
         top: auto !important;
         left: auto !important;
         transform: none !important;
@@ -2208,9 +2209,9 @@ body {
     .footer-control-panel {
         grid-template-columns: 1fr !important;
         height: auto !important;
-        gap: 6px !important;
-        padding: 6px 12px !important;
-        margin-top: 8px !important;
+        gap: 4px !important;
+        padding: 4px 10px !important;
+        margin-top: -2px !important; /* Kilit butonu ve timer 10px yukarı kaydırıldı */
     }
     
     .timer-section {
@@ -2223,7 +2224,7 @@ body {
     }
     
     #btn-lock {
-        height: 36px !important;
+        height: 34px !important;
         font-size: 0.82rem !important;
     }
     
