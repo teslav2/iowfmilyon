@@ -1,0 +1,1540 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOWF MİLYON - Yönetim Paneli</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheet link to inherit variables -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        body.admin-body {
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: auto;
+            min-height: 100vh;
+            width: 100%;
+            background: radial-gradient(circle at 50% 30%, #0d1a4d 0%, #04081c 100%);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 24px;
+            user-select: text;
+        }
+        
+        .admin-login-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(4, 8, 28, 0.96);
+            backdrop-filter: blur(20px);
+            z-index: 10000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .admin-login-card {
+            background: rgba(8, 14, 44, 0.85);
+            border: 1px solid var(--border-glass-glow);
+            border-radius: 20px;
+            padding: 45px 35px;
+            width: 90%;
+            max-width: 420px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 242, 254, 0.15);
+        }
+        
+        .admin-login-card img {
+            width: 120px;
+            margin-bottom: 24px;
+        }
+        
+        .admin-login-card h2 {
+            font-family: var(--font-montserrat);
+            font-size: 26px;
+            margin-bottom: 25px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff 30%, var(--neon-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: var(--neon-blue-glow);
+        }
+        
+        .admin-login-card input {
+            width: 100%;
+            padding: 14px 18px;
+            margin-bottom: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            color: #fff;
+            font-size: 18px;
+            outline: none;
+            transition: all 0.3s ease;
+            text-align: center;
+            letter-spacing: 6px;
+        }
+        
+        .admin-login-card input:focus {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.4);
+        }
+        
+        .admin-login-card button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #00f2fe, #4a00e0);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-family: var(--font-montserrat);
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.25);
+        }
+        
+        .admin-login-card button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 22px rgba(0, 242, 254, 0.45);
+        }
+        
+        .error-message {
+            color: var(--neon-red);
+            font-size: 14px;
+            margin-top: 15px;
+            min-height: 20px;
+            font-weight: 600;
+        }
+        
+        .admin-wrapper {
+            width: 100%;
+            max-width: 1440px;
+            display: none;
+            flex-direction: column;
+            gap: 24px;
+            margin: 0 auto;
+        }
+        
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(8, 14, 44, 0.75);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 16px;
+            padding: 20px 35px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .admin-header .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .admin-header .logo-area img {
+            height: 45px;
+        }
+        
+        .admin-header h1 {
+            font-family: var(--font-montserrat);
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #fff, var(--neon-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .admin-header .actions {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .btn-back {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            color: var(--text-light);
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-back:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .btn-logout {
+            padding: 10px 20px;
+            background: rgba(255, 0, 85, 0.15);
+            border: 1px solid var(--neon-red);
+            border-radius: 8px;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-logout:hover {
+            background: var(--neon-red);
+            box-shadow: var(--neon-red-glow);
+            color: #fff;
+        }
+        
+        .admin-main {
+            display: grid;
+            grid-template-columns: 450px 1fr;
+            gap: 30px;
+            width: 100%;
+            align-items: start;
+        }
+        
+        @media (max-width: 1100px) {
+            .admin-main {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .admin-panel {
+            background: rgba(8, 14, 44, 0.75);
+            border: 1px solid var(--border-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .panel-title {
+            font-family: var(--font-montserrat);
+            font-size: 20px;
+            font-weight: 700;
+            border-bottom: 2px solid var(--border-glass-glow);
+            padding-bottom: 12px;
+            color: var(--neon-blue);
+            text-shadow: var(--neon-blue-glow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .form-group label {
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            padding: 12px 16px;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+            transition: all 0.3s ease;
+            font-family: var(--font-outfit);
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--neon-blue);
+            box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .btn-submit {
+            background: linear-gradient(135deg, #00f2fe, #4a00e0);
+            color: #fff;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-family: var(--font-montserrat);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+        
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(0, 242, 254, 0.4);
+        }
+        
+        /* Right Panel Search and Filter */
+        .filter-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 15px;
+        }
+        
+        .filter-tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 5px;
+        }
+        
+        .filter-tab {
+            padding: 8px 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            color: var(--text-muted);
+            cursor: pointer;
+            white-space: nowrap;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-tab.active, .filter-tab:hover {
+            background: var(--neon-blue);
+            color: #000;
+            border-color: var(--neon-blue);
+            font-weight: 700;
+            box-shadow: var(--neon-blue-glow);
+        }
+        
+        .search-box {
+            position: relative;
+        }
+        
+        .search-box input {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+        
+        .search-box input:focus {
+            border-color: var(--neon-blue);
+            background: rgba(255, 255, 255, 0.08);
+        }
+        
+        .questions-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 700px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        
+        .questions-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .questions-list::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        .questions-list::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+        }
+        
+        .questions-list::-webkit-scrollbar-thumb:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .question-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .question-card:hover {
+            border-color: var(--border-glass-glow);
+            background: rgba(255, 255, 255, 0.04);
+            box-shadow: 0 4px 15px rgba(0, 242, 254, 0.05);
+        }
+        
+        .question-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+        }
+        
+        .question-card-title {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #fff;
+        }
+        
+        .question-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 12px;
+            background: rgba(0, 242, 254, 0.1);
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            white-space: nowrap;
+        }
+        
+        .question-badge.final {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--neon-gold);
+            border-color: var(--neon-gold);
+        }
+        
+        .question-options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        
+        @media (max-width: 600px) {
+            .question-options-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .option-item {
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: var(--text-muted);
+        }
+        
+        .option-item.correct {
+            border-color: var(--neon-green);
+            color: var(--neon-green);
+            background: rgba(57, 255, 20, 0.05);
+            font-weight: 600;
+            box-shadow: 0 0 5px rgba(57, 255, 20, 0.1);
+        }
+        
+        .host-comment {
+            font-size: 13px;
+            font-style: italic;
+            color: var(--neon-gold);
+            background: rgba(255, 215, 0, 0.05);
+            padding: 10px 14px;
+            border-radius: 8px;
+            border-left: 4px solid var(--neon-gold);
+            line-height: 1.4;
+        }
+        
+        .btn-delete {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+        }
+        
+        .btn-delete:hover {
+            color: var(--neon-red);
+            background: rgba(255, 0, 85, 0.12);
+        }
+        
+        .stat-banner {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        
+        .stat-val {
+            font-family: var(--font-montserrat);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--neon-blue);
+        }
+        
+        .stat-lbl {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        /* Tab Navigation styles */
+        .admin-tabs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .tab-btn {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: 10px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-family: var(--font-montserrat);
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+        
+        .tab-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+        }
+        
+        .tab-btn.active {
+            background: rgba(0, 242, 254, 0.12);
+            border-color: var(--neon-blue);
+            color: var(--neon-blue);
+            text-shadow: var(--neon-blue-glow);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+        }
+        
+        .admin-tab-content {
+            display: none;
+            width: 100%;
+        }
+        
+        .admin-tab-content.active-content {
+            display: block;
+        }
+
+        /* Leaderboard management table styles */
+        .scores-table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: rgba(8, 14, 44, 0.75);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        
+        .scores-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-family: var(--font-outfit);
+        }
+        
+        .scores-table th {
+            border-bottom: 2px solid var(--border-glass);
+            padding: 12px 15px;
+            color: var(--neon-blue);
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .scores-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-light);
+            font-size: 15px;
+        }
+        
+        .scores-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .btn-action-delete {
+            background: rgba(255, 0, 85, 0.1);
+            border: 1px solid var(--neon-red);
+            color: var(--neon-red);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-action-delete:hover {
+            background: var(--neon-red);
+            color: #fff;
+            box-shadow: var(--neon-red-glow);
+        }
+        
+        .btn-action-edit {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid var(--neon-blue);
+            color: var(--neon-blue);
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            margin-right: 8px;
+        }
+        
+        .btn-action-edit:hover {
+            background: var(--neon-blue);
+            color: #fff;
+            box-shadow: var(--neon-blue-glow);
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: rgba(8, 14, 44, 0.95);
+            border: 1px solid var(--border-glass-glow);
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 242, 254, 0.2);
+            transform: translateY(150%);
+            transition: transform 0.3s ease;
+            z-index: 11000;
+            font-weight: 600;
+            color: #fff;
+        }
+        .toast.show {
+            transform: translateY(0);
+        }
+        .toast.success {
+            border-color: var(--neon-green);
+            box-shadow: 0 5px 20px rgba(57, 255, 20, 0.2);
+        }
+        .toast.error {
+            border-color: var(--neon-red);
+            box-shadow: 0 5px 20px rgba(255, 0, 85, 0.2);
+        }
+    </style>
+</head>
+<body class="admin-body">
+
+    <!-- Login Overlay -->
+    <div id="login-overlay" class="admin-login-overlay">
+        <div class="admin-login-card">
+            <img src="iowf_logo_silver.png" alt="IOWF Logo">
+            <h2>Yönetici Girişi</h2>
+            <input type="password" id="password-input" placeholder="••••" maxlength="10">
+            <button id="login-btn">Giriş Yap</button>
+            <div id="login-error" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Wrapper -->
+    <div id="admin-wrapper" class="admin-wrapper">
+        
+        <!-- Header -->
+        <header class="admin-header">
+            <div class="logo-area">
+                <img src="iowf_logo_silver.png" alt="IOWF Logo">
+                <h1>IOWF MİLYON - Yönetim Paneli</h1>
+            </div>
+            <div class="actions">
+                <a href="/" class="btn-back">← Oyuna Dön</a>
+                <button id="logout-btn" class="btn-logout">Çıkış Yap</button>
+            </div>
+        </header>
+        
+        <!-- Tabs Navigation -->
+        <div class="admin-tabs">
+            <button class="tab-btn active" id="tab-questions-btn" onclick="switchAdminTab('questions')">❓ Soru Yönetimi</button>
+            <button class="tab-btn" id="tab-settings-btn" onclick="switchAdminTab('settings')">🔧 Oyun Ayarları</button>
+            <button class="tab-btn" id="tab-scores-btn" onclick="switchAdminTab('scores')">🏆 Sıralama Yönetimi</button>
+        </div>
+        
+        <!-- Tab 1: Questions Management -->
+        <div id="tab-questions" class="admin-tab-content active-content">
+            <!-- Stats Banner -->
+            <div class="stat-banner" style="grid-template-columns: 1fr; margin-bottom: 20px;">
+                <div class="stat-item">
+                    <div id="stat-total" class="stat-val" style="font-size: 28px;">0</div>
+                    <div class="stat-lbl" style="font-size: 14px; letter-spacing: 2px;">Toplam Soru Havuzu</div>
+                </div>
+            </div>
+
+            <!-- Main Workspace -->
+            <div class="admin-main">
+                
+                <!-- Left Panel: Add Question -->
+                <div class="admin-panel" id="add-question-panel">
+                    <div class="panel-title" id="form-panel-title">Yeni Soru Ekle</div>
+                    
+                    <form id="add-question-form" onsubmit="event.preventDefault();">
+                        <div class="form-group" style="display: none;">
+                            <label for="category-select">Soru Kategorisi</label>
+                            <select id="category-select">
+                                <option value="CAT_4" selected>Kategori 1: 4 Şıklı Sorular</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="question-text">Soru Cümlesi</label>
+                            <textarea id="question-text" rows="3" placeholder="Soru metnini yazınız..." required></textarea>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group" id="opt-a-group">
+                                <label for="opt-a">A Seçeneği</label>
+                                <input type="text" id="opt-a" placeholder="A seçeneği metni" required>
+                            </div>
+                            <div class="form-group" id="opt-b-group">
+                                <label for="opt-b">B Seçeneği</label>
+                                <input type="text" id="opt-b" placeholder="B seçeneği metni" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group" id="opt-c-group">
+                                <label for="opt-c">C Seçeneği</label>
+                                <input type="text" id="opt-c" placeholder="C seçeneği metni" required>
+                            </div>
+                            <div class="form-group" id="opt-d-group">
+                                <label for="opt-d">D Seçeneği</label>
+                                <input type="text" id="opt-d" placeholder="D seçeneği metni" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="correct-answer-select">Doğru Şık</label>
+                                <select id="correct-answer-select">
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="C">C</option>
+                                    <option value="D">D</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="options-count-input">Seçenek Sayısı</label>
+                                <input type="number" id="options-count-input" value="4" readonly style="background: rgba(255,255,255,0.02); opacity: 0.7;">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="host-comment">Sunucu Yorumu (Açıklama)</label>
+                            <textarea id="host-comment" rows="2" placeholder="Doğru şık açıklandıktan sonra sunucunun söyleyeceği metin..."></textarea>
+                        </div>
+
+                        <div style="display: flex; gap: 10px;">
+                            <button type="submit" id="add-btn" class="btn-submit" style="flex: 2;">Soru Ekle</button>
+                            <button type="button" id="cancel-edit-btn" class="btn-back" style="flex: 1; display: none; margin-top: 15px;" onclick="exitEditMode()">Vazgeç</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Right Panel: Current Questions -->
+                <div class="admin-panel">
+                    <div class="panel-title">
+                        Güncel Sorular
+                    </div>
+
+                    <!-- Filters & Search -->
+                    <div class="filter-section">
+                        <div class="search-box">
+                            <input type="text" id="search-input" placeholder="Sorularda ara...">
+                        </div>
+                        <div class="filter-tabs" style="display: none;">
+                            <div class="filter-tab active" data-filter="all">Tümü (<span id="count-all">0</span>)</div>
+                            <div class="filter-tab" data-filter="CAT_4">4 Şıklı (<span id="count-cat4">0</span>)</div>
+                            <div class="filter-tab" data-filter="CAT_3">3 Şıklı (<span id="count-cat3">0</span>)</div>
+                            <div class="filter-tab" data-filter="CAT_2">2 Şıklı (<span id="count-cat2">0</span>)</div>
+                            <div class="filter-tab" data-filter="FINAL">Final (<span id="count-final">0</span>)</div>
+                        </div>
+                    </div>
+
+                    <!-- Scrollable list -->
+                    <div id="questions-container" class="questions-list">
+                        <!-- Cards will be populated here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Settings -->
+        <div id="tab-settings" class="admin-tab-content">
+            <div class="admin-panel" style="max-width: 700px; margin: 0 auto;">
+                <div class="panel-title">🔧 Oyun Ayarları</div>
+                
+                <!-- Information on Vercel state -->
+                <div style="background: rgba(0, 242, 254, 0.05); border: 1px solid rgba(0, 242, 254, 0.2); border-radius: 10px; padding: 15px; font-size: 14px; line-height: 1.5; color: #b3c0e6; margin-bottom: 15px; font-family: var(--font-outfit);">
+                    💡 <strong>Vercel / Serverless Bilgilendirmesi:</strong> Değişiklikler sunucu belleğinde <strong>anında</strong> aktif olur ve oyuna yansır (Redeploy gerekmez). Ancak Vercel'in sunucusuz mimarisi nedeniyle, uygulama bir süre boşta kaldığında (cold start) ayarlar sıfırlanabilir.
+                    Kalıcı ayarlar için bu panelden <strong>Ayarları İndir</strong> butonuna basıp indirilen dosyayı projenizin ana dizinine <code>settings.json</code> adıyla yükleyebilirsiniz.
+                </div>
+                
+                <form id="settings-form" onsubmit="event.preventDefault(); saveGameSettings();">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="settings-timer-duration">Soru Başına Süre (Saniye)</label>
+                            <input type="number" id="settings-timer-duration" min="5" max="300" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="settings-starting-money">Başlangıç Parası (TL)</label>
+                            <input type="number" id="settings-starting-money" min="100000" max="100000000" step="100000" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="settings-question-count">Soru Sayısı</label>
+                            <input type="number" id="settings-question-count" min="1" max="50" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="settings-announcement">Duyuru Metni (Girişte Gösterilecek)</label>
+                        <textarea id="settings-announcement" rows="3" placeholder="Boş bırakırsanız duyuru gösterilmez..."></textarea>
+                    </div>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 15px;">
+                        <button type="submit" class="btn-submit" style="flex: 2;">Ayarları Kaydet</button>
+                        <button type="button" class="btn-back" style="flex: 1; border-color: var(--neon-blue); color: var(--neon-blue); margin-top: 0px;" onclick="downloadSettingsJson()">Ayarları İndir</button>
+                    </div>
+                </form>
+
+                <div class="panel-title" style="margin-top: 35px; border-bottom: 2px solid rgba(255, 0, 85, 0.2); color: var(--neon-red); text-shadow: var(--neon-red-glow);">🔧 Fish Audio API Testi</div>
+                <div style="display: flex; flex-direction: column; gap: 15px; margin-top: 15px; font-family: var(--font-outfit);">
+                    <div style="font-size: 14px; color: var(--text-muted);">
+                        Sistemdeki <code>FISH_AUDIO_API_KEY</code> ve <code>FISH_AUDIO_VOICE_ID</code> bağlantısını test edin.
+                    </div>
+                    <button type="button" class="btn-logout" style="background: rgba(0, 242, 254, 0.15); border-color: var(--neon-blue); color: var(--text-light); margin-top: 0px;" onclick="testFishAudioConnection()">Fish Audio Bağlantısını Test Et</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Scores -->
+        <div id="tab-scores" class="admin-tab-content">
+            <div class="scores-table-container">
+                <div class="panel-title" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px;">
+                    <span>🏆 Sıralama Tablosu Yönetimi</span>
+                    <button class="btn-action-delete" style="font-size: 14px; padding: 8px 16px;" onclick="resetAllLeaderboard()">Tüm Sıralamayı Sıfırla</button>
+                </div>
+                <table class="scores-table">
+                    <thead>
+                        <tr>
+                            <th>Kullanıcı Adı</th>
+                            <th>Skor (Kalan Para)</th>
+                            <th>Ulaşılan Soru</th>
+                            <th>Tarih</th>
+                            <th style="text-align: right;">Aksiyon</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-scores-body">
+                        <tr>
+                            <td colspan="5" style="text-align: center; color: var(--text-muted); padding: 30px;">Yükleniyor...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-el" class="toast">Soru eklendi!</div>
+
+    <script>
+        // Authentication State
+        let adminPassword = sessionStorage.getItem('admin_password') || '';
+        let allQuestions = {
+            CAT_4: [],
+            CAT_3: [],
+            CAT_2: [],
+            FINAL: []
+        };
+        let currentFilter = 'all';
+        let currentTab = 'questions';
+        
+        // Settings State
+        let gameSettings = {
+            timerDuration: 60,
+            startingMoney: 2000000,
+            questionCount: 13,
+            announcement: ""
+        };
+
+        // Question Edit State
+        let isEditMode = false;
+        let editCategory = '';
+        let editIndex = null;
+
+        // DOM elements
+        const loginOverlay = document.getElementById('login-overlay');
+        const adminWrapper = document.getElementById('admin-wrapper');
+        const passwordInput = document.getElementById('password-input');
+        const loginBtn = document.getElementById('login-btn');
+        const loginError = document.getElementById('login-error');
+        const logoutBtn = document.getElementById('logout-btn');
+        
+        const categorySelect = document.getElementById('category-select');
+        const optCGroup = document.getElementById('opt-c-group');
+        const optDGroup = document.getElementById('opt-d-group');
+        const optCInput = document.getElementById('opt-c');
+        const optDInput = document.getElementById('opt-d');
+        const correctAnswerSelect = document.getElementById('correct-answer-select');
+        const optionsCountInput = document.getElementById('options-count-input');
+        
+        const addForm = document.getElementById('add-question-form');
+        const searchInput = document.getElementById('search-input');
+        const questionsContainer = document.getElementById('questions-container');
+        const toastEl = document.getElementById('toast-el');
+
+        // Initialize Form controls mapping
+        function handleCategoryChange() {
+            const cat = categorySelect.value;
+            if (cat === 'CAT_4') {
+                optCGroup.style.display = 'flex';
+                optDGroup.style.display = 'flex';
+                optCInput.required = true;
+                optDInput.required = true;
+                optionsCountInput.value = 4;
+                
+                correctAnswerSelect.innerHTML = `
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                `;
+            } else if (cat === 'CAT_3') {
+                optCGroup.style.display = 'flex';
+                optDGroup.style.display = 'none';
+                optCInput.required = true;
+                optDInput.required = false;
+                optDInput.value = '';
+                optionsCountInput.value = 3;
+                
+                correctAnswerSelect.innerHTML = `
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                `;
+            } else {
+                // CAT_2 or FINAL
+                optCGroup.style.display = 'none';
+                optDGroup.style.display = 'none';
+                optCInput.required = false;
+                optDInput.required = false;
+                optCInput.value = '';
+                optDInput.value = '';
+                optionsCountInput.value = 2;
+                
+                correctAnswerSelect.innerHTML = `
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                `;
+            }
+        }
+
+        categorySelect.addEventListener('change', handleCategoryChange);
+        handleCategoryChange(); // initial run
+
+        // Login flow
+        async function attemptLogin(password) {
+            try {
+                const response = await fetch('/api/admin/questions', {
+                    headers: { 'Authorization': password }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Hatalı şifre!');
+                }
+                
+                const data = await response.json();
+                allQuestions = data;
+                
+                adminPassword = password;
+                sessionStorage.setItem('admin_password', password);
+                
+                loginOverlay.style.display = 'none';
+                adminWrapper.style.display = 'flex';
+                loginError.textContent = '';
+                
+                renderDashboard();
+                showToast('Giriş başarılı!', 'success');
+            } catch (err) {
+                loginError.textContent = 'Giriş Başarısız: ' + err.message;
+                sessionStorage.removeItem('admin_password');
+            }
+        }
+
+        loginBtn.addEventListener('click', () => {
+            attemptLogin(passwordInput.value);
+        });
+
+        passwordInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                attemptLogin(passwordInput.value);
+            }
+        });
+
+        logoutBtn.addEventListener('click', () => {
+            sessionStorage.removeItem('admin_password');
+            window.location.reload();
+        });
+
+        // Load page on startup
+        if (adminPassword) {
+            attemptLogin(adminPassword);
+        }
+
+        // Show Toast Notification
+        function showToast(message, type = 'success') {
+            toastEl.textContent = message;
+            toastEl.className = 'toast show ' + type;
+            setTimeout(() => {
+                toastEl.classList.remove('show');
+            }, 3000);
+        }
+
+        // Render Dashboard stats and lists
+        function renderDashboard() {
+            // Stats
+            const total = allQuestions.CAT_4.length + allQuestions.CAT_3.length + allQuestions.CAT_2.length + allQuestions.FINAL.length;
+            
+            document.getElementById('stat-total').textContent = total;
+            document.getElementById('count-all').textContent = total;
+            
+            renderQuestionsList();
+        }
+
+        // Render list of questions
+        function renderQuestionsList() {
+            questionsContainer.innerHTML = '';
+            const query = searchInput.value.toLowerCase().trim();
+            
+            // Build absolute list with indexes
+            let items = [];
+            
+            if (currentFilter === 'all' || currentFilter === 'CAT_4') {
+                allQuestions.CAT_4.forEach((q, idx) => {
+                    items.push({ ...q, category: 'CAT_4', index: idx, badge: '4 Şıklı', categoryText: 'Kategori 1' });
+                });
+            }
+            if (currentFilter === 'all' || currentFilter === 'CAT_3') {
+                allQuestions.CAT_3.forEach((q, idx) => {
+                    items.push({ ...q, category: 'CAT_3', index: idx, badge: '3 Şıklı', categoryText: 'Kategori 2' });
+                });
+            }
+            if (currentFilter === 'all' || currentFilter === 'CAT_2') {
+                allQuestions.CAT_2.forEach((q, idx) => {
+                    items.push({ ...q, category: 'CAT_2', index: idx, badge: '2 Şıklı', categoryText: 'Kategori 3' });
+                });
+            }
+            if (currentFilter === 'all' || currentFilter === 'FINAL') {
+                allQuestions.FINAL.forEach((q, idx) => {
+                    items.push({ ...q, category: 'FINAL', index: idx, badge: 'Final', categoryText: 'Final', isFinal: true });
+                });
+            }
+
+            // Filter by search query
+            if (query) {
+                items = items.filter(item => 
+                    item.question.toLowerCase().includes(query) || 
+                    (item.hostComment && item.hostComment.toLowerCase().includes(query)) ||
+                    Object.values(item.options).some(o => o.toLowerCase().includes(query))
+                );
+            }
+
+            if (items.length === 0) {
+                questionsContainer.innerHTML = `<div style="text-align: center; color: var(--text-muted); padding: 40px; font-style: italic;">Aradığınız kriterlere uygun soru bulunamadı.</div>`;
+                return;
+            }
+
+            // Sort questions in reverse order (newly added first)
+            items.reverse().forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'question-card';
+                
+                const isFinalBadge = item.isFinal ? 'final' : '';
+                
+                // Options markup
+                let optionsMarkup = '';
+                for (const [key, val] of Object.entries(item.options)) {
+                    const isCorrect = key === item.correctAnswer ? 'correct' : '';
+                    optionsMarkup += `<div class="option-item ${isCorrect}">${key}: ${val}</div>`;
+                }
+
+                // Comment markup
+                const commentMarkup = item.hostComment 
+                    ? `<div class="host-comment"><strong>Sunucu:</strong> "${item.hostComment}"</div>` 
+                    : '';
+
+                card.innerHTML = `
+                    <div style="position: absolute; top: 15px; right: 15px; display: flex; gap: 8px;">
+                        <button class="btn-action-edit" style="padding: 4px 8px; font-size: 11px; margin: 0;" onclick="enterEditMode('${item.category}', ${item.index})">✏️ Düzenle</button>
+                        <button class="btn-action-delete" style="padding: 4px 8px; font-size: 11px; margin: 0; background: rgba(255,0,85,0.15);" onclick="deleteQuestion('${item.category}', ${item.index})">🗑 Sil</button>
+                    </div>
+                    <div class="question-card-header">
+                        <div class="question-card-title">${item.question}</div>
+                        <span class="question-badge ${isFinalBadge}">${item.categoryText} (${item.badge})</span>
+                    </div>
+                    <div class="question-options-grid">
+                        ${optionsMarkup}
+                    </div>
+                    ${commentMarkup}
+                `;
+                questionsContainer.appendChild(card);
+            });
+        }
+
+        // Filter tabs click handling
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                currentFilter = tab.getAttribute('data-filter');
+                renderQuestionsList();
+            });
+        });
+
+        // Search typing handling
+        searchInput.addEventListener('input', renderQuestionsList);
+
+        // Add / Update Soru Form Submit
+        addForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const category = categorySelect.value;
+            const question = document.getElementById('question-text').value;
+            const hostComment = document.getElementById('host-comment').value;
+            const correctAnswer = correctAnswerSelect.value;
+            const optionsCount = parseInt(optionsCountInput.value, 10);
+            
+            // Build options object
+            const options = {
+                A: document.getElementById('opt-a').value,
+                B: document.getElementById('opt-b').value
+            };
+            
+            if (optionsCount >= 3) {
+                options.C = optCInput.value;
+            }
+            if (optionsCount === 4) {
+                options.D = optDInput.value;
+            }
+
+            const bodyData = {
+                category,
+                question,
+                options,
+                correctAnswer,
+                optionsCount,
+                hostComment
+            };
+
+            if (isEditMode) {
+                // Edit question path
+                try {
+                    const response = await fetch(`/api/admin/questions/${editCategory}/${editIndex}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': adminPassword
+                        },
+                        body: JSON.stringify(bodyData)
+                    });
+
+                    if (!response.ok) {
+                        const data = await response.json();
+                        throw new Error(data.error || 'Güncellenirken bir hata oluştu');
+                    }
+
+                    // Update locally
+                    allQuestions[editCategory][editIndex] = {
+                        question,
+                        options,
+                        correctAnswer,
+                        optionsCount,
+                        hostComment
+                    };
+
+                    showToast('Soru başarıyla güncellendi!', 'success');
+                    exitEditMode();
+                    renderDashboard();
+                } catch (err) {
+                    showToast('Hata: ' + err.message, 'error');
+                }
+            } else {
+                // Add question path
+                try {
+                    const response = await fetch('/api/admin/questions', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': adminPassword
+                        },
+                        body: JSON.stringify(bodyData)
+                    });
+
+                    if (!response.ok) {
+                        const data = await response.json();
+                        throw new Error(data.error || 'Eklenirken bir hata oluştu');
+                    }
+
+                    // Reset form inputs (except category selection)
+                    document.getElementById('question-text').value = '';
+                    document.getElementById('opt-a').value = '';
+                    document.getElementById('opt-b').value = '';
+                    optCInput.value = '';
+                    optDInput.value = '';
+                    document.getElementById('host-comment').value = '';
+                    
+                    // Add to local allQuestions to prevent extra API call
+                    allQuestions[category].push({
+                        question,
+                        options,
+                        correctAnswer,
+                        optionsCount,
+                        hostComment
+                    });
+
+                    showToast('Soru başarıyla eklendi!', 'success');
+                    renderDashboard();
+                } catch (err) {
+                    showToast('Hata: ' + err.message, 'error');
+                }
+            }
+        });
+
+        // Delete Soru
+        window.deleteQuestion = async function(category, index) {
+            const confirmDel = confirm('Bu soruyu silmek istediğinizden emin misiniz? Bu işlem geri alınamaz!');
+            if (!confirmDel) return;
+
+            try {
+                const response = await fetch(`/api/admin/questions/${category}/${index}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Authorization': adminPassword
+                    }
+                });
+
+                if (!response.ok) {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Silinirken bir hata oluştu');
+                }
+
+                // Remove from local array
+                allQuestions[category].splice(index, 1);
+
+                showToast('Soru başarıyla silindi!', 'success');
+                renderDashboard();
+            } catch (err) {
+                showToast('Hata: ' + err.message, 'error');
+            }
+        };
+
+        // Tab Switching
+        window.switchAdminTab = function(tabName) {
+            currentTab = tabName;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.admin-tab-content').forEach(content => content.classList.remove('active-content'));
+            
+            document.getElementById(`tab-${tabName}-btn`).classList.add('active');
+            document.getElementById(`tab-${tabName}`).classList.add('active-content');
+            
+            if (tabName === 'scores') {
+                fetchAdminScores();
+            } else if (tabName === 'settings') {
+                fetchAdminSettings();
+            }
+        };
+
+        // Settings Loading & Saving
+        async function fetchAdminSettings() {
+            try {
+                const response = await fetch('/api/settings');
+                if (response.ok) {
+                    gameSettings = await response.json();
+                    
+                    document.getElementById('settings-timer-duration').value = gameSettings.timerDuration;
+                    document.getElementById('settings-starting-money').value = gameSettings.startingMoney;
+                    document.getElementById('settings-question-count').value = gameSettings.questionCount;
+                    document.getElementById('settings-announcement').value = gameSettings.announcement || '';
+                }
+            } catch (e) {
+                showToast('Ayarlar yüklenemedi: ' + e.message, 'error');
+            }
+        }
+
+        window.saveGameSettings = async function() {
+            const timerDuration = parseInt(document.getElementById('settings-timer-duration').value, 10);
+            const startingMoney = parseInt(document.getElementById('settings-starting-money').value, 10);
+            const questionCount = parseInt(document.getElementById('settings-question-count').value, 10);
+            const announcement = document.getElementById('settings-announcement').value;
+            
+            try {
+                const response = await fetch('/api/admin/settings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': adminPassword
+                    },
+                    body: JSON.stringify({ timerDuration, startingMoney, questionCount, announcement })
+                });
+                
+                if (!response.ok) {
+                    const err = await response.json();
+                    throw new Error(err.error || 'Ayarlar kaydedilirken hata oluştu');
+                }
+                
+                const data = await response.json();
+                gameSettings = data.settings;
+                showToast('Oyun ayarları başarıyla kaydedildi!', 'success');
+            } catch (e) {
+                showToast('Hata: ' + e.message, 'error');
+            }
+        };
+
+        window.downloadSettingsJson = function() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(gameSettings, null, 4));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href",     dataStr);
+            downloadAnchor.setAttribute("download", "settings.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+            showToast('settings.json indirme başladı!', 'success');
+        };
+
+        // Fish Audio Testing
+        window.testFishAudioConnection = async function() {
+            showToast('Bağlantı test ediliyor...', 'success');
+            try {
+                const response = await fetch('/api/admin/test-fish-audio', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': adminPassword
+                    }
+                });
+                
+                const data = await response.json();
+                if (response.ok && data.success) {
+                    alert('✅ Fish Audio bağlantısı başarılı! Ses sentezleme API Key ve Ses ID aktif.');
+                    showToast('Fish Audio bağlantısı başarılı!', 'success');
+                } else {
+                    alert('❌ Fish Audio bağlantı hatası:\n' + (data.error || 'Bilinmeyen hata'));
+                    showToast('Fish Audio bağlantı hatası!', 'error');
+                }
+            } catch (e) {
+                alert('❌ Fish Audio bağlantı hatası:\n' + e.message);
+                showToast('Bağlantı hatası: ' + e.message, 'error');
+            }
+        };
+
+        // Leaderboard management
+        async function fetchAdminScores() {
+            const bodyEl = document.getElementById('admin-scores-body');
+            bodyEl.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 30px;">Yükleniyor...</td></tr>';
+            
+            try {
+                const response = await fetch('/api/admin/scores', {
+                    headers: { 'Authorization': adminPassword }
+                });
+                
+                if (!response.ok) {
+                    throw new Error('Skor listesi alınamadı!');
+                }
+                
+                const scores = await response.json();
+                bodyEl.innerHTML = '';
+                
+                if (scores.length === 0) {
+                    bodyEl.innerHTML = '<tr><td colspan="5" style="text-align: center; color: var(--text-muted); padding: 30px; font-style: italic;">Henüz kayıtlı skor bulunmuyor.</td></tr>';
+                    return;
+                }
+                
+                scores.forEach((s) => {
+                    const tr = document.createElement('tr');
+                    
+                    const formattedMoney = s.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " TL";
+                    const dateStr = new Date(s.date).toLocaleString('tr-TR');
+                    
+                    tr.innerHTML = `
+                        <td><strong>${escapeHtml(s.username)}</strong></td>
+                        <td style="color: var(--neon-gold); font-weight: 600;">${formattedMoney}</td>
+                        <td>${s.questionReached}</td>
+                        <td style="color: var(--text-muted); font-size: 13px;">${dateStr}</td>
+                        <td style="text-align: right;">
+                            <button class="btn-action-delete" onclick="deleteSpecificScore('${escapeJsString(s.username)}', '${s.date}')">Sil</button>
+                        </td>
+                    `;
+                    bodyEl.appendChild(tr);
+                });
+            } catch (e) {
+                bodyEl.innerHTML = `<tr><td colspan="5" style="text-align: center; color: var(--neon-red); padding: 30px;">Hata: ${e.message}</td></tr>`;
+            }
+        }
+
+        window.deleteSpecificScore = async function(username, date) {
+            const confirmDel = confirm(`"${username}" kullanıcısının bu skor kaydını silmek istediğinizden emin misiniz?`);
+            if (!confirmDel) return;
+            
+            try {
+                const response = await fetch(`/api/admin/scores/${encodeURIComponent(username)}/${encodeURIComponent(date)}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': adminPassword }
+                });
+                
+                if (!response.ok) {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Skor silinemedi!');
+                }
+                
+                showToast('Kullanıcı skor kaydı silindi!', 'success');
+                fetchAdminScores();
+            } catch (e) {
+                showToast('Hata: ' + e.message, 'error');
+            }
+        };
+
+        window.resetAllLeaderboard = async function() {
+            const confirmDel = confirm('TÜM SIRALAMAYI SIFIRLAMAK istediğinizden emin misiniz? Bu işlem geri alınamaz!');
+            if (!confirmDel) return;
+            
+            try {
+                const response = await fetch('/api/admin/scores', {
+                    method: 'DELETE',
+                    headers: { 'Authorization': adminPassword }
+                });
+                
+                if (!response.ok) {
+                    const data = await response.json();
+                    throw new Error(data.error || 'Sıfırlama başarısız!');
+                }
+                
+                showToast('Tüm sıralama başarıyla sıfırlandı!', 'success');
+                fetchAdminScores();
+            } catch (e) {
+                showToast('Hata: ' + e.message, 'error');
+            }
+        };
+
+        // Question Edit handlers
+        window.enterEditMode = function(category, index) {
+            isEditMode = true;
+            editCategory = category;
+            editIndex = index;
+            
+            // Find question
+            const q = allQuestions[category][index];
+            if (!q) return;
+            
+            // Fill the form fields
+            document.getElementById('question-text').value = q.question;
+            document.getElementById('host-comment').value = q.hostComment || '';
+            document.getElementById('opt-a').value = q.options.A || '';
+            document.getElementById('opt-b').value = q.options.B || '';
+            if (q.options.C) document.getElementById('opt-c').value = q.options.C;
+            if (q.options.D) document.getElementById('opt-d').value = q.options.D;
+            
+            correctAnswerSelect.value = q.correctAnswer;
+            optionsCountInput.value = q.optionsCount || 4;
+            
+            // Change Titles & Buttons
+            document.getElementById('form-panel-title').textContent = `✏️ Soruyu Düzenle (İndeks: ${index})`;
+            document.getElementById('add-btn').textContent = 'Güncelle';
+            document.getElementById('cancel-edit-btn').style.display = 'inline-block';
+            
+            // Scroll to form panel
+            document.getElementById('add-question-panel').scrollIntoView({ behavior: 'smooth' });
+        };
+
+        window.exitEditMode = function() {
+            isEditMode = false;
+            editCategory = '';
+            editIndex = null;
+            
+            // Reset Form
+            addForm.reset();
+            
+            // Reset Titles & Buttons
+            document.getElementById('form-panel-title').textContent = 'Yeni Soru Ekle';
+            document.getElementById('add-btn').textContent = 'Soru Ekle';
+            document.getElementById('cancel-edit-btn').style.display = 'none';
+        };
+
+        // Helpers
+        function escapeHtml(text) {
+            if (!text) return '';
+            return text.toString()
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        function escapeJsString(text) {
+            if (!text) return '';
+            return text.toString()
+                .replace(/\\/g, '\\\\')
+                .replace(/'/g, "\\'")
+                .replace(/"/g, '\\"');
+        }
+
+    </script>
+</body>
+</html>

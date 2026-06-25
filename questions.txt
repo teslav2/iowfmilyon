@@ -1,0 +1,3050 @@
+// IOWF MİLYON - KATEGORİZE EDİLMİŞ SORU HAVUZLARI
+
+// Kategori 1: 4 Şıklı Sorular (Seçenekler: A, B, C, D)
+const CAT_4_QUESTIONS = [
+    {
+        "question": "Türkiye Cumhuriyeti'nin ilk başbakanı aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Mustafa Kemal Atatürk",
+            "B": "İsmet İnönü",
+            "C": "Fevzi Çakmak",
+            "D": "Celal Bayar"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "İsmet İnönü, Türkiye Cumhuriyeti'nin ilk başbakanıdır. Atatürk ise ilk cumhurbaşkanıdır."
+    },
+    {
+        "question": "Hangi meyvenin çekirdekleri meyvenin dışında, dış yüzeyinde yer alır?",
+        "options": {
+            "A": "Böğürtlen",
+            "B": "Çilek",
+            "C": "Yaban Mersini",
+            "D": "Ahududu"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Çilek, çekirdekleri meyvesinin dış yüzeyinde bulunan dünyadaki tek meyvedir."
+    },
+    {
+        "question": "Nobel ödülünü kazanan ilk Türk vatandaşı kimdir?",
+        "options": {
+            "A": "Orhan Pamuk",
+            "B": "Aziz Sancar",
+            "C": "Yaşar Kemal",
+            "D": "Leyla Erbil"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Orhan Pamuk, 2006 yılında Nobel Edebiyat Ödülü'nü kazanarak bu ödülü alan ilk Türk vatandaşı olmuştur."
+    },
+    {
+        "question": "Tarihte ilk yazılı antlaşma olan Kadeş Antlaşması hangi iki antik devlet arasında imzalanmıştır?",
+        "options": {
+            "A": "Asur - Babil",
+            "B": "Mısır - Hitit",
+            "C": "Pers - Yunan",
+            "D": "Sümer - Akad"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "MÖ 1280 civarında Mısır Firavunu II. Ramses ile Hitit Kralı III. Hattuşili arasında imzalanmıştır."
+    },
+    {
+        "question": "Güneş sistemindeki en yüksek yanardağ olan 'Olympus Mons' hangi gezegendedir?",
+        "options": {
+            "A": "Venüs",
+            "B": "Mars",
+            "C": "Jüpiter",
+            "D": "Satürn"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mars'ta bulunan Olympus Mons yanardağı, Everest'in yaklaşık üç katı yüksekliğiyle Güneş sisteminin en büyük dağıdır."
+    },
+    {
+        "question": "Periyodik cetvelde simgesi tek bir harften oluşan element hangisidir?",
+        "options": {
+            "A": "Sodyum",
+            "B": "Helyum",
+            "C": "Potasyum",
+            "D": "Kalsiyum"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Potasyum elementinin simgesi 'K' harfidir. Sodyum 'Na', Helyum 'He', Kalsiyum ise 'Ca'dır."
+    },
+    {
+        "question": "Fransa'nın başkenti Paris'teki ünlü Eyfel Kulesi'nin yapımı hangi yıl tamamlanmıştır?",
+        "options": {
+            "A": "1889",
+            "B": "1899",
+            "C": "1909",
+            "D": "1919"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Eyfel Kulesi, 1889 Fransız İhtilali'nin 100. yıl dönümü kutlamaları kapsamında yapılan Dünya Fuarı için inşa edilmiştir."
+    },
+    {
+        "question": "Dünya Kupası'nı hem oyuncu hem de teknik direktör olarak kazanan tarihteki ilk kişi kimdir?",
+        "options": {
+            "A": "Mario Zagallo",
+            "B": "Franz Beckenbauer",
+            "C": "Didier Deschamps",
+            "D": "Pele"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Brezilyalı Mario Zagallo bu başarıya 1958/1962'de oyuncu, 1970'te ise teknik direktör olarak ulaşan ilk kişidir."
+    },
+    {
+        "question": "Hangisi tarihteki ünlü 'Yüzyıl Savaşları'na katılan devletlerden biridir?",
+        "options": {
+            "A": "Almanya",
+            "B": "Fransa",
+            "C": "İspanya",
+            "D": "İtalya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Yüzyıl Savaşları, 1337-1453 yılları arasında İngiltere Krallığı ile Fransa Krallığı arasında yapılmıştır."
+    },
+    {
+        "question": "Kutup bölgeleri hariç, dünya üzerindeki en büyük sıcak çöl hangisidir?",
+        "options": {
+            "A": "Sahra Çölü",
+            "B": "Gobi Çölü",
+            "C": "Kalahari Çölü",
+            "D": "Arabistan Çölü"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Sahra Çölü, Afrika'nın kuzeyinde bulunan 9 milyon kilometrekarelik alanıyla en büyük sıcak çöldür."
+    },
+    {
+        "question": "Mona Lisa tablosu günümüzde hangi müzede sergilenmektedir?",
+        "options": {
+            "A": "British Museum",
+            "B": "Louvre Müzesi",
+            "C": "Prado Müzesi",
+            "D": "Hermitaj Müzesi"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Leonardo da Vinci'nin başyapıtı olan Mona Lisa, Paris'teki ünlü Louvre Müzesi'nde korunmaktadır."
+    },
+    {
+        "question": "Gökkuşağının renk sıralamasında en merkezde (ortada) yer alan renk hangisidir?",
+        "options": {
+            "A": "Sarı",
+            "B": "Mavi",
+            "C": "Yeşil",
+            "D": "Turuncu"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Gökkuşağı renkleri sırasıyla Kırmızı, Turuncu, Sarı, Yeşil, Mavi, Lacivert, Mor şeklindedir. Yeşil tam ortadadır."
+    },
+    {
+        "question": "Hangi kıtanın üzerinde herhangi bir ülkenin toprağı veya kalıcı insan yerleşimi bulunmaz?",
+        "options": {
+            "A": "Avustralya",
+            "B": "Güney Amerika",
+            "C": "Antarktika",
+            "D": "Afrika"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Antarktika hiçbir ülkeye ait değildir ve sadece bilimsel araştırma istasyonlarındaki geçici görevlilere ev sahipliği yapar."
+    },
+    {
+        "question": "Klasik müzik bestecisi Wolfgang Amadeus Mozart hangi ülkede doğmuştur?",
+        "options": {
+            "A": "Almanya",
+            "B": "Avusturya",
+            "C": "Macaristan",
+            "D": "İtalya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mozart, 1756 yılında bugün Avusturya sınırları içerisinde yer alan Salzburg şehrinde doğmuştur."
+    },
+    {
+        "question": "Dünyanın en yüksek kesintisiz şelalesi olan Angel Şelalesi hangi Güney Amerika ülkesindedir?",
+        "options": {
+            "A": "Brezilya",
+            "B": "Kolombiya",
+            "C": "Venezuela",
+            "D": "Arjantin"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Venezuela'daki Angel Şelalesi, yaklaşık 979 metre yüksekliğiyle dünyanın en yüksek kesintisiz şelalesidir."
+    },
+    {
+        "question": "Hangi ülkenin bayrağının iki tarafı da farklıdır?",
+        "options": {
+            "A": "Bahamalar",
+            "B": "Kosta Rika",
+            "C": "Danimarka",
+            "D": "Paraguay"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Paraguay bayrağının ön yüzünde resmi devlet arması, arka yüzünde ise barış ve adaleti simgeleyen hazine mührü bulunur."
+    },
+    {
+        "question": "Hangi hayvan kafası olmadan birkaç gün daha yaşayabilir?",
+        "options": {
+            "A": "Ördek",
+            "B": "Tavuk",
+            "C": "Karınca",
+            "D": "Hamam böceği"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Hamam böcekleri, açık bir dolaşım sistemine sahip oldukları ve vücutlarındaki küçük gözeneklerden nefes aldıkları için kafaları olmadan günlerce yaşayabilirler."
+    },
+    {
+        "question": "Televizyonda reklamı yapılan ilk oyuncak hangisidir?",
+        "options": {
+            "A": "Barbie",
+            "B": "Mr. Potato Head",
+            "C": "Domino",
+            "D": "Polly Pocket"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mr. Potato Head, 1952 yılında televizyonda reklamı yayınlanan tarihteki ilk oyuncaktır."
+    },
+    {
+        "question": "Dişi bir kangurunun kaç tane vajinası bulunur?",
+        "options": {
+            "A": "Bir",
+            "B": "İki",
+            "C": "Üç",
+            "D": "Dört"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Dişi kanguruların üreme sisteminde üç vajina ve iki rahim bulunmaktadır."
+    },
+    {
+        "question": "Futbolda, karşı takım topu kale çizgisinin dışına attığında oyun yeniden nasıl başlar?",
+        "options": {
+            "A": "Aut vuruşu",
+            "B": "Korner",
+            "C": "Serbest vuruş",
+            "D": "Taç atışı"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Top, hücum eden takım tarafından rakip kale çizgisinin dışına atılırsa oyun savunma takımının aut atışıyla başlar."
+    },
+    {
+        "question": "İlk Kış Olimpiyat Oyunları hangi yıl düzenlendi?",
+        "options": {
+            "A": "1954",
+            "B": "1890",
+            "C": "1924",
+            "D": "1974"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Tarihteki ilk Kış Olimpiyat Oyunları, 1924 yılında Fransa'nın Chamonix kentinde düzenlenmiştir."
+    },
+    {
+        "question": "Rafael Nadal 2024'te emekli olmadan önce kaç Grand Slam kazandı?",
+        "options": {
+            "A": "20",
+            "B": "15",
+            "C": "33",
+            "D": "22"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "İspanyol tenisçi Rafael Nadal, kariyeri boyunca teklerde 22 adet Grand Slam şampiyonluğu kazanmıştır."
+    },
+    {
+        "question": "Flaubert'in romanına adını veren Madam Bovary'nin adı nedir?",
+        "options": {
+            "A": "Marie",
+            "B": "Emma",
+            "C": "Julie",
+            "D": "Héloïse"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Realist edebiyatın en önemli eserlerinden biri olan Madame Bovary'deki başkahramanın adı Emma Bovary'dir."
+    },
+    {
+        "question": "Campbell's çorba kutularını hangi ressam ünlü yaptı?",
+        "options": {
+            "A": "Andy Warhol",
+            "B": "Roy Lichtenstein",
+            "C": "David Hockney",
+            "D": "Edward Hopper"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Amerikalı pop-art ressamı Andy Warhol, 1962 tarihli ünlü 'Campbell's Çorba Kutuları' serisiyle tanınır."
+    },
+    {
+        "question": "Bir piyano klavyesinde kaç tuş bulunur?",
+        "options": {
+            "A": "80",
+            "B": "100",
+            "C": "88",
+            "D": "62"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Standart modern piyanolar 52 beyaz ve 36 siyah tuştan oluşmak üzere toplam 88 tuşa sahiptir."
+    },
+    {
+        "question": "'Ağaca dayanma kurur, ... dayanma ölür.' atasözünde boş bırakılan yere ne gelmelidir?",
+        "options": {
+            "A": "Duvara",
+            "B": "İnsana",
+            "C": "Babana",
+            "D": "Taşa"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "'Ağaca dayanma kurur, insana dayanma ölür' atasözü, kimseye körü körüne güvenilmemesi gerektiğini ifade eder."
+    },
+    {
+        "question": "'Sütten ağzı yanan, ... üfleyerek yer.' atasözünün doğru tamamlanışı hangisidir?",
+        "options": {
+            "A": "Yoğurdu",
+            "B": "Çorbayı",
+            "C": "Ayranı",
+            "D": "Sütü"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "'Sütten ağzı yanan yoğurdu üfleyerek yer' atasözü, geçmişteki acı bir tecrübeden ötürü benzer durumlarda aşırı temkinli davranmayı anlatır."
+    },
+    {
+        "question": "'Kartal kalkar dal sarkar, dal sarkar ... kalkar.' tekerlemesindeki boşluk nasıl doldurulmalıdır?",
+        "options": {
+            "A": "Kartal",
+            "B": "Dal",
+            "C": "Kuş",
+            "D": "Yaprak"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "'Kartal kalkar dal sarkar, dal sarkar kartal kalkar' meşhur ve söylenmesi zor bir Türkçe tekerlemedir."
+    },
+    {
+        "question": "UEFA Şampiyonlar Ligi'ni en fazla kazanan takım hangisidir?",
+        "options": {
+            "A": "Barcelona",
+            "B": "AC Milan",
+            "C": "Real Madrid",
+            "D": "Bayern Münih"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Real Madrid, Şampiyonlar Ligi kupasını müzesine en çok götüren kulüptür."
+    },
+    {
+        "question": "Dünyanın en hızlı kara hayvanı olan çita, saatte yaklaşık kaç kilometre hıza ulaşabilir?",
+        "options": {
+            "A": "80 km/s",
+            "B": "120 km/s",
+            "C": "150 km/s",
+            "D": "60 km/s"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Çitalar kısa mesafeli koşularda saatte 110-120 km hıza ulaşabilirler."
+    },
+    {
+        "question": "İki kapılı bir handa, gidiyorum gündüz gece' dizeleri hangi ünlü halk ozanımıza aittir?",
+        "options": {
+            "A": "Aşık Veysel",
+            "B": "Karacaoğlan",
+            "C": "Yunus Emre",
+            "D": "Dadaloğlu"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Aşık Veysel Şatıroğlu'nun en bilinen eseri 'Uzun İnce Bir Yoldayım' şiirinde bu dizeler geçer."
+    },
+    {
+        "question": "Hangi ülke 'Yükselen Güneşin Ülkesi' olarak adlandırılır?",
+        "options": {
+            "A": "Çin",
+            "B": "Güney Kore",
+            "C": "Japonya",
+            "D": "Tayland"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Japonya'nın kendi dilindeki adı olan 'Nihon', 'güneşin doğduğu yer' anlamına gelir."
+    },
+    {
+        "question": "Türkiye Süper Lig tarihinde en çok şampiyon olan teknik direktör kimdir?",
+        "options": {
+            "A": "Mustafa Denizli",
+            "B": "Şenol Güneş",
+            "C": "Fatih Terim",
+            "D": "Aykut Kocaman"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Fatih Terim, Galatasaray ile Süper Lig'de toplam 8 şampiyonluk yaşayarak en başarılı teknik adam olmuştur."
+    },
+    {
+        "question": "Hangi ülkenin ulusal bayrağında akçaağaç yaprağı bulunur?",
+        "options": {
+            "A": "Norveç",
+            "B": "Kanada",
+            "C": "İsveç",
+            "D": "Avustralya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Kanada bayrağında kırmızı renkli bir akçaağaç yaprağı yer almaktadır."
+    },
+    {
+        "question": "Güneş Sistemi'ndeki en büyük gezegen hangisidir?",
+        "options": {
+            "A": "Satürn",
+            "B": "Neptün",
+            "C": "Jüpiter",
+            "D": "Mars"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Jüpiter, Güneş Sistemi'ndeki hem çap hem de kütle olarak en büyük gezegendir."
+    },
+    {
+        "question": "Mona Lisa tablosu hangi ünlü İtalyan ressama aittir?",
+        "options": {
+            "A": "Leonardo da Vinci",
+            "B": "Michelangelo",
+            "C": "Raphael",
+            "D": "Donatello"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Mona Lisa, Leonardo da Vinci tarafından 16. yüzyılda yapılmış meşhur bir yağlıboya tablodur."
+    },
+    {
+        "question": "İlk modern Olimpiyat Oyunları hangi şehirde düzenlenmiştir?",
+        "options": {
+            "A": "Paris",
+            "B": "Londra",
+            "C": "Roma",
+            "D": "Atina"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "İlk modern Olimpiyatlar 1896 yılında Yunanistan'ın başkenti Atina'da düzenlenmiştir."
+    },
+    {
+        "question": "Periyodik tablodaki ilk element hangisidir?",
+        "options": {
+            "A": "Helyum",
+            "B": "Lityum",
+            "C": "Hidrojen",
+            "D": "Oksijen"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Atom numarası 1 olan Hidrojen (H), periyodik tablonun ilk ve en basit elementidir."
+    },
+    {
+        "question": "Dünyanın en derin noktası olan Mariana Çukuru hangi okyanustadır?",
+        "options": {
+            "A": "Büyük Okyanus",
+            "B": "Atlas Okyanusu",
+            "C": "Hint Okyanusu",
+            "D": "Kuzey Buz Denizi"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Mariana Çukuru, Pasifik (Büyük) Okyanusu'nda yer alır ve derinliği yaklaşık 11.000 metredir."
+    },
+    {
+        "question": "Telefonun patentini alan ünlü mucit kimdir?",
+        "options": {
+            "A": "Thomas Edison",
+            "B": "Nikola Tesla",
+            "C": "Alexander Graham Bell",
+            "D": "Guglielmo Marconi"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Alexander Graham Bell, 1876 yılında telefonun ilk pratik patentini alan kişidir."
+    },
+    {
+        "question": "Suyun kimyasal formülü aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "CO2",
+            "B": "NaCl",
+            "C": "O2",
+            "D": "H2O"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Su, iki hidrojen ve bir oksijen atomundan oluşan H2O formülüne sahiptir."
+    },
+    {
+        "question": "İstiklal Marşı'mızın bestecisi kimdir?",
+        "options": {
+            "A": "Mehmet Akif Ersoy",
+            "B": "Zeki Üngör",
+            "C": "Osman Zeki Üngör",
+            "D": "Cemal Reşit Rey"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "İstiklal Marşı'nın şairi Mehmet Akif Ersoy, bestecisi ise orkestra şefi Osman Zeki Üngör'dür."
+    },
+    {
+        "question": "Hangi hayvan karada yaşayan en hızlı memeli hayvandır?",
+        "options": {
+            "A": "Aslan",
+            "B": "Tazı",
+            "C": "Çita",
+            "D": "Antilop"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Çita, kısa mesafelerde saatte 100-120 km hıza ulaşarak karadaki en hızlı hayvandır."
+    },
+    {
+        "question": "Dünyanın yedi harikasından biri olan Tac Mahal hangi ülkededir?",
+        "options": {
+            "A": "Mısır",
+            "B": "Çin",
+            "C": "Hindistan",
+            "D": "İtalya"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Tac Mahal, Hindistan'ın Agra şehrinde Şah Cihan tarafından yaptırılmış anıt mezardır."
+    },
+    {
+        "question": "Nobel Barış Ödülü her yıl hangi İskandinav başkentinde verilir?",
+        "options": {
+            "A": "Stokholm",
+            "B": "Kopenhag",
+            "C": "Helsinki",
+            "D": "Oslo"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Diğer Nobel ödülleri İsveç Stokholm'de verilirken, Barış Ödülü Norveç'in başkenti Oslo'da verilir."
+    },
+    {
+        "question": "Fahrenheit sıcaklık ölçeğine göre suyun donma noktası kaç derecedir?",
+        "options": {
+            "A": "0 derece",
+            "B": "32 derece",
+            "C": "100 derece",
+            "D": "212 derece"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Celsius ölçeğinde su 0 derecede donarken, Fahrenheit ölçeğinde bu değer 32 derecedir."
+    },
+    {
+        "question": "Roma İmparatorluğu'nun meşhur kurucusu ve ilk imparatoru kimdir?",
+        "options": {
+            "A": "Julius Caesar",
+            "B": "Nero",
+            "C": "Augustus",
+            "D": "Marcus Aurelius"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Augustus (Octavian), Sezar'ın evlatlığı olup Roma İmparatorluğu'nun ilk resmi imparatorudur."
+    },
+    {
+        "question": "Hangi organımız vücuttaki toksinleri temizlemekle ve safra üretmekle görevlidir?",
+        "options": {
+            "A": "Karaciğer",
+            "B": "Dalak",
+            "C": "Böbrek",
+            "D": "Mide"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Karaciğer, metabolik süreçlerde, safra üretiminde ve toksinlerin arındırılmasında kritik organdır."
+    },
+    {
+        "question": "Türkiye'nin en yüksek dağı hangisidir?",
+        "options": {
+            "A": "Süphan Dağı",
+            "B": "Erciyes Dağı",
+            "C": "Ağrı Dağı",
+            "D": "Kaçkar Dağı"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Ağrı Dağı, 5137 metre yüksekliğiyle Türkiye'nin ve Avrupa'nın en yüksek zirvesidir."
+    },
+    {
+        "question": "Hangi gezegen halkalarıyla ünlüdür?",
+        "options": {
+            "A": "Jüpiter",
+            "B": "Satürn",
+            "C": "Neptün",
+            "D": "Uranüs"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Satürn, buz ve kaya parçalarından oluşan muhteşem halka sistemiyle bilinir."
+    },
+    {
+        "question": "İstiklal Marşı hangi yılda kabul edilmiştir?",
+        "options": {
+            "A": "1920",
+            "B": "1921",
+            "C": "1922",
+            "D": "1923"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "İstiklal Marşı, 12 Mart 1921 tarihinde TBMM tarafından milli marş olarak kabul edilmiştir."
+    },
+    {
+        "question": "Hangi ülkenin başkenti Tokyo'dur?",
+        "options": {
+            "A": "Çin",
+            "B": "Güney Kore",
+            "C": "Japonya",
+            "D": "Tayland"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Japonya'nın başkenti olan Tokyo, dünyanın en kalabalık metropollerinden biridir."
+    },
+    {
+        "question": "İnsan vücudunda oksijen taşıyan hücreler hangileridir?",
+        "options": {
+            "A": "Akyuvarlar",
+            "B": "Kan pulcukları",
+            "C": "Alyuvarlar",
+            "D": "Plazma hücreleri"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Alyuvarlar (eritrositler), içerdikleri hemoglobin sayesinde oksijeni dokulara taşır."
+    },
+    {
+        "question": "Pusulada batı yönünü hangi harf temsil eder?",
+        "options": {
+            "A": "N",
+            "B": "S",
+            "C": "E",
+            "D": "W"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "İngilizce 'West' kelimesinin baş harfi olan 'W', pusulada batıyı gösterir."
+    },
+    {
+        "question": "Dünyanın en büyük okyanusu hangisidir?",
+        "options": {
+            "A": "Atlas Okyanusu",
+            "B": "Hint Okyanusu",
+            "C": "Büyük Okyanus",
+            "D": "Kuzey Buz Denizi"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Büyük Okyanus (Pasifik), yerkürenin üçte birini kaplayan en büyük okyanustur."
+    },
+    {
+        "question": "Sıcaklığı ölçmek için kullanılan standart alet hangisidir?",
+        "options": {
+            "A": "Barometre",
+            "B": "Termometre",
+            "C": "Higrometre",
+            "D": "Kronometre"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Termometre, sıcaklık değişimlerini ölçmek için kullanılan araçtır."
+    },
+    {
+        "question": "Hangi elementin kimyasal simgesi 'O'dur?",
+        "options": {
+            "A": "Altın",
+            "B": "Oksijen",
+            "C": "Osmiyum",
+            "D": "Kurşun"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Oksijen, periyodik tabloda 'O' harfiyle temsil edilir."
+    },
+    {
+        "question": "Türkiye'nin coğrafi olarak kaç bölgesi vardır?",
+        "options": {
+            "A": "5",
+            "B": "6",
+            "C": "7",
+            "D": "8"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Türkiye, 1941 Coğrafya Kongresi'nde 7 coğrafi bölgeye ayrılmıştır."
+    },
+    {
+        "question": "Üç büyük dinde de kutsal kabul edilen şehir hangisidir?",
+        "options": {
+            "A": "Mekke",
+            "B": "Vatikan",
+            "C": "Kudüs",
+            "D": "Kahire"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Kudüs; İslam, Hristiyanlık ve Musevilik dinleri için kutsal kabul edilen kadim bir şehirdir."
+    },
+    {
+        "question": "Kızılay'ın simgesinde hangi sembol bulunur?",
+        "options": {
+            "A": "Kırmızı Haç",
+            "B": "Kırmızı Hilal",
+            "C": "Mavi Yıldız",
+            "D": "Yeşil Yaprak"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Kızılay, amblem olarak beyaz zemin üzerinde sola bakan kırmızı bir hilal kullanır."
+    },
+    {
+        "question": "Yazıyı bularak tarihi devirleri başlatan ilk uygarlık hangisidir?",
+        "options": {
+            "A": "Mısırlılar",
+            "B": "Sümerler",
+            "C": "Babiller",
+            "D": "Asurlular"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Sümerler, MÖ 3500 civarında çivi yazısını icat ederek tarihi çağları başlatmıştır."
+    },
+    {
+        "question": "Cumhuriyetimizin kurucusu Mustafa Kemal Atatürk'ün doğum yılı hangisidir?",
+        "options": {
+            "A": "1880",
+            "B": "1881",
+            "C": "1919",
+            "D": "1938"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mustafa Kemal Atatürk, 1881 yılında Selanik'te doğmuştur."
+    },
+    {
+        "question": "Geceleri gökyüzünde en parlak görünen yıldız hangisidir?",
+        "options": {
+            "A": "Kutup Yıldızı",
+            "B": "Sirius (Akyıldız)",
+            "C": "Proxima Centauri",
+            "D": "Betelgeuse"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Büyük Köpek Takımyıldızı'nda yer alan Sirius (Akyıldız), gökyüzünün en parlak yıldızıdır."
+    },
+    {
+        "question": "İlk Türk astronotun adı nedir?",
+        "options": {
+            "A": "Alper Gezeravcı",
+            "B": "Tuva Cihangir Atasever",
+            "C": "Umut Yıldız",
+            "D": "Halil Kayıkçı"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Alper Gezeravcı, Ocak 2024'te Axiom Mission 3 göreviyle uzaya giden ilk Türk astronot olmuştur."
+    },
+    {
+        "question": "Kimya biliminde tuzun formülü aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "H2O",
+            "B": "CO2",
+            "C": "NaCl",
+            "D": "HCl"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Sodyum Klorür (NaCl), günlük hayatta kullandığımız sofra tuzunun kimyasal adıdır."
+    },
+    {
+        "question": "Galatasaray futbol takımının simgesi hangi hayvandır?",
+        "options": {
+            "A": "Kartal",
+            "B": "Kanarya",
+            "C": "Aslan",
+            "D": "Kurt"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Galatasaray spor kulübü, geleneksel olarak 'Aslanlar' olarak anılır ve simgesi aslandır."
+    },
+    {
+        "question": "Fenerbahçe futbol takımının simgesi hangi hayvandır?",
+        "options": {
+            "A": "Kanarya",
+            "B": "Kartal",
+            "C": "Aslan",
+            "D": "Şahin"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Fenerbahçe, 'Sarı Kanaryalar' olarak anılır ve simgesi sarı kanaryadır."
+    },
+    {
+        "question": "Beşiktaş futbol takımının simgesi hangi hayvandır?",
+        "options": {
+            "A": "Aslan",
+            "B": "Kartal",
+            "C": "Kanarya",
+            "D": "Timsah"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Beşiktaş spor kulübü, 'Kara Kartallar' olarak anılır ve simgesi kara kartaldır."
+    },
+    {
+        "question": "Dünyanın en kalabalık ülkesi hangisidir?",
+        "options": {
+            "A": "Çin",
+            "B": "Hindistan",
+            "C": "ABD",
+            "D": "Endonezya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "2023 yılı verilerine göre Hindistan, Çin'i geride bırakarak dünyanın en kalabalık nüfusuna sahip ülkesi olmuştur."
+    },
+    {
+        "question": "Kendi ürettiği ışıkla parlayan, ısı ve ışık kaynağı gök cisimlerine ne ad verilir?",
+        "options": {
+            "A": "Gezegen",
+            "B": "Uydu",
+            "C": "Yıldız",
+            "D": "Asteroit"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Yıldızlar, çekirdeklerinde gerçekleşen nükleer füzyon sayesinde kendi ısı ve ışıklarını üretirler."
+    },
+    {
+        "question": "Ünlü 'Kaplumbağa Terbiyecisi' tablosu hangi Türk ressama aittir?",
+        "options": {
+            "A": "Abidin Dino",
+            "B": "Şeker Ahmet Paşa",
+            "C": "Osman Hamdi Bey",
+            "D": "Fikret Mualla"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Osman Hamdi Bey tarafından 1906 yılında çizilen bu tablo Türk resim sanatının en değerli eserlerindendir."
+    },
+    {
+        "question": "Telefonu açtığımızda söylediğimiz ilk kelime genellikle hangisidir?",
+        "options": {
+            "A": "Merhaba",
+            "B": "Efendim",
+            "C": "Alo",
+            "D": "Selam"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Alexander Graham Bell'in sevgilisi Allessandra Lolita Oswaldo'nun baş harflerinden türediği iddia edilen 'Alo', dünya genelinde standart telefon selamıdır."
+    },
+    {
+        "question": "Karadeniz ile Marmara Denizi'ni birbirine bağlayan doğal su yolu hangisidir?",
+        "options": {
+            "A": "Çanakkale Boğazı",
+            "B": "İstanbul Boğazı",
+            "C": "Süveyş Kanalı",
+            "D": "Panama Kanalı"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "İstanbul Boğazı, Asya ile Avrupa'yı ayırırken Karadeniz ile Marmara'yı birleştirir."
+    },
+    {
+        "question": "Hangisi ışık yılı (light year) biriminin ölçtüğü fiziksel niceliktir?",
+        "options": {
+            "A": "Zaman",
+            "B": "Mesafe",
+            "C": "Hız",
+            "D": "Kütle"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Işık yılı, ışığın boşlukta bir yılda katettiği mesafeyi belirtir ve yaklaşık 9.5 trilyon kilometredir."
+    },
+    {
+        "question": "Kan grubunu belirleyen proteinler (antijenler) alyuvarların neresinde bulunur?",
+        "options": {
+            "A": "Çekirdeğinde",
+            "B": "Zarında",
+            "C": "Sitoplazmasında",
+            "D": "Mitokondrisinde"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Alyuvar hücrelerinin zarında bulunan A ve B antijenleri, insanın kan grubunu belirler."
+    },
+    {
+        "question": "Osmanlı döneminde ilk matbaayı kuran İbrahim Müteferrika aslen nerelidir?",
+        "options": {
+            "A": "Macaristan",
+            "B": "Polonya",
+            "C": "Romanya",
+            "D": "Bulgaristan"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İbrahim Müteferrika, Macaristan kökenli olup sonradan Osmanlı hizmetine girmiş bir devlet adamı ve yayımcıdır."
+    },
+    {
+        "question": "Hangi hayvanın anne sütü doğal olarak pembe renklidir?",
+        "options": {
+            "A": "Su Aygırı",
+            "B": "Mavi Balina",
+            "C": "Kutup Ayısı",
+            "D": "Zürafa"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Su aygırlarının sütü, salgıladıkları özel kırmızımsı asitlerle birleşerek pembe bir renk alır."
+    },
+    {
+        "question": "İnsan vücudundaki en küçük kemik olan 'üzengi kemiği' vücudun hangi organında yer alır?",
+        "options": {
+            "A": "Burun",
+            "B": "Kulak",
+            "C": "El bileği",
+            "D": "Ayak parmağı"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Orta kulakta bulunan üzengi kemiği, yaklaşık 3 milimetrelik boyuyla vücudumuzun en küçük kemiğidir."
+    },
+    {
+        "question": "Prestijli Nobel Barış Ödülü resmi olarak hangi şehirde verilmektedir?",
+        "options": {
+            "A": "Stockholm",
+            "B": "Oslo",
+            "C": "Kopenhag",
+            "D": "Helsinki"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Diğer tüm Nobel ödülleri İsveç Stockholm'de verilirken, Barış ödülü vasiyet gereği Norveç Oslo'da takdim edilir."
+    },
+    {
+        "question": "Girintili ve çıkıntılı yapısı nedeniyle Türkiye'nin en uzun kıyı şeridine sahip denizi hangisidir?",
+        "options": {
+            "A": "Karadeniz",
+            "B": "Akdeniz",
+            "C": "Ege Denizi",
+            "D": "Marmara Denizi"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Ege Denizi kıyıları çok girintili ve çıkıntılı (enine kıyı tipi) olduğundan kıyı uzunluğu diğer denizlerden fazladır."
+    },
+    {
+        "question": "Dünya üzerinde aktif hiçbir yanardağın bulunmadığı kıta hangisidir?",
+        "options": {
+            "A": "Avustralya",
+            "B": "Avrupa",
+            "C": "Asya",
+            "D": "Güney Amerika"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Avustralya anakarası, tektonik olarak çok kararlı olduğundan aktif yanardağı olmayan tek kıta Avustralya'dır."
+    },
+    {
+        "question": "Ünlü ressam Vincent van Gogh hangi ülkenin vatandaşıydı?",
+        "options": {
+            "A": "Fransa",
+            "B": "Hollanda",
+            "C": "Belçika",
+            "D": "İtalya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Van Gogh, 1853 yılında Hollanda'da doğmuş ve post-izlenimci akımın en önemli temsilcilerinden biri olmuştur."
+    },
+    {
+        "question": "Birleşmiş Milletler Güvenlik Konseyi'nin beş daimi üyesinden biri hangisidir?",
+        "options": {
+            "A": "Almanya",
+            "B": "Fransa",
+            "C": "Japonya",
+            "D": "Kanada"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Daimi üyeler ABD, Rusya, Çin, İngiltere ve Fransa'dır. Almanya ve Japonya daimi üye değildir."
+    },
+    {
+        "question": "Standart bir satranç tahtasında oyun başlangıcında toplam kaç adet piyon bulunur?",
+        "options": {
+            "A": "16",
+            "B": "24",
+            "C": "32",
+            "D": "8"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Her iki oyuncunun 8'er adet piyonu bulunur, bu da toplamda 16 piyon yapar."
+    },
+    {
+        "question": "Dünyanın en derin tatlı su gölü olan Baykal Gölü hangi ülkenin sınırları içindedir?",
+        "options": {
+            "A": "Rusya",
+            "B": "Kanada",
+            "C": "Moğolistan",
+            "D": "Çin"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Sibirya'da bulunan Baykal Gölü, 1642 metrelik derinliğiyle dünyanın en derin ve en eski gölüdür."
+    },
+    {
+        "question": "Tarihteki ilk yapay uydu olan Sputnik-1'i uzaya fırlatan ülke hangisidir?",
+        "options": {
+            "A": "Amerika Birleşik Devletleri",
+            "B": "Sovyetler Birliği",
+            "C": "Birleşik Krallık",
+            "D": "Fransa"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Sovyetler Birliği, 4 Ekim 1957'de Sputnik-1'i fırlatarak uzay çağını resmen başlatmıştır."
+    },
+    {
+        "question": "Geometrik bir cisim olan standart bir küpün toplam kaç adet ayrıtı (kenarı) vardır?",
+        "options": {
+            "A": "8",
+            "B": "12",
+            "C": "16",
+            "D": "6"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Bir küpün 6 yüzü, 8 köşesi ve tam olarak 12 adet ayrıtı bulunmaktadır."
+    },
+    {
+        "question": "Kırmızı renkli pusula iğnesi (pusula ibresi) her zaman hangi yönü gösterir?",
+        "options": {
+            "A": "Kuzey",
+            "B": "Güney",
+            "C": "Batı",
+            "D": "Doğu"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Pusulanın mıknatıslı kırmızı ucu, dünyanın manyetik alan çizgilerini takip ederek Kuzey yönünü gösterir."
+    },
+    {
+        "question": "'Bugünün işini ... bırakma.' atasözünün son kelimesi hangisidir?",
+        "options": {
+            "A": "Yarına",
+            "B": "Akşama",
+            "C": "Haftaya",
+            "D": "Seneye"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "'Bugünün işini yarına bırakma' atasözü, işleri ertelemememiz gerektiğini vurgular."
+    },
+    {
+        "question": "'Gülme komşuna, gelir ... .' atasözü nasıl tamamlanır?",
+        "options": {
+            "A": "Başına",
+            "B": "Evine",
+            "C": "Kapına",
+            "D": "Cebine"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "'Gülme komşuna, gelir başına' atasözü, başkalarının dertleriyle alay edilmemesi gerektiğini hatırlatır."
+    },
+    {
+        "question": "Kalbi vücudunun kafasında (baş kısmında) yer alan canlı hangisidir?",
+        "options": {
+            "A": "Karides",
+            "B": "Istakoz",
+            "C": "Kalamar",
+            "D": "Ahtapot"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Karideslerin kalbi ve diğer bazı hayati organları baş kısımlarında yer alır."
+    },
+    {
+        "question": "2022 FIFA Dünya Kupası finali hangi iki ülke arasında oynanmıştır?",
+        "options": {
+            "A": "Fransa - Hırvatistan",
+            "B": "Arjantin - Fransa",
+            "C": "Arjantin - Brezilya",
+            "D": "Brezilya - Fransa"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "2022 Katar Dünya Kupası finali nefes kesen maçın ardından Arjantin ve Fransa arasında oynanmış, kupayı penaltılarda Arjantin kazanmıştır."
+    },
+    {
+        "question": "'Sinekli Bakkal' romanının yazarı hangisidir?",
+        "options": {
+            "A": "Halide Edib Adıvar",
+            "B": "Reşat Nuri Güntekin",
+            "C": "Yakup Kadri Karaosmanoğlu",
+            "D": "Peyami Safa"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Sinekli Bakkal, Türk edebiyatının kurucu kadın yazarlarından Halide Edib Adıvar'ın en bilinen eseridir."
+    },
+    {
+        "question": "Bukalemunlar renk değiştirme yeteneğini öncelikle ne amaçla kullanırlar?",
+        "options": {
+            "A": "Kamuflaj",
+            "B": "Sıcaklık kontrolü ve iletişim",
+            "C": "Avcılık",
+            "D": "Görme yeteneğini artırmak"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Bukalemunlar renklerini çoğunlukla duygusal durumlarını (iletişim) ve vücut sıcaklıklarını ayarlamak için değiştirirler."
+    },
+    {
+        "question": "Hangi kimyasal elementin simgesi 'Au' harfleriyle gösterilir?",
+        "options": {
+            "A": "Altın",
+            "B": "Gümüş",
+            "C": "Bakır",
+            "D": "Platin"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Altın elementinin simgesi, Latince parıldayan güneş anlamına gelen 'Aurum' kelimesinden gelen 'Au'dur."
+    },
+    {
+        "question": "'O pikap, bu pikap, şu pikap' tekerlemesinde tekrarlanan ana kelime nedir?",
+        "options": {
+            "A": "Pikap",
+            "B": "Kitap",
+            "C": "Dolap",
+            "D": "Serap"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Klasik tekerleme 'O pikap, bu pikap, şu pikap' kelimelerini arka arkaya hızlıca söyleme üzerine kuruludur."
+    },
+    {
+        "question": "Bir futbol maçında aynı maçta 3 gol atan bir oyuncunun yaptığı bu işleme ne ad verilir?",
+        "options": {
+            "A": "Hat-trick",
+            "B": "Double",
+            "C": "Asist",
+            "D": "Aut"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Futbolda bir maçta aynı oyuncunun 3 gol atmasına 'hat-trick' denir."
+    },
+    {
+        "question": "Osmanlı İmparatorluğu'nun İstanbul'u fetheden yedinci padişahı kimdir?",
+        "options": {
+            "A": "Fatih Sultan Mehmet",
+            "B": "Yavuz Sultan Selim",
+            "C": "Kanuni Sultan Süleyman",
+            "D": "II. Bayezid"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Fatih Sultan Mehmet (II. Mehmed), 1453 yılında İstanbul'u fethederek Fatih unvanını almıştır."
+    },
+    {
+        "question": "Yüzölçümü bakımından dünyanın en büyük ülkesi hangisidir?",
+        "options": {
+            "A": "Kanada",
+            "B": "Rusya",
+            "C": "Çin",
+            "D": "Amerika Birleşik Devletleri"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Rusya, 17 milyon kilometrekarelik yüzölçümüyle dünyanın en geniş ülkesidir."
+    },
+    {
+        "question": "Pusuladaki 'S' harfi hangi yönü temsil eder?",
+        "options": {
+            "A": "Kuzey",
+            "B": "Batı",
+            "C": "Güney",
+            "D": "Doğu"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Pusuladaki 'S' harfi İngilizce 'South' kelimesinden gelir ve Güney yönünü gösterir."
+    },
+    {
+        "question": "Hangisi hem karada hem suda yaşayabilen (amfibi) bir canlıdır?",
+        "options": {
+            "A": "Kurbağa",
+            "B": "Sazan Balığı",
+            "C": "Kertenkele",
+            "D": "Bukalemun"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Kurbağalar, yaşam döngülerinde hem su altında hem de karada nefes alabilen amfibilerdir."
+    },
+    {
+        "question": "Işık hızı boşlukta saniyede yaklaşık kaç kilometredir?",
+        "options": {
+            "A": "300.000 km",
+            "B": "150.000 km",
+            "C": "450.000 km",
+            "D": "600.000 km"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Işık hızı saniyede yaklaşık 299.792 km, yani düz hesap 300 bin kilometredir."
+    },
+    {
+        "question": "Ünlü 'Don Kişot' romanının yazarı kimdir?",
+        "options": {
+            "A": "Cervantes",
+            "B": "Shakespeare",
+            "C": "Dante",
+            "D": "Moliere"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Don Kişot, İspanyol yazar Miguel de Cervantes tarafından kaleme alınmış ilk modern romandır."
+    },
+    {
+        "question": "Klasik müzik bestecisi Ludwig van Beethoven hangi duyusunu tamamen kaybetmesine rağmen beste yapmaya devam etmiştir?",
+        "options": {
+            "A": "Görme",
+            "B": "Dokunma",
+            "C": "İşitme",
+            "D": "Koklama"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Beethoven, ilerleyen yaşlarında tamamen sağır olmasına rağmen başyapıtlarından 9. Senfoni'yi bestelemiştir."
+    },
+    {
+        "question": "Oscar Ödülleri'ni düzenleyen resmi kurum hangi ülkededir?",
+        "options": {
+            "A": "İngiltere",
+            "B": "ABD",
+            "C": "Fransa",
+            "D": "İtalya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Oscar Ödülleri, ABD merkezli Sinema Sanatları ve Bilimleri Akademisi tarafından dağıtılır."
+    },
+    {
+        "question": "Kağıt para basma yetkisine sahip olan kurum hangisidir?",
+        "options": {
+            "A": "Hazine Müsteşarlığı",
+            "B": "Merkez Bankası",
+            "C": "Darphane",
+            "D": "Maliye Bakanlığı"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Madeni paraları Darphane basarken, kağıt banknot basma tekel yetkisi Merkez Bankası'na aittir."
+    },
+    {
+        "question": "Astronomi: Güneş Sistemi'nde kendi etrafında yatay olarak (yan yatmış bir varil gibi) dönen gezegen hangisidir?",
+        "options": {
+            "A": "Uranüs",
+            "B": "Venüs",
+            "C": "Jüpiter",
+            "D": "Satürn"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Uranüs, 98 derecelik eksen eğikliğiyle adeta yan yatmış bir varil gibi yuvarlanarak döner."
+    },
+    {
+        "question": "Kurtuluş Savaşı'nı resmen sonlandıran antlaşma hangisidir?",
+        "options": {
+            "A": "Mondros Mütarekesi",
+            "B": "Mudanya Mütarekesi",
+            "C": "Sevr Antlaşması",
+            "D": "Lozan Barış Antlaşması"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "11 Ekim 1922'de imzalanan Mudanya Mütarekesi, Kurtuluş Savaşı'nın askeri safhasını bitiren ateşkes antlaşmasıdır."
+    },
+    {
+        "question": "Mitoloji: Yunan mitolojisinde şimşekleri kontrol eden tanrıların kralı kimdir?",
+        "options": {
+            "A": "Zeus",
+            "B": "Poseidon",
+            "C": "Hades",
+            "D": "Ares"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Zeus, Olimpos Dağı'nın hakimi, tanrıların ve insanların babası, gökyüzü ve şimşek tanrısıdır."
+    },
+    {
+        "question": "Dünyadaki en büyük kuş türü hangisidir?",
+        "options": {
+            "A": "Albatros",
+            "B": "Kartal",
+            "C": "Devekuşu",
+            "D": "Kondor"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Devekuşu, uçamayan ama saatte 70 km hıza çıkabilen dünyadaki en büyük ve ağır kuş türüdür."
+    },
+    {
+        "question": "Penaltı noktası ile kale çizgisi arasındaki mesafe kaç metredir?",
+        "options": {
+            "A": "9 metre",
+            "B": "11 metre",
+            "C": "13 metre",
+            "D": "7 metre"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Penaltı noktası, kale çizgisinin tam ortasından 11 metre (12 yarda) uzaklıkta bulunur."
+    },
+    {
+        "question": "Cumhuriyet hangi tarihte ilan edilmiştir?",
+        "options": {
+            "A": "23 Nisan 1920",
+            "B": "29 Ekim 1923",
+            "C": "30 Ağustos 1922",
+            "D": "19 Mayıs 1919"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Cumhuriyet, 29 Ekim 1923'te TBMM tarafından ilan edilmiştir."
+    },
+    {
+        "question": "Türkiye'nin en büyük gölü hangisidir?",
+        "options": {
+            "A": "Tuz Gölü",
+            "B": "Van Gölü",
+            "C": "Beyşehir Gölü",
+            "D": "Eğirdir Gölü"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Van Gölü, sodalı sularıyla Türkiye'nin en geniş yüzölçümüne sahip gölüdür."
+    },
+    {
+        "question": "'Çalıkuşu' romanının yazarı kimdir?",
+        "options": {
+            "A": "Halide Edib Adıvar",
+            "B": "Reşat Nuri Güntekin",
+            "C": "Peyami Safa",
+            "D": "Ömer Seyfettin"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Reşat Nuri Güntekin'in ünlü eseri Çalıkuşu, öğretmen Feride'nin Anadolu'daki maceralarını anlatır."
+    },
+    {
+        "question": "Hababam Sınıfı filmlerinde 'İnek Şaban' karakterini canlandıran efsanevi oyuncumuz kimdir?",
+        "options": {
+            "A": "Kemal Sunal",
+            "B": "Şener Şen",
+            "C": "Halit Akçatepe",
+            "D": "Tarık Akan"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Kemal Sunal, Türk sinema tarihine damga vuran İnek Şaban karakterine hayat vermiştir."
+    },
+    {
+        "question": "'Tatlı dil yılanı ... çıkarır.' atasözündeki boşluğa hangisi gelmelidir?",
+        "options": {
+            "A": "Yuvadan",
+            "B": "Deliğinden",
+            "C": "Ormandan",
+            "D": "Kovuğundan"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "'Tatlı dil yılanı deliğinden çıkarır' atasözü, hoşgörülü ve güzel konuşmanın en zorlu insanları bile ikna edebileceğini belirtir."
+    },
+    {
+        "question": "'Öfkeyle kalkan ... oturur.' atasözü nasıl tamamlanır?",
+        "options": {
+            "A": "Zararla",
+            "B": "Pişmanlıkla",
+            "C": "Hüzünle",
+            "D": "Ayıpla"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "'Öfkeyle kalkan zararla oturur' atasözü, kontrolsüz öfkeyle yapılan eylemlerin sonunun kötü olacağını söyler."
+    },
+    {
+        "question": "Suyun kaynama noktası deniz seviyesinde kaç derecedir?",
+        "options": {
+            "A": "80 derece",
+            "B": "100 derece",
+            "C": "120 derece",
+            "D": "90 derece"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Saf su, standart atmosfer basıncında (deniz seviyesinde) tam olarak 100 santigrat derecede kaynar."
+    },
+    {
+        "question": "İstiklal Marşı'mız toplam kaç kıtadan oluşur?",
+        "options": {
+            "A": "8 kıta",
+            "B": "10 kıta",
+            "C": "12 kıta",
+            "D": "9 kıta"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "İstiklal Marşı, 9 adet dörtlük ve 1 adet beşlik olmak üzere toplam 10 kıtadan oluşmaktadır."
+    },
+    {
+        "question": "Kağıt para üzerine resmi basılan ilk ve tek Türk kadını kimdir?",
+        "options": {
+            "A": "Halide Edib Adıvar",
+            "B": "Fatma Aliye Hanım",
+            "C": "Sabiha Gökçen",
+            "D": "Türkan Akyol"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Fatma Aliye Hanım, Türk edebiyatının ilk kadın romancısı olarak 50 TL'lik banknotun arkasında yer alır."
+    },
+    {
+        "question": "Kurtuluş Savaşı'nda 'Ordular, ilk hedefiniz Akdeniz'dir, ileri!' emrini veren lider kimdir?",
+        "options": {
+            "A": "Mustafa Kemal Atatürk",
+            "B": "İsmet İnönü",
+            "C": "Fevzi Çakmak",
+            "D": "Kazım Karabekir"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Atatürk bu tarihi emri Büyük Taarruz sırasında, 1 Eylül 1922'de vermiştir."
+    },
+    {
+        "question": "Hangisi uçabilen tek memeli hayvandır?",
+        "options": {
+            "A": "Yarasa",
+            "B": "Uçan Sincap",
+            "C": "Baykuş",
+            "D": "Kartal"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Yarasalar, aktif uçuş yapabilen yegane memeli hayvan grubudur (diğerleri süzülür)."
+    },
+    {
+        "question": "Türkiye'nin başkenti Ankara hangi coğrafi bölgemizde yer alır?",
+        "options": {
+            "A": "İç Anadolu Bölgesi",
+            "B": "Marmara Bölgesi",
+            "C": "Karadeniz Bölgesi",
+            "D": "Ege Bölgesi"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Ankara, İç Anadolu Bölgesi'nin merkezinde yer almaktadır."
+    },
+    {
+        "question": "İnsan vücudundaki en sert doku hangisidir?",
+        "options": {
+            "A": "Kemik dokusu",
+            "B": "Diş minesi",
+            "C": "Kıkırdak dokusu",
+            "D": "Tırnak dokusu"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Diş minesi, yüksek mineral içeriğiyle insan vücudundaki en sert ve en dayanıklı maddedir."
+    },
+    {
+        "question": "İstiklal Marşı'mızın şairi kimdir?",
+        "options": {
+            "A": "Mehmet Akif Ersoy",
+            "B": "Namık Kemal",
+            "C": "Ziya Gökalp",
+            "D": "Tevfik Fikret"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Mehmet Akif Ersoy, marşımızı Türk ordusuna ithaf ederek yazmış ve telif ödülünü bağışlamıştır."
+    },
+    {
+        "question": "Güneş sistemindeki en sıcak gezegen hangisidir?",
+        "options": {
+            "A": "Merkür",
+            "B": "Venüs",
+            "C": "Mars",
+            "D": "Jüpiter"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Güneş'e en yakın gezegen Merkür olsa da, Venüs kalın atmosferinin yarattığı sera etkisiyle en sıcak gezegendir (460°C)."
+    },
+    {
+        "question": "'Şu köşe yaz köşesi, şu köşe kış köşesi, ortada ... şişesi.' tekerlemesindeki boşluk nedir?",
+        "options": {
+            "A": "Su",
+            "B": "Gazoz",
+            "C": "Su pusu",
+            "D": "Süt"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Tekerleme 'ortada su pusu şişesi' veya 'ortadaki su şişesi' olarak bilinir, orijinali 'su pusu'dur."
+    },
+    {
+        "question": "Osmanlı İmparatorluğu'nun ilk padişahı kimdir?",
+        "options": {
+            "A": "Osman Gazi",
+            "B": "Orhan Gazi",
+            "C": "Ertuğrul Gazi",
+            "D": "I. Murat"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Osmanlı Devleti'nin kurucusu ve ilk hükümdarı Osman Bey (Osman Gazi)dir."
+    },
+    {
+        "question": "Kemal Sunal'ın oynadığı ünlü 'Tosun Paşa' filminde Yeşil vadiyi paylaşamayan iki aile hangileridir?",
+        "options": {
+            "A": "Tellioğulları ve Seferoğulları",
+            "B": "Dursunoğulları ve Yılmazoğulları",
+            "C": "Kocabaşlar ve Şahinler",
+            "D": "Kadirler ve Şakirler"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Tosun Paşa filminde Tellioğulları ve Seferoğulları aileleri Yeşil Vadi için kıyasıya mücadele eder."
+    },
+    {
+        "question": "Bir basketbol maçında oyuncunun yaptığı faul sınırı (oyundan atılma limiti) kaçtır?",
+        "options": {
+            "A": "4 faul",
+            "B": "5 faul",
+            "C": "6 faul",
+            "D": "3 faul"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "FIBA kurallarına göre bir oyuncu 5 faul yaptığında oyun dışı kalır (NBA'de bu limit 6'dır)."
+    },
+    {
+        "question": "Trafik ışıklarında 'Hazırlan' anlamına gelen renk hangisidir?",
+        "options": {
+            "A": "Sarı",
+            "B": "Kırmızı",
+            "C": "Yeşil",
+            "D": "Mavi"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Sarı ışık, kırmızıdan sonra yandığında geçişe hazırlanmayı, yeşilden sonra yandığında ise durmaya hazırlanmayı belirtir."
+    },
+    {
+        "question": "Bitkilerin güneş ışığını kullanarak besin üretmesine ne ad verilir?",
+        "options": {
+            "A": "Solunum",
+            "B": "Fotosentez",
+            "C": "Terleme",
+            "D": "Sindirim"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Fotosentez, bitkilerin karbondioksit ve suyu güneş ışığıyla glukoza ve oksijene dönüştürmesidir."
+    },
+    {
+        "question": "Normal bir insanda kaç adet kaburga kemiği bulunur?",
+        "options": {
+            "A": "12 çift (24 adet)",
+            "B": "10 çift (20 adet)",
+            "C": "14 çift (28 adet)",
+            "D": "8 çift (16 adet)"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İnsanlarda sağda 12 ve solda 12 olmak üzere toplam 24 adet (12 çift) kaburga kemiği bulunur."
+    },
+    {
+        "question": "Türk edebiyatındaki ilk yerli roman olan 'Taaşşuk-ı Talat ve Fitnat'ın yazarı kimdir?",
+        "options": {
+            "A": "Şemsettin Sami",
+            "B": "Namık Kemal",
+            "C": "Ahmet Mithat Efendi",
+            "D": "Recaizade Mahmut Ekrem"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Talat ve Fitnat'ın aşkını konu alan bu ilk roman Şemsettin Sami tarafından kaleme alınmıştır."
+    },
+    {
+        "question": "Dünyadaki en uzun sıradağlar zinciri hangisidir?",
+        "options": {
+            "A": "Himalayalar",
+            "B": "And Dağları",
+            "C": "Alpler",
+            "D": "Kayalık Dağları"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Güney Amerika'daki And Dağları, yaklaşık 7.000 km uzunluğuyla dünyanın en uzun kara sıradağlarıdır."
+    },
+    {
+        "question": "Işık boşlukta yayılabilirken, ses dalgaları boşlukta yayılabilir mi?",
+        "options": {
+            "A": "Evet, yayılabilir",
+            "B": "Hayır, yayılamaz",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Ses mekanik bir dalgadır ve yayılması için maddesel bir ortama (hava, su vb.) ihtiyaç duyar."
+    },
+    {
+        "question": "Sevimli kutup canlıları olan penguenler biyolojik olarak kuş sınıfına mı girer?",
+        "options": {
+            "A": "Evet, kuş sınıfındadır",
+            "B": "Hayır, memeli sınıfındadır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Penguenler uçamayan, kanatlarını yüzgeç gibi kullanan deniz kuşlarıdır. Yumurtlayarak çoğalırlar."
+    },
+    {
+        "question": "Mustafa Kemal Atatürk'ün nüfusa kayıtlı olduğu Türkiye ili hangisidir?",
+        "options": {
+            "A": "Ankara",
+            "B": "Gaziantep",
+            "C": "İstanbul",
+            "D": "Selanik"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Atatürk, Gaziantep'in Şahinbey ilçesi nüfusuna kaydedilerek onursal hemşehri ilan edilmiştir."
+    },
+    {
+        "question": "İki adet tek sayının çarpımından elde edilen sonuç her zaman tek sayı mıdır?",
+        "options": {
+            "A": "Evet, her zaman tektir",
+            "B": "Hayır, bazen çifttir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Matematiksel olarak iki tek sayının çarpımı her zaman tektir. Örneğin: 3 x 5 = 15."
+    },
+    {
+        "question": "Muz bitkisi botanik açıdan odunsu bir ağaç mıdır yoksa otsu bir bitki midir?",
+        "options": {
+            "A": "Odunsu bir ağaçtır",
+            "B": "Otsu bir bitkidir",
+            "C": "Çalı grubuna giren bir bitkidir",
+            "D": "Liken familyasından bir mantardır"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Muz ağacı denilse de odunsu bir gövdeye sahip olmadığından muz aslında devasa otsu bir bitkidir."
+    },
+    {
+        "question": "Türkiye'nin yüzölçümü (toprak büyüklüğü) bakımından en büyük ili hangisidir?",
+        "options": {
+            "A": "Konya",
+            "B": "Ankara",
+            "C": "Sivas",
+            "D": "Erzurum"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Konya, 38 bin kilometrekareyi aşan yüzölçümüyle Türkiye'nin en büyük ilidir."
+    },
+    {
+        "question": "Dünya'nın kendi ekseni etrafındaki dönüş çizgisel hızı ekvatorda mı daha fazladır?",
+        "options": {
+            "A": "Evet, ekvatorda fazladır",
+            "B": "Hayır, kutuplarda fazladır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Ekvatorda dönüş yarıçapı en büyük olduğu için çizgisel hız en fazladır (saatte yaklaşık 1670 km)."
+    },
+    {
+        "question": "Bir madeni para 10 kez atılmış ve hepsi tura gelmiştir. 11. atışta yazı gelme olasılığı nedir?",
+        "options": {
+            "A": "%50 olasılıktır",
+            "B": "%90'dan yüksek olasılıktır",
+            "C": "%100 kesinliktedir",
+            "D": "%10 olasılıktır"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Geçmiş atışlar sonraki atışı etkilemez; her atış bağımsız bir olaydır ve şans her zaman yarı yarıyadır."
+    },
+    {
+        "question": "Kıbrıs adası, yüzölçümü bakımından Akdeniz'in en büyük adası mıdır?",
+        "options": {
+            "A": "Evet, en büyük adadır",
+            "B": "Hayır, en büyük ada değildir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Akdeniz'in en büyük adası Sicilya'dır. Kıbrıs adası ise Sicilya ve Sardinya'dan sonra 3. sıradadır."
+    },
+    {
+        "question": "Kaju fıstığı, kaju elması adı verilen bir meyvenin hemen altında büyüyen sapı mıdır?",
+        "options": {
+            "A": "Evet, meyvenin sapıdır",
+            "B": "Hayır, meyvenin çekirdeğidir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Kaju fıstığı, kaju elması meyvesinin altında gelişen sap benzeri çekirdekli yalancı meyve kısmıdır."
+    },
+    {
+        "question": "Efsanevi Truva Antik Kenti günümüzde Türkiye sınırları içerisinde midir?",
+        "options": {
+            "A": "Evet, Türkiye'dedir",
+            "B": "Hayır, Yunanistan'dadır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Truva antik kenti, Türkiye'de Çanakkale ili sınırları içinde Hisarlık tepesinde yer almaktadır."
+    },
+    {
+        "question": "Arıların başlarının üzerinde ve yanlarında toplam kaç adet gözü bulunur?",
+        "options": {
+            "A": "2 adet gözü vardır",
+            "B": "5 adet gözü vardır",
+            "C": "3 adet gözü vardır",
+            "D": "8 adet gözü vardır"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Arıların baş yanlarında 2 adet bileşik gözü, başın tepesinde ise ışığı algılayan 3 adet basit gözü vardır."
+    },
+    {
+        "question": "Dünyanın en uzun nehirlerinden biri olan Amazon Nehri hangi okyanusa dökülür?",
+        "options": {
+            "A": "Atlas Okyanusu",
+            "B": "Büyük Okyanus",
+            "C": "Hint Okyanusu",
+            "D": "Kuzey Buz Denizi"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Amazon nehri, Güney Amerika kıtasını batıdan doğuya geçerek sularını Atlas Okyanusu'na boşaltır."
+    },
+    {
+        "question": "Sağlıklı ve normal bir insanın vücudunda toplam kaç adet akciğer bulunur?",
+        "options": {
+            "A": "2 adet",
+            "B": "1 adet",
+            "C": "3 adet",
+            "D": "4 adet"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Göğüs kafesi içinde kalbin sağında ve solunda yer alan toplam 2 adet akciğerimiz vardır."
+    },
+    {
+        "question": "Sinekkuşu (Hummingbird) havada asılı kalabilen ve geriye doğru uçabilen tek kuş mudur?",
+        "options": {
+            "A": "Evet, tek kuştur",
+            "B": "Hayır, başka kuşlar da yapabilir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Kanat yapısı sayesinde helikopter gibi asılı kalabilen ve geriye doğru uçabilen tek kuş sinekkuşudur."
+    },
+    {
+        "question": "'Damlaya damlaya göl olur' atasözü temel olarak hangi kavramı anlatır?",
+        "options": {
+            "A": "Tasarruf ve birikim",
+            "B": "Cömertlik ve paylaşım",
+            "C": "Acele etmenin faydalarını",
+            "D": "Zamanın akıp gittiğini"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Küçük şeylerin birikerek büyük sonuçlar doğuracağını, tasarrufun önemini belirtir."
+    },
+    {
+        "question": "'Ağaç yaşken eğilir' atasözü neyi vurgulamaktadır?",
+        "options": {
+            "A": "Eğitimin küçük yaşta verilmesi gerektiğini",
+            "B": "Yaşlı insanların daha inatçı olduğunu",
+            "C": "Çevre kirliliğinin ağaçlara etkisini",
+            "D": "Gençlerin daha esnek olduğunu"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İnsanların küçük yaşta çok daha kolay eğitilip şekillendirilebileceğini ifade eder."
+    },
+    {
+        "question": "Futbol maçlarında bir oyuncunun doğrudan kırmızı kart görmesi durumunda en az kaç maç ceza alması beklenir?",
+        "options": {
+            "A": "1 Maç",
+            "B": "2 Maç",
+            "C": "3 Maç",
+            "D": "Ceza almaz, sadece o maçtan atılır"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Doğrudan kırmızı kart gören bir oyuncu kurallar gereği en az 1 maç otomatik ceza alır (ihlalin derecesine göre ceza artabilir)."
+    },
+    {
+        "question": "Mavi balinaların dilleri bir yetişkin fil kadar ağır olabilir mi?",
+        "options": {
+            "A": "Evet, olabilir",
+            "B": "Hayır, olamaz",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Mavi balinanın dili o kadar büyüktür ki ağırlığı bir yetişkin Asya filinin ağırlığına (yaklaşık 2.7-3 ton) eşdeğerdir."
+    },
+    {
+        "question": "İstiklal Marşımızın bestecisi Osman Zeki Üngör müdür?",
+        "options": {
+            "A": "Evet, odur",
+            "B": "Hayır, Mehmet Akif Ersoy'dur",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İstiklal Marşı'nın yazarı Mehmet Akif Ersoy, bestecisi ise cumhuriyet dönemi orkestra şefi Osman Zeki Üngör'dür."
+    },
+    {
+        "question": "Deve kuşları tehlike anında kafalarını kuma gömerler mi?",
+        "options": {
+            "A": "Hayır, bu bir mittir",
+            "B": "Evet, gömerler",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Deve kuşları kafalarını kuma gömmezler; tehlike anında yere uzanıp kendilerini gizlemeye çalışırlar, uzaktan bakınca gömmüş gibi görünürler."
+    },
+    {
+        "question": "'Damlaya damlaya göl olur' atasözü biriktirmeyi ve tasarrufu mu teşvik eder?",
+        "options": {
+            "A": "Evet, birikimi anlatır",
+            "B": "Hayır, su israfını anlatır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Küçük miktarların birikerek büyük değerlere dönüşebileceğini anlatan tasarruf atasözüdür."
+    },
+    {
+        "question": "İnsan vücudundaki en uzun ve en güçlü kemik uyluk kemiği midir?",
+        "options": {
+            "A": "Evet, uyluk kemiğidir",
+            "B": "Hayır, omurga kemiğidir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Uyluk kemiği (femur), kalça ile diz arasında yer alan vücudun en büyük, uzun ve dayanıklı kemiğidir."
+    },
+    {
+        "question": "Penguenler Güney Yarımküre'de mi yaşarlar?",
+        "options": {
+            "A": "Evet, Güney Yarımküre'de",
+            "B": "Hayır, Kuzey Kutbu'nda",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Penguenlerin neredeyse tamamı Güney Yarımküre'de (Antarktika, Güney Afrika vb.) yaşar. Kuzey Kutbu'nda penguen yoktur."
+    },
+    {
+        "question": "Kağıdı icat eden uygarlık Çinliler midir?",
+        "options": {
+            "A": "Evet, Çinlilerdir",
+            "B": "Hayır, Sümerlerdir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Modern anlamda yazı yazılabilir kağıt MS 105 yılında Çin'de Ts'ai Lun tarafından icat edilmiştir."
+    },
+    {
+        "question": "Astronomi: Ay, kendi etrafındaki dönüşünü ve Dünya etrafındaki dolanımını aynı sürede mi tamamlar?",
+        "options": {
+            "A": "Evet, bu yüzden hep aynı yüzünü görürüz",
+            "B": "Hayır, süreler farklıdır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Ay'ın kendi eksenindeki dönüşü ile Dünya etrafındaki dolanımı 27.3 gün sürer. Bu eşzamanlı dönüşten dolayı dünyadan hep aynı yüzü görülür."
+    },
+    {
+        "question": "Yetişkin bir insan vücudundaki kemik sayısı çocukluk dönemindekinden daha mı azdır?",
+        "options": {
+            "A": "Evet, kemikler büyüdükçe birleşir",
+            "B": "Hayır, yaşlandıkça yeni kemikler oluşur",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Bebekler yaklaşık 270 kemikle doğar, ancak büyüdükçe bazı kemikler birleşerek yetişkinlikte bu sayı 206'ya düşer."
+    },
+    {
+        "question": "Nobel ödülünü iki farklı alanda kazanan ilk ve tek kadın bilim insanı Marie Curie midir?",
+        "options": {
+            "A": "Evet, Fizik ve Kimya dallarında almıştır",
+            "B": "Hayır, ödülü sadece tek bir dalda almıştır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Marie Curie, 1903'te Fizik ve 1911'de Kimya alanlarında Nobel kazanarak tarihe geçmiştir."
+    },
+    {
+        "question": "Fizik: Sıcak hava soğuk havaya göre daha mı yoğundur?",
+        "options": {
+            "A": "Hayır, sıcak hava genleştiği için daha az yoğundur",
+            "B": "Evet, sıcak hava molekülleri daha ağırdır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Isınan hava genleşir, hacmi artar ve yoğunluğu azalır. Bu yüzden sıcak hava yükselir."
+    },
+    {
+        "question": "Dünyanın en uzun nehirlerinden biri olan Nil Nehri Akdeniz'e mi dökülür?",
+        "options": {
+            "A": "Evet, Akdeniz'e dökülür",
+            "B": "Hayır, Kızıldeniz'e dökülür",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Nil Nehri Afrika kıtasını güneyden kuzeye aşarak Mısır üzerinden Akdeniz'e dökülür."
+    },
+    {
+        "question": "Amerika Birleşik Devletleri bağımsızlığını İngiltere Krallığı'ndan mı kazanmıştır?",
+        "options": {
+            "A": "Evet, İngiltere'ye karşı savaşmışlardır",
+            "B": "Hayır, Fransa'dan ayrılmışlardır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "ABD, 1776 yılında 13 koloninin birleşerek Büyük Britanya (İngiltere) Krallığı'na başkaldırmasıyla bağımsız olmuştur."
+    },
+    {
+        "question": "Ahtapotların üç adet kalbi mi vardır?",
+        "options": {
+            "A": "Evet, üç kalpleri vardır",
+            "B": "Hayır, tek kalpleri vardır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Ahtapotların biri ana vücuda kan pompalayan, ikisi ise solungaçlara kan pompalayan toplam üç kalbi vardır."
+    },
+    {
+        "question": "Olimpiyat bayrağındaki beş renkli halka dünya üzerindeki beş kıtayı mı temsil eder?",
+        "options": {
+            "A": "Evet, beş kıtayı simgeler",
+            "B": "Hayır, beş ana sporu simgeler",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Mavi, sarı, siyah, yeşil ve kırmızı halkalar, Olimpiyatlara katılan beş kıtayı (Amerika, Asya, Afrika, Avrupa, Avustralya) simgeler."
+    },
+    {
+        "question": "Eyfel Kulesi yaz aylarında genleşme sebebiyle daha mı uzun olur?",
+        "options": {
+            "A": "Evet, demir genleşerek boyu 15 cm uzayabilir",
+            "B": "Hayır, kışın büzülerek sadece kısalır boyu değişmez",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Termal genleşme nedeniyle Eyfel Kulesi'nin metal yapısı yazın sıcaktan 15 santimetreye kadar uzayabilir."
+    },
+    {
+        "question": "Karıncalar uyur mu?",
+        "options": {
+            "A": "Evet, gün içinde küçük güç uykuları yaparlar",
+            "B": "Hayır, karıncalar hiç uyumazlar",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Karıncalar gün boyunca yüzlerce kez birkaç dakikalık kısa kestirmeler yaparak uyurlar."
+    },
+    {
+        "question": "Dünyaca ünlü 'Romeo ve Juliet' eserinin yazarı William Shakespeare midir?",
+        "options": {
+            "A": "Evet, Shakespeare eseri",
+            "B": "Hayır, Victor Hugo eseri",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Romeo ve Juliet trajedisi, İngiliz oyun yazarı William Shakespeare tarafından 16. yüzyıl sonunda yazılmıştır."
+    },
+    {
+        "question": "Dünyanın en küçük bağımsız ülkesi Vatikan mıdır?",
+        "options": {
+            "A": "Evet, Vatikan'dır",
+            "B": "Hayır, Monako'dur",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Vatikan, 0.44 kilometrekarelik yüzölçümüyle dünyanın en küçük bağımsız devletidir."
+    },
+    {
+        "question": "'Dost kara günde belli olur' atasözü gerçek dostların zor zamanlarda yardım edeceğini mi söyler?",
+        "options": {
+            "A": "Evet, zor günlerdeki desteği anlatır",
+            "B": "Hayır, düşmanları anlatır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İyi günde herkes dost görünür, gerçek dost ise insanın sıkıntılı anlarında yanında olandır."
+    },
+    {
+        "question": "Balinalar yumurtlayarak mı çoğalır?",
+        "options": {
+            "A": "Hayır, memeli oldukları için doğururlar",
+            "B": "Evet, deniz canlısı oldukları için yumurtlarlar",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Balinalar balık değil memelidir, yavrularını doğurur ve sütle beslerler."
+    },
+    {
+        "question": "Türkiye Büyük Millet Meclisi (TBMM) 1920 yılında mı açılmıştır?",
+        "options": {
+            "A": "Evet, 23 Nisan 1920'de açılmıştır",
+            "B": "Hayır, 29 Ekim 1923'te açılmıştır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "TBMM, Kurtuluş Savaşı sırasında 23 Nisan 1920 tarihinde Ankara'da açılmıştır."
+    },
+    {
+        "question": "Kuzey Kutbu'nda penguenler yaşar mı?",
+        "options": {
+            "A": "Hayır, penguenler sadece Güney Yarımküre'de yaşar",
+            "B": "Evet, kutup bölgesinde yaşarlar",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Penguenler Güney Kutbu ve çevresinde yaşarlar, Kuzey Kutbu'nda penguen bulunmaz."
+    },
+    {
+        "question": "İnsan vücudundaki en büyük organ deri midir?",
+        "options": {
+            "A": "Evet, deri en büyük organdır",
+            "B": "Hayır, karaciğer en büyük organdır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Yetişkin bir insanda yaklaşık 2 metrekare yer kaplayan deri, vücudun en büyük organıdır (iç organ olarak ise karaciğerdir)."
+    },
+    {
+        "question": "'Ayağını yorganına göre uzat' atasözü bütçeye göre harcama yapmayı mı öğütler?",
+        "options": {
+            "A": "Evet, tutumlu olmayı öğütler",
+            "B": "Hayır, uyku düzenini anlatır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Kişinin harcamalarını kendi gelir sınırlarını aşmayacak şekilde planlaması gerektiğini belirtir."
+    },
+    {
+        "question": "İtalya'nın başkenti Roma mıdır?",
+        "options": {
+            "A": "Evet, Roma'dır",
+            "B": "Hayır, Milano'dur",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Roma, İtalya Cumhuriyeti'nin başkenti ve tarihi merkezidir."
+    },
+    {
+        "question": "Fizik: Ses dalgaları boşlukta (uzayda) yayılabilir mi?",
+        "options": {
+            "A": "Hayır, yayılması için maddesel bir ortama ihtiyaç duyar",
+            "B": "Evet, ses her yerde yayılır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Işık boşlukta yayılabilir ancak ses dalgaları mekanik dalgadır, bu yüzden boşlukta yayılamazlar."
+    },
+    {
+        "question": "Fatih Sultan Mehmet İstanbul'u fethettiğinde 21 yaşında mıydı?",
+        "options": {
+            "A": "Evet, 21 yaşındaydı",
+            "B": "Hayır, 30 yaşındaydı",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "1432 doğumlu olan II. Mehmet, 1453 yılında İstanbul'u fethettiğinde henüz 21 yaşındaydı."
+    },
+    {
+        "question": "Satranç tahtasında toplam 64 adet kare mi bulunur?",
+        "options": {
+            "A": "Evet, 64 kare vardır",
+            "B": "Hayır, 81 kare vardır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Satranç tahtası 8x8 yatay ve dikey sıradan oluşan toplam 64 siyah ve beyaz kareden oluşur."
+    },
+    {
+        "question": "Astronomi: Güneş bir yıldız mıdır?",
+        "options": {
+            "A": "Evet, orta büyüklükte bir yıldızdır",
+            "B": "Hayır, büyük bir gezegendir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Güneş, Güneş Sistemi'nin merkezinde yer alan sıcak gazlardan oluşmuş cüce bir yıldızdır."
+    },
+    {
+        "question": "'Dertli terzi derdini diker' sözü bir tekerleme kalıbı mıdır?",
+        "options": {
+            "A": "Evet, Türkçe bir tekerlemedir",
+            "B": "Hayır, sadece bir atasözüdür",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "'Dertli terzi derdini diker' sözü benzer seslerin tekrarıyla oluşturulmuş bir tekerlemedir."
+    },
+    {
+        "question": "İnsan kalbinde 4 adet odacık mı bulunur?",
+        "options": {
+            "A": "Evet, iki kulakçık ve iki karıncık vardır",
+            "B": "Hayır, iki odacık vardır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İnsan kalbi sağ ve sol olmak üzere iki üst kulakçık (atrium) ve iki alt karıncık (ventrikül)tan oluşur."
+    },
+    {
+        "question": "Magna Carta (Büyük Sözleşme) İngiltere'de mi imzalanmıştır?",
+        "options": {
+            "A": "Evet, 1215'te İngiltere Kralı tarafından imzalanmıştır",
+            "B": "Hayır, Fransa'da imzalanmıştır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Kral Yurtsuz John, 1215 yılında baronların baskısıyla yetkilerini sınırlandıran Magna Carta'yı İngiltere'de imzalamıştır."
+    },
+    {
+        "question": "Bukalemunlar gözlerini birbirinden bağımsız olarak iki farklı yöne döndürebilir mi?",
+        "options": {
+            "A": "Evet, 360 derecelik bir görüş açısı sağlarlar",
+            "B": "Hayır, gözleri sadece aynı yöne bakar",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Bukalemunlar, her iki gözünü de tamamen farklı açılara odaklayarak çevreyi izleyebilirler."
+    },
+    {
+        "question": "'Nutuk' eseri Mustafa Kemal Atatürk tarafından mı kaleme alınmıştır?",
+        "options": {
+            "A": "Evet, Atatürk yazmıştır",
+            "B": "Hayır, İsmet İnönü yazmıştır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Nutuk, Atatürk'ün 1919-1927 yılları arasındaki gelişmeleri bizzat anlattığı tarihi belgedir."
+    },
+    {
+        "question": "Ekvator çizgisi dünyayı kuzey ve güney olarak iki eşit yarımküreye mi böler?",
+        "options": {
+            "A": "Evet, hayali bir çizgidir",
+            "B": "Hayır, doğu ve batı olarak böler",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Ekvator, kutup noktalarına eşit mesafede bulunan ve dünyayı Kuzey/Güney yarımküreye bölen en büyük enlem dairesidir."
+    },
+    {
+        "question": "Fizik: Sıvıların kaldırma kuvvetini bulan ünlü bilim insanı Arşimet midir?",
+        "options": {
+            "A": "Evet, Arşimet'tir",
+            "B": "Hayır, Newton'dur",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Arşimet, hamamda yıkanırken suyun taşıma gücünü fark edip 'Eureka!' (Buldum!) diyerek dışarı fırlamıştır."
+    },
+    {
+        "question": "Nobel Edebiyat Ödülü alan tek Türk yazar Orhan Pamuk mudur?",
+        "options": {
+            "A": "Evet, Orhan Pamuk'tur",
+            "B": "Hayır, Yaşar Kemal'dir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Orhan Pamuk, 2006 yılında Nobel Edebiyat Ödülü'nü alan tek Türk yazardır."
+    },
+    {
+        "question": "Koalaların parmak izleri insan parmak izine ayırt edilemeyecek kadar benzer midir?",
+        "options": {
+            "A": "Evet, mikroskop altında bile ayırt etmek zordur",
+            "B": "Hayır, hayvanların parmak izi olmaz",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Koalaların parmak izi kıvrımları, insan parmak izine o kadar benzer ki suç mahallerinde polisin kafasını karıştırabilir."
+    },
+    {
+        "question": "Osmanlı Devleti'nde padişahın mutlak yetkilerini ilk kez sınırlayan belge Sened-i İttifak mıdır?",
+        "options": {
+            "A": "Evet, II. Mahmud döneminde imzalanmıştır",
+            "B": "Hayır, Tanzimat Fermanı'dır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "1808 yılında Sadrazam Alemdar Mustafa Paşa öncülüğünde ayanlarla imzalanan Sened-i İttifak padişahın yetkilerini kısıtlayan ilk belgedir."
+    },
+    {
+        "question": "İnsan DNA'sının şempanzelerle benzerlik oranı yüzde 98'in üzerinde midir?",
+        "options": {
+            "A": "Evet, genetik kodumuz büyük oranda ortaktır",
+            "B": "Hayır, benzerlik oranı sadece yüzde 50 civarıdır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Genetik araştırmalara göre insan ve şempanze DNA'sı yaklaşık %98.8 oranında aynı dizilime sahiptir."
+    },
+    {
+        "question": "'Bir elin nesi var, iki elin sesi var' atasözü birlik ve beraberliğin gücünü mi anlatır?",
+        "options": {
+            "A": "Evet, yardımlaşmayı anlatır",
+            "B": "Hayır, el çırpmayı anlatır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Tek başına yapılamayan zor işlerin, başkalarıyla işbirliği yapılarak kolayca halledilebileceğini ifade eder."
+    },
+    {
+        "question": "Masa tenisi sporuna halk arasında 'pinpon' da denir mi?",
+        "options": {
+            "A": "Evet, pinpon da denir",
+            "B": "Hayır, badminton denir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Masa tenisi, topun çıkardığı seslerden esinlenilerek özellikle İngilizce konuşulan ülkelerde 'ping-pong' olarak adlandırılmıştır."
+    },
+    {
+        "question": "Nobel Barış Ödülü'nü kazanan tarihteki ilk kadın kimdir?",
+        "options": {
+            "A": "Bertha von Suttner",
+            "B": "Marie Curie",
+            "C": "Mother Teresa",
+            "D": "Jane Addams"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Avusturyalı yazar Bertha von Suttner, 1905 yılında Nobel Barış Ödülü'nü alan ilk kadın olmuştur."
+    },
+    {
+        "question": "Kendi ekseni etrafındaki dönüş yönü, Güneş sistemindeki diğer tüm gezegenlerin tersine (saat yönünde) olan gezegen hangisidir?",
+        "options": {
+            "A": "Mars",
+            "B": "Uranüs",
+            "C": "Venüs",
+            "D": "Neptün"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Venüs, kendi ekseninde doğudan batıya (retrograd) yani saat yönünde dönen tek gezegendir."
+    },
+    {
+        "question": "Standart bir iskambil oyun kağıdı destesinde bıyığı olmayan tek papaz hangisidir?",
+        "options": {
+            "A": "Maça Papazı",
+            "B": "Sinek Papazı",
+            "C": "Kupa Papazı",
+            "D": "Karo Papazı"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Kupa papazı bıyıksızdır ve kılıcını kafasına saplar gibi tuttuğu için 'intihar papazı' da denir."
+    },
+    {
+        "question": "Modern olimpiyatlarda ilk altın madalyayı kazanan sporcu James Connolly hangi ülkeyi temsil ediyordu?",
+        "options": {
+            "A": "Amerika Birleşik Devletleri",
+            "B": "Yunanistan",
+            "C": "Birleşik Krallık",
+            "D": "Kanada"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Connolly, 1896 Atina Olimpiyatları'nda üç adım atlamada ABD adına yarışarak ilk modern altın madalyayı almıştır."
+    },
+    {
+        "question": "Everest Dağı'nın zirvesine başarıyla tırmanan ilk insanlar olan Hillary ve Norgay bu tırmanışı hangi yıl yapmıştır?",
+        "options": {
+            "A": "1943",
+            "B": "1963",
+            "C": "1953",
+            "D": "1973"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Edmund Hillary ve şerpa Tenzing Norgay, 29 Mayıs 1953'te Everest zirvesine ulaşan ilk insanlar olmuştur."
+    },
+    {
+        "question": "Hangisi meşhur dahi fizikçi Albert Einstein'ın Görelilik Teorisi'ni formüle ettiği dönemde çalıştığı resmi yerdir?",
+        "options": {
+            "A": "İsviçre Patent Ofisi",
+            "B": "Berlin Üniversitesi",
+            "C": "Princeton İleri Araştırmalar Enstitüsü",
+            "D": "Münih Üniversitesi"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Einstein, İsviçre Bern'deki patent ofisinde memur olarak çalışırken en meşhur fizik teorilerini geliştirmiştir."
+    },
+    {
+        "question": "Satranç oyun kurallarına göre, şah tehdidi (şah çekilme durumu) altındayken rok yapmak kurallara uygun mudur?",
+        "options": {
+            "A": "Evet, uygundur",
+            "B": "Hayır, rok yapılamaz",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Şah tehdit altındayken, şahın geçeceği veya rok yapacağı kareler rakip taşlarca tehdit ediliyorken rok yapılamaz."
+    },
+    {
+        "question": "Türkiye'nin ilan edilen ilk resmi milli parkı olan Yozgat Çamlığı Milli Parkı hangi yıl kurulmuştur?",
+        "options": {
+            "A": "1968",
+            "B": "1958",
+            "C": "1948",
+            "D": "1978"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Yozgat Çamlığı Milli Parkı, 1958 yılında Türkiye'nin ilk milli parkı olarak tescillenmiştir."
+    },
+    {
+        "question": "Kaşif Kristof Kolomb Amerika kıtasına ilk ulaştığında buranın hangi ülke olduğunu sanmıştır?",
+        "options": {
+            "A": "Japonya",
+            "B": "Hindistan",
+            "C": "Çin",
+            "D": "Endonezya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Kolomb, batıya giderek Doğu Hint Adaları'na ulaştığını sandığı için yerlilere 'Indians' (Hintliler) demiştir."
+    },
+    {
+        "question": "Dünyanın en yüksek zirvesi olan Everest Dağı'nın deniz seviyesinden resmi yüksekliği yaklaşık kaç metredir?",
+        "options": {
+            "A": "8848 metre",
+            "B": "8248 metre",
+            "C": "8548 metre",
+            "D": "7848 metre"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Everest Dağı'nın deniz seviyesinden yüksekliği resmi ölçümlere göre 8848 metredir (son ölçümlerde 8848.86 m)."
+    },
+    {
+        "question": "Bilinen en eski tapınak merkezi olan Göbeklitepe Şanlıurfa'nın hangi ilçesi sınırları içerisindedir?",
+        "options": {
+            "A": "Eyyübiye",
+            "B": "Haliliye",
+            "C": "Karaköprü",
+            "D": "Siverek"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Göbeklitepe, Şanlıurfa'nın merkez ilçelerinden olan Haliliye ilçesine bağlı Örencik köyü yakınlarındadır."
+    },
+    {
+        "question": "'Siyah Kare' tablosuyla sanat dünyasında süprematizm akımının öncülüğünü üstlenen ressam kimdir?",
+        "options": {
+            "A": "Wassily Kandinsky",
+            "B": "Kazimir Maleviç",
+            "C": "Pablo Picasso",
+            "D": "Marc Chagall"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Rus ressam Kazimir Maleviç, geometrik soyutlama üzerine kurduğu Süprematizm akımının kurucusudur."
+    },
+    {
+        "question": "'Besle kargayı, oysun ... .' atasözünün son kelimesi hangisidir?",
+        "options": {
+            "A": "Elini",
+            "B": "Dalını",
+            "C": "Gözünü",
+            "D": "Yüzünü"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "'Besle kargayı, oysun gözünü' atasözü, nankörlük ve iyiliğe karşı kötülük yapmayı ifade eder."
+    },
+    {
+        "question": "Şampiyonlar Ligi tarihinde bir sezonda en çok gol atan oyuncu unvanı Cristiano Ronaldo'ya mı aittir?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, 15 golle Lionel Messi'nindir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, 17 golle onundur"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Cristiano Ronaldo, 2013-14 sezonunda Real Madrid formasıyla 17 gol atarak bu rekoru kırmıştır."
+    },
+    {
+        "question": "'Şu köşe yaz köşesi, şu köşe kış köşesi, ortada su şişesi' tekerlemesinde ortada duran nesne nedir?",
+        "options": {
+            "A": "Su şişesi",
+            "B": "Süt şişesi",
+            "C": "Sirke şişesi",
+            "D": "Gazoz şişesi"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Türkçedeki klasik tekerlemede 'ortada su şişesi' ibaresi yer alır."
+    },
+    {
+        "question": "Bukalemunların gözleri birbirlerinden tamamen bağımsız olarak aynı anda iki farklı yöne bakabilir mi?",
+        "options": {
+            "A": "Sadece bazı istisnai durumlarda",
+            "B": "Hayır, bakamaz",
+            "C": "Evet, bakabilir",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Bukalemunların gözleri 360 derecelik bir görüş alanı sağlayacak şekilde bağımsız hareket edebilir."
+    },
+    {
+        "question": "İnsan DNA'sının şempanze DNA'sı ile benzerlik oranı yaklaşık olarak yüzde kaçtır?",
+        "options": {
+            "A": "Yüzde 80",
+            "B": "Yüzde 90",
+            "C": "Yüzde 98",
+            "D": "Yüzde 70"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "İnsanlar ve şempanzeler genetik olarak birbirine çok yakındır, DNA benzerliği yaklaşık %98.8 civarındadır."
+    },
+    {
+        "question": "'Ak koyunun kara kuzusu da olur' atasözünün anlamı nedir?",
+        "options": {
+            "A": "Kötü olayların sonu iyi biter",
+            "B": "İyi ana babadan kötü evlat da doğabilir",
+            "C": "Dış görünüşe aldanmamak gerekir",
+            "D": "Her ailede bir suçlu bulunur"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Bu atasözü, çok dürüst ve ahlaklı ailelerin de bazen kötü huylu çocukları olabileceğini anlatır."
+    },
+    {
+        "question": "'Bizde bize biz derler, sizde size ne derler?' tekerlemesinin devamı nasıldır?",
+        "options": {
+            "A": "Sizde bize siz derler",
+            "B": "Sizde bize biz derler",
+            "C": "Bizde size siz derler",
+            "D": "Sizde size siz derler"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Klasik tekerlemedir: 'Bizde bize biz derler, sizde size ne derler? Sizde size siz derler.'"
+    },
+    {
+        "question": "İnsan beyninin yaklaşık olarak yüzde kaçı sudan oluşmaktadır?",
+        "options": {
+            "A": "Yüzde 50-60 civarı",
+            "B": "Yüzde 75-80 civarı",
+            "C": "Yüzde 90-95 civarı",
+            "D": "Yüzde 30-40 civarı"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "İnsan beyninin yaklaşık %75-80'i sudan oluşur. Susuz kalmak beyin performansını doğrudan etkiler."
+    },
+    {
+        "question": "Amerika Birleşik Devletleri bağımsızlığını hangi yıl ilan etmiştir?",
+        "options": {
+            "A": "1865",
+            "B": "1789",
+            "C": "1812",
+            "D": "1776"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Bağımsızlık Bildirgesi 4 Temmuz 1776'da imzalanarak ABD'nin kuruluşu ilan edilmiştir."
+    },
+    {
+        "question": "Dünyanın en büyük kalbine sahip olan canlı Mavi Balina mıdır?",
+        "options": {
+            "A": "Sadece bazı istisnai durumlarda",
+            "B": "Hayır, Fil en büyük kalbe sahiptir",
+            "C": "Evet, kalbi küçük bir araba boyutundadır",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Mavi balinanın kalbi yaklaşık 180 kg ağırlığında olup, küçük bir otomobil (örneğin VW Beetle) ebadındadır."
+    },
+    {
+        "question": "Dünyanın en büyük adası Grönland mıdır?",
+        "options": {
+            "A": "Evet, Grönland'dır",
+            "B": "Hayır, Avustralya'dır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Avustralya bir kıta kabul edildiği için, dünyanın en büyük adası Danimarka'ya bağlı Grönland'dır."
+    },
+    {
+        "question": "İnsan vücudundaki en hızlı çalışan kas hangisidir?",
+        "options": {
+            "A": "Göz kası",
+            "B": "Kalp kası",
+            "C": "Çene kası",
+            "D": "Parmak kası"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Göz kırpma kası (orbicularis oculi) 100 milisaniyede kapanıp açılabilen vücudun en hızlı kasan kasıdır."
+    },
+    {
+        "question": "İpek Yolu'nun başlangıç noktası Çin midir?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, Hindistan'dır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, Çin'in Xi'an şehridir"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Antik İpek Yolu ticaret güzergahı Çin'in tarihi başkentlerinden olan Xi'an (Sian) şehrinden başlar."
+    },
+    {
+        "question": "Işık yılı bir zaman ölçüsü müdür?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Evet, ışığın 1 yıldaki seyahat süresidir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Hayır, astronomik uzaklık/mesafe ölçüsüdür"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Işık yılı, ışığın boşlukta 1 yılda katettiği mesafe (yaklaşık 9.5 trilyon km) olup mesafe birimidir."
+    },
+    {
+        "question": "İnsan gözünün görebildiği en fazla renk tonunu ayırt ettiği ana renk yeşil midir?",
+        "options": {
+            "A": "Evet, yeşilin tonlarına daha duyarlıyız",
+            "B": "Hayır, kırmızı rengin tonlarıdır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Evrimsel olarak avcılık ve doğada gezinme sebebiyle insan gözü yeşil rengin tonlarına çok daha hassastır."
+    },
+    {
+        "question": "Anadolu Selçuklu Devleti'nin başkenti Konya mıdır?",
+        "options": {
+            "A": "Hayır, Bursa'dır",
+            "B": "Evet, Konya'dır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Anadolu Selçuklularının başkenti önce İznik, Haçlı Seferleri'nden sonra ise yıkılana kadar Konya olmuştur."
+    },
+    {
+        "question": "'Deliye her gün bayram' atasözünün anlamı nedir?",
+        "options": {
+            "A": "Delilerin çok eğlendiğini anlatır",
+            "B": "Hiçbir sorumluluğu ve kaygısı olmayan kişinin rahatlığını anlatır",
+            "C": "Her günün tadını çıkarmak gerektiğini anlatır",
+            "D": "Bayramların deliler için yapıldığını anlatır"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Aklı yerinde olmayan veya sorumluluk taşımayan kişilerin her anı tasasız ve eğlenceli geçirdiğini ifade eder."
+    },
+    {
+        "question": "'Kartal kalkar dal sarkar, dal sarkar kartal kalkar' tekerlemesinde kalkan canlı nedir?",
+        "options": {
+            "A": "Dal",
+            "B": "Karga",
+            "C": "Kartal",
+            "D": "Şahin"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Klasik tekerlemedir: 'Kartal kalkar dal sarkar, dal sarkar kartal kalkar.' Kalkan kartaldır."
+    },
+    {
+        "question": "Dünyadaki en yüksek tuz oranına sahip su kütlesi Lut Gölü müdür?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, Hazar Denizi'dir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, Lut Gölü'dür (Ölü Deniz)"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Lut Gölü yaklaşık %33 tuzluluk oranıyla canlı yaşamına izin vermeyen en tuzlu göllerden biridir."
+    },
+    {
+        "question": "İnsan kalbi günde yaklaşık kaç kez atar?",
+        "options": {
+            "A": "Yaklaşık 500.000 kez",
+            "B": "Yaklaşık 50.000 kez",
+            "C": "Yaklaşık 10.000 kez",
+            "D": "Yaklaşık 100.000 kez"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Ortalama 70-80 nabızda, insan kalbi günde yaklaşık 100.000, yılda ise 35 milyon kez atar."
+    },
+    {
+        "question": "Yeryüzündeki en yüksek dağ zirvesi Everest iken, dünyanın merkezine en uzak nokta Ekvador'daki Chimborazo Dağı mıdır?",
+        "options": {
+            "A": "Hayır, yine Everest zirvesidir",
+            "B": "Evet, dünyanın şekli (geoit) nedeniyle öyledir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Dünya kutuplardan basık, ekvatordan şişik olduğu için ekvatordaki Chimborazo zirvesi yer merkezinden en uzak olan noktadır."
+    },
+    {
+        "question": "Tarihin sıfır noktası olarak kabul edilen ve Şanlıurfa'da yer alan Göbeklitepe neolitik döneme mi aittir?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, Tunç Çağı'na aittir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, MÖ 9600 civarına tarihlenir"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Göbeklitepe, günümüzden yaklaşık 12.000 yıl önce inşa edilmiş dünyanın bilinen en eski tapınak alanıdır."
+    },
+    {
+        "question": "İdrara sarı rengini veren kimyasal pigmentin adı 'Ürobilin' midir?",
+        "options": {
+            "A": "Sadece bazı istisnai durumlarda",
+            "B": "Hayır, klorofildir",
+            "C": "Evet, ürobilin pigmentidir",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Alyuvarların yıkımıyla oluşan bilirubin maddesinin bağırsaklarda parçalanmasıyla oluşan ürobilin, idrarın sarı rengini verir."
+    },
+    {
+        "question": "Bukalemunların dili, kendi vücut uzunluklarının yaklaşık iki katı kadar uzayabilir mi?",
+        "options": {
+            "A": "Evet, dilleri inanılmaz derecede uzundur ve hızlıdır",
+            "B": "Hayır, dilleri sadece birkaç santim uzayabilir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Bukalemunlar, vücut boylarının 1.5-2 katı uzunluğundaki yapışkan dillerini saniyenin onda biri hızla fırlatarak avlanırlar."
+    },
+    {
+        "question": "İnsan vücudundaki en küçük kemik olan üzengi kemiği yaklaşık 3 milimetre boyunda mıdır?",
+        "options": {
+            "A": "Evet, pirinç tanesinden bile küçüktür",
+            "B": "Hayır, yaklaşık 1 santimetredir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Orta kulaktaki stapes (üzengi) kemiği, ortalama 3 mm boyuyla vücudumuzun en küçük kemiğidir."
+    },
+    {
+        "question": "Sanat: Dünyaca ünlü heykeltıraş Michelangelo'nun meşhur 'Davut' heykeli tek bir mermer bloktan mı yontulmuştur?",
+        "options": {
+            "A": "Evet, kusurlu kabul edilen tek bir mermerden yapılmıştır",
+            "B": "Hayır, parçalar halinde yapılıp birleştirilmiştir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Michelangelo, Floransa'da diğer heykeltıraşların 'çatlak ve kullanılamaz' dediği dev bir mermer bloğu yontarak Davut heykelini yaratmıştır."
+    },
+    {
+        "question": "Amerika kıtasına adını veren kâşif Amerigo Vespucci midir?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, kıtayı ilk bulan Kristof Kolomb'dur",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, yeni bir kıta olduğunu fark eden İtalyan denizcidir"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Kolomb burayı Hindistan zannederken, Amerigo Vespucci buranın yeni bir kıta olduğunu ilan etmiş ve haritacılar onun ismini vermiştir."
+    },
+    {
+        "question": "İnsan gözü yaklaşık 10 milyon farklı renk tonunu ayırt edebilir mi?",
+        "options": {
+            "A": "Sadece bazı istisnai durumlarda",
+            "B": "Hayır, en fazla 10 bin renk tonu görülebilir",
+            "C": "Evet, ortalama bir insan gözü bu hassasiyete sahiptir",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "İnsan gözündeki koni hücreleri sayesinde yaklaşık 10 milyon farklı renk tonunu birbirinden ayırt etmek mümkündür."
+    },
+    {
+        "question": "Mona Lisa tablosunun kaşları ve kirpikleri var mıdır?",
+        "options": {
+            "A": "Evet, çok gür siyah kaşları vardır",
+            "B": "Hayır, tabloda kaş ve kirpikleri belirgin değildir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mona Lisa tablosunun yüksek çözünürlüklü taramalarında aslında çok ince kaş boyamaları olduğu, ancak zamanla silindiği ortaya çıkmıştır."
+    },
+    {
+        "question": "Dünyadaki en sıcak su kaynağı veya gayzer alanı olarak bilinen Yellowstone Ulusal Parkı ABD'de mi yer alır?",
+        "options": {
+            "A": "Hayır, İzlanda'dadır",
+            "B": "Evet, ABD sınırları içerisindedir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Yellowstone, barındırdığı rengarenk kaplıcalar ve aktif gayzerleriyle ABD'nin Wyoming eyaletinde yer alan ilk ulusal parkıdır."
+    },
+    {
+        "question": "İnsan vücudundaki bakterilerin toplam ağırlığı yaklaşık 1 ila 2 kilogram mıdır?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, bakterilerin toplam ağırlığı birkaç gramdır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, özellikle bağırsaklarımızda kilolarca bakteri yaşar"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Mikrobiyom adı verilen ve vücudumuzda (özellikle sindirim sisteminde) yaşayan trilyonlarca yararlı bakteri yaklaşık 1.5-2 kg ağırlığındadır."
+    },
+    {
+        "question": "Victor Hugo'nun meşhur 'Sefiller' romanında başkahraman Jean Valjean ne çaldığı için kürek mahkûmu olmuştur?",
+        "options": {
+            "A": "Bir somun ekmek",
+            "B": "Gümüş şamdanlar",
+            "C": "Altın köstekli saat",
+            "D": "Değerli bir tablo"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Jean Valjean, kız kardeşinin aç çocukları için fırından sadece bir somun ekmek çaldığı için 19 yıl hapis ve kürek cezası almıştır."
+    },
+    {
+        "question": "Mitoloji: İskandinav mitolojisinde şimşek tanrısı Thor'un kullandığı büyülü çekicin adı 'Mjolnir' midir?",
+        "options": {
+            "A": "Sadece bazı istisnai durumlarda",
+            "B": "Hayır, Excalibur'dur",
+            "C": "Evet, Mjolnir'dir",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Cüceler tarafından dövülen ve sadece Thor'un kaldırabildiği efsanevi şimşek çekicinin adı Mjolnir'dir (Excalibur ise Kral Arthur'un kılıcıdır)."
+    },
+    {
+        "question": "İnsanın en güçlü kası, uygulayabildiği kuvvete oranla çene kası mıdır?",
+        "options": {
+            "A": "Sadece bazı istisnai durumlarda",
+            "B": "Hayır, uyluk kasıdır",
+            "C": "Evet, çene kası (masseter) en yüksek basıncı uygular",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Masseter (çene kası), kendi ağırlığına ve boyutuna oranla uygulayabildiği yaklaşık 80 kg'lık sıkıştırma gücüyle vücudun en güçlü kasıdır."
+    },
+    {
+        "question": "Fatih Sultan Mehmet'in babası II. Murad mıdır?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, I. Bayezid'dir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, II. Murad'dır"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Fatih Sultan Mehmet'in babası II. Murad, annesi ise Hüma Hatun'dur."
+    },
+    {
+        "question": "Dünyanın en pahalı baharatı olarak kabul edilen safran, çiğdem çiçeğinin polenlerinden mi elde edilir?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, bir ağacın kabuğudur",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, çiçeğin tepecik (stigma) kısımları tek tek elle toplanır"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Safran çiçeğinin dişi organındaki üç küçük kırmızı iplikçiğin elle toplanmasıyla elde edilen safran, kilosu binlerce dolara satılan en pahalı baharattır."
+    },
+    {
+        "question": "Asya ve Avrupa kıtalarını birbirinden ayıran Ural Dağları Rusya'da mı yer alır?",
+        "options": {
+            "A": "Evet, kuzey-güney doğrultusunda Rusya'yı böler",
+            "B": "Hayır, Türkiye'dedir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Ural Dağları, coğrafi olarak Avrupa ve Asya kıtalarının sınırını çizen sıradağlardır ve büyük kısmı Rusya'dadır."
+    },
+    {
+        "question": "Mitoloji: Roma mitolojisinde aşk tanrısı Cupid (Kupür), Yunan mitolojisindeki Eros'un karşılığı mıdır?",
+        "options": {
+            "A": "Sadece bazı istisnai durumlarda",
+            "B": "Hayır, Ares'in karşılığıdır",
+            "C": "Evet, Eros'un Roma versiyonudur",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Elinin ok ve yayıyla insanları birbirine aşık eden aşk tanrısı Yunan'da Eros, Roma'da Cupid (Kupid)dir."
+    },
+    {
+        "question": "Güneş sistemindeki en büyük uydu olan Ganymede, Jüpiter'in uydusu mudur?",
+        "options": {
+            "A": "Hayır, Satürn'ün uydusudur",
+            "B": "Evet, Merkür gezegeninden bile büyüktür",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Ganymede, 5.268 km çapıyla Jüpiter'in ve Güneş Sistemi'nin en büyük uydusudur. Boyut olarak Merkür'den daha büyüktür."
+    },
+    {
+        "question": "Sanat: Leonardo da Vinci'nin ünlü 'Son Akşam Yemeği' freski İtalya'nın Milano şehrindeki bir manastırın duvarında mı yer alır?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, Vatikan'da sergilenmektedir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, Santa Maria delle Grazie manastırındadır"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Son Akşam Yemeği, Milano'daki Santa Maria delle Grazie manastırının yemekhane duvarına yapılmış devasa bir duvar resmidir."
+    },
+    {
+        "question": "İkinci Dünya Savaşı'nda atom bombası atılan ilk şehir Hiroşima mıdır?",
+        "options": {
+            "A": "Evet, 6 Ağustos 1945'te atılmıştır",
+            "B": "Hayır, Nagazaki'dir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "ABD, 6 Ağustos 1945'te 'Little Boy' isimli atom bombasını ilk olarak Hiroşima'ya, 3 gün sonra ise Nagazaki'ye atmıştır."
+    },
+    {
+        "question": "Dünyadaki en yüksek kesintisiz şelale olan Angel Şelalesi yaklaşık 979 metre midir?",
+        "options": {
+            "A": "Hayır, sadece 100 metredir",
+            "B": "Evet, Venezuela'da yer alan bu devasa şelale yaklaşık 1 kilometredir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Venezuela'daki Angel Şelalesi (Kerepakupai Meru), 979 metrelik toplam düşüş yüksekliğiyle dünyanın en yüksek şelalesidir."
+    },
+    {
+        "question": "Yeryüzündeki en uzun yaşayan omurgalı canlı Grönland Köpekbalığı mıdır?",
+        "options": {
+            "A": "Hayır, Galápagos kaplumbağasıdır",
+            "B": "Evet, yaşları 400 yılı bulabilmektedir",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Grönland köpekbalıklarının ortalama yaşam süresi 272 yıl olarak hesaplanmış, bazı bireylerin 400 yılı aştığı saptanmıştır."
+    },
+    {
+        "question": "Magna Carta belgesi 1215 yılında mı imzalanmıştır?",
+        "options": {
+            "A": "Evet, 1215 yılıdır",
+            "B": "Hayır, 1515 yılıdır",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Bilinmiyor / Kanıtlanmamış"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Magna Carta Libertatum, 15 Haziran 1215'te İngiltere'de ilan edilmiş tarihi bir haklar bildirgesidir."
+    },
+    {
+        "question": "Bir insan beyninin ürettiği elektrik enerjisi, küçük bir ampulü (yaklaşık 20 Watt) yakmaya yeterli midir?",
+        "options": {
+            "A": "Bilinmiyor / Kanıtlanmamış",
+            "B": "Hayır, beynin ürettiği elektrik ölçülemeyecek kadar küçüktür",
+            "C": "Sadece bazı istisnai durumlarda",
+            "D": "Evet, beyin uyanıkken yaklaşık 12-25 Watt elektrik üretir"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "İnsan beynindeki milyarlarca nöronun iletişimi sırasında ürettiği toplam elektrik enerjisi gücü, düşük tüketimli küçük bir LED veya floresan ampulü çalıştırabilir."
+    }
+];
+
+// Kategori 2: 3 Şıklı Sorular (Boşaltıldı - Tüm sorular 4 şıklıya çevrildi)
+const CAT_3_QUESTIONS = [];
+
+// Kategori 3: 2 Şıklı Sorular (Boşaltıldı - Tüm sorular 4 şıklıya çevrildi)
+const CAT_2_QUESTIONS = [];
+
+// Kategori 4: FİNAL Soruları (Boşaltıldı - Tüm sorular 4 şıklıya çevrildi)
+const FINAL_QUESTIONS_POOL = [];

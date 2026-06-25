@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>IOWF MİLYON</title>
+    <meta name="description" content="Kasanızdaki 2.000.000 TL'yi korumak için yarışın! Soruları cevaplayın, paraları şıklara dağıtın ve yavaşça açılan gerilim kapakları ile heyecan verici 3D stüdyo deneyiminin tadını çıkarın.">
+    <meta name="keywords" content="iowf milyon, yarışma oyunu, 3d yarışma, webgl oyun, bilgi yarışması, para dağıtma oyunu, tcmb 200 tl">
+    <meta name="author" content="IOWF">
+    <meta name="robots" content="index, follow">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="IOWF MİLYON">
+    <meta property="og:description" content="Kasanızdaki 2.000.000 TL'yi korumak için yarışın! Soruları cevaplayın, paraları şıklara dağıtın ve yavaşça açılan gerilim kapakları ile heyecan verici 3D stüdyo deneyiminin tadını çıkarın.">
+    <meta property="og:image" content="iowf_milyon_og.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="IOWF MİLYON">
+    <meta property="twitter:description" content="Kasanızdaki 2.000.000 TL'yi korumak için yarışın! Soruları cevaplayın, paraları şıklara dağıtın ve yavaşça açılan gerilim kapakları ile heyecan verici 3D stüdyo deneyiminin tadını çıkarın.">
+    <meta property="twitter:image" content="iowf_milyon_og.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Three.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Three.js Post-Processing & GLTFLoader -->
+    <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/EffectComposer.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/ShaderPass.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/RenderPass.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/shaders/CopyShader.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/shaders/LuminosityHighPassShader.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/postprocessing/UnrealBloomPass.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="studio-container">
+        <!-- 3D WebGL Canvas -->
+        <canvas id="studio-canvas"></canvas>
+
+        <!-- Kilitlenme Efekti Overlay -->
+        <div id="lockdown-flash-overlay" class="lockdown-flash-overlay"></div>
+
+
+        <!-- Yıldızlı/Neon Arka Plan Efektleri -->
+        <div class="glow-bg-orb orb-1"></div>
+        <div class="glow-bg-orb orb-2"></div>
+
+        <!-- Üst Panel: Logo, Bakiye ve Kasa Odası -->
+        <header class="game-header">
+            <div class="header-left">
+                <div class="logo-container">
+                    <img src="iowf_logo_silver.png" alt="IOWF Logo" class="logo-img">
+                    <span class="logo-main-text"><span class="logo-iowf">IOWF</span><span class="logo-milyon">MİLYON</span></span>
+                </div>
+            </div>
+            
+            <div class="header-center">
+                <div class="question-tracker">
+                    <span>SORU</span>
+                    <div id="current-question-num" class="tracker-val">1 / 7</div>
+                </div>
+            </div>
+
+            <div class="header-right">
+
+
+                <!-- Dialog Kontrol Butonu -->
+                <button id="btn-dialog" class="btn-dialog" title="Dialog Seslendirmesi Aç/Kapat">DİALOG SESİ</button>
+
+                <!-- Ses Kontrol Butonu -->
+                <button id="btn-mute" class="btn-mute btn-mute-text" title="Efekt Seslerini Aç/Kapat">EFEKT SESLERİ</button>
+
+                <!-- Sıralama Butonu -->
+                <button id="btn-open-leaderboard-game" class="btn-dialog btn-leaderboard-icon" title="Sıralamayı Göster">🏆 SIRALAMA</button>
+
+                <!-- Dijital Bakiye Ekranı -->
+                <div class="vault-display">
+                    <span class="vault-label">TOPLAM BAKİYE</span>
+                    <div id="total-money-text" class="vault-value">2.000.000 TL</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Orta Panel: Sunucu ve Soru Kartı -->
+        <main class="game-main">
+            <!-- Sol Panel: Sunucu Avatarı ve Durum Paneli -->
+            <div class="host-section">
+                <!-- Sunucu Avatarı -->
+                <div class="host-avatar-container" id="host-avatar-container">
+                    <div class="host-avatar"></div>
+                    <div class="host-glow"></div>
+                    <!-- Host speech waveform overlay -->
+                    <div class="host-waveform-container" id="host-waveform">
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                        <div class="waveform-bar"></div>
+                    </div>
+                </div>
+                
+                <!-- Masa Para Durum Paneli -->
+                <div id="table-status-panel" class="table-status-panel">
+                    <div class="status-label" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <span>KASADAKİ PARA</span>
+                        <button id="collect-all-btn" class="collect-all-btn" title="Şıklardaki tüm parayı kasaya geri topla">Hepsini Topla</button>
+                    </div>
+                    <div id="table-money-text" class="status-val">2.000.000 TL</div>
+                    <div class="status-warning" id="table-warning">En az 1 şık boş kalmalıdır!</div>
+                </div>
+
+                <!-- Dağıtılmayan Para Kutusu (Kare Fanus) -->
+                <div class="active-bundles-container" id="bundles-table">
+                    <!-- Dinamik 2D para balyaları buraya eklenecek -->
+                </div>
+            </div>
+
+            <!-- Soru Paneli -->
+            <div class="question-card">
+                <div class="question-text-container">
+                    <p id="question-text">Yarışma yükleniyor, lütfen bekleyin...</p>
+                </div>
+                <div class="options-grid">
+                    <div class="option-card" data-option="A">
+                        <span class="opt-letter">A</span>
+                        <span class="opt-text" id="opt-a-text">-</span>
+                    </div>
+                    <div class="option-card" data-option="B">
+                        <span class="opt-letter">B</span>
+                        <span class="opt-text" id="opt-b-text">-</span>
+                    </div>
+                    <div class="option-card" data-option="C">
+                        <span class="opt-letter">C</span>
+                        <span class="opt-text" id="opt-c-text">-</span>
+                    </div>
+                    <div class="option-card" data-option="D">
+                        <span class="opt-letter">D</span>
+                        <span class="opt-text" id="opt-d-text">-</span>
+                    </div>
+                </div>
+                <!-- Bilgi Notu -->
+                <div class="distribution-tip">
+                    ℹ️ Şıklara tıklayarak otomatik <strong>500.000 TL</strong> yerleştirebilirsiniz. Alttaki <strong>+</strong> butonlarıyla ise <strong>100.000 TL</strong>'lik paketler halinde ekleme yapabilirsiniz.
+                </div>
+            </div>
+        </main>
+
+        <!-- Alt Panel: Arayüz Butonları ve Etiketler (3D Canvas Üzerine Binecek) -->
+        <section class="tubes-section">
+            <!-- Cam Tüp A -->
+            <div class="tube-container" id="tube-container-A">
+                <div class="tube-control">
+                    <div class="tube-amount" id="amount-A">0 TL</div>
+                    <button class="btn-adjust btn-plus" data-target="A">+</button>
+                </div>
+            </div>
+
+            <!-- Cam Tüp B -->
+            <div class="tube-container" id="tube-container-B">
+                <div class="tube-control">
+                    <div class="tube-amount" id="amount-B">0 TL</div>
+                    <button class="btn-adjust btn-plus" data-target="B">+</button>
+                </div>
+            </div>
+
+            <!-- Cam Tüp C -->
+            <div class="tube-container" id="tube-container-C">
+                <div class="tube-control">
+                    <div class="tube-amount" id="amount-C">0 TL</div>
+                    <button class="btn-adjust btn-plus" data-target="C">+</button>
+                </div>
+            </div>
+
+            <!-- Cam Tüp D -->
+            <div class="tube-container" id="tube-container-D">
+                <div class="tube-control">
+                    <div class="tube-amount" id="amount-D">0 TL</div>
+                    <button class="btn-adjust btn-plus" data-target="D">+</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alt Kontrol Paneli: Süre ve Kilitle Butonu -->
+        <footer class="footer-control-panel">
+            <div class="timer-section">
+                <div class="timer-info">
+                    <svg class="timer-icon" viewBox="0 0 24 24" width="24" height="24">
+                        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+                        <path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+                    </svg>
+                    <span id="timer-text">60</span>
+                </div>
+                <button id="btn-pause-timer" class="btn-pause-timer">SÜREYİ DURDUR</button>
+                <div class="timer-bar-container">
+                    <div id="timer-progress" class="timer-bar-fill"></div>
+                </div>
+            </div>
+            <div class="action-section">
+                <button id="btn-lock" class="btn-lock-disabled" disabled>CEVABI KİLİTLE</button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- MODAL EKRANLARI -->
+    
+    <!-- Giriş Ekranı -->
+    <div id="intro-modal" class="modal-overlay">
+        <div class="intro-modal-wrapper">
+            <!-- Ana Giriş Bilgileri Kartı (Sol) -->
+            <div class="modal-content premium-intro-card text-center">
+                <div class="modal-logo">
+                    <h2 class="modal-logo-text"><span class="logo-iowf">IOWF</span><span class="logo-milyon">MİLYON</span><span class="version-badge">1.0.2</span></h2>
+                </div>
+                <!-- Dynamic Announcement Banner -->
+                <div id="intro-announcement" class="intro-announcement hidden" style="background: rgba(255, 165, 0, 0.12); border: 1px solid rgba(255, 165, 0, 0.45); border-radius: 12px; padding: 16px; margin: 16px 0; color: #ffd700; font-weight: 600; text-align: center; box-shadow: 0 0 20px rgba(255, 165, 0, 0.15); font-family: var(--font-outfit);"></div>
+                <p class="modal-desc" id="intro-modal-desc">
+                    Başlangıçta kasanızda tam <strong id="intro-start-money">2.000.000 TL</strong> var. Her soruda parayı doğru olduğunu düşündüğünüz şıklara dağıtın.
+                </p>
+                <div class="rules-box">
+                    <h4>⚠️ Altın Kurallar:</h4>
+                    <ul>
+                        <li id="rule-question-count">Yarışma toplam <strong>13 sorudan</strong> oluşmaktadır.</li>
+                        <li>Yarışma boyunca hiçbir <strong>joker kullanılmamaktadır</strong>.</li>
+                        <li>Sorularda parayı istediğiniz gibi bölebilirsiniz (Örn: A'ya 500.000, B'ye 1.500.000).</li>
+                        <li>Risk yönetimi için <strong>en az 1 şıkkı tamamen boş</strong> bırakmalısınız.</li>
+                        <li id="rule-timer">Her soru için para dağıtma süreniz tam <strong>60 saniyedir</strong>.</li>
+                        <li>Süre dolduğunda yanlış cevaplardaki paralar aşağı düşer ve kaybolur!</li>
+                    </ul>
+                </div>
+                <div class="intro-username-row">
+                    <div class="username-input-wrapper">
+                        <label for="username-input">Kullanıcı Adı:</label>
+                        <input type="text" id="username-input" placeholder="Yazınız..." maxlength="15" autocomplete="off" />
+                        <span id="username-lock-badge" class="username-lock-badge hidden">🔒 KİLİTLİ</span>
+                    </div>
+                    <button id="btn-start-game" class="btn-primary">YARIŞMAYA BAŞLA</button>
+                </div>
+                <div class="username-warning-text">
+                    ⚠️ Kullanıcı adı sadece 1 kere yazılır ve bir daha değiştirilemez!
+                </div>
+                <div class="intro-extra-actions">
+                    <button id="btn-open-leaderboard-intro" class="btn-leaderboard"><span class="icon">🏆</span> SIRALAMA</button>
+                </div>
+
+                <!-- Telif Hakkı Mesajı -->
+                <div class="copyright-box">
+                    Tüm hakları <span class="gold-text">Teslav2</span> tarafından saklıdır.
+                </div>
+            </div>
+
+            <!-- Güncelleme Geçmişi Paneli (Sağ) -->
+            <div class="intro-updates-card">
+                <div class="updates-header">
+                    <svg class="updates-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                    </svg>
+                    <span>GÜNCELLEME GEÇMİŞİ</span>
+                </div>
+                <div class="updates-timeline">
+                    <!-- v1.0.2 -->
+                    <div class="timeline-item active">
+                        <div class="timeline-badge">1.0.2</div>
+                        <div class="timeline-content">
+                            <p>🏆 Global Sıralama (Liderlik Tablosu) sistemi eklendi.</p>
+                            <p>👤 Kullanıcı adı girişi ve tarayıcı kilitleme sistemi eklendi.</p>
+                            <p>🔇 Sunucu diyalog sesini kapatma butonu işlevselleştirildi.</p>
+                        </div>
+                    </div>
+                    <!-- v1.0.1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge">1.0.1</div>
+                        <div class="timeline-content">
+                            <p>🎙️ Sunucu sesi IOWF (Tarık) sesi oldu.</p>
+                            <p>🎨 Görsel düzeltmeler yapıldı ve yeni logolar eklendi.</p>
+                        </div>
+                    </div>
+                    <!-- v1.0.0 -->
+                    <div class="timeline-item">
+                        <div class="timeline-badge">1.0.0</div>
+                        <div class="timeline-content">
+                            <p>🌐 Site temeli atıldı ve 3D stüdyo entegrasyonu tamamlandı.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kaybetme (Game Over) Ekranı -->
+    <div id="gameover-modal" class="modal-overlay hidden">
+        <div class="premium-modal-card gameover-card-premium text-center">
+            <span class="modal-subtitle-neon modal-subtitle-red">SİSTEM ERİŞİMİ ENGELLENDİ</span>
+            <h2 class="gameover-title-premium">KASANIZ KİLİTLENDİ!</h2>
+            
+            <div class="hud-container">
+                <div class="hud-ring-outer"></div>
+                <div class="hud-ring-inner"></div>
+                <div class="hud-icon-red">
+                    <svg viewBox="0 0 24 24" width="56" height="56" fill="currentColor">
+                        <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <p class="gameover-desc">
+                Soğukkanlılığınızı kaybettiniz ve tüm paranız stüdyonun derinliklerine döküldü. Kasa odasının kapıları üzerinize kilitlendi!
+            </p>
+
+            <div class="stats-grid-neon">
+                <div class="stat-card-neon stat-card-neon-red">
+                    <span class="stat-card-label">Elendiğiniz Soru</span>
+                    <span id="gameover-reached-question" class="stat-card-val">-</span>
+                </div>
+                <div class="stat-card-neon stat-card-neon-red">
+                    <span class="stat-card-label">Kaybedilen Bakiye</span>
+                    <span class="stat-card-val red-glow-text">2.000.000 TL</span>
+                </div>
+            </div>
+
+            <button id="btn-restart-lost" class="btn-primary btn-danger-neon btn-restart-lost-premium">KASAYI YENİDEN AÇ</button>
+        </div>
+    </div>
+
+    <!-- Kazanma (Victory) Ekranı -->
+    <div id="victory-modal" class="modal-overlay hidden">
+        <div class="premium-modal-card victory-card-premium text-center">
+            <span class="modal-subtitle-neon modal-subtitle-gold">GÖREV BAŞARIYLA TAMAMLANDI</span>
+            <h2 class="victory-title-premium">KASA FETHEDİLDİ!</h2>
+            
+            <div class="hud-container">
+                <div class="hud-ring-outer-gold"></div>
+                <div class="hud-ring-inner-gold"></div>
+                <div class="hud-icon-gold">
+                    <svg viewBox="0 0 24 24" width="56" height="56" fill="currentColor">
+                        <path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v3c0 2.42 1.72 4.44 4.005 4.901C7.914 15.912 9.79 17 12 17s4.086-1.088 4.995-2.099C19.28 14.44 21 12.42 21 10V7c0-1.1-.9-2-2-2zm-12 5V7h2v3c0 .55-.45 1-1 1s-1-.45-1-1zm10 0c0 .55-.45 1-1 1s-1-.45-1-1V7h2v3zm-5 8c-1.66 0-3-1.34-3-3h6c0 1.66-1.34 3-3 3zm4 2H8v2h8v-2z"/>
+                    </svg>
+                </div>
+            </div>
+
+            <p class="gameover-desc">
+                Müthiş bir bilgi birikimi, odaklanma ve çelik gibi sinirlerle tüm soruları tamamlayarak kasadaki parayı korumayı başardınız!
+            </p>
+
+            <div class="stats-grid-neon">
+                <div class="stat-card-neon stat-card-neon-gold">
+                    <span class="stat-card-label">Tamamlanan Soru</span>
+                    <span class="stat-card-val gold-text">13 Soru</span>
+                </div>
+                <div class="stat-card-neon stat-card-neon-gold">
+                    <span class="stat-card-label">Kazanılan Ödül</span>
+                    <span id="win-amount-text" class="stat-card-val gold-text">2.000.000 TL</span>
+                </div>
+            </div>
+
+            <button id="btn-restart-won" class="btn-primary btn-restart-won-premium">YENİDEN OYNA</button>
+        </div>
+    </div>
+
+    <!-- Sıralama (Leaderboard) Ekranı -->
+    <div id="leaderboard-modal" class="modal-overlay hidden">
+        <div class="leaderboard-card-premium text-center">
+            <span class="modal-subtitle-neon modal-subtitle-blue">IOWF MİLYON SKOR TABLOSU</span>
+            <h2 class="leaderboard-title-premium">EN İYİ YARIŞMACILAR</h2>
+            
+            <div class="leaderboard-table-container">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Sıra</th>
+                            <th>Yarışmacı</th>
+                            <th>Kazanılan Para</th>
+                            <th>Ulaşılan Soru</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <!-- Dinamik skor satırları buraya gelecek -->
+                        <tr>
+                            <td colspan="4" class="loading-scores">Skorlar yükleniyor...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button id="btn-close-leaderboard" class="btn-primary btn-close-leaderboard-premium">KAPAT</button>
+        </div>
+    </div>
+
+    <!-- JavaScript Script -->
+    <script src="questions.txt"></script>
+    <script src="app.js"></script>
+</body>
+</html>
