@@ -465,10 +465,11 @@ app.get('/api/admin/scores', checkAdminAuth, (req, res) => {
 // Delete a specific score by username and date
 app.delete('/api/admin/scores/:username/:date', checkAdminAuth, async (req, res) => {
     try {
-        const { username, date } = req.params;
+        const username = decodeURIComponent(req.params.username).trim();
+        const date = decodeURIComponent(req.params.date).trim();
         
         const initialLength = memoryScores.length;
-        memoryScores = memoryScores.filter(s => !(s.username === username && s.date === date));
+        memoryScores = memoryScores.filter(s => !(s.username.trim() === username && s.date.trim() === date));
         
         if (memoryScores.length < initialLength) {
             await saveScoresToDisk();

@@ -29,7 +29,7 @@ let configSettings = {
 
 async function loadConfigSettings() {
     try {
-        const res = await fetch('/api/settings');
+        const res = await fetch(`/api/settings?t=${Date.now()}`);
         if (res.ok) {
             const data = await res.json();
             configSettings = { ...configSettings, ...data };
@@ -1680,11 +1680,19 @@ if (btnDialogEl) {
             btnDialogEl.classList.remove("disabled");
         } else {
             btnDialogEl.classList.add("disabled");
+            
+            // Eğer aktif bir ses çalma varsa veya sentezleyici çalışıyorsa callback'i tetikle
+            let hasCallback = false;
             if (currentAudio) {
+                if (currentAudio.onended) {
+                    currentAudio.onended();
+                    hasCallback = true;
+                }
                 currentAudio.pause();
                 currentAudio = null;
             }
             speechSynth.cancel();
+            
             const wf = document.getElementById("host-waveform");
             if (wf) wf.classList.remove("active");
         }
