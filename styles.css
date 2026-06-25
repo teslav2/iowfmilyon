@@ -2084,11 +2084,11 @@ body {
         position: relative !important;
         display: grid !important;
         grid-template-columns: 1fr 1fr !important; /* 2x2 grid tüpler */
-        gap: 10px !important;
+        gap: 12px !important;
         width: 100% !important;
         height: auto !important;
         padding: 10px 0 !important;
-        margin-top: 10px !important;
+        margin-top: 15px !important;
         top: auto !important;
         left: auto !important;
         transform: none !important;
@@ -2131,7 +2131,7 @@ body {
         height: auto !important;
         gap: 10px !important;
         padding: 10px !important;
-        margin-top: 15px !important;
+        margin-top: 20px !important;
     }
     
     .timer-section {
@@ -2193,6 +2193,52 @@ body {
     
     .rules-box ul li {
         font-size: 0.72rem !important;
+    }
+    
+    /* Üst üste binmeleri engellemek için genel düzen temizliği */
+    .host-section {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 15px !important;
+        width: 100% !important;
+        padding: 10px !important;
+        background: rgba(8, 14, 44, 0.4);
+        border-radius: 12px;
+        border: 1px solid var(--border-glass);
+    }
+    
+    .host-avatar-container {
+        width: 70px !important;
+        height: 70px !important;
+        flex-shrink: 0;
+    }
+    
+    .table-status-panel {
+        width: 100% !important;
+        border: none !important;
+        background: transparent !important;
+        padding: 0 !important;
+        box-shadow: none !important;
+    }
+    
+    .status-val {
+        font-size: 1.3rem !important;
+    }
+    
+    .status-warning {
+        font-size: 0.72rem !important;
+    }
+    
+    /* Soru kartındaki bilgi notunun butonların altında ezilmesini önlemek */
+    .distribution-tip {
+        margin-top: 15px !important;
+        border-top: 1px dashed var(--border-glass);
+        padding-top: 10px !important;
+        font-size: 0.7rem !important;
+        line-height: 1.4 !important;
     }
 }
 

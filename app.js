@@ -958,6 +958,7 @@ function applySafeModel() {
 
 // 3D Tüp Görünürlüğünü Ayarlama (Kategori 3 veya Kategori 2'de şık kilitleme)
 function set3DTubeVisibility(letter, visible) {
+    if (isMobileMode) return; // Prevent accessing cylinders3D properties in Mobile Mode
     const keys = ["", "_neon", "_pedestal", "_leftBar", "_rightBar", "_bottomRing", "_topRing", "_3dLabel"];
     keys.forEach(suffix => {
         if (cylinders3D[letter + suffix]) {
@@ -976,6 +977,7 @@ function set3DTubeVisibility(letter, visible) {
 
 // 3D Para Destesi Ekle (Boru hattından saçılarak süzülme animasyonlu)
 function addCashBundleToTube(letter) {
+    if (isMobileMode) return;
     const xPos = TUBE_POSITIONS[letter].x;
     const zPos = TUBE_POSITIONS[letter].z;
     const index = cashBundles3D[letter].length;
@@ -1074,6 +1076,7 @@ function addCashBundleToTube(letter) {
 }
 
 function removeCashBundleFromTube(letter) {
+    if (isMobileMode) return;
     const bundles = cashBundles3D[letter];
     if (bundles.length > 0) {
         const lastBundle = bundles.pop();
@@ -1084,6 +1087,7 @@ function removeCashBundleFromTube(letter) {
 // Sunucu görsel ve sprite animasyon fonksiyonları (Kaldırıldı)
 
 function animateHatchOpenAndDrop(letter) {
+    if (isMobileMode) return;
     const doubleHatch = hatches3D[letter];
     
     // Sol kapak ve sağ kapak içeriye/aşağıya doğru yavaşça açılır (Aşağıya doğru kelebek açılış)
@@ -1095,6 +1099,7 @@ function animateHatchOpenAndDrop(letter) {
 }
 
 function updateShowcaseBundles3D() {
+    if (isMobileMode) return;
     // Clear old bundles
     tableBundles3D.forEach(bundle => scene.remove(bundle));
     tableBundles3D = [];
@@ -1192,6 +1197,7 @@ function spawnConfetti() {
 }
 
 function reset3DScene() {
+    if (isMobileMode) return;
     const letters = ["A", "B", "C", "D"];
     letters.forEach(letter => {
         cashBundles3D[letter].forEach(bundle => {
@@ -1628,7 +1634,7 @@ document.getElementById("btn-start-game").addEventListener("click", () => {
         audioCtx.resume();
     }
     
-    if (!renderer) {
+    if (!renderer && !isMobileMode) {
         init3D();
     }
     startGame();
