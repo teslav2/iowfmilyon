@@ -1669,25 +1669,23 @@ if (btnCloseLeaderboard) {
 // Mobile / 3D Mode Toggle Event Bindings
 const btnMobileToggle = document.getElementById("btn-mobile-toggle");
 if (btnMobileToggle) {
-    // Detect mobile user-agents to pre-enable Mobile Mode automatically
-    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    // Detect mobile user-agents or small screen sizes to pre-enable Mobile Mode automatically
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
     
     // Toggle Mobile Mode function
     const setMobileMode = (enable) => {
         isMobileMode = enable;
-        localStorage.setItem("iowf_mobile_mode", enable ? "true" : "false");
         
         if (isMobileMode) {
-            btnMobileToggle.textContent = "📱 MOBİL MOD: AÇIK";
-            btnMobileToggle.classList.add("active-mobile-mode");
+            btnMobileToggle.style.display = "none"; // Hide button entirely if mobile is forced
             document.body.classList.add("mobile-performance-layout");
             
             // Turn off 3D WebGL rendering visibility to save GPU
             const canvas = document.getElementById("studio-canvas");
             if (canvas) canvas.style.display = "none";
         } else {
+            btnMobileToggle.style.display = "inline-block";
             btnMobileToggle.textContent = "💻 3D MODU: AÇIK";
-            btnMobileToggle.classList.remove("active-mobile-mode");
             document.body.classList.remove("mobile-performance-layout");
             
             // Re-show 3D Canvas
@@ -1701,16 +1699,18 @@ if (btnMobileToggle) {
         }
     };
 
-    // Initialize state from local storage or device agent detection
-    const savedMobileModeSetting = localStorage.getItem("iowf_mobile_mode");
-    if (savedMobileModeSetting === "true" || (savedMobileModeSetting === null && isMobileDevice)) {
+    // Auto force mobile mode on small screens or mobile user agents
+    if (isMobileDevice) {
         setMobileMode(true);
     } else {
-        setMobileMode(false);
+        const savedSetting = localStorage.getItem("iowf_mobile_mode");
+        setMobileMode(savedSetting === "true");
     }
 
     btnMobileToggle.addEventListener("click", () => {
+        if (isMobileDevice) return; // Prevent toggling on real mobile screens
         setMobileMode(!isMobileMode);
+        localStorage.setItem("iowf_mobile_mode", isMobileMode ? "true" : "false");
     });
 }
 
