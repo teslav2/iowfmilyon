@@ -1977,15 +1977,19 @@ body {
     
     body {
         background: radial-gradient(circle at 50% 30%, #080f33 0%, #030614 100%) !important;
-        overflow-y: auto !important; /* Dikey kaydırmaya izin ver */
-        height: auto !important;
+        overflow: hidden !important; /* Tek ekran - Kaydırma yok */
+        height: 100vh !important;
+        width: 100vw !important;
     }
     
     .studio-container {
-        height: auto !important;
+        height: 100vh !important;
         min-height: 100vh !important;
         padding: 6px 8px !important;
-        overflow: visible !important;
+        overflow: hidden !important; /* Tek ekran */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
     }
     
     /* Header düzeni */
@@ -2051,7 +2055,7 @@ body {
     }
     
     .options-grid {
-        grid-template-columns: 1fr !important; /* Dikey şık listesi */
+        grid-template-columns: 1fr 1fr !important; /* A-B / C-D yerleşimi */
         gap: 8px !important;
     }
     
@@ -2236,7 +2240,7 @@ body {
     }
     
     .options-grid {
-        grid-template-columns: 1fr !important; /* Dikey tek sütun şıklar */
+        grid-template-columns: 1fr 1fr !important; /* A-B / C-D yerleşimi */
         gap: 10px !important;
         margin-top: 12px !important;
     }
