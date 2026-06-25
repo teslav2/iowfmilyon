@@ -1126,9 +1126,9 @@
                         <button class="btn-action-edit" style="padding: 4px 8px; font-size: 11px; margin: 0;" onclick="enterEditMode('${item.category}', ${item.index})">✏️ Düzenle</button>
                         <button class="btn-action-delete" style="padding: 4px 8px; font-size: 11px; margin: 0; background: rgba(255,0,85,0.15);" onclick="deleteQuestion('${item.category}', ${item.index})">🗑 Sil</button>
                     </div>
-                    <div class="question-card-header">
+                    <div class="question-card-header" style="flex-direction: column; align-items: flex-start; gap: 6px; padding-right: 180px; width: 100%;">
+                        <span class="question-badge ${isFinalBadge}" style="margin-bottom: 2px;">${item.categoryText} (${item.badge})</span>
                         <div class="question-card-title">${item.question}</div>
-                        <span class="question-badge ${isFinalBadge}">${item.categoryText} (${item.badge})</span>
                     </div>
                     <div class="question-options-grid">
                         ${optionsMarkup}
