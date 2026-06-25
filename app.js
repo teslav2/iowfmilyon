@@ -433,7 +433,8 @@ function init3D() {
     ledWall.position.set(0, 2.6, -4.5);
     scene.add(ledWall);
 
-    // 1.2. YAN NEON SÜTUNLAR
+    // 1.2. YAN NEON SÜTUNLAR - Kaldırıldı
+    /*
     const columnPositions = [
         { x: -6.8, z: -3.2 },
         { x: -7.6, z: -1.0 },
@@ -457,6 +458,7 @@ function init3D() {
         colNeon.position.set(pos.x, 2.5, pos.z);
         scene.add(colNeon);
     });
+    */
 
     // 1.3. TAVAN IŞIK HALKASI (Truss Ring) - Kaldırıldı (Arka plandaki logoyu kapatmaması için)
     /*
