@@ -1894,14 +1894,13 @@ body {
 /* Mobil Modda tüplerin 3D kamerayı izleme konumlandırmasını devredışı bırakıp dikey/sabit hizalama yapalım */
 .mobile-performance-layout .tubes-section {
     position: relative !important;
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-around !important;
-    align-items: center !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* 2x2 grid */
+    gap: 8px 12px !important;
     width: 100% !important;
     height: auto !important;
     padding: 10px 0 !important;
-    margin-top: 15px !important;
+    margin-top: 10px !important;
     pointer-events: auto !important;
     top: auto !important;
     left: auto !important;
@@ -2379,6 +2378,23 @@ body {
         font-size: 0.7rem !important;
         line-height: 1.4 !important;
     }
+}
+
+/* Header gizlendiğinde üstte ince, tıklanabilir neon bir çubuk görünmesi için */
+.game-header.collapsed {
+    height: 8px !important;
+    min-height: 8px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    background: var(--neon-blue) !important;
+    box-shadow: 0 0 12px var(--neon-blue) !important;
+    cursor: pointer !important;
+    border-radius: 0 0 8px 8px !important;
+    border: none !important;
+}
+.game-header.collapsed * {
+    display: none !important;
 }
 
 

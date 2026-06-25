@@ -3030,4 +3030,16 @@ function playLockdownPulseSound() {
     oscSub.stop(now + 0.95);
 }
 
+// Header'ı küçültme/gizleme tıklama olayı (Header'ın buton dışı orta veya boş alanlarına tıklanınca kapanır/açılır)
+(function() {
+    const header = document.querySelector('.game-header');
+    if (header) {
+        header.addEventListener('click', (e) => {
+            if (e.target.tagName !== 'BUTTON' && !e.target.closest('button')) {
+                header.classList.toggle('collapsed');
+            }
+        });
+    }
+})();
+
 
