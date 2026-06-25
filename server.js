@@ -17,17 +17,41 @@ let gameSettings = {
     announcement: "IOWF MİLYON'a hoş geldiniz! Kasadaki paranızı korumak için yarışın."
 };
 
-try {
-    if (fs.existsSync(settingsFilePath)) {
-        const fileContent = fs.readFileSync(settingsFilePath, 'utf8');
-        gameSettings = { ...gameSettings, ...JSON.parse(fileContent) };
-        console.log("Settings loaded successfully from settings.json");
+// Check if Vercel KV is enabled (supports KV_ and STORAGE_ prefixes)
+const kvUrl = process.env.STORAGE_REST_API_URL || process.env.KV_REST_API_URL;
+const kvToken = process.env.STORAGE_REST_API_TOKEN || process.env.KV_REST_API_TOKEN;
+const isKvEnabled = !!(kvUrl && kvToken);
+
+console.log(`Vercel KV Integration: ${isKvEnabled ? "ENABLED" : "DISABLED (using local file fallback)"}`);
+
+async function kvCmd(command, ...args) {
+    if (!isKvEnabled) return null;
+    try {
+        const response = await fetch(`${kvUrl}`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${kvToken}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify([command, ...args])
+        });
+        if (!response.ok) {
+            const errText = await response.text();
+            console.error(`Vercel KV error: ${response.status} - ${errText}`);
+            return null;
+        }
+        const res = await response.json();
+        return res.result;
+    } catch (e) {
+        console.error("Vercel KV request failed:", e.message);
+        return null;
     }
-} catch (e) {
-    console.warn("Failed to load settings.json, using defaults:", e.message);
 }
 
-function saveSettingsToDisk() {
+async function saveSettingsToDisk() {
+    if (isKvEnabled) {
+        await kvCmd('SET', 'game_settings', JSON.stringify(gameSettings));
+    }
     try {
         fs.writeFileSync(settingsFilePath, JSON.stringify(gameSettings, null, 4), 'utf8');
     } catch (err) {
@@ -56,27 +80,48 @@ let CAT_3 = [];
 let CAT_2 = [];
 let FINAL = [];
 
-try {
-    const code = fs.readFileSync(path.join(__dirname, 'questions.txt'), 'utf8');
-    const sandbox = {};
-    vm.createContext(sandbox);
-    // Append explicit global assignments to access const variables in sandbox
-    const codeWithExports = code + `
-;
-globalThis.CAT_4_QUESTIONS = CAT_4_QUESTIONS;
-globalThis.CAT_3_QUESTIONS = CAT_3_QUESTIONS;
-globalThis.CAT_2_QUESTIONS = CAT_2_QUESTIONS;
-globalThis.FINAL_QUESTIONS_POOL = FINAL_QUESTIONS_POOL;
-`;
-    vm.runInContext(codeWithExports, sandbox);
+function loadQuestionsFromLocalFile() {
+    try {
+        const code = fs.readFileSync(path.join(__dirname, 'questions.txt'), 'utf8');
+        const sandbox = {};
+        vm.createContext(sandbox);
+        const codeWithExports = code + `
+        ;
+        globalThis.CAT_4_QUESTIONS = CAT_4_QUESTIONS;
+        globalThis.CAT_3_QUESTIONS = CAT_3_QUESTIONS;
+        globalThis.CAT_2_QUESTIONS = CAT_2_QUESTIONS;
+        globalThis.FINAL_QUESTIONS_POOL = FINAL_QUESTIONS_POOL;
+        `;
+        vm.runInContext(codeWithExports, sandbox);
 
-    CAT_4 = sandbox.CAT_4_QUESTIONS || [];
-    CAT_3 = sandbox.CAT_3_QUESTIONS || [];
-    CAT_2 = sandbox.CAT_2_QUESTIONS || [];
-    FINAL = sandbox.FINAL_QUESTIONS_POOL || [];
-    console.log(`Questions loaded into memory: CAT_4: ${CAT_4.length}, CAT_3: ${CAT_3.length}, CAT_2: ${CAT_2.length}, FINAL: ${FINAL.length}`);
-} catch (err) {
-    console.error("Failed to load questions.txt:", err.message);
+        CAT_4 = sandbox.CAT_4_QUESTIONS || [];
+        CAT_3 = sandbox.CAT_3_QUESTIONS || [];
+        CAT_2 = sandbox.CAT_2_QUESTIONS || [];
+        FINAL = sandbox.FINAL_QUESTIONS_POOL || [];
+        console.log(`Loaded default questions from questions.txt: CAT_4: ${CAT_4.length}, CAT_3: ${CAT_3.length}, CAT_2: ${CAT_2.length}, FINAL: ${FINAL.length}`);
+    } catch (err) {
+        console.error("Failed to load questions.txt:", err.message);
+    }
+}
+
+async function saveQuestionsToDisk() {
+    if (isKvEnabled) {
+        await kvCmd('SET', 'game_questions', JSON.stringify({ CAT_4, CAT_3, CAT_2, FINAL }));
+    }
+    const code = `// IOWF MİLYON - KATEGORİZE EDİLMİŞ SORU HAVUZLARI\n\n` +
+                 `// Kategori 1: 4 Şıklı Sorular (Seçenekler: A, B, C, D)\n` +
+                 `const CAT_4_QUESTIONS = ${JSON.stringify(CAT_4, null, 4)};\n\n` +
+                 `// Kategori 2: 3 Şıklı Sorular (Seçenekler: A, B, C)\n` +
+                 `const CAT_3_QUESTIONS = ${JSON.stringify(CAT_3, null, 4)};\n\n` +
+                 `// Kategori 3: 2 Şıklı Sorular (Seçenekler: A, B)\n` +
+                 `const CAT_2_QUESTIONS = ${JSON.stringify(CAT_2, null, 4)};\n\n` +
+                 `// Kategori 4: Final Havuzu (2 Seçenek - Bölme Yasak)\n` +
+                 `const FINAL_QUESTIONS_POOL = ${JSON.stringify(FINAL, null, 4)};\n`;
+    try {
+        fs.writeFileSync(path.join(__dirname, 'questions.txt'), code, 'utf8');
+    } catch (err) {
+        console.warn("Could not save questions.txt to disk (likely serverless/read-only env):", err.message);
+    }
 }
 
 // Fisher-Yates Shuffle
@@ -235,15 +280,90 @@ app.post('/api/speak', async (req, res) => {
 const scoresFilePath = path.join(__dirname, 'scores.json');
 let memoryScores = [];
 
-// Try to pre-populate memoryScores if file exists
-try {
-    if (fs.existsSync(scoresFilePath)) {
-        const fileContent = fs.readFileSync(scoresFilePath, 'utf8');
-        memoryScores = JSON.parse(fileContent || '[]');
+async function saveScoresToDisk() {
+    if (isKvEnabled) {
+        await kvCmd('SET', 'game_scores', JSON.stringify(memoryScores));
     }
-} catch (e) {
-    console.warn("Failed to pre-populate memory scores from disk:", e.message);
+    try {
+        fs.writeFileSync(scoresFilePath, JSON.stringify(memoryScores, null, 4), 'utf8');
+    } catch (writeErr) {
+        console.warn("Could not persist scores to disk (likely serverless/read-only env):", writeErr.message);
+    }
 }
+
+// Database Seeder & Initializer functions
+async function initConfig() {
+    if (isKvEnabled) {
+        try {
+            const cached = await kvCmd('GET', 'game_settings');
+            if (cached) {
+                gameSettings = JSON.parse(cached);
+                console.log("Settings loaded from Vercel KV successfully!");
+            } else {
+                await kvCmd('SET', 'game_settings', JSON.stringify(gameSettings));
+                console.log("Seeded Vercel KV with initial game settings");
+            }
+        } catch (e) {
+            console.error("Failed to fetch settings from Vercel KV:", e.message);
+        }
+    }
+}
+
+async function initQuestions() {
+    loadQuestionsFromLocalFile();
+    if (isKvEnabled) {
+        try {
+            const cached = await kvCmd('GET', 'game_questions');
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                CAT_4 = parsed.CAT_4 || [];
+                CAT_3 = parsed.CAT_3 || [];
+                CAT_2 = parsed.CAT_2 || [];
+                FINAL = parsed.FINAL || [];
+                console.log(`Questions successfully synced from Vercel KV: CAT_4: ${CAT_4.length}, CAT_3: ${CAT_3.length}, CAT_2: ${CAT_2.length}, FINAL: ${FINAL.length}`);
+            } else {
+                await kvCmd('SET', 'game_questions', JSON.stringify({ CAT_4, CAT_3, CAT_2, FINAL }));
+                console.log("Seeded Vercel KV with initial questions list");
+            }
+        } catch (e) {
+            console.error("Failed to sync questions with Vercel KV:", e.message);
+        }
+    }
+}
+
+async function initScores() {
+    try {
+        if (fs.existsSync(scoresFilePath)) {
+            const fileContent = fs.readFileSync(scoresFilePath, 'utf8');
+            memoryScores = JSON.parse(fileContent || '[]');
+        }
+    } catch (e) {
+        console.warn("Failed to pre-populate memory scores from disk:", e.message);
+    }
+
+    if (isKvEnabled) {
+        try {
+            const cached = await kvCmd('GET', 'game_scores');
+            if (cached) {
+                memoryScores = JSON.parse(cached);
+                console.log(`Scores successfully synced from Vercel KV: ${memoryScores.length} records`);
+            } else {
+                await kvCmd('SET', 'game_scores', JSON.stringify(memoryScores));
+                console.log("Seeded Vercel KV with initial scores list");
+            }
+        } catch (e) {
+            console.error("Failed to sync scores with Vercel KV:", e.message);
+        }
+    }
+}
+
+async function initAll() {
+    await initConfig();
+    await initQuestions();
+    await initScores();
+}
+
+initAll().catch(err => console.error("Database initialization failed:", err.message));
 
 // Get high scores
 app.get('/api/scores', (req, res) => {
@@ -300,23 +420,11 @@ app.get('/api/scores', (req, res) => {
 });
 
 // Submit a new score
-app.post('/api/scores', (req, res) => {
+app.post('/api/scores', async (req, res) => {
     try {
         const { username, money, questionReached } = req.body;
         if (!username || username.trim() === '') {
             return res.status(400).json({ error: 'Username is required' });
-        }
-        
-        let scores = [];
-        if (fs.existsSync(scoresFilePath)) {
-            try {
-                const fileContent = fs.readFileSync(scoresFilePath, 'utf8');
-                scores = JSON.parse(fileContent || '[]');
-            } catch (e) {
-                scores = [...memoryScores];
-            }
-        } else {
-            scores = [...memoryScores];
         }
         
         const newScore = {
@@ -326,15 +434,8 @@ app.post('/api/scores', (req, res) => {
             date: new Date().toISOString()
         };
         
-        scores.push(newScore);
         memoryScores.push(newScore);
-        
-        // Try writing to disk, but don't fail the request if it's read-only
-        try {
-            fs.writeFileSync(scoresFilePath, JSON.stringify(scores, null, 4), 'utf8');
-        } catch (writeErr) {
-            console.warn("Could not persist scores to disk (likely serverless/read-only env):", writeErr.message);
-        }
+        await saveScoresToDisk();
         
         res.json({ success: true, newScore });
     } catch (err) {
@@ -346,14 +447,10 @@ app.post('/api/scores', (req, res) => {
 // ================= ADMIN PANEL ENDPOINTS =================
 
 // Reset (clear) all scores
-app.delete('/api/admin/scores', checkAdminAuth, (req, res) => {
+app.delete('/api/admin/scores', checkAdminAuth, async (req, res) => {
     try {
         memoryScores = [];
-        try {
-            fs.writeFileSync(scoresFilePath, JSON.stringify([], null, 4), 'utf8');
-        } catch (writeErr) {
-            console.warn("Could not persist cleared scores to disk:", writeErr.message);
-        }
+        await saveScoresToDisk();
         res.json({ success: true, msg: 'Sıralama tablosu başarıyla sıfırlandı!' });
     } catch (err) {
         console.error("Failed to reset scores:", err.message);
@@ -364,14 +461,7 @@ app.delete('/api/admin/scores', checkAdminAuth, (req, res) => {
 // Get all scores (for admin view/delete)
 app.get('/api/admin/scores', checkAdminAuth, (req, res) => {
     try {
-        let scores = [];
-        if (fs.existsSync(scoresFilePath)) {
-            const fileContent = fs.readFileSync(scoresFilePath, 'utf8');
-            scores = JSON.parse(fileContent || '[]');
-        } else {
-            scores = memoryScores;
-        }
-        const sorted = [...scores].sort((a, b) => new Date(b.date) - new Date(a.date));
+        const sorted = [...memoryScores].sort((a, b) => new Date(b.date) - new Date(a.date));
         res.json(sorted);
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -379,27 +469,15 @@ app.get('/api/admin/scores', checkAdminAuth, (req, res) => {
 });
 
 // Delete a specific score by username and date
-app.delete('/api/admin/scores/:username/:date', checkAdminAuth, (req, res) => {
+app.delete('/api/admin/scores/:username/:date', checkAdminAuth, async (req, res) => {
     try {
         const { username, date } = req.params;
-        let scores = [];
-        if (fs.existsSync(scoresFilePath)) {
-            const fileContent = fs.readFileSync(scoresFilePath, 'utf8');
-            scores = JSON.parse(fileContent || '[]');
-        } else {
-            scores = [...memoryScores];
-        }
         
-        const initialLength = scores.length;
-        scores = scores.filter(s => !(s.username === username && s.date === date));
+        const initialLength = memoryScores.length;
         memoryScores = memoryScores.filter(s => !(s.username === username && s.date === date));
         
-        if (scores.length < initialLength) {
-            try {
-                fs.writeFileSync(scoresFilePath, JSON.stringify(scores, null, 4), 'utf8');
-            } catch (writeErr) {
-                console.warn("Could not persist scores to disk:", writeErr.message);
-            }
+        if (memoryScores.length < initialLength) {
+            await saveScoresToDisk();
             res.json({ success: true, msg: 'Skor kaydı başarıyla silindi!' });
         } else {
             res.status(404).json({ error: 'Eşleşen skor kaydı bulunamadı!' });
@@ -415,7 +493,7 @@ app.get('/api/settings', (req, res) => {
 });
 
 // Update game settings
-app.post('/api/admin/settings', checkAdminAuth, (req, res) => {
+app.post('/api/admin/settings', checkAdminAuth, async (req, res) => {
     try {
         const { timerDuration, startingMoney, questionCount, announcement } = req.body;
         
@@ -424,7 +502,7 @@ app.post('/api/admin/settings', checkAdminAuth, (req, res) => {
         if (questionCount !== undefined) gameSettings.questionCount = parseInt(questionCount, 10) || 13;
         if (announcement !== undefined) gameSettings.announcement = String(announcement);
         
-        saveSettingsToDisk();
+        await saveSettingsToDisk();
         res.json({ success: true, settings: gameSettings, msg: 'Ayarlar başarıyla kaydedildi!' });
     } catch (err) {
         res.status(500).json({ error: err.message });
@@ -466,7 +544,7 @@ app.post('/api/admin/test-fish-audio', checkAdminAuth, async (req, res) => {
 });
 
 // Edit existing question
-app.put('/api/admin/questions/:category/:index', checkAdminAuth, (req, res) => {
+app.put('/api/admin/questions/:category/:index', checkAdminAuth, async (req, res) => {
     const { category, index } = req.params;
     const idx = parseInt(index, 10);
     const { question, options, correctAnswer, optionsCount, hostComment } = req.body;
@@ -497,7 +575,7 @@ app.put('/api/admin/questions/:category/:index', checkAdminAuth, (req, res) => {
     };
     
     try {
-        saveQuestionsToDisk();
+        await saveQuestionsToDisk();
         res.json({ success: true, msg: 'Soru başarıyla güncellendi!' });
     } catch (err) {
         res.status(500).json({ error: 'Dosyaya kaydedilemedi: ' + err.message });
@@ -529,22 +607,8 @@ app.get('/api/admin/questions', checkAdminAuth, (req, res) => {
     });
 });
 
-// Save function to overwrite questions.txt
-function saveQuestionsToDisk() {
-    const code = `// IOWF MİLYON - KATEGORİZE EDİLMİŞ SORU HAVUZLARI\n\n` +
-                 `// Kategori 1: 4 Şıklı Sorular (Seçenekler: A, B, C, D)\n` +
-                 `const CAT_4_QUESTIONS = ${JSON.stringify(CAT_4, null, 4)};\n\n` +
-                 `// Kategori 2: 3 Şıklı Sorular (Seçenekler: A, B, C)\n` +
-                 `const CAT_3_QUESTIONS = ${JSON.stringify(CAT_3, null, 4)};\n\n` +
-                 `// Kategori 3: 2 Şıklı Sorular (Seçenekler: A, B)\n` +
-                 `const CAT_2_QUESTIONS = ${JSON.stringify(CAT_2, null, 4)};\n\n` +
-                 `// Kategori 4: Final Havuzu (2 Seçenek - Bölme Yasak)\n` +
-                 `const FINAL_QUESTIONS_POOL = ${JSON.stringify(FINAL, null, 4)};\n`;
-    fs.writeFileSync(path.join(__dirname, 'questions.txt'), code, 'utf8');
-}
-
 // Add question
-app.post('/api/admin/questions', checkAdminAuth, (req, res) => {
+app.post('/api/admin/questions', checkAdminAuth, async (req, res) => {
     const { category, question, options, correctAnswer, optionsCount, hostComment } = req.body;
     if (!category || !question || !options || !correctAnswer || !optionsCount) {
         return res.status(400).json({ error: 'Eksik alanlar var!' });
@@ -576,7 +640,7 @@ app.post('/api/admin/questions', checkAdminAuth, (req, res) => {
     }
 
     try {
-        saveQuestionsToDisk();
+        await saveQuestionsToDisk();
         res.json({ success: true, msg: 'Soru başarıyla eklendi!' });
     } catch (err) {
         res.status(500).json({ error: 'Dosyaya kaydedilemedi: ' + err.message });
@@ -584,7 +648,7 @@ app.post('/api/admin/questions', checkAdminAuth, (req, res) => {
 });
 
 // Delete question
-app.delete('/api/admin/questions/:category/:index', checkAdminAuth, (req, res) => {
+app.delete('/api/admin/questions/:category/:index', checkAdminAuth, async (req, res) => {
     const { category, index } = req.params;
     const idx = parseInt(index, 10);
 
@@ -613,7 +677,7 @@ app.delete('/api/admin/questions/:category/:index', checkAdminAuth, (req, res) =
     targetArray.splice(idx, 1);
 
     try {
-        saveQuestionsToDisk();
+        await saveQuestionsToDisk();
         res.json({ success: true, msg: 'Soru başarıyla silindi!' });
     } catch (err) {
         res.status(500).json({ error: 'Dosyaya kaydedilemedi: ' + err.message });
