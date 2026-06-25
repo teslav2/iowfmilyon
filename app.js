@@ -1630,6 +1630,10 @@ document.getElementById("btn-start-game").addEventListener("click", () => {
     if (wrapper) wrapper.classList.add('locked');
 
     introModalEl.classList.add("hidden");
+    const studioContainer = document.querySelector(".studio-container");
+    if (studioContainer) {
+        studioContainer.classList.remove("studio-hidden");
+    }
     if (audioCtx.state === 'suspended') {
         audioCtx.resume();
     }
@@ -1706,6 +1710,24 @@ if (btnMobileToggle) {
         const savedSetting = localStorage.getItem("iowf_mobile_mode");
         setMobileMode(savedSetting === "true");
     }
+
+    // Dynamic resize handler to automatically toggle mobile view based on window size
+    const handleResizeMobileMode = () => {
+        const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobileUA) {
+            setMobileMode(true);
+            return;
+        }
+        if (window.innerWidth <= 768) {
+            if (!isMobileMode) setMobileMode(true);
+        } else {
+            const savedSetting = localStorage.getItem("iowf_mobile_mode");
+            if (savedSetting !== "true" && isMobileMode) {
+                setMobileMode(false);
+            }
+        }
+    };
+    window.addEventListener("resize", handleResizeMobileMode);
 
     btnMobileToggle.addEventListener("click", () => {
         if (isMobileDevice) return; // Prevent toggling on real mobile screens

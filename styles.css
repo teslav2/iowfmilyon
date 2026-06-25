@@ -52,6 +52,9 @@ body {
     overflow: hidden;
     pointer-events: none; /* Arka plandaki Three.js sahnesini etkileşime kapatmamak için */
 }
+.studio-container.studio-hidden {
+    display: none !important;
+}
 
 #studio-canvas {
     position: absolute;
@@ -1959,14 +1962,10 @@ body {
 
 /* MOBİL MOD KONTROL BUTONU SÜSLENMESİ */
 .btn-mobile-toggle {
-    border-color: rgba(0, 242, 254, 0.45) !important;
-    color: var(--neon-blue) !important;
-    font-weight: 800 !important;
+    display: none !important;
 }
 .btn-mobile-toggle.active-mobile-mode {
-    border-color: var(--neon-gold) !important;
-    color: var(--neon-gold) !important;
-    box-shadow: var(--neon-gold-glow) !important;
+    display: none !important;
 }
 
 /* ================= 768px Altı Cihazlar İçin Otomatik Düzenlemeler (Media Query) ================= */
@@ -2021,9 +2020,19 @@ body {
     
     /* Ana Oyun Alanı Dikey Yapı */
     .game-main {
+        display: flex !important;
         flex-direction: column !important;
         gap: 10px !important;
         margin-top: 10px !important;
+        height: auto !important;
+    }
+    
+    .glow-bg-orb {
+        display: none !important;
+    }
+    
+    .logo-main-text {
+        display: none !important;
     }
     
     .active-bundles-container {
@@ -2184,23 +2193,17 @@ body {
     
     /* Üst üste binmeleri engellemek için genel düzen temizliği */
     .host-section {
-        display: flex !important;
-        flex-direction: row !important;
-        flex-wrap: nowrap !important;
-        align-items: center !important;
-        justify-content: flex-start !important;
-        gap: 15px !important;
+        display: block !important;
         width: 100% !important;
-        padding: 10px !important;
-        background: rgba(8, 14, 44, 0.4);
-        border-radius: 12px;
-        border: 1px solid var(--border-glass);
+        padding: 8px 12px !important;
+        background: rgba(8, 14, 44, 0.6) !important;
+        border-radius: 12px !important;
+        border: 1px solid var(--border-glass) !important;
+        height: auto !important;
     }
     
     .host-avatar-container {
-        width: 70px !important;
-        height: 70px !important;
-        flex-shrink: 0;
+        display: none !important;
     }
     
     .table-status-panel {
