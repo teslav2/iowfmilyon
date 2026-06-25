@@ -1992,34 +1992,60 @@ body {
         justify-content: space-between !important;
     }
     
-    /* Header düzeni */
+    /* Header düzeni - Tek satırda son derece kompakt mobil başlık */
     .game-header {
-        height: auto !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-        padding: 10px !important;
+        height: 48px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 4px 10px !important;
+        gap: 6px !important;
+    }
+    
+    .header-left {
+        flex: 0 0 auto !important;
+    }
+    
+    .header-center {
+        flex: 0 0 auto !important;
     }
     
     .header-right {
+        flex: 0 0 auto !important;
         display: flex !important;
-        flex-wrap: wrap !important;
-        justify-content: center !important;
-        gap: 6px !important;
-        width: 100% !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        gap: 4px !important;
+        align-items: center !important;
+        width: auto !important;
     }
     
     .header-right .vault-display {
-        width: 100% !important;
-        text-align: center !important;
-        margin-top: 4px !important;
-        border-top: 1px solid var(--border-glass);
-        padding-top: 4px !important;
+        display: none !important; /* Mobilde toplam bakiye alanını gizle (altta kasadaki para olduğu için) */
     }
     
     .header-right button {
-        padding: 5px 10px !important;
-        font-size: 0.7rem !important;
-        height: 28px !important;
+        padding: 2px 6px !important;
+        font-size: 0.62rem !important;
+        height: 26px !important;
+        margin-right: 0 !important;
+    }
+
+    .logo-img {
+        height: 26px !important;
+    }
+
+    .question-tracker {
+        padding: 2px 8px !important;
+    }
+
+    .question-tracker span {
+        font-size: 0.5rem !important;
+    }
+
+    .tracker-val {
+        font-size: 0.85rem !important;
     }
     
     /* Ana Oyun Alanı Dikey Yapı */
