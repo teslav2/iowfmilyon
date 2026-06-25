@@ -368,13 +368,7 @@ initAll().catch(err => console.error("Database initialization failed:", err.mess
 // Get high scores
 app.get('/api/scores', (req, res) => {
     try {
-        let scores = [];
-        if (fs.existsSync(scoresFilePath)) {
-            const fileContent = fs.readFileSync(scoresFilePath, 'utf8');
-            scores = JSON.parse(fileContent || '[]');
-        } else {
-            scores = memoryScores;
-        }
+        let scores = memoryScores;
         
         // Deduplicate: Keep only the best score per user
         const userBestScores = {};
