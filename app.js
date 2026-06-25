@@ -18,6 +18,7 @@ let tableBundles = 20;
 let tubeBundles = { A: 0, B: 0, C: 0, D: 0 };
 let timerInterval = null;
 let timeLeft = 60;
+let isMobileMode = false; // Controls WebGL rendering bypass for mobile devices & performance mode
 
 // Dynamic Settings object fetched from API
 let configSettings = {
@@ -1232,6 +1233,11 @@ function reset3DScene() {
 function animate(time) {
     requestAnimationFrame(animate);
     
+    if (isMobileMode) {
+        // If mobile performance mode is active, completely skip Three.js render calculations
+        return;
+    }
+    
     const elapsed = (time || 0) * 0.001;
     
     // Zemin neon halkaları animasyonu kaldırıldı
@@ -1652,6 +1658,70 @@ if (btnOpenLeaderboardGame) {
 const btnCloseLeaderboard = document.getElementById("btn-close-leaderboard");
 if (btnCloseLeaderboard) {
     btnCloseLeaderboard.addEventListener("click", closeLeaderboard);
+}
+
+// Mobile / 3D Mode Toggle Event Bindings
+const btnMobileToggle = document.getElementById("btn-mobile-toggle");
+if (btnMobileToggle) {
+    // Detect mobile user-agents to pre-enable Mobile Mode automatically
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Toggle Mobile Mode function
+    const setMobileMode = (enable) => {
+        isMobileMode = enable;
+        localStorage.setItem("iowf_mobile_mode", enable ? "true" : "false");
+        
+        if (isMobileMode) {
+            btnMobileToggle.textContent = "📱 MOBİL MOD: AÇIK";
+            btnMobileToggle.classList.add("active-mobile-mode");
+            document.body.classList.add("mobile-performance-layout");
+            
+            // Turn off 3D WebGL rendering visibility to save GPU
+            const canvas = document.getElementById("studio-canvas");
+            if (canvas) canvas.style.display = "none";
+        } else {
+            btnMobileToggle.textContent = "💻 3D MODU: AÇIK";
+            btnMobileToggle.classList.remove("active-mobile-mode");
+            document.body.classList.remove("mobile-performance-layout");
+            
+            // Re-show 3D Canvas
+            const canvas = document.getElementById("studio-canvas");
+            if (canvas) canvas.style.display = "block";
+            
+            // Re-run Three.js loop resize
+            if (renderer) {
+                onWindowResize();
+            }
+        }
+    };
+
+    // Initialize state from local storage or device agent detection
+    const savedMobileModeSetting = localStorage.getItem("iowf_mobile_mode");
+    if (savedMobileModeSetting === "true" || (savedMobileModeSetting === null && isMobileDevice)) {
+        setMobileMode(true);
+    } else {
+        setMobileMode(false);
+    }
+
+    btnMobileToggle.addEventListener("click", () => {
+        setMobileMode(!isMobileMode);
+    });
+}
+
+// Mobile Updates Modal Bindings
+const updatesModalEl = document.getElementById("updates-modal");
+const btnOpenUpdatesMobile = document.getElementById("btn-open-updates-mobile");
+const btnCloseUpdates = document.getElementById("btn-close-updates");
+
+if (btnOpenUpdatesMobile && updatesModalEl) {
+    btnOpenUpdatesMobile.addEventListener("click", () => {
+        updatesModalEl.classList.remove("hidden");
+    });
+}
+if (btnCloseUpdates && updatesModalEl) {
+    btnCloseUpdates.addEventListener("click", () => {
+        updatesModalEl.classList.add("hidden");
+    });
 }
 
 // Call immediate field init

@@ -77,7 +77,8 @@
             </div>
 
             <div class="header-right">
-
+                <!-- Mobil / 3D Geçiş Butonu -->
+                <button id="btn-mobile-toggle" class="btn-dialog btn-mobile-toggle" title="Mobil Modu (3D Kapat) Aç/Kapat">📱 MOBİL MOD: AÇIK</button>
 
                 <!-- Dialog Kontrol Butonu -->
                 <button id="btn-dialog" class="btn-dialog" title="Dialog Seslendirmesi Aç/Kapat">DİALOG SESİ</button>
@@ -255,6 +256,7 @@
                 </div>
                 <div class="intro-extra-actions">
                     <button id="btn-open-leaderboard-intro" class="btn-leaderboard"><span class="icon">🏆</span> SIRALAMA</button>
+                    <button id="btn-open-updates-mobile" class="btn-leaderboard btn-open-updates-mobile"><span class="icon">📋</span> GÜNCELLEMELER</button>
                 </div>
 
                 <!-- Telif Hakkı Mesajı -->
@@ -397,6 +399,41 @@
             </div>
 
             <button id="btn-close-leaderboard" class="btn-primary btn-close-leaderboard-premium">KAPAT</button>
+        </div>
+    <!-- Mobil Güncellemeler (Updates) Ekranı -->
+    <div id="updates-modal" class="modal-overlay hidden">
+        <div class="leaderboard-card-premium text-center updates-mobile-card">
+            <span class="modal-subtitle-neon modal-subtitle-blue">GÜNCELLEME GEÇMİŞİ</span>
+            <h2 class="leaderboard-title-premium">IOWF MİLYON VERSİYON NOTLARI</h2>
+            
+            <div class="leaderboard-table-container mobile-updates-container" style="text-align: left; padding: 20px;">
+                <!-- v1.0.2 -->
+                <div class="timeline-item active" style="margin-bottom: 20px; border-left: 2px solid var(--neon-blue); padding-left: 15px;">
+                    <div class="timeline-badge" style="margin-bottom: 8px;">1.0.2</div>
+                    <div class="timeline-content">
+                        <p style="margin: 4px 0; font-size: 0.85rem;">🏆 Global Sıralama (Liderlik Tablosu) sistemi eklendi.</p>
+                        <p style="margin: 4px 0; font-size: 0.85rem;">👤 Kullanıcı adı girişi ve tarayıcı kilitleme sistemi eklendi.</p>
+                        <p style="margin: 4px 0; font-size: 0.85rem;">🔇 Sunucu diyalog sesini kapatma butonu işlevselleştirildi.</p>
+                    </div>
+                </div>
+                <!-- v1.0.1 -->
+                <div class="timeline-item" style="margin-bottom: 20px; border-left: 2px solid rgba(255,255,255,0.15); padding-left: 15px; opacity: 0.7;">
+                    <div class="timeline-badge" style="margin-bottom: 8px;">1.0.1</div>
+                    <div class="timeline-content">
+                        <p style="margin: 4px 0; font-size: 0.85rem;">🎙️ Sunucu sesi IOWF (Tarık) sesi oldu.</p>
+                        <p style="margin: 4px 0; font-size: 0.85rem;">🎨 Görsel düzeltmeler yapıldı ve yeni logolar eklendi.</p>
+                    </div>
+                </div>
+                <!-- v1.0.0 -->
+                <div class="timeline-item" style="border-left: 2px solid rgba(255,255,255,0.15); padding-left: 15px; opacity: 0.7;">
+                    <div class="timeline-badge" style="margin-bottom: 8px;">1.0.0</div>
+                    <div class="timeline-content">
+                        <p style="margin: 4px 0; font-size: 0.85rem;">🌐 Site temeli atıldı ve 3D stüdyo entegrasyonu tamamlandı.</p>
+                    </div>
+                </div>
+            </div>
+
+            <button id="btn-close-updates" class="btn-primary btn-close-leaderboard-premium" style="margin-top: 15px;">KAPAT</button>
         </div>
     </div>
 
