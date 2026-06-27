@@ -245,7 +245,8 @@ function init3D() {
     floor.receiveShadow = true;
     scene.add(floor);
     
-    // Canlı Stüdyo Zemin Neon Halkaları (Gönderilen stüdyo görselindeki gibi dev parlayan halkalar)
+    // Canlı Stüdyo Zemin Neon Halkaları (Gönderilen stüdyo görselindeki gibi dev parlayan halkalar) - Kullanıcı isteği ile kapatıldı
+    /*
     const ring1Geo = new THREE.TorusGeometry(7.8, 0.04, 16, 100);
     ring1Geo.rotateX(Math.PI / 2);
     const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x00f2fe });
@@ -259,6 +260,7 @@ function init3D() {
     const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
     ring2.position.y = 0.02;
     scene.add(ring2);
+    */
 
     // 1.4. ZEMİN ORTASINDAKİ LOGO (Dinamik Beyaz Arka Plan Temizleme ve Kenar Yumuşatma Entegrasyonu)
     function loadFloorLogo(imageSrc) {
