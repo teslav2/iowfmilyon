@@ -237,8 +237,8 @@ function init3D() {
     const floorGeo = new THREE.CylinderGeometry(8, 8.2, 0.5, 64);
     const floorMat = new THREE.MeshStandardMaterial({ 
         color: 0xe8ecf5, // Light grey/white studio floor tone
-        roughness: 0.15, // Glossy reflections
-        metalness: 0.05 
+        roughness: 0.95, // Matte surface to eliminate shiny white specular highlights
+        metalness: 0.0 
     });
     const floor = new THREE.Mesh(floorGeo, floorMat);
     floor.position.y = -0.25;
