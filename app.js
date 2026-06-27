@@ -236,9 +236,9 @@ function init3D() {
     // 1. ZEMİN
     const floorGeo = new THREE.CylinderGeometry(8, 8.2, 0.5, 64);
     const floorMat = new THREE.MeshStandardMaterial({ 
-        color: 0xe8ecf5, // Light grey/white studio floor tone
-        roughness: 0.95, // Matte surface to eliminate shiny white specular highlights
-        metalness: 0.0 
+        color: 0x0a0f1d, // Deep dark blue-grey studio floor instead of bright white/grey
+        roughness: 0.9, 
+        metalness: 0.1 
     });
     const floor = new THREE.Mesh(floorGeo, floorMat);
     floor.position.y = -0.25;
