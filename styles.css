@@ -338,7 +338,7 @@ body {
     margin: 4px 0;
     align-items: start;
     flex: none; /* Do not stretch */
-    height: 230px; /* Enlarged from 160px to give elements more vertical breathing room */
+    height: 260px; /* Enlarged from 230px to give elements more vertical breathing room */
 }
 
 /* Sunucu Bölümü (Sadece Avatar & Kasa Durumu) */
@@ -507,11 +507,11 @@ body {
     align-items: center;
 }
 #question-text {
-    font-size: 0.85rem;
-    font-weight: 600;
-    line-height: 1.3;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.4;
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
 }
 .options-grid {
     display: grid;
@@ -523,11 +523,11 @@ body {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    padding: 4px 10px;
+    padding: 6px 14px;
     display: flex;
     align-items: center;
     transition: all 0.2s ease;
-    height: 38px; /* Taller option cards, enlarged from 32px */
+    height: 48px; /* Taller option cards, enlarged from 38px */
     cursor: pointer;
 }
 .option-card:hover:not(.correct-answer):not(.wrong-answer) {
@@ -544,20 +544,20 @@ body {
     color: var(--neon-blue);
     text-shadow: var(--neon-blue-glow);
     font-weight: 800;
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    margin-right: 6px;
+    margin-right: 8px;
     font-family: var(--font-montserrat);
-    font-size: 0.6rem;
+    font-size: 0.85rem;
 }
 .opt-text {
-    font-size: 0.8rem; /* Enlarged from 0.7rem for better legibility */
+    font-size: 1.1rem; /* Enlarged from 0.8rem for better legibility */
     color: var(--text-light);
-    font-weight: 600;
+    font-weight: 700;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
