@@ -87,8 +87,6 @@
                 <button id="btn-mute" class="btn-mute btn-mute-text" title="Efekt Seslerini Aç/Kapat">EFEKT SESLERİ</button>
 
 
-                <!-- Sıralama Butonu -->
-                <button id="btn-open-leaderboard-game" class="btn-dialog btn-leaderboard-icon" title="Sıralamayı Göster">🏆 SIRALAMA</button>
 
                 <!-- Dijital Bakiye Ekranı -->
                 <div class="vault-display">
@@ -260,8 +258,7 @@
                     ⚠️ Kullanıcı adı sadece 1 kere yazılır ve bir daha değiştirilemez!
                 </div>
                 <div class="intro-extra-actions">
-                    <button id="btn-open-leaderboard-intro" class="btn-leaderboard"><span class="icon">🏆</span> SIRALAMA</button>
-                    <button id="btn-open-updates-mobile" class="btn-leaderboard btn-open-updates-mobile"><span class="icon">📋</span> GÜNCELLEMELER</button>
+                    <button id="btn-open-updates-mobile" class="btn-leaderboard btn-open-updates-mobile" style="width: 100%;"><span class="icon">📋</span> GÜNCELLEMELER</button>
                 </div>
 
                 <!-- Telif Hakkı Mesajı -->
@@ -378,34 +375,6 @@
         </div>
     </div>
 
-    <!-- Sıralama (Leaderboard) Ekranı -->
-    <div id="leaderboard-modal" class="modal-overlay hidden">
-        <div class="leaderboard-card-premium text-center">
-            <span class="modal-subtitle-neon modal-subtitle-blue">IOWF MİLYON SKOR TABLOSU</span>
-            <h2 class="leaderboard-title-premium">EN İYİ YARIŞMACILAR</h2>
-            
-            <div class="leaderboard-table-container">
-                <table class="leaderboard-table">
-                    <thead>
-                        <tr>
-                            <th>Sıra</th>
-                            <th>Yarışmacı</th>
-                            <th>Kazanılan Para</th>
-                            <th>Ulaşılan Soru</th>
-                        </tr>
-                    </thead>
-                    <tbody id="leaderboard-body">
-                        <!-- Dinamik skor satırları buraya gelecek -->
-                        <tr>
-                            <td colspan="4" class="loading-scores">Skorlar yükleniyor...</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <button id="btn-close-leaderboard" class="btn-primary btn-close-leaderboard-premium">KAPAT</button>
-        </div>
-    </div>
 
     <!-- Mobil Güncellemeler (Updates) Ekranı -->
     <div id="updates-modal" class="modal-overlay hidden">

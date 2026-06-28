@@ -125,11 +125,8 @@ const gameoverModalEl = document.getElementById("gameover-modal");
 const victoryModalEl = document.getElementById("victory-modal");
 const gameoverReachedQuestionEl = document.getElementById("gameover-reached-question");
 const winAmountTextEl = document.getElementById("win-amount-text");
-const leaderboardModalEl = document.getElementById("leaderboard-modal");
-const leaderboardBodyEl = document.getElementById("leaderboard-body");
 const usernameInputEl = document.getElementById("username-input");
 const usernameLockBadgeEl = document.getElementById("username-lock-badge");
-let wasTimerRunningBeforeLeaderboard = false;
 
 // ================= THREE.JS 3D WEBGL KURULUMU =================
 let scene, camera, renderer, composer;
@@ -1551,84 +1548,6 @@ function initUsernameField() {
     }
 }
 
-// Scoreboard modal toggle functions
-function openLeaderboard() {
-    if (leaderboardModalEl) {
-        leaderboardModalEl.classList.remove('hidden');
-        loadLeaderboard();
-        
-        // Pause timer if game is active
-        if (gameActive && !isLocked && !isTimerPaused) {
-            isTimerPaused = true;
-            wasTimerRunningBeforeLeaderboard = true;
-            if (btnPauseTimerEl) {
-                btnPauseTimerEl.classList.add("paused");
-                btnPauseTimerEl.textContent = "SÜREYİ BAŞLAT";
-            }
-            stopTensionDrone();
-        }
-    }
-}
-
-function closeLeaderboard() {
-    if (leaderboardModalEl) {
-        leaderboardModalEl.classList.add('hidden');
-        
-        // Resume timer if it was running before
-        if (wasTimerRunningBeforeLeaderboard) {
-            isTimerPaused = false;
-            wasTimerRunningBeforeLeaderboard = false;
-            if (btnPauseTimerEl) {
-                btnPauseTimerEl.classList.remove("paused");
-                btnPauseTimerEl.textContent = "SÜREYİ DURDUR";
-            }
-            if (!isMuted && gameActive && !isLocked) {
-                startTensionDrone();
-            }
-        }
-    }
-}
-
-function loadLeaderboard() {
-    if (!leaderboardBodyEl) return;
-    leaderboardBodyEl.innerHTML = '<tr><td colspan="4" class="loading-scores">Skorlar yükleniyor...</td></tr>';
-    
-    fetch('/api/scores')
-        .then(res => res.json())
-        .then(scores => {
-            leaderboardBodyEl.innerHTML = '';
-            if (scores.length === 0) {
-                leaderboardBodyEl.innerHTML = '<tr><td colspan="4" class="no-scores">Henüz kaydedilmiş skor yok. İlk siz olun!</td></tr>';
-                return;
-            }
-            
-            scores.forEach((s, index) => {
-                const tr = document.createElement('tr');
-                const rank = index + 1;
-                if (rank === 1) tr.className = 'rank-1';
-                else if (rank === 2) tr.className = 'rank-2';
-                else if (rank === 3) tr.className = 'rank-3';
-                
-                const formattedMoney = s.money.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + " TL";
-                
-                tr.innerHTML = `
-                    <td><span class="rank-badge">${rank}</span></td>
-                    <td>
-                        <div class="player-name-cell">
-                            ${rank === 1 ? '🥇' : rank === 2 ? '🥈' : rank === 3 ? '🥉' : ''} ${escapeHtml(s.username)}
-                        </div>
-                    </td>
-                    <td class="money-cell">${formattedMoney}</td>
-                    <td class="question-cell">${s.questionReached} / ${configSettings.questionCount}</td>
-                `;
-                leaderboardBodyEl.appendChild(tr);
-            });
-        })
-        .catch(err => {
-            console.error("Leaderboard fetch failed:", err);
-            leaderboardBodyEl.innerHTML = '<tr><td colspan="4" class="no-scores">Skorlar yüklenirken bir hata oluştu!</td></tr>';
-        });
-}
 
 function escapeHtml(text) {
     return text
@@ -1720,21 +1639,6 @@ document.getElementById("btn-restart-won").addEventListener("click", () => {
     startGame();
 });
 
-// Bind Leaderboard click events
-const btnOpenLeaderboardIntro = document.getElementById("btn-open-leaderboard-intro");
-if (btnOpenLeaderboardIntro) {
-    btnOpenLeaderboardIntro.addEventListener("click", openLeaderboard);
-}
-
-const btnOpenLeaderboardGame = document.getElementById("btn-open-leaderboard-game");
-if (btnOpenLeaderboardGame) {
-    btnOpenLeaderboardGame.addEventListener("click", openLeaderboard);
-}
-
-const btnCloseLeaderboard = document.getElementById("btn-close-leaderboard");
-if (btnCloseLeaderboard) {
-    btnCloseLeaderboard.addEventListener("click", closeLeaderboard);
-}
 
 // Mobile / 3D Mode Toggle Event Bindings
 const btnMobileToggle = document.getElementById("btn-mobile-toggle");
