@@ -301,7 +301,7 @@ function init3D() {
             
             // Logonun en-boy oranını koruyarak geometri oluştur
             const aspect = img.width / img.height;
-            const logoWidth = 9.0; // Büyütülmüş zemin logosu (genişlik 9.0 birim)
+            const logoWidth = 12.5; // Büyütülmüş zemin logosu (genişlik 12.5 birim)
             const logoHeight = logoWidth / aspect;
             
             const logoGeo = new THREE.PlaneGeometry(logoWidth, logoHeight);
@@ -329,8 +329,8 @@ function init3D() {
         };
     }
     
-    // Yeni yüklenen siyah zemin logosunu yükle
-    loadFloorLogo('iowf_logo_floor.png');
+    // Gümüş renkli zemin logosunu yükle
+    loadFloorLogo('iowf_logo_silver.png');
 
     // 1.1. ARKA PLAN LED DUVARI (Curved LED Video Wall)
     const wallGeo = new THREE.CylinderGeometry(9, 9, 5.2, 64, 1, true, -Math.PI / 3, Math.PI / 1.5);
