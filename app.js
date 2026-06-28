@@ -19,6 +19,7 @@ let tubeBundles = { A: 0, B: 0, C: 0, D: 0 };
 let timerInterval = null;
 let timeLeft = 60;
 let isMobileMode = false; // Controls WebGL rendering bypass for mobile devices & performance mode
+let banknoteParticles = []; // Array to store falling banknote particles
 
 // Dynamic Settings object fetched from API
 let configSettings = {
@@ -236,16 +237,17 @@ function init3D() {
     // 1. ZEMİN
     const floorGeo = new THREE.CylinderGeometry(8, 8.2, 0.5, 64);
     const floorMat = new THREE.MeshStandardMaterial({ 
-        color: 0xe8ecf5, // Light grey/white studio floor tone
-        roughness: 0.15, // Glossy reflections
-        metalness: 0.05 
+        color: 0x070c1b, // Siyah/Koyu stüdyo zemini
+        roughness: 0.95, // Mat kaplama (yansıyan beyaz ışıkları yok etmek için)
+        metalness: 0.0 
     });
     const floor = new THREE.Mesh(floorGeo, floorMat);
     floor.position.y = -0.25;
     floor.receiveShadow = true;
     scene.add(floor);
     
-    // Canlı Stüdyo Zemin Neon Halkaları (Gönderilen stüdyo görselindeki gibi dev parlayan halkalar)
+    // Canlı Stüdyo Zemin Neon Halkaları - Kullanıcı isteğiyle kapatıldı
+    /*
     const ring1Geo = new THREE.TorusGeometry(7.8, 0.04, 16, 100);
     ring1Geo.rotateX(Math.PI / 2);
     const ring1Mat = new THREE.MeshBasicMaterial({ color: 0x00f2fe });
@@ -259,6 +261,7 @@ function init3D() {
     const ring2 = new THREE.Mesh(ring2Geo, ring2Mat);
     ring2.position.y = 0.02;
     scene.add(ring2);
+    */
 
     // 1.4. ZEMİN ORTASINDAKİ LOGO (Dinamik Beyaz Arka Plan Temizleme ve Kenar Yumuşatma Entegrasyonu)
     function loadFloorLogo(imageSrc) {
@@ -306,7 +309,7 @@ function init3D() {
             
             // Logonun en-boy oranını koruyarak geometri oluştur
             const aspect = img.width / img.height;
-            const logoWidth = 12.5; // Büyütülmüş zemin logosu (genişlik 12.5 birim)
+            const logoWidth = 12.0; // Büyütülmüş zemin logosu (genişlik 12.0 birim)
             const logoHeight = logoWidth / aspect;
             
             const logoGeo = new THREE.PlaneGeometry(logoWidth, logoHeight);
@@ -1107,6 +1110,40 @@ function animateHatchOpenAndDrop(letter) {
     playHatchOpenSound();
 }
 
+function spawnBanknoteParticles(position, count) {
+    if (isMobileMode) return;
+    const banknoteGeo = new THREE.PlaneGeometry(0.20, 0.095); // Banknot boyutları küçültüldü (0.38 x 0.18 -> 0.20 x 0.095)
+    const banknoteMat = new THREE.MeshBasicMaterial({
+        map: banknoteTexture,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.95
+    });
+    
+    for (let i = 0; i < count; i++) {
+        const p = new THREE.Mesh(banknoteGeo, banknoteMat);
+        p.position.copy(position);
+        
+        // Tüpün dışına taşmaması için yayılma alanı daraltıldı (0.5 -> 0.15)
+        p.position.x += (Math.random() - 0.5) * 0.15;
+        p.position.y += (Math.random() - 0.5) * 0.1;
+        p.position.z += (Math.random() - 0.5) * 0.15;
+        
+        p.userData = {
+            vy: -0.01 - Math.random() * 0.02,
+            vx: (Math.random() - 0.5) * 0.015, // Yatay saçılma hızı azaltıldı (0.05 -> 0.015)
+            vz: (Math.random() - 0.5) * 0.015,
+            vrx: (Math.random() - 0.5) * 0.4,
+            vry: (Math.random() - 0.5) * 0.6,
+            vrz: (Math.random() - 0.5) * 0.4,
+            phase: Math.random() * Math.PI * 2
+        };
+        
+        scene.add(p);
+        banknoteParticles.push(p);
+    }
+}
+
 
 function updateShowcaseBundles3D() {
     if (isMobileMode) return;
@@ -1239,8 +1276,8 @@ function reset3DScene() {
     }
     updateShowcaseBundles3D();
     
-    cameraTargetPos.set(0, 5.5, 11.5);
-    cameraTargetLookAt.set(0, 1.5, -2.0);
+    cameraTargetPos.set(-2.5, 3.5, 7.5);
+    cameraTargetLookAt.set(-2.0, 1.5, -0.5);
     
     hostAction = "idle";
 }
@@ -1281,7 +1318,8 @@ function animate(time) {
                             bundle.userData.isSpawning = false;
                             bundle.userData.isFalling = true;
                             
-                            
+                            // Para dökülme efekti: her balya düşmeye başladığında 12 adet savrulan kâğıt para taneciği üret
+                            spawnBanknoteParticles(bundle.position, 12);
                             // 1. Staggered Delay (Yükseklik tabanlı kademeli düşüş)
                             // Alttaki balyalar hemen düşer, üsttekiler kütle çekimiyle sırayla çöker
                             const heightFactor = bundle.position.y - 0.4;
@@ -1392,9 +1430,24 @@ function animate(time) {
         });
     });
     
-    // Sunucu platformu animasyonu kaldırıldı
+    // 3.1 DÜŞEN KAĞIT PARA TANECİKLERİ SİMÜLASYONU
+    for (let i = banknoteParticles.length - 1; i >= 0; i--) {
+        const p = banknoteParticles[i];
+        p.userData.vy += 0.003; // hafif hava dirençli yerçekimi ivmesi
+        p.position.y -= p.userData.vy;
+        p.position.x += p.userData.vx + Math.sin(elapsed * 4 + p.userData.phase) * 0.005; // Daha dar salınım
+        p.position.z += p.userData.vz;
+        
+        p.rotation.x += p.userData.vrx;
+        p.rotation.y += p.userData.vry;
+        p.rotation.z += p.userData.vrz;
+        
+        if (p.position.y < -3.0) {
+            scene.remove(p);
+            banknoteParticles.splice(i, 1);
+        }
+    }
     
-
     // 5. KAMERA HAREKETİ
     camera.position.lerp(cameraTargetPos, 0.04);
     if (shakeIntensity > 0) {
@@ -2545,6 +2598,11 @@ function startTimer() {
     clearInterval(timerInterval);
     timerSectionEl.classList.remove("warning");
     
+    if (!isMobileMode) {
+        cameraTargetPos.set(0, 4.0, 8.5);
+        cameraTargetLookAt.set(0, 0.8, -0.5);
+    }
+    
     // Set initial width based on timeLeft
     const percent = (timeLeft / configSettings.timerDuration) * 100;
     timerProgressEl.style.width = `${percent}%`;
@@ -2649,6 +2707,13 @@ function revealResults(correctLetter, hostComment) {
         
         animateHatchOpenAndDrop(letter);
         
+        // Kamera takibi: Yanlış şık açıklanıp kapak açılırken kamerayı o tüpe çevir (alt dramatik açı)
+        if (!isMobileMode) {
+            const xPos = TUBE_POSITIONS[letter].x;
+            const zPos = TUBE_POSITIONS[letter].z;
+            cameraTargetPos.set(xPos, 1.8, zPos + 4.5);
+            cameraTargetLookAt.set(xPos, 0.4, zPos);
+        }
 
         // Bir sonraki yanlış kapağı açmak için 2.4 saniye bekle (yavaş açılış ve paranın düşüşü için tam süre)
         setTimeout(() => {
