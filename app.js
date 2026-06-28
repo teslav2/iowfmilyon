@@ -19,6 +19,8 @@ let tubeBundles = { A: 0, B: 0, C: 0, D: 0 };
 let timerInterval = null;
 let timeLeft = 60;
 let isMobileMode = false; // Controls WebGL rendering bypass for mobile devices & performance mode
+let banknoteParticles = []; // Array to store falling banknote particles
+let globalBgImage = null; // Store loaded backdrop image globally
 
 // Dynamic Settings object fetched from API
 let configSettings = {
@@ -273,28 +275,35 @@ function init3D() {
             const ctx = canvas.getContext("2d");
             ctx.drawImage(img, 0, 0);
             
-            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-            const data = imgData.data;
+            let imgData = null;
+            try {
+                imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            } catch (e) {
+                console.warn("Yerel dosya güvenlik kısıtlaması (CORS) nedeniyle logo arka plan temizliği atlandı:", e);
+            }
             
             // Beyaz arka planı siler ve kenarları yumuşakça şeffaflaştırır (Anti-aliasing)
-            for (let i = 0; i < data.length; i += 4) {
-                const r = data[i];
-                const g = data[i+1];
-                const b = data[i+2];
-                const a = data[i+3];
-                
-                // Zaten şeffaf olan pikselleri atla
-                if (a === 0) continue;
-                
-                // Gri/parlaklık değeri hesapla
-                const brightness = (r + g + b) / 3;
-                if (brightness > 245) {
-                    // 245 ile 255 arasında lineer geçişle alpha (şeffaflık) ata
-                    const alpha = Math.max(0, (255 - brightness) / 10);
-                    data[i+3] = Math.round(alpha * 255);
+            if (imgData) {
+                const data = imgData.data;
+                for (let i = 0; i < data.length; i += 4) {
+                    const r = data[i];
+                    const g = data[i+1];
+                    const b = data[i+2];
+                    const a = data[i+3];
+                    
+                    // Zaten şeffaf olan pikselleri atla
+                    if (a === 0) continue;
+                    
+                    // Gri/parlaklık değeri hesapla
+                    const brightness = (r + g + b) / 3;
+                    if (brightness > 245) {
+                        // 245 ile 255 arasında lineer geçişle alpha (şeffaflık) ata
+                        const alpha = Math.max(0, (255 - brightness) / 10);
+                        data[i+3] = Math.round(alpha * 255);
+                    }
                 }
+                ctx.putImageData(imgData, 0, 0);
             }
-            ctx.putImageData(imgData, 0, 0);
             
             const logoTexture = new THREE.CanvasTexture(canvas);
             logoTexture.colorSpace = THREE.SRGBColorSpace;
@@ -344,6 +353,10 @@ function init3D() {
     const wallTexture = new THREE.CanvasTexture(gridCanvas);
     
     function drawLedWall(bgImg) {
+        // Clear canvas to prevent trails
+        ctx.clearRect(0, 0, 1024, 512);
+        ctx.shadowBlur = 0; // reset shadow
+        
         if (bgImg) {
             // Draw custom premium backdrop image
             ctx.drawImage(bgImg, 0, 0, 1024, 512);
@@ -409,6 +422,71 @@ function init3D() {
         ctx.font = "bold 84px Outfit, Montserrat, Arial, sans-serif";
         ctx.fillText("IOWF MİLYON", 512, 256);
         
+        // Dynamic Twitch Chat Voting Results overlay
+        if (twitchVotingActive) {
+            // Draw a semi-transparent dark card overlay on the screen
+            ctx.fillStyle = "rgba(3, 7, 24, 0.88)";
+            ctx.strokeStyle = "rgba(0, 242, 254, 0.5)";
+            ctx.lineWidth = 4;
+            ctx.shadowColor = "#00f2fe";
+            ctx.shadowBlur = 15;
+            
+            const cardX = 160;
+            const cardY = 320;
+            const cardW = 704;
+            const cardH = 150;
+            
+            ctx.beginPath();
+            if (ctx.roundRect) {
+                ctx.roundRect(cardX, cardY, cardW, cardH, 12);
+            } else {
+                ctx.rect(cardX, cardY, cardW, cardH);
+            }
+            ctx.fill();
+            ctx.stroke();
+            ctx.shadowBlur = 0; // reset shadow
+            
+            // Header text
+            ctx.fillStyle = "#ffd700";
+            ctx.font = "bold 20px Outfit, Montserrat, Arial, sans-serif";
+            ctx.textAlign = "center";
+            ctx.fillText("👥 SEYİRCİ OYLAMASI (Twitch Chat)", 512, cardY + 25);
+            
+            // Percentage calculations
+            const totalVotes = twitchVotes.A + twitchVotes.B + twitchVotes.C + twitchVotes.D;
+            const letters = ["A", "B", "C", "D"];
+            const qData = activeGameQuestions[currentQuestionIndex];
+            const optCount = qData ? (qData.optionsCount || 4) : 4;
+            
+            const activeLetters = letters.slice(0, optCount);
+            const barSpacing = cardW / activeLetters.length;
+            
+            activeLetters.forEach((letter, i) => {
+                const votes = twitchVotes[letter];
+                const pct = totalVotes > 0 ? (votes / totalVotes) : 0;
+                const pctText = (pct * 100).toFixed(0) + "%";
+                
+                const barCenterX = cardX + (i + 0.5) * barSpacing;
+                const barW = Math.min(100, barSpacing - 40);
+                const maxBarH = 60;
+                const barH = pct * maxBarH;
+                const barTopY = cardY + 110 - barH;
+                
+                // Bar Background
+                ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
+                ctx.fillRect(barCenterX - barW/2, cardY + 110 - maxBarH, barW, maxBarH);
+                
+                // Voting Bar Fill (Theme colors matching columns)
+                ctx.fillStyle = letter === "A" ? "#00f2fe" : (letter === "B" ? "#ffd700" : (letter === "C" ? "#ff007f" : "#a020f0"));
+                ctx.fillRect(barCenterX - barW/2, barTopY, barW, barH);
+                
+                // Label and count
+                ctx.fillStyle = "#fff";
+                ctx.font = "bold 18px Outfit, Montserrat, Arial, sans-serif";
+                ctx.fillText(`${letter}: ${pctText} (${votes})`, barCenterX, cardY + 132);
+            });
+        }
+        
         wallTexture.needsUpdate = true;
     }
     
@@ -419,6 +497,7 @@ function init3D() {
     const bgImage = new Image();
     bgImage.src = 'studio_led_backdrop.png';
     bgImage.onload = () => {
+        globalBgImage = bgImage;
         drawLedWall(bgImage);
     };
     bgImage.onerror = () => {
@@ -1102,6 +1181,40 @@ function animateHatchOpenAndDrop(letter) {
     playHatchOpenSound();
 }
 
+function spawnBanknoteParticles(position, count) {
+    if (isMobileMode) return;
+    const banknoteGeo = new THREE.PlaneGeometry(0.20, 0.095); // Banknot boyutları küçültüldü (0.38 x 0.18 -> 0.20 x 0.095)
+    const banknoteMat = new THREE.MeshBasicMaterial({
+        map: banknoteTexture,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.95
+    });
+    
+    for (let i = 0; i < count; i++) {
+        const p = new THREE.Mesh(banknoteGeo, banknoteMat);
+        p.position.copy(position);
+        
+        // Tüpün dışına taşmaması için yayılma alanı daraltıldı (0.5 -> 0.15)
+        p.position.x += (Math.random() - 0.5) * 0.15;
+        p.position.y += (Math.random() - 0.5) * 0.1;
+        p.position.z += (Math.random() - 0.5) * 0.15;
+        
+        p.userData = {
+            vy: -0.01 - Math.random() * 0.02,
+            vx: (Math.random() - 0.5) * 0.015, // Yatay saçılma hızı azaltıldı (0.05 -> 0.015)
+            vz: (Math.random() - 0.5) * 0.015,
+            vrx: (Math.random() - 0.5) * 0.4,
+            vry: (Math.random() - 0.5) * 0.6,
+            vrz: (Math.random() - 0.5) * 0.4,
+            phase: Math.random() * Math.PI * 2
+        };
+        
+        scene.add(p);
+        banknoteParticles.push(p);
+    }
+}
+
 function updateShowcaseBundles3D() {
     if (isMobileMode) return;
     // Clear old bundles
@@ -1233,8 +1346,8 @@ function reset3DScene() {
     }
     updateShowcaseBundles3D();
     
-    cameraTargetPos.set(0, 5.5, 11.5);
-    cameraTargetLookAt.set(0, 1.5, -2.0);
+    cameraTargetPos.set(-2.5, 3.5, 7.5);
+    cameraTargetLookAt.set(-2.0, 1.5, -0.5);
     
     hostAction = "idle";
 }
@@ -1274,6 +1387,9 @@ function animate(time) {
                             bundle.userData.isTravelingPipe = false;
                             bundle.userData.isSpawning = false;
                             bundle.userData.isFalling = true;
+                            
+                            // Para dökülme efekti: her balya düşmeye başladığında 12 adet savrulan kâğıt para taneciği üret
+                            spawnBanknoteParticles(bundle.position, 12);
                             
                             // 1. Staggered Delay (Yükseklik tabanlı kademeli düşüş)
                             // Alttaki balyalar hemen düşer, üsttekiler kütle çekimiyle sırayla çöker
@@ -1386,6 +1502,24 @@ function animate(time) {
     });
     
     // Sunucu platformu animasyonu kaldırıldı
+    
+    // 3.1 DÜŞEN KAĞIT PARA TANECİKLERİ SİMÜLASYONU
+    for (let i = banknoteParticles.length - 1; i >= 0; i--) {
+        const p = banknoteParticles[i];
+        p.userData.vy += 0.003; // hafif hava dirençli yerçekimi ivmesi
+        p.position.y -= p.userData.vy;
+        p.position.x += p.userData.vx + Math.sin(elapsed * 4 + p.userData.phase) * 0.005; // Daha dar salınım
+        p.position.z += p.userData.vz;
+        
+        p.rotation.x += p.userData.vrx;
+        p.rotation.y += p.userData.vry;
+        p.rotation.z += p.userData.vrz;
+        
+        if (p.position.y < -3.0) {
+            scene.remove(p);
+            banknoteParticles.splice(i, 1);
+        }
+    }
     
     // 5. KAMERA HAREKETİ
     camera.position.lerp(cameraTargetPos, 0.04);
@@ -1600,6 +1734,7 @@ function submitScore(money, questionReached) {
     });
 }
 
+// Twitch Chat Entegrasyonu ve Seyirci Jokeri Fonksiyonları
 // Oyunu Başlat Dinleyicileri
 document.getElementById("btn-start-game").addEventListener("click", () => {
     const username = usernameInputEl ? usernameInputEl.value.trim() : '';
@@ -2182,6 +2317,8 @@ async function startGame() {
     totalMoney = configSettings.startingMoney;
     gameActive = true;
     
+
+    
     // Clean up confetti
     confettiParticles.forEach(p => scene.remove(p.mesh));
     confettiParticles = [];
@@ -2534,6 +2671,11 @@ function startTimer() {
     clearInterval(timerInterval);
     timerSectionEl.classList.remove("warning");
     
+    if (!isMobileMode) {
+        cameraTargetPos.set(0, 4.0, 8.5);
+        cameraTargetLookAt.set(0, 0.8, -0.5);
+    }
+    
     // Set initial width based on timeLeft
     const percent = (timeLeft / configSettings.timerDuration) * 100;
     timerProgressEl.style.width = `${percent}%`;
@@ -2637,6 +2779,14 @@ function revealResults(correctLetter, hostComment) {
         }
         
         animateHatchOpenAndDrop(letter);
+        
+        // Kamera takibi: Yanlış şık açıklanıp kapak açılırken kamerayı o tüpe çevir
+        if (!isMobileMode) {
+            const xPos = TUBE_POSITIONS[letter].x;
+            const zPos = TUBE_POSITIONS[letter].z;
+            cameraTargetPos.set(xPos, 1.8, zPos + 4.5);
+            cameraTargetLookAt.set(xPos, 0.4, zPos);
+        }
         
         // Bir sonraki yanlış kapağı açmak için 2.4 saniye bekle (yavaş açılış ve paranın düşüşü için tam süre)
         setTimeout(() => {
