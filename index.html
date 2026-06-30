@@ -497,11 +497,18 @@
                     Yayıncı Modunu Etkinleştir (Kick Oylaması)
                 </label>
                 
-                <div style="display: flex; flex-direction: column; gap: 6px;">
-                    <label for="kick-channel-input-modal" style="color: var(--neon-blue); font-size: 0.8rem; font-weight: 700;">Kick Kanal Adı:</label>
-                    <div style="display: flex; gap: 8px;">
-                        <input type="text" id="kick-channel-input-modal" value="iowf" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #fff; padding: 8px 12px; font-size: 0.9rem; outline: none; transition: border 0.3s; flex: 1;" autocomplete="off" />
-                        <button id="btn-connect-kick" class="btn-primary" style="padding: 0 15px; font-size: 0.85rem; height: 38px; min-width: 90px; margin: 0; line-height: 38px;">BAĞLAN</button>
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                        <label for="kick-channel-input-modal" style="color: var(--neon-blue); font-size: 0.8rem; font-weight: 700;">Kick Kanal Adı:</label>
+                        <input type="text" id="kick-channel-input-modal" value="iowf" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #fff; padding: 8px 12px; font-size: 0.9rem; outline: none; transition: border 0.3s; width: 100%; box-sizing: border-box;" autocomplete="off" />
+                    </div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                        <label for="kick-chatroom-id-input" style="color: var(--neon-gold); font-size: 0.8rem; font-weight: 700;">(Alternatif) Chatroom ID:</label>
+                        <div style="display: flex; gap: 8px;">
+                            <input type="text" id="kick-chatroom-id-input" placeholder="Kanal adıyla bağlanamazsa ID yazın..." style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #fff; padding: 8px 12px; font-size: 0.9rem; outline: none; transition: border 0.3s; flex: 1;" autocomplete="off" />
+                            <button id="btn-connect-kick" class="btn-primary" style="padding: 0 15px; font-size: 0.85rem; height: 38px; min-width: 90px; margin: 0; line-height: 38px;">BAĞLAN</button>
+                        </div>
                     </div>
                 </div>
                 

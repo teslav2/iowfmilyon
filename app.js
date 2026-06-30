@@ -24,7 +24,7 @@ let isStreamerMode = false;
 let kickChannelName = "";
 let kickPusher = null;
 let kickVotes = { A: 0, B: 0, C: 0, D: 0 };
-let kickVoters = new Set();
+let kickVoters = new Map();
 let kickVotingActive = false;
 
 // Dynamic Settings object fetched from API
@@ -1589,40 +1589,54 @@ function submitScore(money, questionReached) {
 // ================= KICK CHAT (PUSHER WEBSOCKET) ENTEGRASYONU =================
 async function getKickChatroomId(channelName) {
     const targetUrl = `https://kick.com/api/v2/channels/${channelName.toLowerCase().trim()}`;
+    console.log(`Resolving chatroom ID for: ${targetUrl}`);
     
-    // Deneme 1: corsproxy.io (Hızlı ve sade)
-    try {
-        const response = await fetch(`https://corsproxy.io/?${targetUrl}`);
-        if (response.ok) {
-            const data = await response.json();
-            if (data && data.chatroom && data.chatroom.id) {
-                return data.chatroom.id;
+    const proxies = [
+        // 1. corsproxy.io (Correct format: ?url=...)
+        `https://corsproxy.io/?url=${encodeURIComponent(targetUrl)}`,
+        
+        // 2. allorigins.win (Raw wrap)
+        `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`,
+        
+        // 3. codetabs.com
+        `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
+        
+        // 4. thingproxy.freeboard.io
+        `https://thingproxy.freeboard.io/fetch/${targetUrl}`
+    ];
+    
+    for (let i = 0; i < proxies.length; i++) {
+        const proxyUrl = proxies[i];
+        console.log(`Trying proxy ${i + 1}/${proxies.length}: ${proxyUrl}`);
+        try {
+            const response = await fetch(proxyUrl);
+            if (response.ok) {
+                let data;
+                if (proxyUrl.includes("allorigins")) {
+                    const json = await response.json();
+                    data = JSON.parse(json.contents);
+                } else {
+                    data = await response.json();
+                }
+                
+                if (data && data.chatroom && data.chatroom.id) {
+                    console.log(`Successfully resolved chatroom ID using proxy ${i + 1}: ${data.chatroom.id}`);
+                    return data.chatroom.id;
+                }
             }
+        } catch (e) {
+            console.warn(`Proxy ${i + 1} failed:`, e);
         }
-    } catch (e) {
-        console.warn("corsproxy.io failed, trying allorigins...", e);
     }
     
-    // Deneme 2: api.allorigins.win (Güvenilir fallback)
-    try {
-        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`);
-        if (response.ok) {
-            const json = await response.json();
-            const data = JSON.parse(json.contents);
-            if (data && data.chatroom && data.chatroom.id) {
-                return data.chatroom.id;
-            }
-        }
-    } catch (e) {
-        console.warn("allorigins failed...", e);
-    }
-    
-    throw new Error("Kick kanal bilgisi proxy üzerinden alınamadı.");
+    throw new Error("Tüm bağlantı köprüleri başarısız oldu.");
 }
 
 async function connectKickChat(channelName) {
     const statusEl = document.getElementById("chat-connection-status");
     const modalStatusEl = document.getElementById("modal-connection-status");
+    const chatroomIdInput = document.getElementById("kick-chatroom-id-input");
+    const manualChatroomId = chatroomIdInput ? chatroomIdInput.value.trim() : "";
     
     const updateStatus = (text, className, color) => {
         if (statusEl) {
@@ -1638,9 +1652,19 @@ async function connectKickChat(channelName) {
     updateStatus("BAĞLANIYOR...", "", "var(--neon-blue)");
     
     try {
-        console.log(`Kick Chat: ${channelName} kanalı için Chatroom ID alınıyor...`);
-        const chatroomId = await getKickChatroomId(channelName);
-        console.log(`Kick Chat: Chatroom ID alındı: ${chatroomId}. Pusher baglantisi kuruluyor...`);
+        let chatroomId = manualChatroomId;
+        if (!chatroomId) {
+            console.log(`Kick Chat: ${channelName} kanalı için Chatroom ID alınıyor...`);
+            chatroomId = await getKickChatroomId(channelName);
+            console.log(`Kick Chat: Chatroom ID alındı: ${chatroomId}. Pusher baglantisi kuruluyor...`);
+            
+            // Otomatik bulunan ID değerini input kutusuna yazdır
+            if (chatroomIdInput) {
+                chatroomIdInput.value = chatroomId;
+            }
+        } else {
+            console.log(`Kick Chat: Manuel Chatroom ID kullanılıyor: ${chatroomId}. Pusher baglantisi kuruluyor...`);
+        }
         
         if (kickPusher) {
             try { kickPusher.disconnect(); } catch(e) {}
@@ -1663,9 +1687,6 @@ async function connectKickChat(channelName) {
             const username = data.sender.username;
             const message = data.content ? data.content.trim().toLowerCase() : "";
             
-            // Eğer kullanıcı bu soru için zaten oy vermişse mükerrer sayma
-            if (kickVoters.has(username)) return;
-            
             let vote = null;
             if (message === "!a" || message === "a" || message === "aa" || message === "a a") vote = "A";
             else if (message === "!b" || message === "b" || message === "bb" || message === "b b") vote = "B";
@@ -1679,9 +1700,23 @@ async function connectKickChat(channelName) {
                 const activeLetters = ["A", "B", "C", "D"].slice(0, optCount);
                 
                 if (activeLetters.includes(vote)) {
-                    kickVotes[vote]++;
-                    kickVoters.add(username);
-                    updateChatVotingUI();
+                    if (kickVoters.has(username)) {
+                        const prevVote = kickVoters.get(username);
+                        if (prevVote !== vote) {
+                            // Eski oyu azalt
+                            kickVotes[prevVote]--;
+                            // Yeni oyu artır
+                            kickVotes[vote]++;
+                            // Güncelle
+                            kickVoters.set(username, vote);
+                            updateChatVotingUI();
+                        }
+                    } else {
+                        // İlk defa oy veriyor
+                        kickVotes[vote]++;
+                        kickVoters.set(username, vote);
+                        updateChatVotingUI();
+                    }
                 }
             }
         });
