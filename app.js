@@ -249,13 +249,18 @@ function loadHostTextures() {
             const data = imgData.data;
 
             // Beyaz renk piksellerini (ve beyaza yakın tonları) şeffaf yapıyoruz
+            // Kenar yumuşatma (anti-aliasing) beyazlıklarını çözmek için yarı-şeffaflık eşiği ekliyoruz
             for (let i = 0; i < data.length; i += 4) {
                 const r = data[i];
                 const g = data[i+1];
                 const b = data[i+2];
-                // Beyaz toleransı: r, g, b > 235 ise şeffaf yap
-                if (r > 235 && g > 235 && b > 235) {
-                    data[i+3] = 0; // Alpha = 0 (Şeffaf)
+                
+                // Tam beyaz veya beyaza çok yakın olanları tamamen şeffaf yap
+                if (r > 200 && g > 200 && b > 200) {
+                    // Renk ne kadar beyaza yakınsa o kadar şeffaflaştır
+                    const maxVal = Math.max(r, g, b);
+                    const alpha = Math.max(0, Math.min(255, (255 - maxVal) * 3)); 
+                    data[i+3] = alpha;
                 }
             }
             ctx.putImageData(imgData, 0, 0);
@@ -554,8 +559,8 @@ function init3D() {
         side: THREE.DoubleSide
     });
     hostMesh = new THREE.Mesh(hostGeo, hostMat);
-    hostMesh.position.set(6.2, 2.0, 3.5); // Sağ tarafta, öne yakın ve kırmızı kutu alanı (D tüpünün sağındaki boşluk)
-    hostMesh.rotation.y = -0.6; // Sahne merkezine doğru açısı artırıldı
+    hostMesh.position.set(5.0, 2.0, 3.5); // Sağ tarafta, çizilen kırmızı çerçeve alanı
+    hostMesh.rotation.y = -0.55; // Merkeze doğru açılı bakış
     scene.add(hostMesh);
     
     // Pozları yükle
@@ -1538,6 +1543,25 @@ function animate(time) {
     }
     cameraCurrentLookAt.lerp(cameraTargetLookAt, 0.04);
     camera.lookAt(cameraCurrentLookAt);
+    
+    // Sunucu konumunu kameraya göre dinamik ayarla (Boydan / Belden yukarısı geçişi)
+    if (hostMesh) {
+        let targetHostPos = new THREE.Vector3(5.0, 2.0, 3.5);
+        let targetHostScale = new THREE.Vector3(1.0, 1.0, 1.0);
+        let targetHostRotY = -0.55;
+        
+        // Eğer cevaplar açıklandıysa veya kamera yakın açıdaysa (Close-up / Belden Yukarısı modu)
+        if (isRevealedState || cameraTargetPos.z < 8.0) {
+            targetHostPos.set(2.8, 0.4, 2.6); // Sola kaydır, aşağı indir (bacakları kes) ve öne al
+            targetHostScale.set(1.4, 1.4, 1.4); // Yüz ve gövdeyi büyüt
+            targetHostRotY = -0.35;
+        }
+        
+        // Yumuşak geçiş (lerp) ile hareket ettir
+        hostMesh.position.lerp(targetHostPos, 0.04);
+        hostMesh.scale.lerp(targetHostScale, 0.04);
+        hostMesh.rotation.y = THREE.MathUtils.lerp(hostMesh.rotation.y, targetHostRotY, 0.04);
+    }
     
     // 4. CAM TÜP PARÇACIK ANİMASYONLARI
     Object.keys(tubeParticles).forEach(letter => {
