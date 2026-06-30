@@ -1591,6 +1591,21 @@ async function getKickChatroomId(channelName) {
     const targetUrl = `https://kick.com/api/v2/channels/${channelName.toLowerCase().trim()}`;
     console.log(`Resolving chatroom ID for: ${targetUrl}`);
     
+    // Deneme 0: Doğrudan browser-side fetch (CORS HTTPS ortamında çalışıyorsa)
+    try {
+        console.log("Trying direct browser-side fetch to Kick API...");
+        const response = await fetch(targetUrl);
+        if (response.ok) {
+            const data = await response.json();
+            if (data && data.chatroom && data.chatroom.id) {
+                console.log(`Successfully resolved chatroom ID directly: ${data.chatroom.id}`);
+                return data.chatroom.id;
+            }
+        }
+    } catch (e) {
+        console.warn("Direct Kick API fetch failed (likely CORS/Cloudflare), trying proxies...", e);
+    }
+    
     const proxies = [
         // 1. corsproxy.io (Correct format: ?url=...)
         `https://corsproxy.io/?url=${encodeURIComponent(targetUrl)}`,
@@ -1685,6 +1700,12 @@ async function connectKickChat(channelName) {
             if (!kickVotingActive) return;
             
             const username = data.sender.username;
+            const usernameLower = username.toLowerCase();
+            
+            // Bot kullanıcıları yok say (Nightbot, Streamlabs vb.)
+            const bots = ["nightbot", "streamlabs", "streamelements", "moobot", "kickbot", "wizebot", "bot"];
+            if (bots.some(bot => usernameLower.includes(bot))) return;
+            
             const message = data.content ? data.content.trim().toLowerCase() : "";
             
             let vote = null;
