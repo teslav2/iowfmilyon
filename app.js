@@ -554,8 +554,8 @@ function init3D() {
         side: THREE.DoubleSide
     });
     hostMesh = new THREE.Mesh(hostGeo, hostMat);
-    hostMesh.position.set(5.2, 2.4, 1.5); // Sağ tarafta, öne yakın ve kırmızı kutu alanı
-    hostMesh.rotation.y = -0.4; // Sahne merkezine doğru hafif açılı dönük
+    hostMesh.position.set(6.2, 2.0, 3.5); // Sağ tarafta, öne yakın ve kırmızı kutu alanı (D tüpünün sağındaki boşluk)
+    hostMesh.rotation.y = -0.6; // Sahne merkezine doğru açısı artırıldı
     scene.add(hostMesh);
     
     // Pozları yükle
