@@ -20,6 +20,12 @@ let timerInterval = null;
 let timeLeft = 60;
 let isMobileMode = false; // Controls WebGL rendering bypass for mobile devices & performance mode
 let banknoteParticles = []; // Array to store falling banknote particles
+let isStreamerMode = false;
+let kickChannelName = "";
+let kickPusher = null;
+let kickVotes = { A: 0, B: 0, C: 0, D: 0 };
+let kickVoters = new Set();
+let kickVotingActive = false;
 
 // Dynamic Settings object fetched from API
 let configSettings = {
@@ -1578,7 +1584,142 @@ function submitScore(money, questionReached) {
     });
 }
 
-// Twitch Chat Entegrasyonu ve Seyirci Jokeri Fonksiyonları
+// ================= KICK CHAT (PUSHER WEBSOCKET) ENTEGRASYONU =================
+async function getKickChatroomId(channelName) {
+    const proxyUrl = "https://corsproxy.io/?url=";
+    const targetUrl = `https://kick.com/api/v2/channels/${channelName.toLowerCase().trim()}`;
+    
+    const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
+    if (!response.ok) throw new Error("Kick API verisi alınamadı.");
+    
+    const data = await response.json();
+    if (!data || !data.chatroom || !data.chatroom.id) {
+        throw new Error("Kanal bulunamadı veya chatroom ID eksik.");
+    }
+    return data.chatroom.id;
+}
+
+async function connectKickChat(channelName) {
+    const statusEl = document.getElementById("chat-connection-status");
+    if (statusEl) {
+        statusEl.textContent = "BAĞLANIYOR...";
+        statusEl.className = "chat-connection-status";
+    }
+    
+    try {
+        console.log(`Kick Chat: ${channelName} kanalı için Chatroom ID alınıyor...`);
+        const chatroomId = await getKickChatroomId(channelName);
+        console.log(`Kick Chat: Chatroom ID alındı: ${chatroomId}. Pusher baglantisi kuruluyor...`);
+        
+        if (kickPusher) {
+            try { kickPusher.disconnect(); } catch(e) {}
+        }
+        
+        const PUSHER_KEY = "32cbd69e4b950bf97679";
+        const PUSHER_CLUSTER = "us2";
+        const CHAT_EVENT = "App\\Events\\ChatMessageEvent";
+        
+        kickPusher = new Pusher(PUSHER_KEY, {
+            cluster: PUSHER_CLUSTER,
+            forceTLS: true
+        });
+        
+        const channel = kickPusher.subscribe(`chatrooms.${chatroomId}.v2`);
+        
+        channel.bind(CHAT_EVENT, (data) => {
+            if (!kickVotingActive) return;
+            
+            const username = data.sender.username;
+            const message = data.content ? data.content.trim().toLowerCase() : "";
+            
+            // Eğer kullanıcı bu soru için zaten oy vermişse mükerrer sayma
+            if (kickVoters.has(username)) return;
+            
+            let vote = null;
+            if (message === "!a" || message === "a" || message === "aa" || message === "a a") vote = "A";
+            else if (message === "!b" || message === "b" || message === "bb" || message === "b b") vote = "B";
+            else if (message === "!c" || message === "c" || message === "cc" || message === "c c") vote = "C";
+            else if (message === "!d" || message === "d" || message === "dd" || message === "d d") vote = "D";
+            
+            if (vote) {
+                // Sadece mevcut sorudaki aktif şıklardan biriyse say
+                const qData = activeGameQuestions[currentQuestionIndex];
+                const optCount = qData ? (qData.optionsCount || 4) : 4;
+                const activeLetters = ["A", "B", "C", "D"].slice(0, optCount);
+                
+                if (activeLetters.includes(vote)) {
+                    kickVotes[vote]++;
+                    kickVoters.add(username);
+                    updateChatVotingUI();
+                }
+            }
+        });
+        
+        kickPusher.connection.bind("state_change", (states) => {
+            console.log(`Kick Chat Pusher Durumu: ${states.current}`);
+            if (statusEl) {
+                if (states.current === "connected") {
+                    statusEl.textContent = "BAĞLANDI";
+                    statusEl.className = "chat-connection-status connected";
+                } else if (states.current === "disconnected" || states.current === "failed") {
+                    statusEl.textContent = "BAĞLANTI KESİLDİ";
+                    statusEl.className = "chat-connection-status";
+                } else {
+                    statusEl.textContent = states.current.toUpperCase();
+                    statusEl.className = "chat-connection-status";
+                }
+            }
+        });
+        
+    } catch (error) {
+        console.error("Kick Chat bağlantı hatası:", error);
+        if (statusEl) {
+            statusEl.textContent = "HATA";
+            statusEl.className = "chat-connection-status";
+        }
+    }
+}
+
+function updateChatVotingUI() {
+    const totalVotes = kickVotes.A + kickVotes.B + kickVotes.C + kickVotes.D;
+    const totalEl = document.getElementById("chat-vote-total");
+    if (totalEl) totalEl.textContent = totalVotes;
+    
+    ["A", "B", "C", "D"].forEach(letter => {
+        const votes = kickVotes[letter];
+        const pct = totalVotes > 0 ? Math.round((votes / totalVotes) * 100) : 0;
+        
+        const countEl = document.getElementById(`chat-vote-count-${letter.toLowerCase()}`);
+        const barEl = document.getElementById(`chat-vote-bar-${letter.toLowerCase()}`);
+        
+        if (countEl) {
+            countEl.textContent = `${votes} oy (${pct}%)`;
+        }
+        if (barEl) {
+            barEl.style.width = `${pct}%`;
+        }
+    });
+}
+
+function resetChatVotes() {
+    kickVotes = { A: 0, B: 0, C: 0, D: 0 };
+    kickVoters.clear();
+    updateChatVotingUI();
+}
+
+// Yayıncı Modu Checkbox Dinleyicisi
+const streamerModeCheckbox = document.getElementById("streamer-mode-checkbox");
+const kickInputWrapper = document.getElementById("kick-input-wrapper");
+if (streamerModeCheckbox && kickInputWrapper) {
+    streamerModeCheckbox.addEventListener("change", (e) => {
+        if (e.target.checked) {
+            kickInputWrapper.style.display = "flex";
+        } else {
+            kickInputWrapper.style.display = "none";
+        }
+    });
+}
+
 // Oyunu Başlat Dinleyicileri
 document.getElementById("btn-start-game").addEventListener("click", () => {
     const username = usernameInputEl ? usernameInputEl.value.trim() : '';
@@ -1600,6 +1741,32 @@ document.getElementById("btn-start-game").addEventListener("click", () => {
             }, 800);
         }
         return;
+    }
+    
+    // Yayıncı modu ve Kick kullanıcı adı kontrolü
+    const isStreamerChecked = streamerModeCheckbox ? streamerModeCheckbox.checked : false;
+    const kickUserEl = document.getElementById("kick-username-input");
+    const kickUser = kickUserEl ? kickUserEl.value.trim() : "";
+    
+    if (isStreamerChecked && !kickUser) {
+        if (kickUserEl) {
+            kickUserEl.style.borderColor = 'var(--neon-red)';
+            setTimeout(() => { kickUserEl.style.borderColor = 'rgba(255, 255, 255, 0.15)'; }, 2000);
+        }
+        alert("Lütfen Kick Kullanıcı Adınızı girin!");
+        return;
+    }
+    
+    isStreamerMode = isStreamerChecked;
+    if (isStreamerMode) {
+        kickChannelName = kickUser;
+        document.body.classList.add("streamer-mode-active");
+        connectKickChat(kickChannelName);
+    } else {
+        document.body.classList.remove("streamer-mode-active");
+        if (kickPusher) {
+            try { kickPusher.disconnect(); } catch(e) {}
+        }
     }
     
     // Lock username
@@ -2146,6 +2313,10 @@ async function startGame() {
     totalMoney = configSettings.startingMoney;
     gameActive = true;
     
+    if (isStreamerMode) {
+        resetChatVotes();
+        kickVotingActive = true;
+    }
 
     
     // Clean up confetti
@@ -2166,6 +2337,11 @@ function loadQuestion(index) {
     isRevealedState = false; // Cevap açıklama durumunu sıfırla
     timeLeft = configSettings.timerDuration;
     isTimerPaused = false; // Reset pause state for new question
+    
+    if (isStreamerMode) {
+        resetChatVotes();
+        kickVotingActive = true;
+    }
     
     btnLockEl.textContent = "CEVABI KİLİTLE";
     
@@ -2542,6 +2718,7 @@ function autoLockOnTimeout() {
 
 function lockAnswer() {
     isLocked = true;
+    kickVotingActive = false;
     clearInterval(timerInterval);
     stopTensionDrone();
     disableLock();

@@ -32,6 +32,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
     
+    <!-- Pusher Client Library -->
+    <script src="https://js.pusher.com/8.5/pusher.min.js"></script>
+
     <!-- Three.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     
@@ -158,6 +161,55 @@
                     ℹ️ Şıklara tıklayarak otomatik <strong>500.000 TL</strong> yerleştirebilirsiniz. Alttaki <strong>+</strong> butonlarıyla ise <strong>100.000 TL</strong>'lik paketler halinde ekleme yapabilirsiniz.
                 </div>
             </div>
+
+            <!-- Chat Oylama Paneli (Sadece Yayıncı Modunda Görünür) -->
+            <div class="chat-voting-panel" id="chat-voting-panel">
+                <div class="chat-voting-header">
+                    <span class="chat-voting-title">💬 KICK CHAT OYLARI</span>
+                    <span class="chat-voting-status" id="chat-connection-status">BAĞLANTI YOK</span>
+                </div>
+                <div class="chat-voting-body">
+                    <div class="chat-vote-row" data-option="A">
+                        <div class="chat-vote-label-row">
+                            <span class="chat-vote-letter label-a">A</span>
+                            <span class="chat-vote-count" id="chat-vote-count-a">0 oy (0%)</span>
+                        </div>
+                        <div class="chat-vote-bar-wrapper">
+                            <div class="chat-vote-bar bar-a" id="chat-vote-bar-a" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="chat-vote-row" data-option="B">
+                        <div class="chat-vote-label-row">
+                            <span class="chat-vote-letter label-b">B</span>
+                            <span class="chat-vote-count" id="chat-vote-count-b">0 oy (0%)</span>
+                        </div>
+                        <div class="chat-vote-bar-wrapper">
+                            <div class="chat-vote-bar bar-b" id="chat-vote-bar-b" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="chat-vote-row" data-option="C">
+                        <div class="chat-vote-label-row">
+                            <span class="chat-vote-letter label-c">C</span>
+                            <span class="chat-vote-count" id="chat-vote-count-c">0 oy (0%)</span>
+                        </div>
+                        <div class="chat-vote-bar-wrapper">
+                            <div class="chat-vote-bar bar-c" id="chat-vote-bar-c" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                    <div class="chat-vote-row" data-option="D">
+                        <div class="chat-vote-label-row">
+                            <span class="chat-vote-letter label-d">D</span>
+                            <span class="chat-vote-count" id="chat-vote-count-d">0 oy (0%)</span>
+                        </div>
+                        <div class="chat-vote-bar-wrapper">
+                            <div class="chat-vote-bar bar-d" id="chat-vote-bar-d" style="width: 0%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-voting-footer">
+                    <span>Toplam Oy: <strong id="chat-vote-total">0</strong></span>
+                </div>
+            </div>
         </main>
 
         <!-- Alt Panel: Arayüz Butonları ve Etiketler (3D Canvas Üzerine Binecek) -->
@@ -253,6 +305,16 @@
                         <span id="username-lock-badge" class="username-lock-badge hidden">🔒 KİLİTLİ</span>
                     </div>
                     <button id="btn-start-game" class="btn-primary">YARIŞMAYA BAŞLA</button>
+                </div>
+                <div class="streamer-mode-option-row" style="margin: 10px 0 15px 0; display: flex; flex-direction: column; gap: 8px; width: 100%;">
+                    <label class="custom-checkbox-container" style="display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 0.85rem; cursor: pointer; user-select: none;">
+                        <input type="checkbox" id="streamer-mode-checkbox" style="width: 16px; height: 16px; accent-color: var(--neon-blue);" />
+                        🟢 Yayıncı Modu (Kick Chat Entegrasyonu)
+                    </label>
+                    <div id="kick-input-wrapper" style="display: none; flex-direction: column; gap: 4px; margin-top: 5px;">
+                        <label for="kick-username-input" style="color: var(--neon-blue); font-size: 0.75rem; font-weight: 700; text-align: left;">Kick Kullanıcı Adı:</label>
+                        <input type="text" id="kick-username-input" placeholder="Kanal adını girin (Örn: iowf)..." style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #fff; padding: 8px 12px; font-size: 0.85rem; outline: none; transition: border 0.3s; width: 100%; box-sizing: border-box;" autocomplete="off" />
+                    </div>
                 </div>
                 <div class="username-warning-text">
                     ⚠️ Kullanıcı adı sadece 1 kere yazılır ve bir daha değiştirilemez!

@@ -2295,5 +2295,138 @@ body {
     display: none !important;
 }
 
+/* ================= YAYINCI MODU (KICK CHAT ENTEGRASYONU) STİLLERİ ================= */
+.chat-voting-panel {
+    display: none;
+}
+
+body.streamer-mode-active .host-avatar-container {
+    display: none !important;
+}
+
+body.streamer-mode-active .game-main {
+    grid-template-columns: 180px 1fr 260px !important;
+}
+
+body.streamer-mode-active .chat-voting-panel {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, rgba(8, 20, 52, 0.75) 0%, rgba(3, 7, 24, 0.85) 100%);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(0, 242, 254, 0.2);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    height: 100%;
+    box-sizing: border-box;
+    gap: 8px;
+    overflow: hidden;
+}
+
+.chat-voting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 6px;
+}
+
+.chat-voting-title {
+    font-size: 0.72rem;
+    font-weight: 800;
+    color: #fff;
+    font-family: var(--font-outfit);
+    letter-spacing: 0.5px;
+}
+
+.chat-connection-status {
+    font-size: 0.62rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(255, 0, 85, 0.15);
+    color: var(--neon-red);
+    border: 1px solid rgba(255, 0, 85, 0.3);
+    text-shadow: var(--neon-red-glow);
+}
+
+.chat-connection-status.connected {
+    background: rgba(57, 255, 20, 0.15);
+    color: #39ff14;
+    border: 1px solid rgba(57, 255, 20, 0.3);
+    text-shadow: 0 0 4px rgba(57, 255, 20, 0.6);
+}
+
+.chat-voting-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+    justify-content: center;
+}
+
+.chat-vote-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.chat-vote-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-vote-letter {
+    font-size: 0.75rem;
+    font-weight: 800;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-family: var(--font-montserrat);
+}
+
+.chat-vote-letter.label-a { background: rgba(0, 242, 254, 0.15); border: 1.5px solid var(--neon-blue); color: var(--neon-blue); text-shadow: var(--neon-blue-glow); }
+.chat-vote-letter.label-b { background: rgba(255, 215, 0, 0.15); border: 1.5px solid var(--neon-gold); color: var(--neon-gold); text-shadow: var(--neon-gold-glow); }
+.chat-vote-letter.label-c { background: rgba(255, 0, 127, 0.15); border: 1.5px solid var(--neon-pink); color: var(--neon-pink); text-shadow: var(--neon-pink-glow); }
+.chat-vote-letter.label-d { background: rgba(160, 32, 240, 0.15); border: 1.5px solid var(--neon-purple); color: var(--neon-purple); text-shadow: var(--neon-purple-glow); }
+
+.chat-vote-count {
+    font-size: 0.7rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.chat-vote-bar-wrapper {
+    background: rgba(255, 255, 255, 0.05);
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.chat-vote-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s cubic-bezier(0.1, 0.8, 0.2, 1);
+    width: 0%;
+}
+
+.chat-vote-bar.bar-a { background: var(--neon-blue); box-shadow: 0 0 6px var(--neon-blue); }
+.chat-vote-bar.bar-b { background: var(--neon-gold); box-shadow: 0 0 6px var(--neon-gold); }
+.chat-vote-bar.bar-c { background: var(--neon-pink); box-shadow: 0 0 6px var(--neon-pink); }
+.chat-vote-bar.bar-d { background: var(--neon-purple); box-shadow: 0 0 6px var(--neon-purple); }
+
+.chat-voting-footer {
+    border-top: 1.5px solid rgba(255, 255, 255, 0.08);
+    padding-top: 6px;
+    font-size: 0.7rem;
+    color: var(--text-light);
+    display: flex;
+    justify-content: flex-end;
+}
+
 
 
