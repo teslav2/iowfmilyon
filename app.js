@@ -268,6 +268,11 @@ function loadHostTextures() {
             // Three.js texture oluştur
             const texture = new THREE.CanvasTexture(canvas);
             texture.colorSpace = THREE.SRGBColorSpace;
+            texture.minFilter = THREE.LinearFilter;
+            texture.magFilter = THREE.LinearFilter;
+            if (renderer) {
+                texture.anisotropy = renderer.capabilities.getMaxAnisotropy();
+            }
             hostTextures[poseName] = texture;
 
             // Eğer bu idle ise ve henüz sahneye eklenmişse varsayılan texture olarak ata
@@ -285,6 +290,7 @@ function loadHostTextures() {
 function changeHostPose(poseName) {
     if (!hostMesh || !hostTextures[poseName]) return;
     hostCurrentPose = poseName;
+    hostMesh.visible = true; // Poz değiştiğinde görünürlüğü geri kazandır
     hostMesh.material.map = hostTextures[poseName];
     hostMesh.material.needsUpdate = true;
 }
@@ -2975,6 +2981,7 @@ function lockAnswer() {
 
 // Sonuç Açıklama
 function revealResults(correctLetter, hostComment) {
+    if (hostMesh) hostMesh.visible = false;
     const qData = activeGameQuestions[currentQuestionIndex];
     const optCount = qData.optionsCount || 4;
     const letters = ["A", "B", "C", "D"].slice(0, optCount);
