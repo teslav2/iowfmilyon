@@ -697,13 +697,11 @@ function init3D() {
         scene.add(bottomRing);
         cylinders3D[letter + "_bottomRing"] = bottomRing;
         
-        // 3D Çift Kanatlı Düşen Kapak (Double Trapdoor - Sarı Renkli ve Merkez Menteşeli)
+        // 3D Çift Kanatlı Düşen Kapak (Double Trapdoor - Koyu Metalik)
         const hatchMat = new THREE.MeshStandardMaterial({ 
-            color: 0xE4D00A, // Hex #E4D00A sarısı
-            roughness: 0.6, 
-            metalness: 0.1,
-            emissive: 0xE4D00A, // Gölgede kararmayı önlemek için hafif ışıma ekle
-            emissiveIntensity: 0.2
+            color: 0x151821, // Koyu metalik şık kaide rengiyle aynı
+            roughness: 0.2, 
+            metalness: 0.8
         });
         
         // Yarım daire şekli ve ekstrüzyonu (Düz kenar ortada, kavisli kenar dışta/menteşede olacak şekilde)
