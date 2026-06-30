@@ -548,13 +548,14 @@ function init3D() {
     */
 
     // 2. SUNUCU KÜRSÜSÜ (Kaldırıldı - Sunucu artık yerde duracak)
-    const hostGeo = new THREE.PlaneGeometry(1.6, 3.5);
+    const hostGeo = new THREE.PlaneGeometry(2.2, 4.8);
     const hostMat = new THREE.MeshBasicMaterial({
         transparent: true,
         side: THREE.DoubleSide
     });
     hostMesh = new THREE.Mesh(hostGeo, hostMat);
-    hostMesh.position.set(0, 1.75, -2.6); // Ortada, yerde duracak
+    hostMesh.position.set(5.2, 2.4, 1.5); // Sağ tarafta, öne yakın ve kırmızı kutu alanı
+    hostMesh.rotation.y = -0.4; // Sahne merkezine doğru hafif açılı dönük
     scene.add(hostMesh);
     
     // Pozları yükle
