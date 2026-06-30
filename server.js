@@ -171,7 +171,7 @@ app.post('/api/speak', async (req, res) => {
     if (fishKey) {
         try {
             const voiceId = process.env.FISH_AUDIO_VOICE_ID || ""; // reference_id
-            const modelName = process.env.FISH_AUDIO_MODEL || "s2-pro";
+            const modelName = process.env.FISH_AUDIO_MODEL || "s2.1-pro-free";
             
             const response = await fetch('https://api.fish.audio/v1/tts', {
                 method: 'POST',
