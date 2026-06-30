@@ -1556,8 +1556,8 @@ function animate(time) {
         let targetHostScale = new THREE.Vector3(1.0, 1.0, 1.0);
         let targetHostRotY = -0.55;
         
-        // Eğer cevaplar açıklandıysa veya kamera yakın açıdaysa (Close-up / Belden Yukarısı modu)
-        if (isRevealedState || cameraTargetPos.z < 8.0) {
+        // Sadece kapaklar açılırken yakın plana geç (Açıklama ekranında normal geniş konuma geri dönsün)
+        if (!isRevealedState && cameraTargetPos.z < 8.0) {
             targetHostPos.set(2.8, 0.4, 2.6); // Sola kaydır, aşağı indir (bacakları kes) ve öne al
             targetHostScale.set(1.4, 1.4, 1.4); // Yüz ve gövdeyi büyüt
             targetHostRotY = -0.35;
