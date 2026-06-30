@@ -26,6 +26,10 @@ let kickPusher = null;
 let kickVotes = { A: 0, B: 0, C: 0, D: 0 };
 let kickVoters = new Map();
 let kickVotingActive = false;
+let hostTextures = {};
+let hostMesh = null;
+let hostCurrentPose = "idle";
+let hostTargetEndPose = "idle";
 
 // Dynamic Settings object fetched from API
 let configSettings = {
@@ -218,6 +222,66 @@ function createBanknoteTexture() {
     
     const texture = new THREE.CanvasTexture(canvas);
     return texture;
+}
+
+// ================= 3D HOLOGRAG SUNUCU TEKSTÜR & POZ YÖNETİMİ =================
+function loadHostTextures() {
+    const poses = {
+        idle: 'host_pose2.png',     // Standart duruş
+        speak: 'host_pose3.png',    // Konuşma/jest pozu
+        tension: 'host_pose1.png',  // Gerilim/Cuff adjust pozu
+        win: 'host_pose4.png',      // Kazanınca/Tebrik
+        lose: 'host_pose5.png'      // Kaybedince/Arms crossed
+    };
+
+    Object.keys(poses).forEach(poseName => {
+        const img = new Image();
+        img.src = poses[poseName];
+        img.onload = () => {
+            // Offscreen canvas ile beyaz arka planı şeffaf yapıyoruz (Chroma-key)
+            const canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+
+            const imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+            const data = imgData.data;
+
+            // Beyaz renk piksellerini (ve beyaza yakın tonları) şeffaf yapıyoruz
+            for (let i = 0; i < data.length; i += 4) {
+                const r = data[i];
+                const g = data[i+1];
+                const b = data[i+2];
+                // Beyaz toleransı: r, g, b > 235 ise şeffaf yap
+                if (r > 235 && g > 235 && b > 235) {
+                    data[i+3] = 0; // Alpha = 0 (Şeffaf)
+                }
+            }
+            ctx.putImageData(imgData, 0, 0);
+
+            // Three.js texture oluştur
+            const texture = new THREE.CanvasTexture(canvas);
+            texture.colorSpace = THREE.SRGBColorSpace;
+            hostTextures[poseName] = texture;
+
+            // Eğer bu idle ise ve henüz sahneye eklenmişse varsayılan texture olarak ata
+            if (poseName === 'idle' && hostMesh) {
+                hostMesh.material.map = texture;
+                hostMesh.material.needsUpdate = true;
+            }
+        };
+        img.onerror = (err) => {
+            console.warn(`Host texture failed to load: ${poses[poseName]}`, err);
+        };
+    });
+}
+
+function changeHostPose(poseName) {
+    if (!hostMesh || !hostTextures[poseName]) return;
+    hostCurrentPose = poseName;
+    hostMesh.material.map = hostTextures[poseName];
+    hostMesh.material.needsUpdate = true;
 }
 
 function init3D() {
@@ -484,6 +548,17 @@ function init3D() {
     */
 
     // 2. SUNUCU KÜRSÜSÜ (Kaldırıldı - Sunucu artık yerde duracak)
+    const hostGeo = new THREE.PlaneGeometry(1.6, 3.5);
+    const hostMat = new THREE.MeshBasicMaterial({
+        transparent: true,
+        side: THREE.DoubleSide
+    });
+    hostMesh = new THREE.Mesh(hostGeo, hostMat);
+    hostMesh.position.set(0, 1.75, -2.6); // Ortada, yerde duracak
+    scene.add(hostMesh);
+    
+    // Pozları yükle
+    loadHostTextures();
 
     // Helper to generate 3D circular glowing text labels for pedestals
     function createLetterTexture(letter) {
@@ -2194,6 +2269,16 @@ function convertNumbersToTurkishWords(text) {
 
 // Seslendirme (Yapay Zeka Ses Sentezleme - API ve Yerel Fallback)
 function hostSpeak(text, callback) {
+    // Sunucu konuşma pozuna geçiş yapar
+    changeHostPose("speak");
+    
+    const originalCallback = callback;
+    callback = () => {
+        changeHostPose(hostTargetEndPose);
+        hostTargetEndPose = "idle"; // Reset for subsequent speech calls
+        if (originalCallback) originalCallback();
+    };
+
     if (!isDialogEnabled) {
         if (callback) {
             // Simulate speaking duration when dialog sound is off, so lids don't open instantly
@@ -2408,6 +2493,7 @@ async function fetchGameQuestions() {
 }
 
 async function startGame() {
+    changeHostPose("idle");
     if ('speechSynthesis' in window) {
         speechSynth.cancel();
     }
@@ -2447,6 +2533,7 @@ async function startGame() {
 function loadQuestion(index) {
     isLocked = false;
     isRevealedState = false; // Cevap açıklama durumunu sıfırla
+    changeHostPose("idle");
     timeLeft = configSettings.timerDuration;
     isTimerPaused = false; // Reset pause state for new question
     
@@ -2831,6 +2918,7 @@ function autoLockOnTimeout() {
 function lockAnswer() {
     isLocked = true;
     kickVotingActive = false;
+    changeHostPose("tension");
     clearInterval(timerInterval);
     stopTensionDrone();
     disableLock();
@@ -2934,6 +3022,7 @@ function revealResults(correctLetter, hostComment) {
         if (correctTubHasMoney) {
             playApplauseSound();
             hostAction = "happy";
+            hostTargetEndPose = "win";
             
             // Kamera geniş açıya odaklansın
             cameraTargetPos.set(0, 4.0, 9.0);
@@ -2948,6 +3037,7 @@ function revealResults(correctLetter, hostComment) {
         } else {
             playDisappointmentSound();
             hostAction = "sad";
+            hostTargetEndPose = "lose";
             
             // Kamera geniş açıya odaklansın
             cameraTargetPos.set(0, 4.0, 9.0);
