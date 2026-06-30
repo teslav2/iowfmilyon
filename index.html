@@ -89,6 +89,9 @@
                 <!-- Ses Kontrol Butonu -->
                 <button id="btn-mute" class="btn-mute btn-mute-text" title="Efekt Seslerini Aç/Kapat">EFEKT SESLERİ</button>
 
+                <!-- Yayıncı Modu Butonu -->
+                <button id="btn-streamer-mode-game" class="btn-dialog" title="Yayıncı Modu Ayarları">🟢 YAYINCI MODU</button>
+
 
 
                 <!-- Dijital Bakiye Ekranı -->
@@ -306,21 +309,12 @@
                     </div>
                     <button id="btn-start-game" class="btn-primary">YARIŞMAYA BAŞLA</button>
                 </div>
-                <div class="streamer-mode-option-row" style="margin: 10px 0 15px 0; display: flex; flex-direction: column; gap: 8px; width: 100%;">
-                    <label class="custom-checkbox-container" style="display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 0.85rem; cursor: pointer; user-select: none;">
-                        <input type="checkbox" id="streamer-mode-checkbox" style="width: 16px; height: 16px; accent-color: var(--neon-blue);" />
-                        🟢 Yayıncı Modu (Kick Chat Entegrasyonu)
-                    </label>
-                    <div id="kick-input-wrapper" style="display: none; flex-direction: column; gap: 4px; margin-top: 5px;">
-                        <label for="kick-username-input" style="color: var(--neon-blue); font-size: 0.75rem; font-weight: 700; text-align: left;">Kick Kullanıcı Adı:</label>
-                        <input type="text" id="kick-username-input" placeholder="Kanal adını girin (Örn: iowf)..." style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #fff; padding: 8px 12px; font-size: 0.85rem; outline: none; transition: border 0.3s; width: 100%; box-sizing: border-box;" autocomplete="off" />
-                    </div>
-                </div>
                 <div class="username-warning-text">
                     ⚠️ Kullanıcı adı sadece 1 kere yazılır ve bir daha değiştirilemez!
                 </div>
-                <div class="intro-extra-actions">
-                    <button id="btn-open-updates-mobile" class="btn-leaderboard btn-open-updates-mobile" style="width: 100%;"><span class="icon">📋</span> GÜNCELLEMELER</button>
+                <div class="intro-extra-actions" style="display: flex; gap: 10px; width: 100%;">
+                    <button id="btn-streamer-mode-intro" class="btn-leaderboard" style="flex: 1;"><span class="icon">🟢</span> YAYINCI MODU</button>
+                    <button id="btn-open-updates-mobile" class="btn-leaderboard btn-open-updates-mobile" style="flex: 1;"><span class="icon">📋</span> GÜNCELLEMELER</button>
                 </div>
 
                 <!-- Telif Hakkı Mesajı -->
@@ -488,6 +482,39 @@
             </div>
 
             <button id="btn-close-updates" class="btn-primary btn-close-leaderboard-premium" style="margin-top: 15px;">KAPAT</button>
+        </div>
+    </div>
+
+    <!-- Yayıncı Modu (Streamer) Ekranı -->
+    <div id="streamer-modal" class="modal-overlay hidden">
+        <div class="leaderboard-card-premium text-center" style="max-width: 400px; padding: 25px;">
+            <span class="modal-subtitle-neon modal-subtitle-blue">IOWF MİLYON YAYINCI AYARLARI</span>
+            <h2 class="leaderboard-title-premium" style="margin-bottom: 20px;">YAYINCI MODU</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 15px; text-align: left; width: 100%; margin-bottom: 20px;">
+                <label class="custom-checkbox-container" style="display: flex; align-items: center; gap: 8px; color: var(--text-light); font-size: 0.9rem; cursor: pointer; user-select: none;">
+                    <input type="checkbox" id="streamer-mode-modal-checkbox" style="width: 18px; height: 18px; accent-color: var(--neon-blue);" />
+                    Yayıncı Modunu Etkinleştir (Kick Oylaması)
+                </label>
+                
+                <div style="display: flex; flex-direction: column; gap: 6px;">
+                    <label for="kick-channel-input-modal" style="color: var(--neon-blue); font-size: 0.8rem; font-weight: 700;">Kick Kanal Adı:</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="kick-channel-input-modal" value="iowf" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: 8px; color: #fff; padding: 8px 12px; font-size: 0.9rem; outline: none; transition: border 0.3s; flex: 1;" autocomplete="off" />
+                        <button id="btn-connect-kick" class="btn-primary" style="padding: 0 15px; font-size: 0.85rem; height: 38px; min-width: 90px; margin: 0; line-height: 38px;">BAĞLAN</button>
+                    </div>
+                </div>
+                
+                <div style="font-size: 0.85rem; color: var(--text-light); margin-top: 5px;">
+                    Bağlantı Durumu: <span id="modal-connection-status" style="font-weight: bold; color: var(--neon-red);">Bağlanmadı</span>
+                </div>
+                
+                <div style="background: rgba(0, 242, 254, 0.05); border: 1.5px solid rgba(0, 242, 254, 0.15); border-radius: 8px; padding: 10px; font-size: 0.75rem; color: var(--text-light); line-height: 1.4; margin-top: 5px;">
+                    💡 <strong>Not:</strong> Canlı sohbet oylarını toplamak için kullanıcı adınızı yazıp <strong>"BAĞLAN"</strong> butonuna basmanız gerekmektedir.
+                </div>
+            </div>
+
+            <button id="btn-close-streamer" class="btn-primary btn-close-leaderboard-premium" style="width: 100%;">KAPAT</button>
         </div>
     </div>
 

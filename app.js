@@ -703,11 +703,13 @@ function init3D() {
         scene.add(bottomRing);
         cylinders3D[letter + "_bottomRing"] = bottomRing;
         
-        // 3D Çift Kanatlı Düşen Kapak (Double Trapdoor - Koyu Metalik)
+        // 3D Çift Kanatlı Düşen Kapak (Double Trapdoor - Çelik Gri Metalik)
         const hatchMat = new THREE.MeshStandardMaterial({ 
-            color: 0x151821, // Koyu metalik şık kaide rengiyle aynı
-            roughness: 0.2, 
-            metalness: 0.8
+            color: 0x8e9bb0, // Çelik/Gümüş gri metalik rengi
+            roughness: 0.3, 
+            metalness: 0.7,
+            emissive: 0x2c3540, // Gölgede kararmayı önlemek için hafif nötr çelik ışıma ekle
+            emissiveIntensity: 0.25
         });
         
         // Yarım daire şekli ve ekstrüzyonu (Düz kenar ortada, kavisli kenar dışta/menteşede olacak şekilde)
@@ -1277,8 +1279,8 @@ function reset3DScene() {
     }
     updateShowcaseBundles3D();
     
-    cameraTargetPos.set(-2.5, 3.5, 7.5);
-    cameraTargetLookAt.set(-2.0, 1.5, -0.5);
+    cameraTargetPos.set(-3.2, 4.0, 9.0);
+    cameraTargetLookAt.set(-2.2, 1.3, -0.8);
     
     hostAction = "idle";
 }
@@ -1586,25 +1588,54 @@ function submitScore(money, questionReached) {
 
 // ================= KICK CHAT (PUSHER WEBSOCKET) ENTEGRASYONU =================
 async function getKickChatroomId(channelName) {
-    const proxyUrl = "https://corsproxy.io/?url=";
     const targetUrl = `https://kick.com/api/v2/channels/${channelName.toLowerCase().trim()}`;
     
-    const response = await fetch(proxyUrl + encodeURIComponent(targetUrl));
-    if (!response.ok) throw new Error("Kick API verisi alınamadı.");
-    
-    const data = await response.json();
-    if (!data || !data.chatroom || !data.chatroom.id) {
-        throw new Error("Kanal bulunamadı veya chatroom ID eksik.");
+    // Deneme 1: corsproxy.io (Hızlı ve sade)
+    try {
+        const response = await fetch(`https://corsproxy.io/?${targetUrl}`);
+        if (response.ok) {
+            const data = await response.json();
+            if (data && data.chatroom && data.chatroom.id) {
+                return data.chatroom.id;
+            }
+        }
+    } catch (e) {
+        console.warn("corsproxy.io failed, trying allorigins...", e);
     }
-    return data.chatroom.id;
+    
+    // Deneme 2: api.allorigins.win (Güvenilir fallback)
+    try {
+        const response = await fetch(`https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`);
+        if (response.ok) {
+            const json = await response.json();
+            const data = JSON.parse(json.contents);
+            if (data && data.chatroom && data.chatroom.id) {
+                return data.chatroom.id;
+            }
+        }
+    } catch (e) {
+        console.warn("allorigins failed...", e);
+    }
+    
+    throw new Error("Kick kanal bilgisi proxy üzerinden alınamadı.");
 }
 
 async function connectKickChat(channelName) {
     const statusEl = document.getElementById("chat-connection-status");
-    if (statusEl) {
-        statusEl.textContent = "BAĞLANIYOR...";
-        statusEl.className = "chat-connection-status";
-    }
+    const modalStatusEl = document.getElementById("modal-connection-status");
+    
+    const updateStatus = (text, className, color) => {
+        if (statusEl) {
+            statusEl.textContent = text;
+            statusEl.className = "chat-connection-status " + className;
+        }
+        if (modalStatusEl) {
+            modalStatusEl.textContent = text;
+            modalStatusEl.style.color = color;
+        }
+    };
+    
+    updateStatus("BAĞLANIYOR...", "", "var(--neon-blue)");
     
     try {
         console.log(`Kick Chat: ${channelName} kanalı için Chatroom ID alınıyor...`);
@@ -1657,26 +1688,18 @@ async function connectKickChat(channelName) {
         
         kickPusher.connection.bind("state_change", (states) => {
             console.log(`Kick Chat Pusher Durumu: ${states.current}`);
-            if (statusEl) {
-                if (states.current === "connected") {
-                    statusEl.textContent = "BAĞLANDI";
-                    statusEl.className = "chat-connection-status connected";
-                } else if (states.current === "disconnected" || states.current === "failed") {
-                    statusEl.textContent = "BAĞLANTI KESİLDİ";
-                    statusEl.className = "chat-connection-status";
-                } else {
-                    statusEl.textContent = states.current.toUpperCase();
-                    statusEl.className = "chat-connection-status";
-                }
+            if (states.current === "connected") {
+                updateStatus("BAĞLANDI", "connected", "#39ff14");
+            } else if (states.current === "disconnected" || states.current === "failed") {
+                updateStatus("BAĞLANMADI", "", "var(--neon-red)");
+            } else {
+                updateStatus(states.current.toUpperCase(), "", "var(--neon-blue)");
             }
         });
         
     } catch (error) {
         console.error("Kick Chat bağlantı hatası:", error);
-        if (statusEl) {
-            statusEl.textContent = "HATA";
-            statusEl.className = "chat-connection-status";
-        }
+        updateStatus("BAĞLANMADI (HATA)", "", "var(--neon-red)");
     }
 }
 
@@ -1707,15 +1730,74 @@ function resetChatVotes() {
     updateChatVotingUI();
 }
 
-// Yayıncı Modu Checkbox Dinleyicisi
-const streamerModeCheckbox = document.getElementById("streamer-mode-checkbox");
-const kickInputWrapper = document.getElementById("kick-input-wrapper");
-if (streamerModeCheckbox && kickInputWrapper) {
-    streamerModeCheckbox.addEventListener("change", (e) => {
-        if (e.target.checked) {
-            kickInputWrapper.style.display = "flex";
+// Modal elemanları ve Yayıncı Modu Buton Dinleyicileri
+const streamerModalEl = document.getElementById("streamer-modal");
+const streamerModeModalCheckbox = document.getElementById("streamer-mode-modal-checkbox");
+const kickChannelInputModal = document.getElementById("kick-channel-input-modal");
+const btnConnectKick = document.getElementById("btn-connect-kick");
+
+function openStreamerModal() {
+    if (streamerModalEl) {
+        streamerModalEl.classList.remove("hidden");
+    }
+}
+
+function closeStreamerModal() {
+    if (streamerModalEl) {
+        streamerModalEl.classList.add("hidden");
+    }
+}
+
+const btnStreamerModeIntro = document.getElementById("btn-streamer-mode-intro");
+if (btnStreamerModeIntro) {
+    btnStreamerModeIntro.addEventListener("click", openStreamerModal);
+}
+
+const btnStreamerModeGame = document.getElementById("btn-streamer-mode-game");
+if (btnStreamerModeGame) {
+    btnStreamerModeGame.addEventListener("click", openStreamerModal);
+}
+
+const btnCloseStreamer = document.getElementById("btn-close-streamer");
+if (btnCloseStreamer) {
+    btnCloseStreamer.addEventListener("click", closeStreamerModal);
+}
+
+if (btnConnectKick) {
+    btnConnectKick.addEventListener("click", () => {
+        const channelName = kickChannelInputModal ? kickChannelInputModal.value.trim() : "";
+        if (!channelName) {
+            alert("Lütfen Kick kanal adını girin!");
+            return;
+        }
+        connectKickChat(channelName);
+    });
+}
+
+if (streamerModeModalCheckbox) {
+    streamerModeModalCheckbox.addEventListener("change", (e) => {
+        isStreamerMode = e.target.checked;
+        if (isStreamerMode) {
+            document.body.classList.add("streamer-mode-active");
+            const channelName = kickChannelInputModal ? kickChannelInputModal.value.trim() : "";
+            if (channelName && (!kickPusher || kickPusher.connection.state !== "connected")) {
+                connectKickChat(channelName);
+            }
         } else {
-            kickInputWrapper.style.display = "none";
+            document.body.classList.remove("streamer-mode-active");
+            if (kickPusher) {
+                try { kickPusher.disconnect(); } catch(e) {}
+            }
+            const statusEl = document.getElementById("chat-connection-status");
+            const modalStatusEl = document.getElementById("modal-connection-status");
+            if (statusEl) {
+                statusEl.textContent = "BAĞLANTI YOK";
+                statusEl.className = "chat-connection-status";
+            }
+            if (modalStatusEl) {
+                modalStatusEl.textContent = "Bağlanmadı";
+                modalStatusEl.style.color = "var(--neon-red)";
+            }
         }
     });
 }
@@ -1741,32 +1823,6 @@ document.getElementById("btn-start-game").addEventListener("click", () => {
             }, 800);
         }
         return;
-    }
-    
-    // Yayıncı modu ve Kick kullanıcı adı kontrolü
-    const isStreamerChecked = streamerModeCheckbox ? streamerModeCheckbox.checked : false;
-    const kickUserEl = document.getElementById("kick-username-input");
-    const kickUser = kickUserEl ? kickUserEl.value.trim() : "";
-    
-    if (isStreamerChecked && !kickUser) {
-        if (kickUserEl) {
-            kickUserEl.style.borderColor = 'var(--neon-red)';
-            setTimeout(() => { kickUserEl.style.borderColor = 'rgba(255, 255, 255, 0.15)'; }, 2000);
-        }
-        alert("Lütfen Kick Kullanıcı Adınızı girin!");
-        return;
-    }
-    
-    isStreamerMode = isStreamerChecked;
-    if (isStreamerMode) {
-        kickChannelName = kickUser;
-        document.body.classList.add("streamer-mode-active");
-        connectKickChat(kickChannelName);
-    } else {
-        document.body.classList.remove("streamer-mode-active");
-        if (kickPusher) {
-            try { kickPusher.disconnect(); } catch(e) {}
-        }
     }
     
     // Lock username
@@ -2677,8 +2733,8 @@ function startTimer() {
     timerSectionEl.classList.remove("warning");
     
     if (!isMobileMode) {
-        cameraTargetPos.set(0, 4.0, 8.5);
-        cameraTargetLookAt.set(0, 0.8, -0.5);
+        cameraTargetPos.set(0, 5.0, 10.5);
+        cameraTargetLookAt.set(0, 1.2, -1.0);
     }
     
     // Set initial width based on timeLeft
@@ -2734,8 +2790,8 @@ function lockAnswer() {
     }
     
     // Cinematic Zoom (Tüpler daha geniş yayıldığı için biraz daha geriden ve yukarıdan bakıyoruz)
-    cameraTargetPos.set(0, 3.0, 7.0);
-    cameraTargetLookAt.set(0, 1.0, -1.0);
+    cameraTargetPos.set(0, 4.2, 9.0);
+    cameraTargetLookAt.set(0, 1.1, -1.2);
     
     const qData = activeGameQuestions[currentQuestionIndex];
     const correctLetter = qData.correctAnswer;
@@ -2790,8 +2846,8 @@ function revealResults(correctLetter, hostComment) {
         if (!isMobileMode) {
             const xPos = TUBE_POSITIONS[letter].x;
             const zPos = TUBE_POSITIONS[letter].z;
-            cameraTargetPos.set(xPos, 1.8, zPos + 4.5);
-            cameraTargetLookAt.set(xPos, 0.4, zPos);
+            cameraTargetPos.set(xPos, 2.8, zPos + 6.0);
+            cameraTargetLookAt.set(xPos, 0.8, zPos);
         }
 
         // Bir sonraki yanlış kapağı açmak için 2.4 saniye bekle (yavaş açılış ve paranın düşüşü için tam süre)
