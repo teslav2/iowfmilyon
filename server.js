@@ -17,9 +17,9 @@ let gameSettings = {
     announcement: "IOWF MİLYON'a hoş geldiniz! Kasadaki paranızı korumak için yarışın."
 };
 
-// Check if Vercel KV is enabled (supports KV_ and STORAGE_ prefixes)
-const kvUrl = process.env.STORAGE_REST_API_URL || process.env.KV_REST_API_URL;
-const kvToken = process.env.STORAGE_REST_API_TOKEN || process.env.KV_REST_API_TOKEN;
+// Check if Vercel KV is enabled (supports KV_, STORAGE_, REDIS_REST_, and UPSTASH_REDIS_ REST API prefixes)
+const kvUrl = process.env.STORAGE_REST_API_URL || process.env.KV_REST_API_URL || process.env.REDIS_REST_URL || process.env.UPSTASH_REDIS_REST_URL;
+const kvToken = process.env.STORAGE_REST_API_TOKEN || process.env.KV_REST_API_TOKEN || process.env.REDIS_REST_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
 const isKvEnabled = !!(kvUrl && kvToken);
 
 console.log(`Vercel KV Integration: ${isKvEnabled ? "ENABLED" : "DISABLED (using local file fallback)"}`);
@@ -316,11 +316,20 @@ async function initQuestions() {
             const cached = await kvCmd('GET', 'game_questions');
             if (cached) {
                 const parsed = JSON.parse(cached);
-                CAT_4 = parsed.CAT_4 || [];
-                CAT_3 = parsed.CAT_3 || [];
-                CAT_2 = parsed.CAT_2 || [];
-                FINAL = parsed.FINAL || [];
-                console.log(`Questions successfully synced from Vercel KV: CAT_4: ${CAT_4.length}, CAT_3: ${CAT_3.length}, CAT_2: ${CAT_2.length}, FINAL: ${FINAL.length}`);
+                const kvTotal = (parsed.CAT_4 || []).length + (parsed.CAT_3 || []).length + (parsed.CAT_2 || []).length + (parsed.FINAL || []).length;
+                const localTotal = CAT_4.length + CAT_3.length + CAT_2.length + FINAL.length;
+                
+                // Eğer yerel dosyadaki soru sayısı ile veri tabanındaki uyuşmuyorsa, veri tabanını yerel dosyayla güncelle
+                if (kvTotal !== localTotal) {
+                    await kvCmd('SET', 'game_questions', JSON.stringify({ CAT_4, CAT_3, CAT_2, FINAL }));
+                    console.log(`Vercel KV questions updated from questions.txt (Local: ${localTotal}, KV: ${kvTotal})`);
+                } else {
+                    CAT_4 = parsed.CAT_4 || [];
+                    CAT_3 = parsed.CAT_3 || [];
+                    CAT_2 = parsed.CAT_2 || [];
+                    FINAL = parsed.FINAL || [];
+                    console.log(`Questions loaded from Vercel KV: CAT_4: ${CAT_4.length}, CAT_3: ${CAT_3.length}, CAT_2: ${CAT_2.length}, FINAL: ${FINAL.length}`);
+                }
             } else {
                 await kvCmd('SET', 'game_questions', JSON.stringify({ CAT_4, CAT_3, CAT_2, FINAL }));
                 console.log("Seeded Vercel KV with initial questions list");

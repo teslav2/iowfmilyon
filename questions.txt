@@ -1623,30 +1623,6 @@ const CAT_4_QUESTIONS = [
         "hostComment": "Güney Amerika'daki And Dağları, yaklaşık 7.000 km uzunluğuyla dünyanın en uzun kara sıradağlarıdır."
     },
     {
-        "question": "Işık boşlukta yayılabilirken, ses dalgaları boşlukta yayılabilir mi?",
-        "options": {
-            "A": "Evet, yayılabilir",
-            "B": "Hayır, yayılamaz",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "B",
-        "optionsCount": 4,
-        "hostComment": "Ses mekanik bir dalgadır ve yayılması için maddesel bir ortama (hava, su vb.) ihtiyaç duyar."
-    },
-    {
-        "question": "Sevimli kutup canlıları olan penguenler biyolojik olarak kuş sınıfına mı girer?",
-        "options": {
-            "A": "Evet, kuş sınıfındadır",
-            "B": "Hayır, memeli sınıfındadır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Penguenler uçamayan, kanatlarını yüzgeç gibi kullanan deniz kuşlarıdır. Yumurtlayarak çoğalırlar."
-    },
-    {
         "question": "Mustafa Kemal Atatürk'ün nüfusa kayıtlı olduğu Türkiye ili hangisidir?",
         "options": {
             "A": "Ankara",
@@ -1657,18 +1633,6 @@ const CAT_4_QUESTIONS = [
         "correctAnswer": "B",
         "optionsCount": 4,
         "hostComment": "Atatürk, Gaziantep'in Şahinbey ilçesi nüfusuna kaydedilerek onursal hemşehri ilan edilmiştir."
-    },
-    {
-        "question": "İki adet tek sayının çarpımından elde edilen sonuç her zaman tek sayı mıdır?",
-        "options": {
-            "A": "Evet, her zaman tektir",
-            "B": "Hayır, bazen çifttir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Matematiksel olarak iki tek sayının çarpımı her zaman tektir. Örneğin: 3 x 5 = 15."
     },
     {
         "question": "Muz bitkisi botanik açıdan odunsu bir ağaç mıdır yoksa otsu bir bitki midir?",
@@ -1695,18 +1659,6 @@ const CAT_4_QUESTIONS = [
         "hostComment": "Konya, 38 bin kilometrekareyi aşan yüzölçümüyle Türkiye'nin en büyük ilidir."
     },
     {
-        "question": "Dünya'nın kendi ekseni etrafındaki dönüş çizgisel hızı ekvatorda mı daha fazladır?",
-        "options": {
-            "A": "Evet, ekvatorda fazladır",
-            "B": "Hayır, kutuplarda fazladır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Ekvatorda dönüş yarıçapı en büyük olduğu için çizgisel hız en fazladır (saatte yaklaşık 1670 km)."
-    },
-    {
         "question": "Bir madeni para 10 kez atılmış ve hepsi tura gelmiştir. 11. atışta yazı gelme olasılığı nedir?",
         "options": {
             "A": "%50 olasılıktır",
@@ -1717,42 +1669,6 @@ const CAT_4_QUESTIONS = [
         "correctAnswer": "A",
         "optionsCount": 4,
         "hostComment": "Geçmiş atışlar sonraki atışı etkilemez; her atış bağımsız bir olaydır ve şans her zaman yarı yarıyadır."
-    },
-    {
-        "question": "Kıbrıs adası, yüzölçümü bakımından Akdeniz'in en büyük adası mıdır?",
-        "options": {
-            "A": "Evet, en büyük adadır",
-            "B": "Hayır, en büyük ada değildir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "B",
-        "optionsCount": 4,
-        "hostComment": "Akdeniz'in en büyük adası Sicilya'dır. Kıbrıs adası ise Sicilya ve Sardinya'dan sonra 3. sıradadır."
-    },
-    {
-        "question": "Kaju fıstığı, kaju elması adı verilen bir meyvenin hemen altında büyüyen sapı mıdır?",
-        "options": {
-            "A": "Evet, meyvenin sapıdır",
-            "B": "Hayır, meyvenin çekirdeğidir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Kaju fıstığı, kaju elması meyvesinin altında gelişen sap benzeri çekirdekli yalancı meyve kısmıdır."
-    },
-    {
-        "question": "Efsanevi Truva Antik Kenti günümüzde Türkiye sınırları içerisinde midir?",
-        "options": {
-            "A": "Evet, Türkiye'dedir",
-            "B": "Hayır, Yunanistan'dadır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Truva antik kenti, Türkiye'de Çanakkale ili sınırları içinde Hisarlık tepesinde yer almaktadır."
     },
     {
         "question": "Arıların başlarının üzerinde ve yanlarında toplam kaç adet gözü bulunur?",
@@ -1791,18 +1707,6 @@ const CAT_4_QUESTIONS = [
         "hostComment": "Göğüs kafesi içinde kalbin sağında ve solunda yer alan toplam 2 adet akciğerimiz vardır."
     },
     {
-        "question": "Sinekkuşu (Hummingbird) havada asılı kalabilen ve geriye doğru uçabilen tek kuş mudur?",
-        "options": {
-            "A": "Evet, tek kuştur",
-            "B": "Hayır, başka kuşlar da yapabilir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Kanat yapısı sayesinde helikopter gibi asılı kalabilen ve geriye doğru uçabilen tek kuş sinekkuşudur."
-    },
-    {
         "question": "'Damlaya damlaya göl olur' atasözü temel olarak hangi kavramı anlatır?",
         "options": {
             "A": "Tasarruf ve birikim",
@@ -1837,522 +1741,6 @@ const CAT_4_QUESTIONS = [
         "correctAnswer": "A",
         "optionsCount": 4,
         "hostComment": "Doğrudan kırmızı kart gören bir oyuncu kurallar gereği en az 1 maç otomatik ceza alır (ihlalin derecesine göre ceza artabilir)."
-    },
-    {
-        "question": "Mavi balinaların dilleri bir yetişkin fil kadar ağır olabilir mi?",
-        "options": {
-            "A": "Evet, olabilir",
-            "B": "Hayır, olamaz",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Mavi balinanın dili o kadar büyüktür ki ağırlığı bir yetişkin Asya filinin ağırlığına (yaklaşık 2.7-3 ton) eşdeğerdir."
-    },
-    {
-        "question": "İstiklal Marşımızın bestecisi Osman Zeki Üngör müdür?",
-        "options": {
-            "A": "Evet, odur",
-            "B": "Hayır, Mehmet Akif Ersoy'dur",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "İstiklal Marşı'nın yazarı Mehmet Akif Ersoy, bestecisi ise cumhuriyet dönemi orkestra şefi Osman Zeki Üngör'dür."
-    },
-    {
-        "question": "Deve kuşları tehlike anında kafalarını kuma gömerler mi?",
-        "options": {
-            "A": "Hayır, bu bir mittir",
-            "B": "Evet, gömerler",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Deve kuşları kafalarını kuma gömmezler; tehlike anında yere uzanıp kendilerini gizlemeye çalışırlar, uzaktan bakınca gömmüş gibi görünürler."
-    },
-    {
-        "question": "'Damlaya damlaya göl olur' atasözü biriktirmeyi ve tasarrufu mu teşvik eder?",
-        "options": {
-            "A": "Evet, birikimi anlatır",
-            "B": "Hayır, su israfını anlatır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Küçük miktarların birikerek büyük değerlere dönüşebileceğini anlatan tasarruf atasözüdür."
-    },
-    {
-        "question": "İnsan vücudundaki en uzun ve en güçlü kemik uyluk kemiği midir?",
-        "options": {
-            "A": "Evet, uyluk kemiğidir",
-            "B": "Hayır, omurga kemiğidir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Uyluk kemiği (femur), kalça ile diz arasında yer alan vücudun en büyük, uzun ve dayanıklı kemiğidir."
-    },
-    {
-        "question": "Penguenler Güney Yarımküre'de mi yaşarlar?",
-        "options": {
-            "A": "Evet, Güney Yarımküre'de",
-            "B": "Hayır, Kuzey Kutbu'nda",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Penguenlerin neredeyse tamamı Güney Yarımküre'de (Antarktika, Güney Afrika vb.) yaşar. Kuzey Kutbu'nda penguen yoktur."
-    },
-    {
-        "question": "Kağıdı icat eden uygarlık Çinliler midir?",
-        "options": {
-            "A": "Evet, Çinlilerdir",
-            "B": "Hayır, Sümerlerdir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Modern anlamda yazı yazılabilir kağıt MS 105 yılında Çin'de Ts'ai Lun tarafından icat edilmiştir."
-    },
-    {
-        "question": "Astronomi: Ay, kendi etrafındaki dönüşünü ve Dünya etrafındaki dolanımını aynı sürede mi tamamlar?",
-        "options": {
-            "A": "Evet, bu yüzden hep aynı yüzünü görürüz",
-            "B": "Hayır, süreler farklıdır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Ay'ın kendi eksenindeki dönüşü ile Dünya etrafındaki dolanımı 27.3 gün sürer. Bu eşzamanlı dönüşten dolayı dünyadan hep aynı yüzü görülür."
-    },
-    {
-        "question": "Yetişkin bir insan vücudundaki kemik sayısı çocukluk dönemindekinden daha mı azdır?",
-        "options": {
-            "A": "Evet, kemikler büyüdükçe birleşir",
-            "B": "Hayır, yaşlandıkça yeni kemikler oluşur",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Bebekler yaklaşık 270 kemikle doğar, ancak büyüdükçe bazı kemikler birleşerek yetişkinlikte bu sayı 206'ya düşer."
-    },
-    {
-        "question": "Nobel ödülünü iki farklı alanda kazanan ilk ve tek kadın bilim insanı Marie Curie midir?",
-        "options": {
-            "A": "Evet, Fizik ve Kimya dallarında almıştır",
-            "B": "Hayır, ödülü sadece tek bir dalda almıştır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Marie Curie, 1903'te Fizik ve 1911'de Kimya alanlarında Nobel kazanarak tarihe geçmiştir."
-    },
-    {
-        "question": "Fizik: Sıcak hava soğuk havaya göre daha mı yoğundur?",
-        "options": {
-            "A": "Hayır, sıcak hava genleştiği için daha az yoğundur",
-            "B": "Evet, sıcak hava molekülleri daha ağırdır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Isınan hava genleşir, hacmi artar ve yoğunluğu azalır. Bu yüzden sıcak hava yükselir."
-    },
-    {
-        "question": "Dünyanın en uzun nehirlerinden biri olan Nil Nehri Akdeniz'e mi dökülür?",
-        "options": {
-            "A": "Evet, Akdeniz'e dökülür",
-            "B": "Hayır, Kızıldeniz'e dökülür",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Nil Nehri Afrika kıtasını güneyden kuzeye aşarak Mısır üzerinden Akdeniz'e dökülür."
-    },
-    {
-        "question": "Amerika Birleşik Devletleri bağımsızlığını İngiltere Krallığı'ndan mı kazanmıştır?",
-        "options": {
-            "A": "Evet, İngiltere'ye karşı savaşmışlardır",
-            "B": "Hayır, Fransa'dan ayrılmışlardır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "ABD, 1776 yılında 13 koloninin birleşerek Büyük Britanya (İngiltere) Krallığı'na başkaldırmasıyla bağımsız olmuştur."
-    },
-    {
-        "question": "Ahtapotların üç adet kalbi mi vardır?",
-        "options": {
-            "A": "Evet, üç kalpleri vardır",
-            "B": "Hayır, tek kalpleri vardır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Ahtapotların biri ana vücuda kan pompalayan, ikisi ise solungaçlara kan pompalayan toplam üç kalbi vardır."
-    },
-    {
-        "question": "Olimpiyat bayrağındaki beş renkli halka dünya üzerindeki beş kıtayı mı temsil eder?",
-        "options": {
-            "A": "Evet, beş kıtayı simgeler",
-            "B": "Hayır, beş ana sporu simgeler",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Mavi, sarı, siyah, yeşil ve kırmızı halkalar, Olimpiyatlara katılan beş kıtayı (Amerika, Asya, Afrika, Avrupa, Avustralya) simgeler."
-    },
-    {
-        "question": "Eyfel Kulesi yaz aylarında genleşme sebebiyle daha mı uzun olur?",
-        "options": {
-            "A": "Evet, demir genleşerek boyu 15 cm uzayabilir",
-            "B": "Hayır, kışın büzülerek sadece kısalır boyu değişmez",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Termal genleşme nedeniyle Eyfel Kulesi'nin metal yapısı yazın sıcaktan 15 santimetreye kadar uzayabilir."
-    },
-    {
-        "question": "Karıncalar uyur mu?",
-        "options": {
-            "A": "Evet, gün içinde küçük güç uykuları yaparlar",
-            "B": "Hayır, karıncalar hiç uyumazlar",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Karıncalar gün boyunca yüzlerce kez birkaç dakikalık kısa kestirmeler yaparak uyurlar."
-    },
-    {
-        "question": "Dünyaca ünlü 'Romeo ve Juliet' eserinin yazarı William Shakespeare midir?",
-        "options": {
-            "A": "Evet, Shakespeare eseri",
-            "B": "Hayır, Victor Hugo eseri",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Romeo ve Juliet trajedisi, İngiliz oyun yazarı William Shakespeare tarafından 16. yüzyıl sonunda yazılmıştır."
-    },
-    {
-        "question": "Dünyanın en küçük bağımsız ülkesi Vatikan mıdır?",
-        "options": {
-            "A": "Evet, Vatikan'dır",
-            "B": "Hayır, Monako'dur",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Vatikan, 0.44 kilometrekarelik yüzölçümüyle dünyanın en küçük bağımsız devletidir."
-    },
-    {
-        "question": "'Dost kara günde belli olur' atasözü gerçek dostların zor zamanlarda yardım edeceğini mi söyler?",
-        "options": {
-            "A": "Evet, zor günlerdeki desteği anlatır",
-            "B": "Hayır, düşmanları anlatır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "İyi günde herkes dost görünür, gerçek dost ise insanın sıkıntılı anlarında yanında olandır."
-    },
-    {
-        "question": "Balinalar yumurtlayarak mı çoğalır?",
-        "options": {
-            "A": "Hayır, memeli oldukları için doğururlar",
-            "B": "Evet, deniz canlısı oldukları için yumurtlarlar",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Balinalar balık değil memelidir, yavrularını doğurur ve sütle beslerler."
-    },
-    {
-        "question": "Türkiye Büyük Millet Meclisi (TBMM) 1920 yılında mı açılmıştır?",
-        "options": {
-            "A": "Evet, 23 Nisan 1920'de açılmıştır",
-            "B": "Hayır, 29 Ekim 1923'te açılmıştır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "TBMM, Kurtuluş Savaşı sırasında 23 Nisan 1920 tarihinde Ankara'da açılmıştır."
-    },
-    {
-        "question": "Kuzey Kutbu'nda penguenler yaşar mı?",
-        "options": {
-            "A": "Hayır, penguenler sadece Güney Yarımküre'de yaşar",
-            "B": "Evet, kutup bölgesinde yaşarlar",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Penguenler Güney Kutbu ve çevresinde yaşarlar, Kuzey Kutbu'nda penguen bulunmaz."
-    },
-    {
-        "question": "İnsan vücudundaki en büyük organ deri midir?",
-        "options": {
-            "A": "Evet, deri en büyük organdır",
-            "B": "Hayır, karaciğer en büyük organdır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Yetişkin bir insanda yaklaşık 2 metrekare yer kaplayan deri, vücudun en büyük organıdır (iç organ olarak ise karaciğerdir)."
-    },
-    {
-        "question": "'Ayağını yorganına göre uzat' atasözü bütçeye göre harcama yapmayı mı öğütler?",
-        "options": {
-            "A": "Evet, tutumlu olmayı öğütler",
-            "B": "Hayır, uyku düzenini anlatır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Kişinin harcamalarını kendi gelir sınırlarını aşmayacak şekilde planlaması gerektiğini belirtir."
-    },
-    {
-        "question": "İtalya'nın başkenti Roma mıdır?",
-        "options": {
-            "A": "Evet, Roma'dır",
-            "B": "Hayır, Milano'dur",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Roma, İtalya Cumhuriyeti'nin başkenti ve tarihi merkezidir."
-    },
-    {
-        "question": "Fizik: Ses dalgaları boşlukta (uzayda) yayılabilir mi?",
-        "options": {
-            "A": "Hayır, yayılması için maddesel bir ortama ihtiyaç duyar",
-            "B": "Evet, ses her yerde yayılır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Işık boşlukta yayılabilir ancak ses dalgaları mekanik dalgadır, bu yüzden boşlukta yayılamazlar."
-    },
-    {
-        "question": "Fatih Sultan Mehmet İstanbul'u fethettiğinde 21 yaşında mıydı?",
-        "options": {
-            "A": "Evet, 21 yaşındaydı",
-            "B": "Hayır, 30 yaşındaydı",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "1432 doğumlu olan II. Mehmet, 1453 yılında İstanbul'u fethettiğinde henüz 21 yaşındaydı."
-    },
-    {
-        "question": "Satranç tahtasında toplam 64 adet kare mi bulunur?",
-        "options": {
-            "A": "Evet, 64 kare vardır",
-            "B": "Hayır, 81 kare vardır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Satranç tahtası 8x8 yatay ve dikey sıradan oluşan toplam 64 siyah ve beyaz kareden oluşur."
-    },
-    {
-        "question": "Astronomi: Güneş bir yıldız mıdır?",
-        "options": {
-            "A": "Evet, orta büyüklükte bir yıldızdır",
-            "B": "Hayır, büyük bir gezegendir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Güneş, Güneş Sistemi'nin merkezinde yer alan sıcak gazlardan oluşmuş cüce bir yıldızdır."
-    },
-    {
-        "question": "'Dertli terzi derdini diker' sözü bir tekerleme kalıbı mıdır?",
-        "options": {
-            "A": "Evet, Türkçe bir tekerlemedir",
-            "B": "Hayır, sadece bir atasözüdür",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "'Dertli terzi derdini diker' sözü benzer seslerin tekrarıyla oluşturulmuş bir tekerlemedir."
-    },
-    {
-        "question": "İnsan kalbinde 4 adet odacık mı bulunur?",
-        "options": {
-            "A": "Evet, iki kulakçık ve iki karıncık vardır",
-            "B": "Hayır, iki odacık vardır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "İnsan kalbi sağ ve sol olmak üzere iki üst kulakçık (atrium) ve iki alt karıncık (ventrikül)tan oluşur."
-    },
-    {
-        "question": "Magna Carta (Büyük Sözleşme) İngiltere'de mi imzalanmıştır?",
-        "options": {
-            "A": "Evet, 1215'te İngiltere Kralı tarafından imzalanmıştır",
-            "B": "Hayır, Fransa'da imzalanmıştır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Kral Yurtsuz John, 1215 yılında baronların baskısıyla yetkilerini sınırlandıran Magna Carta'yı İngiltere'de imzalamıştır."
-    },
-    {
-        "question": "Bukalemunlar gözlerini birbirinden bağımsız olarak iki farklı yöne döndürebilir mi?",
-        "options": {
-            "A": "Evet, 360 derecelik bir görüş açısı sağlarlar",
-            "B": "Hayır, gözleri sadece aynı yöne bakar",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Bukalemunlar, her iki gözünü de tamamen farklı açılara odaklayarak çevreyi izleyebilirler."
-    },
-    {
-        "question": "'Nutuk' eseri Mustafa Kemal Atatürk tarafından mı kaleme alınmıştır?",
-        "options": {
-            "A": "Evet, Atatürk yazmıştır",
-            "B": "Hayır, İsmet İnönü yazmıştır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Nutuk, Atatürk'ün 1919-1927 yılları arasındaki gelişmeleri bizzat anlattığı tarihi belgedir."
-    },
-    {
-        "question": "Ekvator çizgisi dünyayı kuzey ve güney olarak iki eşit yarımküreye mi böler?",
-        "options": {
-            "A": "Evet, hayali bir çizgidir",
-            "B": "Hayır, doğu ve batı olarak böler",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Ekvator, kutup noktalarına eşit mesafede bulunan ve dünyayı Kuzey/Güney yarımküreye bölen en büyük enlem dairesidir."
-    },
-    {
-        "question": "Fizik: Sıvıların kaldırma kuvvetini bulan ünlü bilim insanı Arşimet midir?",
-        "options": {
-            "A": "Evet, Arşimet'tir",
-            "B": "Hayır, Newton'dur",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Arşimet, hamamda yıkanırken suyun taşıma gücünü fark edip 'Eureka!' (Buldum!) diyerek dışarı fırlamıştır."
-    },
-    {
-        "question": "Nobel Edebiyat Ödülü alan tek Türk yazar Orhan Pamuk mudur?",
-        "options": {
-            "A": "Evet, Orhan Pamuk'tur",
-            "B": "Hayır, Yaşar Kemal'dir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Orhan Pamuk, 2006 yılında Nobel Edebiyat Ödülü'nü alan tek Türk yazardır."
-    },
-    {
-        "question": "Koalaların parmak izleri insan parmak izine ayırt edilemeyecek kadar benzer midir?",
-        "options": {
-            "A": "Evet, mikroskop altında bile ayırt etmek zordur",
-            "B": "Hayır, hayvanların parmak izi olmaz",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Koalaların parmak izi kıvrımları, insan parmak izine o kadar benzer ki suç mahallerinde polisin kafasını karıştırabilir."
-    },
-    {
-        "question": "Osmanlı Devleti'nde padişahın mutlak yetkilerini ilk kez sınırlayan belge Sened-i İttifak mıdır?",
-        "options": {
-            "A": "Evet, II. Mahmud döneminde imzalanmıştır",
-            "B": "Hayır, Tanzimat Fermanı'dır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "1808 yılında Sadrazam Alemdar Mustafa Paşa öncülüğünde ayanlarla imzalanan Sened-i İttifak padişahın yetkilerini kısıtlayan ilk belgedir."
-    },
-    {
-        "question": "İnsan DNA'sının şempanzelerle benzerlik oranı yüzde 98'in üzerinde midir?",
-        "options": {
-            "A": "Evet, genetik kodumuz büyük oranda ortaktır",
-            "B": "Hayır, benzerlik oranı sadece yüzde 50 civarıdır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Genetik araştırmalara göre insan ve şempanze DNA'sı yaklaşık %98.8 oranında aynı dizilime sahiptir."
-    },
-    {
-        "question": "'Bir elin nesi var, iki elin sesi var' atasözü birlik ve beraberliğin gücünü mi anlatır?",
-        "options": {
-            "A": "Evet, yardımlaşmayı anlatır",
-            "B": "Hayır, el çırpmayı anlatır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Tek başına yapılamayan zor işlerin, başkalarıyla işbirliği yapılarak kolayca halledilebileceğini ifade eder."
-    },
-    {
-        "question": "Masa tenisi sporuna halk arasında 'pinpon' da denir mi?",
-        "options": {
-            "A": "Evet, pinpon da denir",
-            "B": "Hayır, badminton denir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Masa tenisi, topun çıkardığı seslerden esinlenilerek özellikle İngilizce konuşulan ülkelerde 'ping-pong' olarak adlandırılmıştır."
     },
     {
         "question": "Nobel Barış Ödülü'nü kazanan tarihteki ilk kadın kimdir?",
@@ -2427,18 +1815,6 @@ const CAT_4_QUESTIONS = [
         "hostComment": "Einstein, İsviçre Bern'deki patent ofisinde memur olarak çalışırken en meşhur fizik teorilerini geliştirmiştir."
     },
     {
-        "question": "Satranç oyun kurallarına göre, şah tehdidi (şah çekilme durumu) altındayken rok yapmak kurallara uygun mudur?",
-        "options": {
-            "A": "Evet, uygundur",
-            "B": "Hayır, rok yapılamaz",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "B",
-        "optionsCount": 4,
-        "hostComment": "Şah tehdit altındayken, şahın geçeceği veya rok yapacağı kareler rakip taşlarca tehdit ediliyorken rok yapılamaz."
-    },
-    {
         "question": "Türkiye'nin ilan edilen ilk resmi milli parkı olan Yozgat Çamlığı Milli Parkı hangi yıl kurulmuştur?",
         "options": {
             "A": "1968",
@@ -2511,18 +1887,6 @@ const CAT_4_QUESTIONS = [
         "hostComment": "'Besle kargayı, oysun gözünü' atasözü, nankörlük ve iyiliğe karşı kötülük yapmayı ifade eder."
     },
     {
-        "question": "Şampiyonlar Ligi tarihinde bir sezonda en çok gol atan oyuncu unvanı Cristiano Ronaldo'ya mı aittir?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, 15 golle Lionel Messi'nindir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, 17 golle onundur"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Cristiano Ronaldo, 2013-14 sezonunda Real Madrid formasıyla 17 gol atarak bu rekoru kırmıştır."
-    },
-    {
         "question": "'Şu köşe yaz köşesi, şu köşe kış köşesi, ortada su şişesi' tekerlemesinde ortada duran nesne nedir?",
         "options": {
             "A": "Su şişesi",
@@ -2533,18 +1897,6 @@ const CAT_4_QUESTIONS = [
         "correctAnswer": "A",
         "optionsCount": 4,
         "hostComment": "Türkçedeki klasik tekerlemede 'ortada su şişesi' ibaresi yer alır."
-    },
-    {
-        "question": "Bukalemunların gözleri birbirlerinden tamamen bağımsız olarak aynı anda iki farklı yöne bakabilir mi?",
-        "options": {
-            "A": "Sadece bazı istisnai durumlarda",
-            "B": "Hayır, bakamaz",
-            "C": "Evet, bakabilir",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "C",
-        "optionsCount": 4,
-        "hostComment": "Bukalemunların gözleri 360 derecelik bir görüş alanı sağlayacak şekilde bağımsız hareket edebilir."
     },
     {
         "question": "İnsan DNA'sının şempanze DNA'sı ile benzerlik oranı yaklaşık olarak yüzde kaçtır?",
@@ -2607,30 +1959,6 @@ const CAT_4_QUESTIONS = [
         "hostComment": "Bağımsızlık Bildirgesi 4 Temmuz 1776'da imzalanarak ABD'nin kuruluşu ilan edilmiştir."
     },
     {
-        "question": "Dünyanın en büyük kalbine sahip olan canlı Mavi Balina mıdır?",
-        "options": {
-            "A": "Sadece bazı istisnai durumlarda",
-            "B": "Hayır, Fil en büyük kalbe sahiptir",
-            "C": "Evet, kalbi küçük bir araba boyutundadır",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "C",
-        "optionsCount": 4,
-        "hostComment": "Mavi balinanın kalbi yaklaşık 180 kg ağırlığında olup, küçük bir otomobil (örneğin VW Beetle) ebadındadır."
-    },
-    {
-        "question": "Dünyanın en büyük adası Grönland mıdır?",
-        "options": {
-            "A": "Evet, Grönland'dır",
-            "B": "Hayır, Avustralya'dır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Avustralya bir kıta kabul edildiği için, dünyanın en büyük adası Danimarka'ya bağlı Grönland'dır."
-    },
-    {
         "question": "İnsan vücudundaki en hızlı çalışan kas hangisidir?",
         "options": {
             "A": "Göz kası",
@@ -2641,54 +1969,6 @@ const CAT_4_QUESTIONS = [
         "correctAnswer": "A",
         "optionsCount": 4,
         "hostComment": "Göz kırpma kası (orbicularis oculi) 100 milisaniyede kapanıp açılabilen vücudun en hızlı kasan kasıdır."
-    },
-    {
-        "question": "İpek Yolu'nun başlangıç noktası Çin midir?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, Hindistan'dır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, Çin'in Xi'an şehridir"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Antik İpek Yolu ticaret güzergahı Çin'in tarihi başkentlerinden olan Xi'an (Sian) şehrinden başlar."
-    },
-    {
-        "question": "Işık yılı bir zaman ölçüsü müdür?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Evet, ışığın 1 yıldaki seyahat süresidir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Hayır, astronomik uzaklık/mesafe ölçüsüdür"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Işık yılı, ışığın boşlukta 1 yılda katettiği mesafe (yaklaşık 9.5 trilyon km) olup mesafe birimidir."
-    },
-    {
-        "question": "İnsan gözünün görebildiği en fazla renk tonunu ayırt ettiği ana renk yeşil midir?",
-        "options": {
-            "A": "Evet, yeşilin tonlarına daha duyarlıyız",
-            "B": "Hayır, kırmızı rengin tonlarıdır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Evrimsel olarak avcılık ve doğada gezinme sebebiyle insan gözü yeşil rengin tonlarına çok daha hassastır."
-    },
-    {
-        "question": "Anadolu Selçuklu Devleti'nin başkenti Konya mıdır?",
-        "options": {
-            "A": "Hayır, Bursa'dır",
-            "B": "Evet, Konya'dır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "B",
-        "optionsCount": 4,
-        "hostComment": "Anadolu Selçuklularının başkenti önce İznik, Haçlı Seferleri'nden sonra ise yıkılana kadar Konya olmuştur."
     },
     {
         "question": "'Deliye her gün bayram' atasözünün anlamı nedir?",
@@ -2715,18 +1995,6 @@ const CAT_4_QUESTIONS = [
         "hostComment": "Klasik tekerlemedir: 'Kartal kalkar dal sarkar, dal sarkar kartal kalkar.' Kalkan kartaldır."
     },
     {
-        "question": "Dünyadaki en yüksek tuz oranına sahip su kütlesi Lut Gölü müdür?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, Hazar Denizi'dir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, Lut Gölü'dür (Ölü Deniz)"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Lut Gölü yaklaşık %33 tuzluluk oranıyla canlı yaşamına izin vermeyen en tuzlu göllerden biridir."
-    },
-    {
         "question": "İnsan kalbi günde yaklaşık kaç kez atar?",
         "options": {
             "A": "Yaklaşık 500.000 kez",
@@ -2737,138 +2005,6 @@ const CAT_4_QUESTIONS = [
         "correctAnswer": "D",
         "optionsCount": 4,
         "hostComment": "Ortalama 70-80 nabızda, insan kalbi günde yaklaşık 100.000, yılda ise 35 milyon kez atar."
-    },
-    {
-        "question": "Yeryüzündeki en yüksek dağ zirvesi Everest iken, dünyanın merkezine en uzak nokta Ekvador'daki Chimborazo Dağı mıdır?",
-        "options": {
-            "A": "Hayır, yine Everest zirvesidir",
-            "B": "Evet, dünyanın şekli (geoit) nedeniyle öyledir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "B",
-        "optionsCount": 4,
-        "hostComment": "Dünya kutuplardan basık, ekvatordan şişik olduğu için ekvatordaki Chimborazo zirvesi yer merkezinden en uzak olan noktadır."
-    },
-    {
-        "question": "Tarihin sıfır noktası olarak kabul edilen ve Şanlıurfa'da yer alan Göbeklitepe neolitik döneme mi aittir?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, Tunç Çağı'na aittir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, MÖ 9600 civarına tarihlenir"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Göbeklitepe, günümüzden yaklaşık 12.000 yıl önce inşa edilmiş dünyanın bilinen en eski tapınak alanıdır."
-    },
-    {
-        "question": "İdrara sarı rengini veren kimyasal pigmentin adı 'Ürobilin' midir?",
-        "options": {
-            "A": "Sadece bazı istisnai durumlarda",
-            "B": "Hayır, klorofildir",
-            "C": "Evet, ürobilin pigmentidir",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "C",
-        "optionsCount": 4,
-        "hostComment": "Alyuvarların yıkımıyla oluşan bilirubin maddesinin bağırsaklarda parçalanmasıyla oluşan ürobilin, idrarın sarı rengini verir."
-    },
-    {
-        "question": "Bukalemunların dili, kendi vücut uzunluklarının yaklaşık iki katı kadar uzayabilir mi?",
-        "options": {
-            "A": "Evet, dilleri inanılmaz derecede uzundur ve hızlıdır",
-            "B": "Hayır, dilleri sadece birkaç santim uzayabilir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Bukalemunlar, vücut boylarının 1.5-2 katı uzunluğundaki yapışkan dillerini saniyenin onda biri hızla fırlatarak avlanırlar."
-    },
-    {
-        "question": "İnsan vücudundaki en küçük kemik olan üzengi kemiği yaklaşık 3 milimetre boyunda mıdır?",
-        "options": {
-            "A": "Evet, pirinç tanesinden bile küçüktür",
-            "B": "Hayır, yaklaşık 1 santimetredir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Orta kulaktaki stapes (üzengi) kemiği, ortalama 3 mm boyuyla vücudumuzun en küçük kemiğidir."
-    },
-    {
-        "question": "Sanat: Dünyaca ünlü heykeltıraş Michelangelo'nun meşhur 'Davut' heykeli tek bir mermer bloktan mı yontulmuştur?",
-        "options": {
-            "A": "Evet, kusurlu kabul edilen tek bir mermerden yapılmıştır",
-            "B": "Hayır, parçalar halinde yapılıp birleştirilmiştir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Michelangelo, Floransa'da diğer heykeltıraşların 'çatlak ve kullanılamaz' dediği dev bir mermer bloğu yontarak Davut heykelini yaratmıştır."
-    },
-    {
-        "question": "Amerika kıtasına adını veren kâşif Amerigo Vespucci midir?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, kıtayı ilk bulan Kristof Kolomb'dur",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, yeni bir kıta olduğunu fark eden İtalyan denizcidir"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Kolomb burayı Hindistan zannederken, Amerigo Vespucci buranın yeni bir kıta olduğunu ilan etmiş ve haritacılar onun ismini vermiştir."
-    },
-    {
-        "question": "İnsan gözü yaklaşık 10 milyon farklı renk tonunu ayırt edebilir mi?",
-        "options": {
-            "A": "Sadece bazı istisnai durumlarda",
-            "B": "Hayır, en fazla 10 bin renk tonu görülebilir",
-            "C": "Evet, ortalama bir insan gözü bu hassasiyete sahiptir",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "C",
-        "optionsCount": 4,
-        "hostComment": "İnsan gözündeki koni hücreleri sayesinde yaklaşık 10 milyon farklı renk tonunu birbirinden ayırt etmek mümkündür."
-    },
-    {
-        "question": "Mona Lisa tablosunun kaşları ve kirpikleri var mıdır?",
-        "options": {
-            "A": "Evet, çok gür siyah kaşları vardır",
-            "B": "Hayır, tabloda kaş ve kirpikleri belirgin değildir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "B",
-        "optionsCount": 4,
-        "hostComment": "Mona Lisa tablosunun yüksek çözünürlüklü taramalarında aslında çok ince kaş boyamaları olduğu, ancak zamanla silindiği ortaya çıkmıştır."
-    },
-    {
-        "question": "Dünyadaki en sıcak su kaynağı veya gayzer alanı olarak bilinen Yellowstone Ulusal Parkı ABD'de mi yer alır?",
-        "options": {
-            "A": "Hayır, İzlanda'dadır",
-            "B": "Evet, ABD sınırları içerisindedir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "B",
-        "optionsCount": 4,
-        "hostComment": "Yellowstone, barındırdığı rengarenk kaplıcalar ve aktif gayzerleriyle ABD'nin Wyoming eyaletinde yer alan ilk ulusal parkıdır."
-    },
-    {
-        "question": "İnsan vücudundaki bakterilerin toplam ağırlığı yaklaşık 1 ila 2 kilogram mıdır?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, bakterilerin toplam ağırlığı birkaç gramdır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, özellikle bağırsaklarımızda kilolarca bakteri yaşar"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Mikrobiyom adı verilen ve vücudumuzda (özellikle sindirim sisteminde) yaşayan trilyonlarca yararlı bakteri yaklaşık 1.5-2 kg ağırlığındadır."
     },
     {
         "question": "Victor Hugo'nun meşhur 'Sefiller' romanında başkahraman Jean Valjean ne çaldığı için kürek mahkûmu olmuştur?",
@@ -2883,160 +2019,2785 @@ const CAT_4_QUESTIONS = [
         "hostComment": "Jean Valjean, kız kardeşinin aç çocukları için fırından sadece bir somun ekmek çaldığı için 19 yıl hapis ve kürek cezası almıştır."
     },
     {
-        "question": "Mitoloji: İskandinav mitolojisinde şimşek tanrısı Thor'un kullandığı büyülü çekicin adı 'Mjolnir' midir?",
+        "question": "Afrika kıtasının en yüksek noktası olan Kilimanjaro Dağı hangi ülkededir?",
         "options": {
-            "A": "Sadece bazı istisnai durumlarda",
-            "B": "Hayır, Excalibur'dur",
-            "C": "Evet, Mjolnir'dir",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "C",
-        "optionsCount": 4,
-        "hostComment": "Cüceler tarafından dövülen ve sadece Thor'un kaldırabildiği efsanevi şimşek çekicinin adı Mjolnir'dir (Excalibur ise Kral Arthur'un kılıcıdır)."
-    },
-    {
-        "question": "İnsanın en güçlü kası, uygulayabildiği kuvvete oranla çene kası mıdır?",
-        "options": {
-            "A": "Sadece bazı istisnai durumlarda",
-            "B": "Hayır, uyluk kasıdır",
-            "C": "Evet, çene kası (masseter) en yüksek basıncı uygular",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "C",
-        "optionsCount": 4,
-        "hostComment": "Masseter (çene kası), kendi ağırlığına ve boyutuna oranla uygulayabildiği yaklaşık 80 kg'lık sıkıştırma gücüyle vücudun en güçlü kasıdır."
-    },
-    {
-        "question": "Fatih Sultan Mehmet'in babası II. Murad mıdır?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, I. Bayezid'dir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, II. Murad'dır"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Fatih Sultan Mehmet'in babası II. Murad, annesi ise Hüma Hatun'dur."
-    },
-    {
-        "question": "Dünyanın en pahalı baharatı olarak kabul edilen safran, çiğdem çiçeğinin polenlerinden mi elde edilir?",
-        "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, bir ağacın kabuğudur",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, çiçeğin tepecik (stigma) kısımları tek tek elle toplanır"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Safran çiçeğinin dişi organındaki üç küçük kırmızı iplikçiğin elle toplanmasıyla elde edilen safran, kilosu binlerce dolara satılan en pahalı baharattır."
-    },
-    {
-        "question": "Asya ve Avrupa kıtalarını birbirinden ayıran Ural Dağları Rusya'da mı yer alır?",
-        "options": {
-            "A": "Evet, kuzey-güney doğrultusunda Rusya'yı böler",
-            "B": "Hayır, Türkiye'dedir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "Ural Dağları, coğrafi olarak Avrupa ve Asya kıtalarının sınırını çizen sıradağlardır ve büyük kısmı Rusya'dadır."
-    },
-    {
-        "question": "Mitoloji: Roma mitolojisinde aşk tanrısı Cupid (Kupür), Yunan mitolojisindeki Eros'un karşılığı mıdır?",
-        "options": {
-            "A": "Sadece bazı istisnai durumlarda",
-            "B": "Hayır, Ares'in karşılığıdır",
-            "C": "Evet, Eros'un Roma versiyonudur",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "C",
-        "optionsCount": 4,
-        "hostComment": "Elinin ok ve yayıyla insanları birbirine aşık eden aşk tanrısı Yunan'da Eros, Roma'da Cupid (Kupid)dir."
-    },
-    {
-        "question": "Güneş sistemindeki en büyük uydu olan Ganymede, Jüpiter'in uydusu mudur?",
-        "options": {
-            "A": "Hayır, Satürn'ün uydusudur",
-            "B": "Evet, Merkür gezegeninden bile büyüktür",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
+            "A": "Kenya",
+            "B": "Tanzanya",
+            "C": "Etiyopya",
+            "D": "Uganda"
         },
         "correctAnswer": "B",
         "optionsCount": 4,
-        "hostComment": "Ganymede, 5.268 km çapıyla Jüpiter'in ve Güneş Sistemi'nin en büyük uydusudur. Boyut olarak Merkür'den daha büyüktür."
+        "hostComment": "Kilimanjaro, 5.895 metre yüksekliğiyle Afrika'nın en yüksek dağıdır ve Tanzanya sınırları içerisindedir."
     },
     {
-        "question": "Sanat: Leonardo da Vinci'nin ünlü 'Son Akşam Yemeği' freski İtalya'nın Milano şehrindeki bir manastırın duvarında mı yer alır?",
+        "question": "Dünyanın en uzun nehri olan Nil Nehri hangi denize dökülür?",
         "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, Vatikan'da sergilenmektedir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, Santa Maria delle Grazie manastırındadır"
-        },
-        "correctAnswer": "D",
-        "optionsCount": 4,
-        "hostComment": "Son Akşam Yemeği, Milano'daki Santa Maria delle Grazie manastırının yemekhane duvarına yapılmış devasa bir duvar resmidir."
-    },
-    {
-        "question": "İkinci Dünya Savaşı'nda atom bombası atılan ilk şehir Hiroşima mıdır?",
-        "options": {
-            "A": "Evet, 6 Ağustos 1945'te atılmıştır",
-            "B": "Hayır, Nagazaki'dir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
-        },
-        "correctAnswer": "A",
-        "optionsCount": 4,
-        "hostComment": "ABD, 6 Ağustos 1945'te 'Little Boy' isimli atom bombasını ilk olarak Hiroşima'ya, 3 gün sonra ise Nagazaki'ye atmıştır."
-    },
-    {
-        "question": "Dünyadaki en yüksek kesintisiz şelale olan Angel Şelalesi yaklaşık 979 metre midir?",
-        "options": {
-            "A": "Hayır, sadece 100 metredir",
-            "B": "Evet, Venezuela'da yer alan bu devasa şelale yaklaşık 1 kilometredir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
+            "A": "Kızıldeniz",
+            "B": "Akdeniz",
+            "C": "Hint Okyanusu",
+            "D": "Hazar Denizi"
         },
         "correctAnswer": "B",
         "optionsCount": 4,
-        "hostComment": "Venezuela'daki Angel Şelalesi (Kerepakupai Meru), 979 metrelik toplam düşüş yüksekliğiyle dünyanın en yüksek şelalesidir."
+        "hostComment": "Nil Nehri, Afrika'nın içlerinden başlayıp Mısır üzerinden Akdeniz'e dökülür."
     },
     {
-        "question": "Yeryüzündeki en uzun yaşayan omurgalı canlı Grönland Köpekbalığı mıdır?",
+        "question": "Güney Amerika kıtasında yer alan yüzölçümü en büyük ülke hangisidir?",
         "options": {
-            "A": "Hayır, Galápagos kaplumbağasıdır",
-            "B": "Evet, yaşları 400 yılı bulabilmektedir",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
+            "A": "Arjantin",
+            "B": "Kolombiya",
+            "C": "Brezilya",
+            "D": "Peru"
         },
-        "correctAnswer": "B",
+        "correctAnswer": "C",
         "optionsCount": 4,
-        "hostComment": "Grönland köpekbalıklarının ortalama yaşam süresi 272 yıl olarak hesaplanmış, bazı bireylerin 400 yılı aştığı saptanmıştır."
+        "hostComment": "Brezilya, Güney Amerika kıtasının yaklaşık yarısını kaplayan en büyük ülkesidir."
     },
     {
-        "question": "Magna Carta belgesi 1215 yılında mı imzalanmıştır?",
+        "question": "Avustralya'nın başkenti aşağıdakilerden hangisidir?",
         "options": {
-            "A": "Evet, 1215 yılıdır",
-            "B": "Hayır, 1515 yılıdır",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Bilinmiyor / Kanıtlanmamış"
+            "A": "Sidney",
+            "B": "Melbourne",
+            "C": "Canberra",
+            "D": "Brisbane"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Avustralya'nın başkenti Canberra'dır. Sidney ve Melbourne en büyük şehirleridir."
+    },
+    {
+        "question": "Avrupa'nın en yüksek aktif yanardağı olan Etna hangi ülkededir?",
+        "options": {
+            "A": "İtalya",
+            "B": "Yunanistan",
+            "C": "İzlanda",
+            "D": "İspanya"
         },
         "correctAnswer": "A",
         "optionsCount": 4,
-        "hostComment": "Magna Carta Libertatum, 15 Haziran 1215'te İngiltere'de ilan edilmiş tarihi bir haklar bildirgesidir."
+        "hostComment": "Etna Yanardağı, İtalya'nın Sicilya adasında yer alan aktif bir yanardağdır."
     },
     {
-        "question": "Bir insan beyninin ürettiği elektrik enerjisi, küçük bir ampulü (yaklaşık 20 Watt) yakmaya yeterli midir?",
+        "question": "Japonya'nın en yüksek dağı olan Fuji Dağı aktif bir yanardağ mıdır?",
         "options": {
-            "A": "Bilinmiyor / Kanıtlanmamış",
-            "B": "Hayır, beynin ürettiği elektrik ölçülemeyecek kadar küçüktür",
-            "C": "Sadece bazı istisnai durumlarda",
-            "D": "Evet, beyin uyanıkken yaklaşık 12-25 Watt elektrik üretir"
+            "A": "Hayır, sönmüş bir dağdır",
+            "B": "Evet, aktif bir stratovolkandır",
+            "C": "Sadece kış aylarında aktiftir",
+            "D": "Hiçbir zaman yanardağ olmamıştır"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Fuji Dağı, en son 1707 yılında patlamış aktif bir stratovolkandır."
+    },
+    {
+        "question": "2022 FIFA Dünya Kupası finalinde Arjantin hangi ülkeyi penaltılarda yenerek şampiyon olmuştur?",
+        "options": {
+            "A": "Fransa",
+            "B": "Hırvatistan",
+            "C": "Brezilya",
+            "D": "Fas"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Arjantin, 2022 finalinde Fransa'yı normal süresi 3-3 biten maçta penaltılarla 4-2 mağlup etmiştir."
+    },
+    {
+        "question": "UEFA Şampiyonlar Ligi kupasını tarih boyunca en çok kazanan kulüp hangisidir?",
+        "options": {
+            "A": "Real Madrid",
+            "B": "AC Milan",
+            "C": "Bayern Münih",
+            "D": "Barcelona"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İspanyol devi Real Madrid, Şampiyonlar Ligi kupasını müzesine en çok götüren kulüptür."
+    },
+    {
+        "question": "Türkiye Süper Lig tarihinde namağlup şampiyon olan tek takım hangisidir?",
+        "options": {
+            "A": "Galatasaray",
+            "B": "Fenerbahçe",
+            "C": "Beşiktaş",
+            "D": "Trabzonspor"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Beşiktaş, 1991-1992 sezonunda namağlup şampiyon olarak Süper Lig tarihine geçmiştir."
+    },
+    {
+        "question": "İngiltere Premier Lig tarihinde bir sezonda hiç yenilmeden (namağlup) şampiyon olan tek takım hangisidir?",
+        "options": {
+            "A": "Manchester United",
+            "B": "Chelsea",
+            "C": "Arsenal",
+            "D": "Manchester City"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Arsenal, 2003-2004 sezonunda 26 galibiyet ve 12 beraberlikle namağlup şampiyon olmuştur."
+    },
+    {
+        "question": "Futbol tarihinin en prestijli bireysel ödülü olan 'Ballon d'Or'u en çok kazanan futbolcu kimdir?",
+        "options": {
+            "A": "Cristiano Ronaldo",
+            "B": "Lionel Messi",
+            "C": "Michel Platini",
+            "D": "Johan Cruyff"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Arjantinli Lionel Messi, kariyeri boyunca tam 8 kez Ballon d'Or kazanarak rekor kırmıştır."
+    },
+    {
+        "question": "Türkiye A Milli Futbol Takımı, Dünya Kupası tarihindeki en büyük başarısını hangi yılda elde etmiştir?",
+        "options": {
+            "A": "1954",
+            "B": "1996",
+            "C": "2002",
+            "D": "2008"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Milli Takımımız, Şenol Güneş yönetiminde 2002 Dünya Kupası'nda dünya üçüncüsü olmuştur."
+    },
+    {
+        "question": "Matematikte en küçük asal sayı aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "0",
+            "B": "1",
+            "C": "2",
+            "D": "3"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "En küçük asal sayı 2'dir. Aynı zamanda çift olan tek asal sayı da 2'dir."
+    },
+    {
+        "question": "İlk kez sıfır (0) sayısını bir rakam olarak kullanan ve cebirin kurucusu kabul edilen matematikçi kimdir?",
+        "options": {
+            "A": "İbn-i Sina",
+            "B": "El-Harezmi",
+            "C": "Biruni",
+            "D": "Ömer Hayyam"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Dokuzuncu yüzyılda yaşamış olan El-Harezmi, cebir biliminin ve algoritma mantığının kurucusudur."
+    },
+    {
+        "question": "Bir üçgenin iç açılarının toplamı kaç derecedir?",
+        "options": {
+            "A": "90",
+            "B": "180",
+            "C": "270",
+            "D": "360"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Düzlem geometrisinde tüm üçgenlerin iç açılarının toplamı her zaman 180 derecedir."
+    },
+    {
+        "question": "Bir çemberin çevresinin çapına oranı olan sabit sayı hangisidir?",
+        "options": {
+            "A": "Euler Sayısı (e)",
+            "B": "Altın Oran (Fi)",
+            "C": "Pi Sayısı",
+            "D": "Kök 2"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Çemberin çevresinin çapına oranı her zaman Pi sayısıdır (yaklaşık 3.14)."
+    },
+    {
+        "question": "Matematikte 'Altın Oran' değeri yaklaşık olarak aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "1.414",
+            "B": "1.618",
+            "C": "2.718",
+            "D": "3.141"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Altın Oran (Fi sayısı), doğada ve sanatta sıkça rastlanan estetik bir oran olup yaklaşık 1.618'dir."
+    },
+    {
+        "question": "Güneş Sistemi'ndeki en sıcak gezegen hangisidir?",
+        "options": {
+            "A": "Merkür",
+            "B": "Venüs",
+            "C": "Mars",
+            "D": "Jüpiter"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Güneşe en yakın gezegen Merkür olsa da, Venüs kalın atmosferinin yarattığı sera etkisiyle en sıcak gezegendir."
+    },
+    {
+        "question": "Kimyada suyun formülü olan H2O'da kaç adet oksijen atomu bulunur?",
+        "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Su molekülü (H2O), iki hidrojen ve bir oksijen atomunun birleşmesinden oluşur."
+    },
+    {
+        "question": "İnsan vücudundaki en büyük organ aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Karaciğer",
+            "B": "Beyin",
+            "C": "Deri",
+            "D": "Akciğer"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Deri, yaklaşık 2 metrekarelik yüzölçümü ve ağırlığıyla insan vücudunun en büyük organıdır."
+    },
+    {
+        "question": "Işığın boşluktaki yaklaşık hızı saniyede kaç kilometredir?",
+        "options": {
+            "A": "150.000 km",
+            "B": "300.000 km",
+            "C": "450.000 km",
+            "D": "600.000 km"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Işık hızı boşlukta saniyede yaklaşık 299.792 km (kabaca 300 bin km) yol alır."
+    },
+    {
+        "question": "Kendi ekseni etrafında yan yatmış bir varil gibi yuvarlanarak dönen gezegen hangisidir?",
+        "options": {
+            "A": "Uranüs",
+            "B": "Neptün",
+            "C": "Satürn",
+            "D": "Jüpiter"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Uranüs, 98 derecelik eksen eğikliğiyle Güneş etrafında adeta yan yatmış bir varil gibi döner."
+    },
+    {
+        "question": "Dünyanın en ünlü tablosu kabul edilen 'Mona Lisa' hangi ünlü sanatçıya aittir?",
+        "options": {
+            "A": "Vincent van Gogh",
+            "B": "Pablo Picasso",
+            "C": "Leonardo da Vinci",
+            "D": "Michelangelo"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Mona Lisa tablosu, Rönesans döneminin dahi sanatçısı Leonardo da Vinci tarafından yapılmıştır."
+    },
+    {
+        "question": "Osmanlı İmparatorluğu'nun ilk başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Söğüt",
+            "B": "Bursa",
+            "C": "Edirne",
+            "D": "İstanbul"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Orhan Bey döneminde fethedilen Bursa, Osmanlı İmparatorluğu'nun ilk resmi başkenti olmuştur."
+    },
+    {
+        "question": "Nobel Edebiyat Ödülü'nü kazanan ilk Türk yazar kimdir?",
+        "options": {
+            "A": "Yaşar Kemal",
+            "B": "Orhan Pamuk",
+            "C": "Nazım Hikmet",
+            "D": "Sabahattin Ali"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Orhan Pamuk, 2006 yılında Nobel Edebiyat Ödülü'nü kazanarak bu başarıya ulaşan ilk Türk olmuştur."
+    },
+    {
+        "question": "İstiklal Marşı'nın şairi Mehmet Akif Ersoy, ödül parasını nereye bağışlamıştır?",
+        "options": {
+            "A": "Türk Kızılayı'na",
+            "B": "Darülmesai (Kadın ve Çocuk Evi)",
+            "C": "Darüşşafaka'ya",
+            "D": "Mehmetçik Vakfı'na"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mehmet Akif Ersoy, kazandığı ödülü fakir kadın ve çocuklara iş öğreten Darülmesai derneğine bağışlamıştır."
+    },
+    {
+        "question": "Cumhuriyetimizin kurucusu Gazi Mustafa Kemal Atatürk'ün doğum yılı hangisidir?",
+        "options": {
+            "A": "1881",
+            "B": "1880",
+            "C": "1882",
+            "D": "1885"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Gazi Mustafa Kemal Atatürk, 1881 yılında Selanik'te dünyaya gözlerini açmıştır."
+    },
+    {
+        "question": "Türkiye Cumhuriyeti'nin ilk cumhurbaşkanı aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "İsmet İnönü",
+            "B": "Mustafa Kemal Atatürk",
+            "C": "Celal Bayar",
+            "D": "Fevzi Çakmak"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Cumhuriyetin ilanıyla birlikte Mustafa Kemal Atatürk, Türkiye Cumhuriyeti'nin ilk cumhurbaşkanı seçilmiştir."
+    },
+    {
+        "question": "Cumhuriyetimizin kurucusu Atatürk'ün nüfusa kayıtlı olduğu il hangisidir?",
+        "options": {
+            "A": "Selanik",
+            "B": "Ankara",
+            "C": "İstanbul",
+            "D": "Gaziantep"
         },
         "correctAnswer": "D",
         "optionsCount": 4,
-        "hostComment": "İnsan beynindeki milyarlarca nöronun iletişimi sırasında ürettiği toplam elektrik enerjisi gücü, düşük tüketimli küçük bir LED veya floresan ampulü çalıştırabilir."
+        "hostComment": "Atatürk, Gaziantep ili Şahinbey ilçesi nüfusuna kaydedilerek onursal hemşehri yapılmıştır."
+    },
+    {
+        "question": "Fatih Sultan Mehmet İstanbul'u fethettiğinde kaç yaşındaydı?",
+        "options": {
+            "A": "18",
+            "B": "21",
+            "C": "25",
+            "D": "30"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "1432 doğumlu olan II. Mehmet (Fatih), 1453 yılında İstanbul'u fethettiğinde henüz 21 yaşındaydı."
+    },
+    {
+        "question": "Türk tarihinin en büyük mimarlarından olan Mimar Sinan'ın 'ustalık eserim' dediği cami hangisidir?",
+        "options": {
+            "A": "Süleymaniye Camii",
+            "B": "Selimiye Camii",
+            "C": "Şehzade Camii",
+            "D": "Mihrimah Sultan Camii"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mimar Sinan, Edirne'deki Selimiye Camii'ni 'ustalık eserim' olarak nitelendirmiştir."
+    },
+    {
+        "question": "Kızıldeniz ile Akdeniz'i birbirine bağlayan yapay kanal hangisidir?",
+        "options": {
+            "A": "Panama Kanalı",
+            "B": "Süveyş Kanalı",
+            "C": "Kiel Kanalı",
+            "D": "Korint Kanalı"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mısır topraklarında yer alan Süveyş Kanalı, Akdeniz ile Kızıldeniz'i birbirine bağlayan yapay bir su yoludur."
+    },
+    {
+        "question": "Dünyanın en büyük okyanusu aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Atlas Okyanusu",
+            "B": "Hint Okyanusu",
+            "C": "Büyük Okyanus (Pasifik)",
+            "D": "Arktik Okyanusu"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Büyük Okyanus (Pasifik), dünya yüzeyinin yaklaşık üçte birini kaplayan en büyük okyanustur."
+    },
+    {
+        "question": "Sıcaklığı en yüksek olan Güneş Sistemi gezegeni hangisidir?",
+        "options": {
+            "A": "Merkür",
+            "B": "Venüs",
+            "C": "Mars",
+            "D": "Jüpiter"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Venüs, atmosferindeki yoğun karbondioksit gazının sera etkisi nedeniyle 460 derecelere ulaşan en sıcak gezegendir."
+    },
+    {
+        "question": "Kuvvet birimi olan 'Newton' hangi fizikçinin soyadından gelmektedir?",
+        "options": {
+            "A": "Albert Einstein",
+            "B": "Isaac Newton",
+            "C": "Galileo Galilei",
+            "D": "Nikola Tesla"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Yerçekimi ve hareket yasalarını kuran İngiliz bilim insanı Isaac Newton'ın anısına kuvvet birimine 'Newton' adı verilmiştir."
+    },
+    {
+        "question": "Türkiye Cumhuriyeti'nin ilk başbakanı kimdir?",
+        "options": {
+            "A": "İsmet İnönü",
+            "B": "Celal Bayar",
+            "C": "Adnan Menderes",
+            "D": "Fevzi Çakmak"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Cumhuriyetin ilanıyla kurulan ilk hükümetin başbakanlığını İsmet İnönü üstlenmiştir."
+    },
+    {
+        "question": "Kimya biliminde 'Na' sembolü hangi elemente aittir?",
+        "options": {
+            "A": "Azot",
+            "B": "Nikel",
+            "C": "Sodyum",
+            "D": "Neon"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Sodyum elementinin sembolü Latincedeki 'Natrium' kelimesinden esinlenilerek 'Na' yapılmıştır."
+    },
+    {
+        "question": "Uçabilen tek memeli hayvan grubu aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Yarasalar",
+            "B": "Uçan Sincaplar",
+            "C": "Penguenler",
+            "D": "Uçan Balıklar"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Yarasalar, aktif ve yönlendirilebilir uçuş yeteneğine sahip yegane memeli canlı grubudur."
+    },
+    {
+        "question": "Güneş ışınları Dünya'ya yaklaşık kaç dakikada ulaşır?",
+        "options": {
+            "A": "2 dakika",
+            "B": "5 dakika",
+            "C": "8 dakika",
+            "D": "12 dakika"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Güneş ile Dünya arasındaki yaklaşık 150 milyon kilometrelik mesafeyi ışık 8 dakika 20 saniyede kat eder."
+    },
+    {
+        "question": "Dünyanın yedi harikasından biri olan Keops Piramidi hangi ülkededir?",
+        "options": {
+            "A": "Yunanistan",
+            "B": "Mısır",
+            "C": "Irak",
+            "D": "İtalya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Giza Piramitleri'nin en büyüğü olan Keops Piramidi, Mısır'ın başkenti Kahire yakınlarında yer alır."
+    },
+    {
+        "question": "2020 Avrupa Futbol Şampiyonası'nı (Euro 2020) kazanan milli takım hangisidir?",
+        "options": {
+            "A": "İngiltere",
+            "B": "İtalya",
+            "C": "Fransa",
+            "D": "İspanya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Pandemi nedeniyle 2021'de düzenlenen turnuvanın finalinde İtalya, İngiltere'yi penaltılarla yenerek şampiyon olmuştur."
+    },
+    {
+        "question": "Katalan mimar Antoni Gaudi'nin ömrünü adadığı ve Barselona'da yer alan ünlü katedralin adı nedir?",
+        "options": {
+            "A": "Notre Dame",
+            "B": "Sagrada Familia",
+            "C": "Duomo",
+            "D": "Aziz Petrus"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Yapımı hala devam etmekte olan Sagrada Familia (Kutsal Aile Bazilikası), Barselona'nın en önemli simgesidir."
+    },
+    {
+        "question": "Telefonu icat eden ünlü mucit kimdir?",
+        "options": {
+            "A": "Thomas Edison",
+            "B": "Nikola Tesla",
+            "C": "Alexander Graham Bell",
+            "D": "Guglielmo Marconi"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Alexander Graham Bell, 1876 yılında telefonun patentini alarak tarihe adını yazdırmıştır."
+    },
+    {
+        "question": "Osmanlı Devleti'nin kurucusu Osman Bey'in babası kimdir?",
+        "options": {
+            "A": "Ertuğrul Gazi",
+            "B": "Süleyman Şah",
+            "C": "Gündüz Alp",
+            "D": "Orhan Gazi"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Kayı Boyu lideri Ertuğrul Gazi, Söğüt ve çevresini yurt edinerek oğlu Osman Bey'in devleti kurmasına zemin hazırlamıştır."
+    },
+    {
+        "question": "Bir dairenin iç açılarının toplamı kaç derecedir?",
+        "options": {
+            "A": "90",
+            "B": "180",
+            "C": "360",
+            "D": "540"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Bir tam çember veya daire diliminin etrafındaki toplam merkez açı 360 derecedir."
+    },
+    {
+        "question": "Yarasa bir kuş türü müdür yoksa memeli midir?",
+        "options": {
+            "A": "Kuş türüdür",
+            "B": "Uçan memeli bir hayvandır",
+            "C": "Kemirgen bir sürüngendir",
+            "D": "Böcekler sınıfına dahildir"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Yarasalar kuş değildir; tüyleri yoktur, yavrularını doğurur ve sütle beslerler. Uçabilen tek memelidirler."
+    },
+    {
+        "question": "Atatürk'ün kaleme aldığı, 1919-1927 yılları arasındaki gelişmeleri anlatan eserin adı nedir?",
+        "options": {
+            "A": "Geometri Kitabı",
+            "B": "Nutuk",
+            "C": "Medeni Bilgiler",
+            "D": "Zabit ve Kumandan ile Hasbihal"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Nutuk (Söylev), Atatürk'ün CHP kurultayında okuduğu, milli mücadelenin birinci ağızdan anlatıldığı tarihi belgedir."
+    },
+    {
+        "question": "Güneş Sistemi'nde halkaları en belirgin ve görkemli olan dev gaz gezegeni hangisidir?",
+        "options": {
+            "A": "Jüpiter",
+            "B": "Uranüs",
+            "C": "Neptün",
+            "D": "Satürn"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Satürn, buz ve kaya parçacıklarından oluşan muhteşem halka sistemiyle bilinir."
+    },
+    {
+        "question": "Yerçekimi teorisiyle bilinen, kafasına elma düştüğü rivayet edilen İngiliz bilim insanı kimdir?",
+        "options": {
+            "A": "Galileo",
+            "B": "Isaac Newton",
+            "C": "Albert Einstein",
+            "D": "Stephen Hawking"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Sir Isaac Newton, kütle çekim yasasını matematiksel olarak formülleştirerek klasik fiziğin temellerini atmıştır."
+    },
+    {
+        "question": "Dünyanın en yüksek dağı olan Everest Tepesi hangi iki ülkenin sınırında yer alır?",
+        "options": {
+            "A": "Hindistan - Pakistan",
+            "B": "Nepal - Çin (Tibet)",
+            "C": "Butan - Çin",
+            "D": "Hindistan - Nepal"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "8.848 metre yüksekliğindeki Everest Tepesi, Nepal ile Çin'in Tibet Özerk Bölgesi sınırında yer alır."
+    },
+    {
+        "question": "Futbolda bir takım sahaya en fazla kaç oyuncuyla çıkabilir?",
+        "options": {
+            "A": "9",
+            "B": "10",
+            "C": "11",
+            "D": "12"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Futbolda her iki takım sahada en fazla 11 oyuncuyla (10 saha oyuncusu, 1 kaleci) mücadele edebilir."
+    },
+    {
+        "question": "2023 yılında Şampiyonlar Ligi Kupası'nı İstanbul'da kazanan İngiliz takımı hangisidir?",
+        "options": {
+            "A": "Liverpool",
+            "B": "Chelsea",
+            "C": "Manchester City",
+            "D": "Manchester United"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Manchester City, Atatürk Olimpiyat Stadyumu'nda oynanan finalde Inter'i 1-0 yenerek kupayı kazanmıştır."
+    },
+    {
+        "question": "Güneş Sistemi'ndeki en büyük gezegen hangisidir?",
+        "options": {
+            "A": "Satürn",
+            "B": "Neptün",
+            "C": "Jüpiter",
+            "D": "Dünya"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Jüpiter, çapı ve kütlesiyle Güneş Sistemi'ndeki diğer tüm gezegenlerin toplamından daha büyük dev bir gaz devidir."
+    },
+    {
+        "question": "Bir yıl boyunca toplam kaç hafta vardır?",
+        "options": {
+            "A": "48",
+            "B": "50",
+            "C": "52",
+            "D": "54"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Bir takvim yılı (365 gün) matematiksel olarak tam 52 hafta ve 1 güne tekabül eder."
+    },
+    {
+        "question": "İnsan DNA'sının sarmal yapısı (Çift Sarmal) hangi iki bilim insanı tarafından keşfedilmiştir?",
+        "options": {
+            "A": "Watson ve Crick",
+            "B": "Pasteur ve Koch",
+            "C": "Bohr ve Planck",
+            "D": "Einstein ve Schrödinger"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "James Watson ve Francis Crick, 1953 yılında DNA'nın çift sarmal yapısını çözerek Nobel ödülü kazanmıştır."
+    },
+    {
+        "question": "Türkiye Süper Ligi tarihinde 100 gol barajını aşarak '100'ler Kulübü'ne giren ilk yabancı futbolcu kimdir?",
+        "options": {
+            "A": "Alex de Souza",
+            "B": "Gheorghe Hagi",
+            "C": "Bafetimbi Gomis",
+            "D": "Elvir Bolić"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Fenerbahçe ve Galatasaray formaları giyen Boşnak forvet Elvir Bolić, Süper Lig'de 100 golü aşan ilk yabancı futbolcudur."
+    },
+    {
+        "question": "Nobel Barış Ödülü her yıl hangi İskandinav ülkesinin başkentinde verilir?",
+        "options": {
+            "A": "İsveç (Stockholm)",
+            "B": "Norveç (Oslo)",
+            "C": "Danimarka (Kopenhag)",
+            "D": "Finlandiya (Helsinki)"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Diğer tüm Nobel ödülleri İsveç Stockholm'de verilirken, Barış ödülü vasiyet gereği Norveç Oslo'da takdim edilir."
+    },
+    {
+        "question": "Afrika kıtasının en yüksek noktası olan Kilimanjaro Dağı hangi ülkededir?",
+        "options": {
+            "A": "Kenya",
+            "B": "Tanzanya",
+            "C": "Etiyopya",
+            "D": "Uganda"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Kilimanjaro, 5.895 metre yüksekliğiyle Afrika'nın en yüksek dağıdır ve Tanzanya sınırlarındadır."
+    },
+    {
+        "question": "Dünyanın en uzun nehri olan Nil Nehri hangi denize dökülür?",
+        "options": {
+            "A": "Kızıldeniz",
+            "B": "Akdeniz",
+            "C": "Hint Okyanusu",
+            "D": "Hazar Denizi"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Nil Nehri, Afrika'nın içlerinden başlayıp Mısır üzerinden Akdeniz'e dökülür."
+    },
+    {
+        "question": "Güney Amerika kıtasında yer alan yüzölçümü en büyük ülke hangisidir?",
+        "options": {
+            "A": "Arjantin",
+            "B": "Kolombiya",
+            "C": "Brezilya",
+            "D": "Peru"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Brezilya, Güney Amerika kıtasının yaklaşık yarısını kaplayan en büyük ülkesidir."
+    },
+    {
+        "question": "Avustralya'nın başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Sidney",
+            "B": "Melbourne",
+            "C": "Canberra",
+            "D": "Brisbane"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Avustralya'nın başkenti Canberra'dır. Sidney ve Melbourne en büyük şehirleridir."
+    },
+    {
+        "question": "Avrupa'nın en yüksek aktif yanardağı olan Etna hangi ülkededir?",
+        "options": {
+            "A": "İtalya",
+            "B": "Yunanistan",
+            "C": "İzlanda",
+            "D": "İspanya"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Etna Yanardağı, İtalya'nın Sicilya adasında yer alan aktif bir yanardağdır."
+    },
+    {
+        "question": "2022 FIFA Dünya Kupası finalinde Arjantin hangi ülkeyi penaltılarda yenerek şampiyon olmuştur?",
+        "options": {
+            "A": "Fransa",
+            "B": "Hırvatistan",
+            "C": "Brezilya",
+            "D": "Fas"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Arjantin, 2022 finalinde Fransa'yı normal süresi 3-3 biten maçta penaltılarla 4-2 mağlup etmiştir."
+    },
+    {
+        "question": "UEFA Şampiyonlar Ligi kupasını tarih boyunca en çok kazanan kulüp hangisidir?",
+        "options": {
+            "A": "Real Madrid",
+            "B": "AC Milan",
+            "C": "Bayern Münih",
+            "D": "Barcelona"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İspanyol devi Real Madrid, Şampiyonlar Ligi kupasını müzesine en çok götüren kulüptür."
+    },
+    {
+        "question": "Süper Lig tarihinde namağlup şampiyon olan tek takım hangisidir?",
+        "options": {
+            "A": "Galatasaray",
+            "B": "Fenerbahçe",
+            "C": "Beşiktaş",
+            "D": "Trabzonspor"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Beşiktaş, 1991-1992 sezonunda namağlup şampiyon olarak Süper Lig tarihine geçmiştir."
+    },
+    {
+        "question": "İngiltere Premier Lig tarihinde bir sezonda hiç yenilmeden şampiyon olan tek takım hangisidir?",
+        "options": {
+            "A": "Manchester United",
+            "B": "Chelsea",
+            "C": "Arsenal",
+            "D": "Manchester City"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Arsenal, 2003-2004 sezonunda 26 galibiyet ve 12 beraberlikle namağlup şampiyon olmuştur."
+    },
+    {
+        "question": "Futbol tarihinin en prestijli bireysel ödülü olan 'Ballon d'Or'u en çok kazanan futbolcu kimdir?",
+        "options": {
+            "A": "Cristiano Ronaldo",
+            "B": "Lionel Messi",
+            "C": "Michel Platini",
+            "D": "Johan Cruyff"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Arjantinli Lionel Messi, kariyeri boyunca tam 8 kez Ballon d'Or kazanarak rekor kırmıştır."
+    },
+    {
+        "question": "Türkiye A Milli Futbol Takımı, Dünya Kupası tarihindeki en büyük başarısını hangi yılda elde etmiştir?",
+        "options": {
+            "A": "1954",
+            "B": "1996",
+            "C": "2002",
+            "D": "2008"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Milli Takımımız, Şenol Güneş yönetiminde 2002 Dünya Kupası'nda dünya üçüncüsü olmuştur."
+    },
+    {
+        "question": "Matematikte en küçük asal sayı aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "0",
+            "B": "1",
+            "C": "2",
+            "D": "3"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "En küçük asal sayı 2'dir. Aynı zamanda çift olan tek asal sayı da 2'dir."
+    },
+    {
+        "question": "İlk kez sıfır (0) sayısını bir rakam olarak kullanan ve cebirin kurucusu kabul edilen matematikçi kimdir?",
+        "options": {
+            "A": "İbn-i Sina",
+            "B": "El-Harezmi",
+            "C": "Biruni",
+            "D": "Ömer Hayyam"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Dokuzuncu yüzyılda yaşamış olan El-Harezmi, cebir biliminin ve algoritma mantığının kurucusudur."
+    },
+    {
+        "question": "Bir üçgenin iç açılarının toplamı kaç derecedir?",
+        "options": {
+            "A": "90",
+            "B": "180",
+            "C": "270",
+            "D": "360"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Düzlem geometrisinde tüm üçgenlerin iç açılarının toplamı her zaman 180 derecedir."
+    },
+    {
+        "question": "Güneş Sistemi'ndeki en sıcak gezegen hangisidir?",
+        "options": {
+            "A": "Merkür",
+            "B": "Venüs",
+            "C": "Mars",
+            "D": "Jüpiter"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Güneşe en yakın gezegen Merkür olsa da, Venüs kalın atmosferinin yarattığı sera etkisiyle en sıcak gezegendir."
+    },
+    {
+        "question": "Kimyada suyun formülü olan H2O'da kaç adet oksijen atomu bulunur?",
+        "options": {
+            "A": "1",
+            "B": "2",
+            "C": "3",
+            "D": "4"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Su molekülü (H2O), iki hidrojen ve bir oksijen atomunun birleşmesinden oluşur."
+    },
+    {
+        "question": "İnsan vücudundaki en büyük organ aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Karaciğer",
+            "B": "Beyin",
+            "C": "Deri",
+            "D": "Akciğer"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Deri, yaklaşık 2 metrekarelik yüzölçümü ve ağırlığıyla insan vücudunun en büyük organıdır."
+    },
+    {
+        "question": "Osmanlı İmparatorluğu'nun ilk başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Söğüt",
+            "B": "Bursa",
+            "C": "Edirne",
+            "D": "İstanbul"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Orhan Bey döneminde fethedilen Bursa, Osmanlı İmparatorluğu'nun ilk resmi başkenti olmuştur."
+    },
+    {
+        "question": "Fatih Sultan Mehmet İstanbul'u fethettiğinde kaç yaşındaydı?",
+        "options": {
+            "A": "18",
+            "B": "21",
+            "C": "25",
+            "D": "30"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "1432 doğumlu olan II. Mehmet (Fatih), 1453 yılında İstanbul'u fethettiğinde henüz 21 yaşındaydı."
+    },
+    {
+        "question": "Kızıldeniz ile Akdeniz'i birbirine bağlayan yapay kanal hangisidir?",
+        "options": {
+            "A": "Panama Kanalı",
+            "B": "Süveyş Kanalı",
+            "C": "Kiel Kanalı",
+            "D": "Korint Kanalı"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mısır topraklarında yer alan Süveyş Kanalı, Akdeniz ile Kızıldeniz'i birbirine bağlayan yapay bir su yoludur."
+    },
+    {
+        "question": "Matematikte 11 sayısının karesi kaçtır?",
+        "options": {
+            "A": "121",
+            "B": "136",
+            "C": "22",
+            "D": "106"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "11 sayısının karesi kendisiyle çarpımı olan 121 sayısıdır."
+    },
+    {
+        "question": "Matematikte 12 sayısının karesi kaçtır?",
+        "options": {
+            "A": "159",
+            "B": "129",
+            "C": "24",
+            "D": "144"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "12 sayısının karesi kendisiyle çarpımı olan 144 sayısıdır."
+    },
+    {
+        "question": "Matematikte 13 sayısının karesi kaçtır?",
+        "options": {
+            "A": "169",
+            "B": "26",
+            "C": "184",
+            "D": "154"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "13 sayısının karesi kendisiyle çarpımı olan 169 sayısıdır."
+    },
+    {
+        "question": "Matematikte 14 sayısının karesi kaçtır?",
+        "options": {
+            "A": "211",
+            "B": "196",
+            "C": "28",
+            "D": "181"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "14 sayısının karesi kendisiyle çarpımı olan 196 sayısıdır."
+    },
+    {
+        "question": "Matematikte 15 sayısının karesi kaçtır?",
+        "options": {
+            "A": "225",
+            "B": "30",
+            "C": "210",
+            "D": "240"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "15 sayısının karesi kendisiyle çarpımı olan 225 sayısıdır."
+    },
+    {
+        "question": "Matematikte 16 sayısının karesi kaçtır?",
+        "options": {
+            "A": "241",
+            "B": "256",
+            "C": "32",
+            "D": "271"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "16 sayısının karesi kendisiyle çarpımı olan 256 sayısıdır."
+    },
+    {
+        "question": "Matematikte 17 sayısının karesi kaçtır?",
+        "options": {
+            "A": "34",
+            "B": "304",
+            "C": "274",
+            "D": "289"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "17 sayısının karesi kendisiyle çarpımı olan 289 sayısıdır."
+    },
+    {
+        "question": "Matematikte 18 sayısının karesi kaçtır?",
+        "options": {
+            "A": "339",
+            "B": "309",
+            "C": "36",
+            "D": "324"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "18 sayısının karesi kendisiyle çarpımı olan 324 sayısıdır."
+    },
+    {
+        "question": "Matematikte 19 sayısının karesi kaçtır?",
+        "options": {
+            "A": "346",
+            "B": "38",
+            "C": "376",
+            "D": "361"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "19 sayısının karesi kendisiyle çarpımı olan 361 sayısıdır."
+    },
+    {
+        "question": "Matematikte 20 sayısının karesi kaçtır?",
+        "options": {
+            "A": "400",
+            "B": "40",
+            "C": "385",
+            "D": "415"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "20 sayısının karesi kendisiyle çarpımı olan 400 sayısıdır."
+    },
+    {
+        "question": "Matematikte 21 sayısının karesi kaçtır?",
+        "options": {
+            "A": "441",
+            "B": "456",
+            "C": "42",
+            "D": "426"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "21 sayısının karesi kendisiyle çarpımı olan 441 sayısıdır."
+    },
+    {
+        "question": "Matematikte 22 sayısının karesi kaçtır?",
+        "options": {
+            "A": "499",
+            "B": "469",
+            "C": "44",
+            "D": "484"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "22 sayısının karesi kendisiyle çarpımı olan 484 sayısıdır."
+    },
+    {
+        "question": "Matematikte 23 sayısının karesi kaçtır?",
+        "options": {
+            "A": "46",
+            "B": "529",
+            "C": "514",
+            "D": "544"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "23 sayısının karesi kendisiyle çarpımı olan 529 sayısıdır."
+    },
+    {
+        "question": "Matematikte 24 sayısının karesi kaçtır?",
+        "options": {
+            "A": "48",
+            "B": "561",
+            "C": "591",
+            "D": "576"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "24 sayısının karesi kendisiyle çarpımı olan 576 sayısıdır."
+    },
+    {
+        "question": "Matematikte 25 sayısının karesi kaçtır?",
+        "options": {
+            "A": "625",
+            "B": "50",
+            "C": "610",
+            "D": "640"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "25 sayısının karesi kendisiyle çarpımı olan 625 sayısıdır."
+    },
+    {
+        "question": "Matematikte 3 sayısının küpü (üçüncü kuvveti) kaçtır?",
+        "options": {
+            "A": "27",
+            "B": "9",
+            "C": "47",
+            "D": "7"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "3 sayısının küpü 3 x 3 x 3 = 27 sayısıdır."
+    },
+    {
+        "question": "Matematikte 4 sayısının küpü (üçüncü kuvveti) kaçtır?",
+        "options": {
+            "A": "84",
+            "B": "64",
+            "C": "12",
+            "D": "44"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "4 sayısının küpü 4 x 4 x 4 = 64 sayısıdır."
+    },
+    {
+        "question": "Matematikte 5 sayısının küpü (üçüncü kuvveti) kaçtır?",
+        "options": {
+            "A": "105",
+            "B": "125",
+            "C": "145",
+            "D": "15"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "5 sayısının küpü 5 x 5 x 5 = 125 sayısıdır."
+    },
+    {
+        "question": "Matematikte 6 sayısının küpü (üçüncü kuvveti) kaçtır?",
+        "options": {
+            "A": "216",
+            "B": "18",
+            "C": "196",
+            "D": "236"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "6 sayısının küpü 6 x 6 x 6 = 216 sayısıdır."
+    },
+    {
+        "question": "Matematikte 7 sayısının küpü (üçüncü kuvveti) kaçtır?",
+        "options": {
+            "A": "343",
+            "B": "363",
+            "C": "21",
+            "D": "323"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "7 sayısının küpü 7 x 7 x 7 = 343 sayısıdır."
+    },
+    {
+        "question": "Matematikte 8 sayısının küpü (üçüncü kuvveti) kaçtır?",
+        "options": {
+            "A": "532",
+            "B": "512",
+            "C": "492",
+            "D": "24"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "8 sayısının küpü 8 x 8 x 8 = 512 sayısıdır."
+    },
+    {
+        "question": "Matematikte 9 sayısının küpü (üçüncü kuvveti) kaçtır?",
+        "options": {
+            "A": "729",
+            "B": "27",
+            "C": "749",
+            "D": "709"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "9 sayısının küpü 9 x 9 x 9 = 729 sayısıdır."
+    },
+    {
+        "question": "Matematikte 10 sayısının küpü (üçüncü kuvveti) kaçtır?",
+        "options": {
+            "A": "30",
+            "B": "1000",
+            "C": "1020",
+            "D": "980"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "10 sayısının küpü 10 x 10 x 10 = 1000 sayısıdır."
+    },
+    {
+        "question": "Kimya biliminde 'Hidrojen' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "P",
+            "B": "N",
+            "C": "C",
+            "D": "H"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Hidrojen elementi 'H' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Helyum' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "He",
+            "B": "P",
+            "C": "C",
+            "D": "N"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Helyum elementi 'He' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Lityum' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "C",
+            "B": "P",
+            "C": "N",
+            "D": "Li"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Lityum elementi 'Li' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Karbon' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "P",
+            "B": "N",
+            "C": "K",
+            "D": "C"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Karbon elementi 'C' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Azot' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "A",
+            "B": "P",
+            "C": "C",
+            "D": "N"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Azot elementi 'N' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Oksijen' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "P",
+            "B": "N",
+            "C": "C",
+            "D": "O"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Oksijen elementi 'O' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Sodyum' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "C",
+            "B": "Na",
+            "C": "N",
+            "D": "P"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Sodyum elementi 'Na' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Potasyum' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "P",
+            "B": "K",
+            "C": "C",
+            "D": "N"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Potasyum elementi 'K' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Demir' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "N",
+            "B": "Fe",
+            "C": "P",
+            "D": "C"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Demir elementi 'Fe' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Bakır' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "N",
+            "B": "P",
+            "C": "C",
+            "D": "Cu"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Bakır elementi 'Cu' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Gümüş' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "C",
+            "B": "N",
+            "C": "P",
+            "D": "Ag"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Gümüş elementi 'Ag' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Altın' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "Au",
+            "B": "C",
+            "C": "N",
+            "D": "P"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Altın elementi 'Au' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Kurşun' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "Pb",
+            "B": "C",
+            "C": "N",
+            "D": "P"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Kurşun elementi 'Pb' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Kalsiyum' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "P",
+            "B": "N",
+            "C": "C",
+            "D": "Ca"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Kalsiyum elementi 'Ca' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Kimya biliminde 'Çinko' elementinin periyodik tablodaki simgesi hangisidir?",
+        "options": {
+            "A": "P",
+            "B": "N",
+            "C": "C",
+            "D": "Zn"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Periyodik cetvelde Çinko elementi 'Zn' simgesi ile temsil edilir."
+    },
+    {
+        "question": "Türkiye ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Bursa",
+            "B": "İzmir",
+            "C": "İstanbul",
+            "D": "Ankara"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Türkiye ülkesinin başkenti Ankara şehridir."
+    },
+    {
+        "question": "Fransa ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Paris",
+            "B": "Marsilya",
+            "C": "Nice",
+            "D": "Lyon"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Fransa ülkesinin başkenti Paris şehridir."
+    },
+    {
+        "question": "Almanya ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Hamburg",
+            "B": "Frankfurt",
+            "C": "Münih",
+            "D": "Berlin"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Almanya ülkesinin başkenti Berlin şehridir."
+    },
+    {
+        "question": "İngiltere ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Manchester",
+            "B": "Liverpool",
+            "C": "Londra",
+            "D": "Birmingham"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "İngiltere ülkesinin başkenti Londra şehridir."
+    },
+    {
+        "question": "İtalya ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Floransa",
+            "B": "Roma",
+            "C": "Venedik",
+            "D": "Milano"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "İtalya ülkesinin başkenti Roma şehridir."
+    },
+    {
+        "question": "İspanya ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Madrid",
+            "B": "Valensiya",
+            "C": "Barselona",
+            "D": "Sevilla"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İspanya ülkesinin başkenti Madrid şehridir."
+    },
+    {
+        "question": "Rusya ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Novosibirsk",
+            "B": "Kazan",
+            "C": "Sankt Petersburg",
+            "D": "Moskova"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Rusya ülkesinin başkenti Moskova şehridir."
+    },
+    {
+        "question": "Japonya ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Hiroşima",
+            "B": "Osaka",
+            "C": "Kyoto",
+            "D": "Tokyo"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Japonya ülkesinin başkenti Tokyo şehridir."
+    },
+    {
+        "question": "Mısır ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "İskenderiye",
+            "B": "Kahire",
+            "C": "Asvan",
+            "D": "Luksor"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Mısır ülkesinin başkenti Kahire şehridir."
+    },
+    {
+        "question": "Azerbaycan ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Şuşa",
+            "B": "Nahçıvan",
+            "C": "Bakü",
+            "D": "Gence"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Azerbaycan ülkesinin başkenti Bakü şehridir."
+    },
+    {
+        "question": "Yunanistan ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Kandiye",
+            "B": "Patras",
+            "C": "Selanik",
+            "D": "Atina"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Yunanistan ülkesinin başkenti Atina şehridir."
+    },
+    {
+        "question": "Brezilya ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Brasilia",
+            "B": "Rio de Janeiro",
+            "C": "Sao Paulo",
+            "D": "Salvador"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Brezilya ülkesinin başkenti Brasilia şehridir."
+    },
+    {
+        "question": "Kanada ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Toronto",
+            "B": "Montreal",
+            "C": "Ottawa",
+            "D": "Vancouver"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Kanada ülkesinin başkenti Ottawa şehridir."
+    },
+    {
+        "question": "Avustralya ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Canberra",
+            "B": "Sidney",
+            "C": "Melbourne",
+            "D": "Brisbane"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Avustralya ülkesinin başkenti Canberra şehridir."
+    },
+    {
+        "question": "Amerika Birleşik Devletleri ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Washington D.C.",
+            "B": "New York",
+            "C": "Los Angeles",
+            "D": "Chicago"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Amerika Birleşik Devletleri ülkesinin başkenti Washington D.C. şehridir."
+    },
+    {
+        "question": "Hollanda ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Amsterdam",
+            "B": "Utrecht",
+            "C": "Lahey",
+            "D": "Rotterdam"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Hollanda ülkesinin başkenti Amsterdam şehridir."
+    },
+    {
+        "question": "Arjantin ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Rosario",
+            "B": "Buenos Aires",
+            "C": "Mendoza",
+            "D": "Cordoba"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Arjantin ülkesinin başkenti Buenos Aires şehridir."
+    },
+    {
+        "question": "Portekiz ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Coimbra",
+            "B": "Lizbon",
+            "C": "Porto",
+            "D": "Braga"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Portekiz ülkesinin başkenti Lizbon şehridir."
+    },
+    {
+        "question": "İsveç ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Göteborg",
+            "B": "Stockholm",
+            "C": "Malmö",
+            "D": "Uppsala"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "İsveç ülkesinin başkenti Stockholm şehridir."
+    },
+    {
+        "question": "İsviçre ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Basel",
+            "B": "Cenevre",
+            "C": "Zürih",
+            "D": "Bern"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "İsviçre ülkesinin başkenti Bern şehridir."
+    },
+    {
+        "question": "Avusturya ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Viyana",
+            "B": "Salzburg",
+            "C": "Graz",
+            "D": "Innsbruck"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Avusturya ülkesinin başkenti Viyana şehridir."
+    },
+    {
+        "question": "Güney Kore ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Incheon",
+            "B": "Busan",
+            "C": "Daegu",
+            "D": "Seul"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Güney Kore ülkesinin başkenti Seul şehridir."
+    },
+    {
+        "question": "Çin ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Pekin",
+            "B": "Şanghay",
+            "C": "Shenzhen",
+            "D": "Guangzhou"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Çin ülkesinin başkenti Pekin şehridir."
+    },
+    {
+        "question": "Ukrayna ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Lviv",
+            "B": "Odesa",
+            "C": "Harkiv",
+            "D": "Kiev"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Ukrayna ülkesinin başkenti Kiev şehridir."
+    },
+    {
+        "question": "Belçika ülkesinin resmi başkenti aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Brüksel",
+            "B": "Anvers",
+            "C": "Gent",
+            "D": "Brugge"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Belçika ülkesinin başkenti Brüksel şehridir."
+    },
+    {
+        "question": "1990 yılında İtalya ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "İngiltere",
+            "B": "Almanya",
+            "C": "Arjantin",
+            "D": "Brezilya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "1990 yılındaki turnuvanın finalinde Almanya, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "1994 yılında ABD ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "Brezilya",
+            "B": "İtalya",
+            "C": "İngiltere"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "1994 yılındaki turnuvanın finalinde Brezilya, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "1998 yılında Fransa ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "Fransa",
+            "B": "Brezilya",
+            "C": "Brezilya",
+            "D": "İngiltere"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "1998 yılındaki turnuvanın finalinde Fransa, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "2002 yılında Güney Kore ve Japonya ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "Brezilya",
+            "B": "Almanya",
+            "C": "İngiltere"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "2002 yılındaki turnuvanın finalinde Brezilya, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "2006 yılında Almanya ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "Brezilya",
+            "B": "İngiltere",
+            "C": "Fransa",
+            "D": "İtalya"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "2006 yılındaki turnuvanın finalinde İtalya, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "2010 yılında Güney Afrika ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "Brezilya",
+            "B": "İngiltere",
+            "C": "Hollanda",
+            "D": "İspanya"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "2010 yılındaki turnuvanın finalinde İspanya, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "2014 yılında Brezilya ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "İngiltere",
+            "B": "Almanya",
+            "C": "Brezilya",
+            "D": "Arjantin"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "2014 yılındaki turnuvanın finalinde Almanya, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "2018 yılında Rusya ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "İngiltere",
+            "B": "Fransa",
+            "C": "Hırvatistan",
+            "D": "Brezilya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "2018 yılındaki turnuvanın finalinde Fransa, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "2022 yılında Katar ev sahipliğinde düzenlenen FIFA Dünya Kupası'nı hangi ülke kazanmıştır?",
+        "options": {
+            "A": "Brezilya",
+            "B": "İngiltere",
+            "C": "Arjantin",
+            "D": "Fransa"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "2022 yılındaki turnuvanın finalinde Arjantin, rakibini mağlup ederek dünya şampiyonu olmuştur."
+    },
+    {
+        "question": "Suyun kimyasal formülü aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "HCl",
+            "B": "NaCl",
+            "C": "CO2",
+            "D": "H2O"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Su molekülü iki hidrojen ve bir oksijen atomundan oluşur (H2O)."
+    },
+    {
+        "question": "Havadaki basıncı ölçmek için kullanılan bilimsel alet hangisidir?",
+        "options": {
+            "A": "Barometre",
+            "B": "Higrometre",
+            "C": "Altimetre",
+            "D": "Termometre"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Atmosfer basıncını barometre ölçer. Sıcaklığı ise termometre ölçer."
+    },
+    {
+        "question": "Yetişkin bir insanın iskeletinde yaklaşık kaç adet kemik bulunur?",
+        "options": {
+            "A": "206",
+            "B": "300",
+            "C": "150",
+            "D": "270"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Yetişkin bir insan vücudunda tam 206 kemik bulunmaktadır."
+    },
+    {
+        "question": "Güneş Sistemi'ndeki en büyük gezegen hangisidir?",
+        "options": {
+            "A": "Neptün",
+            "B": "Satürn",
+            "C": "Dünya",
+            "D": "Jüpiter"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Jüpiter, sistemimizdeki en büyük kütleli ve en büyük boyutlu gaz devidir."
+    },
+    {
+        "question": "Işığın saniyedeki hızı yaklaşık olarak kaç kilometredir?",
+        "options": {
+            "A": "1.000.000 km",
+            "B": "150.000 km",
+            "C": "300.000 km",
+            "D": "500.000 km"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Işık boşlukta saniyede yaklaşık 300.000 km hızla hareket eder."
+    },
+    {
+        "question": "Telefonun patentini alan ünlü mucit Alexander Graham Bell hangi ülkedendir?",
+        "options": {
+            "A": "İspanya",
+            "B": "İskoçya",
+            "C": "Fransa",
+            "D": "Almanya"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "İskoçya doğumlu Graham Bell, telefonu icat ederek iletişimi değiştirmiştir."
+    },
+    {
+        "question": "Yer çekimi yasasını formülleştiren ünlü fizikçi kimdir?",
+        "options": {
+            "A": "Isaac Newton",
+            "B": "Marie Curie",
+            "C": "Galileo Galilei",
+            "D": "Albert Einstein"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Sir Isaac Newton, kütle çekim yasasını formüle ederek klasik fiziğin kurucusu olmuştur."
+    },
+    {
+        "question": "DNA'nın çift sarmallı yapısını keşfeden bilim insanları kimlerdir?",
+        "options": {
+            "A": "Pasteur ve Koch",
+            "B": "Planck ve Schrodinger",
+            "C": "Watson ve Crick",
+            "D": "Einstein ve Bohr"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "James Watson ve Francis Crick, 1953 yılında DNA'nın moleküler yapısını keşfetmişlerdir."
+    },
+    {
+        "question": "Saç ve tırnakların ana yapısını oluşturan sert koruyucu protein hangisidir?",
+        "options": {
+            "A": "Keratin",
+            "B": "Kollajen",
+            "C": "İnsülin",
+            "D": "Hemoglobin"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Keratin tırnak, saç ve derinin dış koruyucu tabakasını oluşturan proteindir."
+    },
+    {
+        "question": "Atmosferde oksijenden sonra en yüksek oranda bulunan gaz hangisidir?",
+        "options": {
+            "A": "Oksijen",
+            "B": "Karbondioksit",
+            "C": "Azot",
+            "D": "Argon"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Havanın %78'i Azot, %21'i ise Oksijendir. Yani en çok bulunan ikinci gaz Oksijendir."
+    },
+    {
+        "question": "Dünyanın en yüksek şelalesi olan Angel Şelalesi hangi Güney Amerika ülkesindedir?",
+        "options": {
+            "A": "Peru",
+            "B": "Arjantin",
+            "C": "Brezilya",
+            "D": "Venezuela"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Angel Şelalesi Venezuela'da bulunur ve yüksekliği yaklaşık 979 metredir."
+    },
+    {
+        "question": "Bir haftada toplam kaç saat vardır?",
+        "options": {
+            "A": "120",
+            "B": "168",
+            "C": "144",
+            "D": "180"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Bir gün 24 saattir, 7 gün ise 7 x 24 = 168 saat yapar."
+    },
+    {
+        "question": "Matematikte 5 sayısının faktöriyeli (5!) kaçtır?",
+        "options": {
+            "A": "150",
+            "B": "120",
+            "C": "60",
+            "D": "24"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "5! = 5 x 4 x 3 x 2 x 1 = 120'dir."
+    },
+    {
+        "question": "Romen rakamlarında 'V' işareti hangi sayıyı temsil eder?",
+        "options": {
+            "A": "5",
+            "B": "1",
+            "C": "50",
+            "D": "10"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "V işareti Roma rakamlarında 5 değerini gösterir."
+    },
+    {
+        "question": "Dünya Kupası'nı müzesine en çok götüren milli takım hangisidir?",
+        "options": {
+            "A": "Brezilya",
+            "B": "Almanya",
+            "C": "İtalya",
+            "D": "Arjantin"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Brezilya milli takımı toplamda 5 kez Dünya Kupası kazanmıştır."
+    },
+    {
+        "question": "2023 Şampiyonlar Ligi finaline ev sahipliği yapan stat hangisidir?",
+        "options": {
+            "A": "Atatürk Olimpiyat Stadyumu",
+            "B": "Wembley",
+            "C": "Santiago Bernabeu",
+            "D": "Allianz Arena"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "2023 finali İstanbul Atatürk Olimpiyat Stadyumu'nda oynanmıştır."
+    },
+    {
+        "question": "Osmanlı Devleti'nin kurucusu Osman Bey'in babası kimdir?",
+        "options": {
+            "A": "Süleyman Şah",
+            "B": "Kaya Alp",
+            "C": "Ertuğrul Gazi",
+            "D": "Gündüz Alp"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Osman Bey'in babası Kayı Boyu lideri Ertuğrul Gazi'dir."
+    },
+    {
+        "question": "Mimar Sinan'ın Edirne'de inşa ettiği ve 'ustalık eserim' dediği cami hangisidir?",
+        "options": {
+            "A": "Mihrimah Sultan Camii",
+            "B": "Şehzade Camii",
+            "C": "Süleymaniye Camii",
+            "D": "Selimiye Camii"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Selimiye Camii, Edirne'de bulunan, Mimar Sinan'ın başyapıtı olan camidir."
+    },
+    {
+        "question": "Kuzey ve Güney Amerika kıtalarını ayıran yapay su geçidi hangisidir?",
+        "options": {
+            "A": "Panama Kanalı",
+            "B": "Süveyş Kanalı",
+            "C": "Kiel Kanalı",
+            "D": "Korint Kanalı"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Panama Kanalı, Atlas ve Pasifik okyanuslarını birleştiren yapay bir geçittir."
+    },
+    {
+        "question": "Güneş Sistemi'nde Güneş'e en yakın gezegen hangisidir?",
+        "options": {
+            "A": "Merkür",
+            "B": "Venüs",
+            "C": "Mars",
+            "D": "Dünya"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Merkür, güneşe en yakın yörüngede dönen gezegendir."
+    },
+    {
+        "question": "Osmanlı İmparatorluğu'nun ilk resmi padişahı ve devletin kurucusu kimdir?",
+        "options": {
+            "A": "I. Murat",
+            "B": "Orhan Gazi",
+            "C": "Ertuğrul Gazi",
+            "D": "Osman Gazi"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Osman Gazi, 1299 yılında bağımsızlığını ilan ederek devleti kurmuştur."
+    },
+    {
+        "question": "İstanbul'u 1453 yılında fetheden Osmanlı padişahı hangisidir?",
+        "options": {
+            "A": "II. Murat",
+            "B": "Kanuni Sultan Süleyman",
+            "C": "Yavuz Sultan Selim",
+            "D": "Fatih Sultan Mehmet"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "II. Mehmet, İstanbul'u fethederek Bizans'ı yıkmış ve Fatih unvanını almıştır."
+    },
+    {
+        "question": "İngiltere'de 1215 yılında kralın yetkilerini kısıtlayan tarihi haklar bildirgesi hangisidir?",
+        "options": {
+            "A": "Magna Carta",
+            "B": "İnsan Hakları Beyannamesi",
+            "C": "Habeas Corpus",
+            "D": "Versay Antlaşması"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Magna Carta Libertatum, kralın mutlak yetkilerini kısıtlayan ilk tarihi belgedir."
+    },
+    {
+        "question": "Rönesans döneminin dahisi olan ve Mona Lisa tablosunu çizen sanatçı kimdir?",
+        "options": {
+            "A": "Raphael",
+            "B": "Donatello",
+            "C": "Michelangelo",
+            "D": "Leonardo da Vinci"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Mona Lisa, Leonardo da Vinci tarafından 16. yüzyılın başlarında yapılmış bir başyapıttır."
+    },
+    {
+        "question": "Kutsal Roma İmparatorluğu'nda matbaayı kurarak kitap basımını yaygınlaştıran mucit kimdir?",
+        "options": {
+            "A": "Kepler",
+            "B": "Copernicus",
+            "C": "Galileo",
+            "D": "Gutenberg"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Johannes Gutenberg, hareketli parçalı baskı makinesini icat etmiştir."
+    },
+    {
+        "question": "1961 yılında uzaya giden ilk insan Yuri Gagarin hangi ülkenin vatandaşıdır?",
+        "options": {
+            "A": "Sovyetler Birliği (SSCB)",
+            "B": "Amerika Birleşik Devletleri",
+            "C": "Almanya",
+            "D": "İngiltere"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Sovyet kozmonot Yuri Gagarin, Vostok 1 aracıyla uzaya giden ilk insan olmuştur."
+    },
+    {
+        "question": "1969 yılında Ay yüzeyinde yürüyen ilk insan olan astronot kimdir?",
+        "options": {
+            "A": "Neil Armstrong",
+            "B": "Buzz Aldrin",
+            "C": "Yuri Gagarin",
+            "D": "Michael Collins"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Neil Armstrong, Ay'a ilk ayak basan insandır. Arkasından Buzz Aldrin yürümüştür."
+    },
+    {
+        "question": "Dünya edebiyatının klasik eseri 'Romeo ve Juliet' tiyatro oyununun yazarı kimdir?",
+        "options": {
+            "A": "William Shakespeare",
+            "B": "Victor Hugo",
+            "C": "Goethe",
+            "D": "Moliere"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Romeo ve Juliet oyunu, İngiliz yazar William Shakespeare'e aittir."
+    },
+    {
+        "question": "Rus yazar Fyodor Dostoyevski'nin vicdan azabını işleyen ünlü romanı hangisidir?",
+        "options": {
+            "A": "Anna Karenina",
+            "B": "Suç ve Ceza",
+            "C": "Savaş ve Barış",
+            "D": "Babalar ve Oğullar"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Suç ve Ceza, Raskolnikov'un işlediği cinayet ve sonrasındaki vicdan azabını konu alır."
+    },
+    {
+        "question": "İspanyol ressam Pablo Picasso'nun savaşın dehşetini anlatan ünlü kübist tablosu hangisidir?",
+        "options": {
+            "A": "Belleğin Azmi",
+            "B": "Guernica",
+            "C": "Mona Lisa",
+            "D": "Çığlık"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Guernica tablosu, Guernica kasabasının bombalanmasını anlatan kübist bir başyapıttır."
+    },
+    {
+        "question": "Yunan mitolojisinde aşk tanrısı olan, ok ve yayıyla bilinen tanrı hangisidir?",
+        "options": {
+            "A": "Cupid",
+            "B": "Ares",
+            "C": "Zeus",
+            "D": "Eros"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Eros, Yunan mitolojisinde aşk tanrısıdır. Roma mitolojisindeki adı Cupid'dir."
+    },
+    {
+        "question": "Dünyanın en yüksek dağı Everest hangi iki ülkenin sınırında yer alır?",
+        "options": {
+            "A": "Nepal - Hindistan",
+            "B": "Pakistan - Hindistan",
+            "C": "Nepal - Çin",
+            "D": "Hindistan - Çin"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Everest, Nepal ile Çin'in Tibet bölgesi sınırındadır."
+    },
+    {
+        "question": "Türkiye'nin yüzölçümü bakımından en büyük gölü hangisidir?",
+        "options": {
+            "A": "Beyşehir Gölü",
+            "B": "Van Gölü",
+            "C": "Tuz Gölü",
+            "D": "Eğirdir Gölü"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Van Gölü, Türkiye'nin en büyük yüzölçümüne sahip tektonik/volkanik gölüdür."
+    },
+    {
+        "question": "Cumhuriyetimizin kurucusu Atatürk'ün yazdığı tarihi söylevin adı nedir?",
+        "options": {
+            "A": "Zabit ve Kumandan",
+            "B": "Medeni Bilgiler",
+            "C": "Geometri",
+            "D": "Nutuk"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Nutuk, Atatürk'ün 1919-1927 arası gelişmeleri ilk ağızdan anlattığı tarihi eserdir."
+    },
+    {
+        "question": "Güneş Sistemi'nde belirgin ve büyük halkaları olan dev gaz gezegen hangisidir?",
+        "options": {
+            "A": "Uranüs",
+            "B": "Neptün",
+            "C": "Jüpiter",
+            "D": "Satürn"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Satürn, buz ve taş halkalarıyla bilinen sistemimizin ikinci büyük gezegenidir."
+    },
+    {
+        "question": "Türkiye Süper Ligi 2018-2019 sezonunun şampiyonu hangi kulüp olmuştur?",
+        "options": {
+            "A": "Trabzonspor",
+            "B": "Beşiktaş",
+            "C": "Başakşehir",
+            "D": "Galatasaray"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "2018-2019 sezonunu ligin zirvesinde tamamlayarak şampiyonluk kupasını müzesine götüren takım Galatasaray olmuştur."
+    },
+    {
+        "question": "Türkiye Süper Ligi 2019-2020 sezonunun şampiyonu hangi kulüp olmuştur?",
+        "options": {
+            "A": "Başakşehir",
+            "B": "Beşiktaş",
+            "C": "Trabzonspor",
+            "D": "Trabzonspor"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "2019-2020 sezonunu ligin zirvesinde tamamlayarak şampiyonluk kupasını müzesine götüren takım Başakşehir olmuştur."
+    },
+    {
+        "question": "Türkiye Süper Ligi 2020-2021 sezonunun şampiyonu hangi kulüp olmuştur?",
+        "options": {
+            "A": "Beşiktaş",
+            "B": "Galatasaray",
+            "C": "Fenerbahçe",
+            "D": "Trabzonspor"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "2020-2021 sezonunu ligin zirvesinde tamamlayarak şampiyonluk kupasını müzesine götüren takım Beşiktaş olmuştur."
+    },
+    {
+        "question": "Türkiye Süper Ligi 2021-2022 sezonunun şampiyonu hangi kulüp olmuştur?",
+        "options": {
+            "A": "Trabzonspor",
+            "B": "Fenerbahçe",
+            "C": "Beşiktaş"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "2021-2022 sezonunu ligin zirvesinde tamamlayarak şampiyonluk kupasını müzesine götüren takım Trabzonspor olmuştur."
+    },
+    {
+        "question": "Türkiye Süper Ligi 2022-2023 sezonunun şampiyonu hangi kulüp olmuştur?",
+        "options": {
+            "A": "Galatasaray",
+            "B": "Trabzonspor",
+            "C": "Fenerbahçe",
+            "D": "Beşiktaş"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "2022-2023 sezonunu ligin zirvesinde tamamlayarak şampiyonluk kupasını müzesine götüren takım Galatasaray olmuştur."
+    },
+    {
+        "question": "Türkiye Süper Ligi 2023-2024 sezonunun şampiyonu hangi kulüp olmuştur?",
+        "options": {
+            "A": "Galatasaray",
+            "B": "Fenerbahçe",
+            "C": "Trabzonspor",
+            "D": "Beşiktaş"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "2023-2024 sezonunu ligin zirvesinde tamamlayarak şampiyonluk kupasını müzesine götüren takım Galatasaray olmuştur."
+    },
+    {
+        "question": "Nobel Barış Ödülü vasiyet gereği hangi ülkede verilir?",
+        "options": {
+            "A": "İsveç",
+            "B": "Danimarka",
+            "C": "Finlandiya",
+            "D": "Norveç"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Diğer tüm Nobel ödülleri İsveç'te verilirken, Barış ödülü Norveç'te verilir."
+    },
+    {
+        "question": "İstiklal Marşı'nın şairi kimdir?",
+        "options": {
+            "A": "Mehmet Akif Ersoy",
+            "B": "Namık Kemal",
+            "C": "Ziya Gökalp",
+            "D": "Tevfik Fikret"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "İstiklal Marşı'mızın güftesi milli şairimiz Mehmet Akif Ersoy tarafından yazılmıştır."
+    },
+    {
+        "question": "Cumhuriyetimizin ilan edildiği tarihi yıl hangisidir?",
+        "options": {
+            "A": "1920",
+            "B": "1923",
+            "C": "1924",
+            "D": "1919"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Cumhuriyet, 29 Ekim 1923 tarihinde TBMM tarafından ilan edilmiştir."
+    },
+    {
+        "question": "Güneş ışığının rengi optik olarak aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Beyaz",
+            "B": "Turuncu",
+            "C": "Sarı",
+            "D": "Kırmızı"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Güneş ışığı tüm renklerin birleşimi olan beyaz ışıktır. Atmosferde kırılarak sarımsı görünür."
+    },
+    {
+        "question": "Yer kürenin en dış katmanını oluşturan tabakanın adı nedir?",
+        "options": {
+            "A": "Yer kabuğu (Litosfer)",
+            "B": "Dış çekirdek",
+            "C": "İç çekirdek",
+            "D": "Manto"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Dünya'nın en dıştaki katılaşmış ince tabakasına yer kabuğu adı verilir."
+    },
+    {
+        "question": "Kendi enerjisini üreten dev gaz kürelerine ne ad verilir?",
+        "options": {
+            "A": "Yıldız",
+            "B": "Bulutsu",
+            "C": "Gezegen",
+            "D": "Asteroit"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Yıldızlar, çekirdeklerindeki nükleer füzyon sayesinde kendi ışık ve ısılarını üreten dev gaz küreleridir."
+    },
+    {
+        "question": "Hücrenin keşfini mikroskop yardımıyla ilk kez yapan bilim insanı kimdir?",
+        "options": {
+            "A": "Robert Hooke",
+            "B": "Antonie van Leeuwenhoek",
+            "C": "Gregor Mendel",
+            "D": "Louis Pasteur"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Robert Hooke, 1665 yılında mantar meşesi hücresini inceleyerek 'cellula' (hücre) terimini bulmuştur."
+    },
+    {
+        "question": "Bütün gezegenlerin yörüngelerinin elips şeklinde olduğunu kanıtlayan gökbilimci kimdir?",
+        "options": {
+            "A": "Galileo Galilei",
+            "B": "Isaac Newton",
+            "C": "Johannes Kepler",
+            "D": "Nicolaus Copernicus"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Kepler, gezegenlerin dairesel değil eliptik yörüngelerde döndüğünü kendi yasalarıyla kanıtlamıştır."
+    },
+    {
+        "question": "Sesin havadaki yayılma hızı yaklaşık olarak saniyede kaç metredir?",
+        "options": {
+            "A": "300.000",
+            "B": "340",
+            "C": "150",
+            "D": "1000"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Ses hızı 20 derece sıcaklıktaki kuru havada saniyede yaklaşık 340-343 metredir."
+    },
+    {
+        "question": "İnsan vücudundaki en sert yapı aşağıdakilerden hangisidir?",
+        "options": {
+            "A": "Tırnak",
+            "B": "Diş minesi",
+            "C": "Uyluk kemiği",
+            "D": "Kafatası kemiği"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Diş minesi, içerdiği yoğun kalsiyum fosfat mineralleriyle vücudun en sert ve en dayanıklı yapısıdır."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 16 ile 13 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "203",
+            "B": "218",
+            "C": "198",
+            "D": "208"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 16 x 13 = 208 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 17 ile 14 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "233",
+            "B": "238",
+            "C": "228",
+            "D": "248"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 17 x 14 = 238 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 18 ile 15 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "270",
+            "B": "260",
+            "C": "280",
+            "D": "265"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 18 x 15 = 270 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 19 ile 16 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "304",
+            "B": "294",
+            "C": "314",
+            "D": "299"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 19 x 16 = 304 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 20 ile 17 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "330",
+            "B": "350",
+            "C": "340",
+            "D": "335"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 20 x 17 = 340 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 21 ile 18 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "378",
+            "B": "368",
+            "C": "388",
+            "D": "373"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 21 x 18 = 378 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 22 ile 19 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "418",
+            "B": "408",
+            "C": "428",
+            "D": "413"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 22 x 19 = 418 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 23 ile 20 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "460",
+            "B": "450",
+            "C": "455",
+            "D": "470"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 23 x 20 = 460 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 24 ile 21 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "499",
+            "B": "504",
+            "C": "514",
+            "D": "494"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 24 x 21 = 504 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 25 ile 22 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "550",
+            "B": "540",
+            "C": "545",
+            "D": "560"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 25 x 22 = 550 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 26 ile 23 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "608",
+            "B": "598",
+            "C": "588",
+            "D": "593"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 26 x 23 = 598 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 27 ile 24 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "643",
+            "B": "658",
+            "C": "638",
+            "D": "648"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 27 x 24 = 648 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 28 ile 25 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "690",
+            "B": "710",
+            "C": "700",
+            "D": "695"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 28 x 25 = 700 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 29 ile 26 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "744",
+            "B": "764",
+            "C": "749",
+            "D": "754"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 29 x 26 = 754 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 30 ile 27 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "810",
+            "B": "800",
+            "C": "805",
+            "D": "820"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 30 x 27 = 810 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 31 ile 28 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "868",
+            "B": "858",
+            "C": "878",
+            "D": "863"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 31 x 28 = 868 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 32 ile 29 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "918",
+            "B": "928",
+            "C": "923",
+            "D": "938"
+        },
+        "correctAnswer": "B",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 32 x 29 = 928 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 33 ile 30 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "980",
+            "B": "985",
+            "C": "1000",
+            "D": "990"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 33 x 30 = 990 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 34 ile 31 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1049",
+            "B": "1064",
+            "C": "1044",
+            "D": "1054"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 34 x 31 = 1054 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 35 ile 32 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1115",
+            "B": "1130",
+            "C": "1110",
+            "D": "1120"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 35 x 32 = 1120 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 36 ile 33 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1188",
+            "B": "1178",
+            "C": "1198",
+            "D": "1183"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 36 x 33 = 1188 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 37 ile 34 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1253",
+            "B": "1268",
+            "C": "1248",
+            "D": "1258"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 37 x 34 = 1258 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 38 ile 35 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1330",
+            "B": "1320",
+            "C": "1340",
+            "D": "1325"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 38 x 35 = 1330 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 39 ile 36 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1404",
+            "B": "1394",
+            "C": "1414",
+            "D": "1399"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 39 x 36 = 1404 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 40 ile 37 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1480",
+            "B": "1475",
+            "C": "1470",
+            "D": "1490"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 40 x 37 = 1480 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 41 ile 38 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1553",
+            "B": "1568",
+            "C": "1548",
+            "D": "1558"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 41 x 38 = 1558 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 42 ile 39 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1638",
+            "B": "1633",
+            "C": "1648",
+            "D": "1628"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 42 x 39 = 1638 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 43 ile 40 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1720",
+            "B": "1710",
+            "C": "1730",
+            "D": "1715"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 43 x 40 = 1720 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 44 ile 41 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1814",
+            "B": "1794",
+            "C": "1804",
+            "D": "1799"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 44 x 41 = 1804 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 45 ile 42 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1890",
+            "B": "1880",
+            "C": "1900",
+            "D": "1885"
+        },
+        "correctAnswer": "A",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 45 x 42 = 1890 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 46 ile 43 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "1988",
+            "B": "1973",
+            "C": "1968",
+            "D": "1978"
+        },
+        "correctAnswer": "D",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 46 x 43 = 1978 elde edilir."
+    },
+    {
+        "question": "Matematiksel bir çarpma işlemi: 47 ile 44 sayılarının çarpımı kaçtır?",
+        "options": {
+            "A": "2063",
+            "B": "2078",
+            "C": "2068",
+            "D": "2058"
+        },
+        "correctAnswer": "C",
+        "optionsCount": 4,
+        "hostComment": "Basit çarpma işlemi sonucunda 47 x 44 = 2068 elde edilir."
     }
 ];
 
