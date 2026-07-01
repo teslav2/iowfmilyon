@@ -2312,9 +2312,8 @@ function hostSpeak(text, callback) {
 
     if (!isDialogEnabled) {
         if (callback) {
-            // Simulate speaking duration when dialog sound is off, so lids don't open instantly
-            const delay = Math.max(1500, text.length * 65);
-            setTimeout(callback, delay);
+            // Dialog sesi kapalıyken bekletme yapmadan anında geçiş yap (50ms gecikme ile tetikle)
+            setTimeout(callback, 50);
         }
         return;
     }
